@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mantenimiento - Tienda Mas</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        orange: {
+                            500: '#FF6B35',
+                            600: '#E55627',
+                        },
+                        blue: {
+                            600: '#004E89',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        .maintenance-icon {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-gradient-to-br from-orange-50 to-blue-50 flex items-center justify-center p-4">
+    <div class="max-w-lg w-full text-center">
+        <!-- Logo -->
+        <div class="mb-8">
+            <h1 class="text-3xl font-bold text-gray-800 flex items-center justify-center">
+                <span class="text-orange-500">Tienda</span>
+                <span class="text-blue-600 ml-1" style="color: #2563EB;">Mas</span>
+            </h1>
+        </div>
+
+        <!-- Contenido del mantenimiento -->
+        <div class="bg-white rounded-2xl shadow-xl p-8">
+            <!-- Icono animado -->
+            <div class="maintenance-icon w-32 h-32 mx-auto mb-8 rounded-full bg-gradient-to-br from-orange-100 to-blue-100 flex items-center justify-center">
+                <i class="fas fa-tools text-5xl text-orange-500"></i>
+            </div>
+            
+            <!-- Mensaje principal -->
+            <h2 class="text-3xl font-bold text-gray-800 mb-4">Estamos mejorando Tienda Mas para vos</h2>
+            
+            <!-- Mensaje secundario -->
+            <p class="text-gray-600 text-lg mb-8">
+                Nuestro sitio estará disponible en unos minutos
+            </p>
+            
+            <!-- Indicador de progreso -->
+            <div class="mb-8">
+                <div class="w-full bg-gray-200 rounded-full h-2 mb-2">
+                    <div class="bg-orange-500 h-2 rounded-full w-3/4 animate-pulse"></div>
+                </div>
+                <p class="text-sm text-gray-500">Actualizando sistema...</p>
+            </div>
+            
+            <!-- Información adicional -->
+            <div class="bg-blue-50 rounded-lg p-4 mb-6">
+                <div class="flex items-center justify-center text-blue-700">
+                    <i class="fas fa-info-circle mr-2"></i>
+                    <p class="text-sm">Estamos implementando nuevas funcionalidades para mejorar tu experiencia</p>
+                </div>
+            </div>
+            
+            <!-- Contador regresivo (opcional) -->
+            <div class="flex justify-center space-x-4 text-center mb-6">
+                <div class="bg-gray-100 rounded-lg p-3 min-w-16">
+                    <div class="text-xl font-bold text-gray-800">30</div>
+                    <div class="text-xs text-gray-500">minutos</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Redes sociales -->
+        <div class="mt-8">
+            <p class="text-gray-600 text-sm mb-4">Seguinos en nuestras redes</p>
+            <div class="flex justify-center space-x-4">
+                <a href="#" class="w-10 h-10 rounded-full bg-gray-800 hover:bg-orange-500 text-white flex items-center justify-center transition-colors duration-200">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" class="w-10 h-10 rounded-full bg-gray-800 hover:bg-orange-500 text-white flex items-center justify-center transition-colors duration-200">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="w-10 h-10 rounded-full bg-gray-800 hover:bg-orange-500 text-white flex items-center justify-center transition-colors duration-200">
+                    <i class="fab fa-twitter"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

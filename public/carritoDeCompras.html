@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito de Compras - Tienda Mas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-orange': '#FF6B35',
+                        'dark-blue': '#004E89',
+                        'light-bg': '#F8F9FA',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-light-bg min-h-screen font-sans">
+    <!-- Header mejorado con menú de navegación completo -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+      <div class="container mx-auto px-4">
+        <!-- Primera fila (logo, búsqueda, acciones) -->
+        <div class="flex items-center justify-between py-3">
+          <!-- Logo -->
+          <a href="/" class="flex items-center focus:outline-none focus:ring-2 focus:ring-blue-500 rounded">
+            <img src="img/logo.png" alt="Tienda Mas+" class="h-10 md:h-12 w-auto">
+          </a>
+    
+          <!-- Búsqueda (opcional, buena práctica en ecommerce) -->
+          <div class="hidden md:flex flex-1 max-w-xl mx-6">
+            <form role="search" class="w-full">
+              <div class="relative">
+                <input type="search" placeholder="Buscar productos..." 
+                       class="w-full py-2 px-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                       aria-label="Buscar productos en la tienda">
+                <button type="submit" class="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-blue-600">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                  </svg>
+                </button>
+              </div>
+            </form>
+          </div>
+    
+          <!-- Acciones de usuario -->
+          <div class="flex items-center space-x-4">
+            <!-- Menú móvil (hamburguesa) -->
+            <button id="mobile-menu-button" class="md:hidden p-2 rounded-md text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
+    
+            <!-- Cuenta -->
+            <div class="relative group hidden md:block">
+              <button class="flex items-center space-x-1 py-2 px-3 rounded-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      aria-label="Mi cuenta" aria-haspopup="true" aria-expanded="false" id="account-menu-button">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                </svg>
+                <span class="hidden lg:inline text-gray-700">Mi cuenta</span>
+              </button>
+              
+              <!-- Dropdown Cuenta -->
+              <div class="absolute right-0 mt-2 w-56 bg-white rounded-md shadow-lg py-1 z-50 hidden group-hover:block focus-within:block"
+                   role="menu" aria-orientation="vertical" aria-labelledby="account-menu-button">
+                <a href="/perfil" class="block px-4 py-2 text-gray-700 hover:bg-gray-100" role="menuitem">Perfil</a>
+                <a href="/direcciones" class="block px-4 py-2 text-gray-700 hover:bg-gray-100" role="menuitem">Direcciones</a>
+                <a href="/metodos-pago" class="block px-4 py-2 text-gray-700 hover:bg-gray-100" role="menuitem">Métodos de pago</a>
+                <div class="border-t border-gray-200 my-1"></div>
+                <a href="/logout" class="block px-4 py-2 text-gray-700 hover:bg-gray-100" role="menuitem">Cerrar sesión</a>
+              </div>
+            </div>
+    
+            <!-- Carrito -->
+            <a href="/carrito" class="p-2 relative rounded-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
+               aria-label="Carrito de compras">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+              </svg>
+              <span class="absolute -top-1 -right-1 bg-blue-600 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">3</span>
+            </a>
+          </div>
+        </div>
+    
+        <!-- Segunda fila (navegación principal) -->
+        <nav class="hidden md:block border-t border-gray-200">
+          <ul class="flex space-x-8">
+            <li>
+              <a href="/" class="block py-3 px-1 text-gray-700 hover:text-blue-600 border-b-2 border-transparent hover:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:rounded">
+                Inicio
+              </a>
+            </li>
+            
+            <!-- Categorías con dropdown -->
+            <li class="relative group">
+              <button class="flex items-center py-3 px-1 text-gray-700 hover:text-blue-600 border-b-2 border-transparent hover:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:rounded"
+                      aria-haspopup="true" aria-expanded="false" id="categories-menu-button">
+                <span>Categorías</span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="ml-1 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              
+              <!-- Mega dropdown -->
+              <div class="absolute left-0 mt-0 w-64 bg-white rounded-md shadow-lg py-1 z-50 hidden group-hover:block focus-within:block"
+                   role="menu" aria-labelledby="categories-menu-button">
+                <a href="/smartphones" class="block px-4 py-3 text-gray-700 hover:bg-gray-100 flex items-center" role="menuitem">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                  </svg>
+                  Smartphones
+                </a>
+                <a href="/accesorios" class="block px-4 py-3 text-gray-700 hover:bg-gray-100 flex items-center" role="menuitem">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                  </svg>
+                  Accesorios
+                </a>
+                <a href="/audio" class="block px-4 py-3 text-gray-700 hover:bg-gray-100 flex items-center" role="menuitem">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15.536a5 5 0 001.414 1.414m2.828-9.9a9 9 0 012.728-2.728" />
+                  </svg>
+                  Audio
+                </a>
+                <div class="border-t border-gray-200 my-1"></div>
+                <a href="/ofertas" class="block px-4 py-3 text-red-600 hover:bg-gray-100 font-medium" role="menuitem">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 14l6-6m-5.5.5h.01m4.99 5h.01M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16l3.5-2 3.5 2 3.5-2 3.5 2z" />
+                  </svg>
+                  Ofertas
+                </a>
+                <a href="/novedades" class="block px-4 py-3 text-blue-600 hover:bg-gray-100 font-medium" role="menuitem">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                  </svg>
+                  Novedades
+                </a>
+              </div>
+            </li>
+            
+            <li>
+              <a href="/ayuda" class="block py-3 px-1 text-gray-700 hover:text-blue-600 border-b-2 border-transparent hover:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:rounded">
+                Ayuda
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    
+      <!-- Menú móvil (oculto por defecto) -->
+      <div id="mobile-menu" class="md:hidden hidden bg-white border-t border-gray-200">
+        <div class="px-2 pt-2 pb-3 space-y-1">
+          <a href="/" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-100">Inicio</a>
+          
+          <!-- Categorías móvil -->
+          <div x-data="{ open: false }">
+            <button @click="open = !open" class="w-full flex justify-between items-center px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-100">
+              <span>Categorías</span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" :class="{'transform rotate-180': open}" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div x-show="open" class="pl-4 space-y-1">
+              <a href="/smartphones" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-blue-600 hover:bg-gray-100">Smartphones</a>
+              <a href="/accesorios" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-blue-600 hover:bg-gray-100">Accesorios</a>
+              <a href="/audio" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-blue-600 hover:bg-gray-100">Audio</a>
+              <a href="/ofertas" class="block px-3 py-2 rounded-md text-base font-medium text-red-600 hover:bg-gray-100">Ofertas</a>
+              <a href="/novedades" class="block px-3 py-2 rounded-md text-base font-medium text-blue-600 hover:bg-gray-100">Novedades</a>
+            </div>
+          </div>
+          
+          <a href="/ayuda" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-100">Ayuda</a>
+          
+          <!-- Cuenta móvil -->
+          <div x-data="{ open: false }" class="border-t border-gray-200 pt-2">
+            <button @click="open = !open" class="w-full flex justify-between items-center px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-100">
+              <span>Mi cuenta</span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" :class="{'transform rotate-180': open}" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div x-show="open" class="pl-4 space-y-1">
+              <a href="/perfil" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-blue-600 hover:bg-gray-100">Perfil</a>
+              <a href="/direcciones" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-blue-600 hover:bg-gray-100">Direcciones</a>
+              <a href="/metodos-pago" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-blue-600 hover:bg-gray-100">Métodos de pago</a>
+              <a href="/logout" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-blue-600 hover:bg-gray-100">Cerrar sesión</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    
+    <!----Contenido Principal---->
+    <main class="container mx-auto px-4 py-8">
+        <div class="flex flex-col lg:flex-row gap-8">
+            <!-- Cart Items Section -->
+            <section class="lg:w-2/3">
+                <!-- Cart Header -->
+                <!--
+                <div class="mb-6">
+                    <h2 class="text-2xl font-bold text-dark-blue">Tu Carrito de Compras</h2>
+                    <p class="text-gray-600">Revisa tus artículos antes de pagar</p>
+                </div>
+                -->
+                <div class="mb-6 bg-gradient-to-r from-white via-gray-100 to-white shadow-md rounded-lg p-4">
+                  <h2 class="text-xl font-bold text-dark-blue">Tu Carrito de Compras</h2>
+                  <p class="text-gray-500">Revisa tus artículos antes de pagar</p>
+                </div>
+
+                <!-- Empty Cart Message (hidden by default) -->
+                <div id="empty-cart-message" class="hidden bg-white rounded-lg shadow-md p-8 text-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 mx-auto text-gray-400 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                    <h3 class="text-xl font-semibold text-gray-700 mb-2">Tu carrito está vacío</h3>
+                    <p class="text-gray-500 mb-4">Agrega productos para comenzar tu compra</p>
+                    <a href="#" class="inline-flex items-center px-4 py-2 bg-primary-orange text-white rounded-md hover:bg-orange-600 transition">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                        </svg>
+                        Ver productos
+                    </a>
+                </div>
+
+                <!-- Cart Items List -->
+                <div id="cart-items" class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <!-- Cart Item 1 -->
+                    <div class="cart-item p-4 border-b" data-id="1" data-price="12999">
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <!-- Product Image -->
+                            <div class="w-full sm:w-24 flex-shrink-0">
+                                <img src="img/Smartphone X200.png" alt="Smartphone X200" class="w-full h-24 object-cover rounded">
+                            </div>
+                            
+                            <!-- Product Details -->
+                            <div class="flex-grow">
+                                <div class="flex justify-between">
+                                    <div>
+                                        <h3 class="font-semibold text-dark-blue">Smartphone X200</h3>
+                                        <p class="text-gray-600">Color: Negro - 128GB</p>
+                                    </div>
+                                    <button class="remove-item text-gray-400 hover:text-red-500" aria-label="Eliminar producto">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                        </svg>
+                                    </button>
+                                </div>
+                                
+                                <div class="mt-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                                    <!-- Price -->
+                                    <div class="text-lg font-semibold">$<span class="unit-price">12,999</span></div>
+                                    
+                                    <!-- Quantity Selector -->
+                                    <!--
+                                    <div class="flex items-center">
+                                        <button class="decrement-qty px-3 py-1 border rounded-l bg-gray-100 hover:bg-gray-200" aria-label="Reducir cantidad">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4" />
+                                            </svg>
+                                        </button>
+                                        <input type="number" value="1" min="1" class="quantity w-12 text-center border-t border-b py-1 outline-none focus:ring-1 focus:ring-primary-orange" aria-label="Cantidad">
+                                        <button class="increment-qty px-3 py-1 border rounded-r bg-gray-100 hover:bg-gray-200" aria-label="Aumentar cantidad">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    -->
+                                    <div class="flex items-center border border-gray-300 rounded overflow-hidden">
+                                        <!-- Botón "-" -->
+                                        <button class="decrement-qty px-3 py-1 bg-gray-100 hover:bg-gray-200 focus:outline-none">
+                                            <span class="text-sm">−</span>
+                                        </button>
+                                    
+                                        <!-- Input de cantidad -->
+                                        <input type="number" value="1" min="1"
+                                            class="quantity w-12 text-center bg-white border-l border-r border-gray-300 py-1 outline-none focus:ring-0"
+                                            aria-label="Cantidad">
+                                    
+                                        <!-- Botón "+" -->
+                                        <button class="increment-qty px-3 py-1 bg-gray-100 hover:bg-gray-200 focus:outline-none">
+                                            <span class="text-sm">+</span>
+                                        </button>
+                                    </div>
+
+                                    <!-- Subtotal -->
+                                    <div class="text-lg font-bold text-dark-blue">$<span class="subtotal">12,999</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Cart Item 2 -->
+                    <div class="cart-item p-4 border-b" data-id="2" data-price="2499">
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <!-- Product Image -->
+                            <div class="w-full sm:w-24 flex-shrink-0">
+                                <img src="img/auriculares-inalambricos-pro.jpg" alt="Auriculares Inalámbricos Pro" class="w-full h-24 object-cover rounded">
+                            </div>
+                            
+                            <!-- Product Details -->
+                            <div class="flex-grow">
+                                <div class="flex justify-between">
+                                    <div>
+                                        <h3 class="font-semibold text-dark-blue">Auriculares Inalámbricos Pro</h3>
+                                        <p class="text-gray-600">Color: Blanco</p>
+                                    </div>
+                                    <button class="remove-item text-gray-400 hover:text-red-500" aria-label="Eliminar producto">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                        </svg>
+                                    </button>
+                                </div>
+                                
+                                <div class="mt-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                                    <!-- Price -->
+                                    <div class="text-lg font-semibold">$<span class="unit-price">2,499</span></div>
+                                    
+                                    <!-- Quantity Selector -->
+                                    <!--
+                                    <div class="flex items-center">
+                                        <button class="decrement-qty px-3 py-1 border rounded-l bg-gray-100 hover:bg-gray-200" aria-label="Reducir cantidad">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4" />
+                                            </svg>
+                                        </button>
+                                        <input type="number" value="2" min="1" class="quantity w-12 text-center border-t border-b py-1 outline-none focus:ring-1 focus:ring-primary-orange" aria-label="Cantidad">
+                                        <button class="increment-qty px-3 py-1 border rounded-r bg-gray-100 hover:bg-gray-200" aria-label="Aumentar cantidad">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    -->
+                                    <div class="flex items-center border border-gray-300 rounded overflow-hidden">
+                                        <!-- Botón "-" -->
+                                        <button class="decrement-qty px-3 py-1 bg-gray-100 hover:bg-gray-200 focus:outline-none">
+                                            <span class="text-sm">−</span>
+                                        </button>
+                                    
+                                        <!-- Input de cantidad -->
+                                        <input type="number" value="1" min="1"
+                                            class="quantity w-12 text-center bg-white border-l border-r border-gray-300 py-1 outline-none focus:ring-0"
+                                            aria-label="Cantidad">
+                                    
+                                        <!-- Botón "+" -->
+                                        <button class="increment-qty px-3 py-1 bg-gray-100 hover:bg-gray-200 focus:outline-none">
+                                            <span class="text-sm">+</span>
+                                        </button>
+                                    </div>
+
+                                    <!-- Subtotal -->
+                                    <div class="text-lg font-bold text-dark-blue">$<span class="subtotal">4,998</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Cart Item 3 -->
+                    <div class="cart-item p-4" data-id="3" data-price="899">
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <!-- Product Image -->
+                            <div class="w-full sm:w-24 flex-shrink-0">
+                                <img src="img/funda-protectora.jpg" alt="Funda Protectora para Smartphone" class="w-full h-24 object-cover rounded">
+                            </div>
+                            
+                            <!-- Product Details -->
+                            <div class="flex-grow">
+                                <div class="flex justify-between">
+                                    <div>
+                                        <h3 class="font-semibold text-dark-blue">Funda Protectora</h3>
+                                        <p class="text-gray-600">Modelo: X200 - Transparente</p>
+                                    </div>
+                                    <button class="remove-item text-gray-400 hover:text-red-500" aria-label="Eliminar producto">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                        </svg>
+                                    </button>
+                                </div>
+                                
+                                <div class="mt-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                                    <!-- Price -->
+                                    <div class="text-lg font-semibold">$<span class="unit-price">899</span></div>
+                                    
+                                    <!-- Quantity Selector -->
+                                    <!--
+                                    <div class="flex items-center">
+                                        <button class="decrement-qty px-3 py-1 border rounded-l bg-gray-100 hover:bg-gray-200" aria-label="Reducir cantidad">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4" />
+                                            </svg>
+                                        </button>
+                                        <input type="number" value="1" min="1" class="quantity w-12 text-center border-t border-b py-1 outline-none focus:ring-1 focus:ring-primary-orange" aria-label="Cantidad">
+                                        <button class="increment-qty px-3 py-1 border rounded-r bg-gray-100 hover:bg-gray-200" aria-label="Aumentar cantidad">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    -->
+                                    <div class="flex items-center border border-gray-300 rounded overflow-hidden">
+                                        <!-- Botón "-" -->
+                                        <button class="decrement-qty px-3 py-1 bg-gray-100 hover:bg-gray-200 focus:outline-none">
+                                            <span class="text-sm">−</span>
+                                        </button>
+                                    
+                                        <!-- Input de cantidad -->
+                                        <input type="number" value="1" min="1"
+                                            class="quantity w-12 text-center bg-white border-l border-r border-gray-300 py-1 outline-none focus:ring-0"
+                                            aria-label="Cantidad">
+                                    
+                                        <!-- Botón "+" -->
+                                        <button class="increment-qty px-3 py-1 bg-gray-100 hover:bg-gray-200 focus:outline-none">
+                                            <span class="text-sm">+</span>
+                                        </button>
+                                    </div>
+
+                                    <!-- Subtotal -->
+                                    <div class="text-lg font-bold text-dark-blue">$<span class="subtotal">899</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Continue Shopping Link -->
+                <div class="mt-4">
+                    <a href="#" class="text-dark-blue hover:underline flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                        </svg>
+                        Continuar comprando
+                    </a>
+                </div>
+            </section>
+            
+            <!-- Order Summary Section -->
+            <aside class="lg:w-1/3">
+                <div class="bg-white rounded-lg shadow-md p-6 sticky top-4">
+                    <h2 class="text-xl font-bold text-dark-blue mb-4">Resumen de Compra</h2>
+                    
+                    <!-- Order Details -->
+                    <div class="space-y-3 mb-6">
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Subtotal (3 productos)</span>
+                            <span class="font-medium">$<span id="subtotal-amount">18,896</span></span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Envío</span>
+                            <span class="font-medium text-green-600">Gratis</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Impuestos (10%)</span>
+                            <span class="font-medium">$<span id="tax-amount">1,890</span></span>
+                        </div>
+                        <div class="border-t pt-3 mt-3 flex justify-between">
+                            <span class="font-bold text-lg text-dark-blue">Total</span>
+                            <span class="font-bold text-lg text-dark-blue">$<span id="total-amount">20,786</span></span>
+                        </div>
+                    </div>
+                    <!-- Checkout Button -->
+                    <button class="w-full bg-primary-orange hover:bg-orange-600 text-white font-bold py-3 px-4 rounded-md transition duration-200 mb-4">
+                        Proceder al pago
+                    </button>
+                    <!-- Secure Checkout -->
+                    <div class="flex items-center text-sm text-gray-500 mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                        </svg>
+                        Compra segura y protegida
+                    </div>
+                    <!-- Payment Methods -->
+                    <div class="border-t pt-4">
+                        <p class="text-gray-500 text-sm mb-2">Métodos de pago aceptados:</p>
+                        <div class="flex flex-wrap gap-2">
+                            <div class="border rounded p-2">
+                                <img src="img/logo-visa.png" alt="Visa" class="h-6">
+                            </div>
+                            <div class="border rounded p-2">
+                                <img src="img/logo-mastercard.png" alt="Mastercard" class="h-6">
+                            </div>
+                            <div class="border rounded p-2">
+                                <img src="img/logo-american-express.png" alt="American Express" class="h-6">
+                            </div>
+                            <div class="border rounded p-2">
+                                <img src="img/logo-paypal.png" alt="PayPal" class="h-6">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t mt-12">
+        <div class="container mx-auto px-4 py-8">
+            <div class="flex flex-col md:flex-row justify-between">
+                <div class="mb-6 md:mb-0">
+                    <h3 class="text-lg font-bold text-dark-blue mb-4">Tienda Mas</h3>
+                    <p class="text-gray-600">La mejor selección de productos al mejor precio</p>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-8">
+                    <div>
+                        <h4 class="font-semibold text-dark-blue mb-3">Comprar</h4>
+                        <ul class="space-y-2">
+                            <li><a href="#" class="text-gray-600 hover:text-dark-blue">Productos</a></li>
+                            <li><a href="#" class="text-gray-600 hover:text-dark-blue">Ofertas</a></li>
+                            <li><a href="#" class="text-gray-600 hover:text-dark-blue">Novedades</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-dark-blue mb-3">Ayuda</h4>
+                        <ul class="space-y-2">
+                            <li><a href="#" class="text-gray-600 hover:text-dark-blue">Contacto</a></li>
+                            <li><a href="#" class="text-gray-600 hover:text-dark-blue">Envíos</a></li>
+                            <li><a href="#" class="text-gray-600 hover:text-dark-blue">Devoluciones</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-dark-blue mb-3">Legal</h4>
+                        <ul class="space-y-2">
+                            <li><a href="#" class="text-gray-600 hover:text-dark-blue">Términos</a></li>
+                            <li><a href="#" class="text-gray-600 hover:text-dark-blue">Privacidad</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t mt-8 pt-8 text-center text-gray-500 text-sm">
+                <p>© 2025 Tienda Mas. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Format currency helper function
+            const formatCurrency = (amount) => {
+                return new Intl.NumberFormat('es-MX', {
+                    style: 'decimal',
+                    maximumFractionDigits: 0
+                }).format(amount);
+            };
+
+            // Calculate and update all cart totals
+            const updateCartTotals = () => {
+                const cartItems = document.querySelectorAll('.cart-item:not(.removed)');
+                let subtotal = 0;
+                let itemCount = 0;
+
+                // Calculate subtotal from all items
+                cartItems.forEach(item => {
+                    const price = parseInt(item.dataset.price);
+                    const quantity = parseInt(item.querySelector('.quantity').value);
+                    subtotal += price * quantity;
+                    itemCount += quantity;
+                });
+
+                // Calculate tax (10%)
+                const tax = Math.round(subtotal * 0.1);
+
+                // Update the DOM
+                document.getElementById('subtotal-amount').textContent = formatCurrency(subtotal);
+                document.getElementById('tax-amount').textContent = formatCurrency(tax);
+                document.getElementById('total-amount').textContent = formatCurrency(subtotal + tax);
+
+                // Update item count in summary
+                const itemCountElement = document.querySelector('.order-summary .text-gray-600:first-child');
+                if (itemCountElement) {
+                    itemCountElement.textContent = `Subtotal (${itemCount} ${itemCount === 1 ? 'producto' : 'productos'})`;
+                }
+
+                // Show empty cart message if no items
+                const emptyCartMessage = document.getElementById('empty-cart-message');
+                const cartItemsContainer = document.getElementById('cart-items');
+                
+                if (cartItems.length === 0) {
+                    emptyCartMessage.classList.remove('hidden');
+                    cartItemsContainer.classList.add('hidden');
+                } else {
+                    emptyCartMessage.classList.add('hidden');
+                    cartItemsContainer.classList.remove('hidden');
+                }
+            };
+
+            // Update individual item subtotal
+            const updateItemSubtotal = (item) => {
+                const price = parseInt(item.dataset.price);
+                const quantity = parseInt(item.querySelector('.quantity').value);
+                const subtotalElement = item.querySelector('.subtotal');
+                
+                subtotalElement.textContent = formatCurrency(price * quantity);
+            };
+
+            // Add event listeners to all quantity controls
+            document.querySelectorAll('.cart-item').forEach(item => {
+                const quantityInput = item.querySelector('.quantity');
+                const decrementBtn = item.querySelector('.decrement-qty');
+                const incrementBtn = item.querySelector('.increment-qty');
+                const removeBtn = item.querySelector('.remove-item');
+                
+                // Handle decrement button click
+                decrementBtn.addEventListener('click', () => {
+                    const currentValue = parseInt(quantityInput.value);
+                    if (currentValue > 1) {
+                        quantityInput.value = currentValue - 1;
+                        updateItemSubtotal(item);
+                        updateCartTotals();
+                    }
+                });
+                
+                // Handle increment button click
+                incrementBtn.addEventListener('click', () => {
+                    quantityInput.value = parseInt(quantityInput.value) + 1;
+                    updateItemSubtotal(item);
+                    updateCartTotals();
+                });
+                
+                // Handle direct input change
+                quantityInput.addEventListener('change', () => {
+                    if (quantityInput.value < 1) quantityInput.value = 1;
+                    updateItemSubtotal(item);
+                    updateCartTotals();
+                });
+                
+                // Handle remove item button
+                removeBtn.addEventListener('click', () => {
+                    item.classList.add('removed');
+                    item.style.display = 'none';
+                    updateCartTotals();
+                });
+            });
+
+            // Initialize cart totals
+            updateCartTotals();
+        });
+    </script>
+    <script>
+      // JavaScript para el menú móvil (puedes moverlo a un archivo separado)
+      document.getElementById('mobile-menu-button').addEventListener('click', function() {
+        const menu = document.getElementById('mobile-menu');
+        const isExpanded = this.getAttribute('aria-expanded') === 'true';
+        
+        this.setAttribute('aria-expanded', !isExpanded);
+        menu.classList.toggle('hidden');
+        
+        // Cambiar el ícono (opcional)
+        if (!isExpanded) {
+          this.innerHTML = `
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          `;
+        } else {
+          this.innerHTML = `
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          `;
+        }
+      });
+    </script> 
+</body>
+</html>

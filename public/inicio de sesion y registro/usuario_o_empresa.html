@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro - SomosTiendaMas</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        orange: {
+                            500: '#FF6B35',
+                            600: '#E55627',
+                        },
+                        blue: {
+                            600: '#004E89',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        .form-container {
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .type-btn {
+            transition: all 0.3s ease;
+            border: 2px solid #e5e7eb;
+        }
+        
+        .type-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .type-btn.active {
+            background-color: #FF6B35;
+            color: white;
+            border-color: #FF6B35;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.5s ease forwards;
+        }
+        
+        @media (max-width: 640px) {
+            .form-container {
+                width: 100%;
+                border-radius: 0;
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-gray-50 flex items-center justify-center p-4">
+    <div class="form-container bg-white rounded-xl p-8 w-full max-w-md fade-in">
+        <!----Logo and Header---->
+        <header class="text-center mb-8">
+            <h1 class="text-3xl font-bold text-gray-800 mb-2 flex items-center justify-center">
+                <span class="text-orange-500">Tienda</span>
+                <span class="text-blue-600 ml-1" style="color: #2563EB;">Mas</span>
+            </h1>
+            <p class="text-gray-600">Creá tu cuenta en SomosTiendaMas</p>
+        </header>
+        
+        <!-- Selector de tipo de usuario -->
+        <div class="user-type-selector">
+            <h2 class="text-xl font-medium text-gray-800 text-center mb-6">¿Cómo te quieres registrar?</h2>
+            <div class="type-buttons space-y-4">
+                <a 
+                    href="registro_usuario.html"
+                    class="type-btn block w-full bg-white rounded-xl p-6 text-gray-700 flex flex-col items-center justify-center gap-3"
+                >
+                    <div class="w-16 h-16 rounded-full bg-orange-100 flex items-center justify-center">
+                        <i class="fas fa-user text-2xl text-orange-500"></i>
+                    </div>
+                    <span class="text-lg font-medium">Como Persona</span>
+                    <p class="text-sm text-gray-500 text-center mt-1">
+                        Registrate como cliente individual para comprar productos
+                    </p>
+                </a>
+                
+                <a 
+                    href="registro_empresa.html"
+                    class="type-btn block w-full bg-white rounded-xl p-6 text-gray-700 flex flex-col items-center justify-center gap-3"
+                >
+                    <div class="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center">
+                        <i class="fas fa-building text-2xl text-blue-600"></i>
+                    </div>
+                    <span class="text-lg font-medium">Como Empresa</span>
+                    <p class="text-sm text-gray-500 text-center mt-1">
+                        Registrate como empresa para acceder a beneficios especiales
+                    </p>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Información adicional -->
+        <div class="mt-8 pt-6 border-t border-gray-200">
+            <div class="text-center text-sm text-gray-600">
+                <p>¿Ya tenés una cuenta? 
+                    <a href="#" class="font-medium text-blue-600 hover:underline">
+                        Iniciá sesión aquí
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

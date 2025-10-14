@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Política de Privacidad | Tienda Más</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FF6B35',
+                        secondary: '#004E89',
+                        'text-dark': '#333333',
+                        'light-bg': '#f8f9fa',
+                        white: '#ffffff',
+                    },
+                    fontFamily: {
+                        sans: ['Segoe UI', 'Roboto', 'Helvetica Neue', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Estilos para el acordeón en móviles */
+        @media (max-width: 768px) {
+            details > summary {
+                list-style: none;
+            }
+            details > summary::-webkit-details-marker {
+                display: none;
+            }
+            details > summary::after {
+                content: '+';
+                float: right;
+                font-size: 1.5rem;
+                font-weight: bold;
+                transition: transform 0.3s ease;
+            }
+            details[open] > summary::after {
+                content: '-';
+            }
+        }
+    </style>
+</head>
+<body class="font-sans text-text-dark bg-white flex flex-col min-h-screen">
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-50 py-6">
+        <div class="max-w-3xl mx-auto px-4 flex items-center justify-between">
+            <a href="#" class="text-primary text-2xl md:text-3xl font-bold flex items-center gap-2">
+                🛍️ Tienda Más
+            </a>
+            
+            <!-- Menú hamburguesa para móviles -->
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-secondary p-2">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+            
+            <!-- Menú de navegación (oculto en móviles) -->
+            <nav id="mobile-menu" class="hidden md:block">
+                <ul class="flex space-x-6">
+                    <li><a href="#" class="text-secondary font-medium hover:text-primary transition-colors">Inicio</a></li>
+                    <li><a href="#" class="text-secondary font-medium hover:text-primary transition-colors">Productos</a></li>
+                    <li><a href="#" class="text-secondary font-medium hover:text-primary transition-colors">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+        
+        <!-- Menú móvil desplegable -->
+        <div id="mobile-menu-dropdown" class="hidden md:hidden bg-white shadow-lg py-4 px-4">
+            <ul class="space-y-3">
+                <li><a href="#" class="block text-secondary font-medium hover:text-primary transition-colors py-2">Inicio</a></li>
+                <li><a href="#" class="block text-secondary font-medium hover:text-primary transition-colors py-2">Productos</a></li>
+                <li><a href="#" class="block text-secondary font-medium hover:text-primary transition-colors py-2">Contacto</a></li>
+            </ul>
+        </div>
+    </header>
+    
+    <!-- Contenido principal -->
+    <main class="flex-1 w-full max-w-3xl mx-auto px-4 py-8">
+        <!-- Hero Section -->
+        <h1 class="text-primary text-3xl md:text-4xl font-bold mb-6">Política de Privacidad</h1>
+        
+        <!-- Alert Box -->
+        <div class="bg-primary/10 border-l-4 border-primary py-6 px-6 mb-8 rounded-r-lg">
+            <p class="text-base md:text-lg">En Tienda Más nos comprometemos a proteger tu privacidad. Esta política explica cómo recopilamos, usamos y protegemos tu información personal.</p>
+        </div>
+        
+        <!-- Tabla de contenidos -->
+        <div class="bg-light-bg rounded-lg p-6 mb-10">
+            <h3 class="text-secondary text-xl font-semibold mb-4">Contenido</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <a href="#informacion" class="block p-3 rounded-md hover:bg-secondary/10 transition-colors">1. Información que recopilamos</a>
+                <a href="#finalidad" class="block p-3 rounded-md hover:bg-secondary/10 transition-colors">2. Finalidad del uso de datos</a>
+                <a href="#proteccion" class="block p-3 rounded-md hover:bg-secondary/10 transition-colors">3. Protección de datos</a>
+                <a href="#cookies" class="block p-3 rounded-md hover:bg-secondary/10 transition-colors">4. Uso de cookies</a>
+                <a href="#terceros" class="block p-3 rounded-md hover:bg-secondary/10 transition-colors">5. Compartir datos con terceros</a>
+                <a href="#derechos" class="block p-3 rounded-md hover:bg-secondary/10 transition-colors">6. Derechos del usuario</a>
+                <a href="#cambios" class="block p-3 rounded-md hover:bg-secondary/10 transition-colors">7. Cambios en la política</a>
+            </div>
+        </div>
+        
+        <!-- Secciones de contenido -->
+        <!-- Sección 1 -->
+        <section id="informacion" class="mb-12 scroll-mt-24">
+            <details class="md:block">
+                <summary class="cursor-pointer">
+                    <h2 class="text-primary text-2xl md:text-3xl font-semibold mb-4 inline-block">1. Información que recopilamos</h2>
+                </summary>
+                <div class="mt-4">
+                    <p class="mb-4 text-base md:text-lg">Para brindarte nuestros servicios, recopilamos los siguientes datos personales:</p>
+                    <ul class="list-disc pl-6 mb-4 space-y-2 text-base md:text-lg">
+                        <li><strong>Datos de identificación:</strong> Nombre completo, documento de identidad, fecha de nacimiento</li>
+                        <li><strong>Datos de contacto:</strong> Dirección de correo electrónico, número de teléfono, dirección postal</li>
+                        <li><strong>Datos de pago:</strong> Información de tarjetas (procesada de forma segura), historial de compras</li>
+                        <li><strong>Datos técnicos:</strong> Dirección IP, tipo de dispositivo, datos de navegación</li>
+                    </ul>
+                </div>
+            </details>
+        </section>
+        
+        <!-- Sección 2 -->
+        <section id="finalidad" class="mb-12 scroll-mt-24">
+            <details class="md:block">
+                <summary class="cursor-pointer">
+                    <h2 class="text-primary text-2xl md:text-3xl font-semibold mb-4 inline-block">2. Finalidad del uso de datos</h2>
+                </summary>
+                <div class="mt-4">
+                    <p class="mb-4 text-base md:text-lg">Utilizamos tu información personal para las siguientes finalidades:</p>
+                    <ol class="list-decimal pl-6 mb-4 space-y-2 text-base md:text-lg">
+                        <li>Procesar y gestionar tus pedidos y compras</li>
+                        <li>Brindarte soporte al cliente y responder a tus consultas</li>
+                        <li>Enviar información sobre tu cuenta y nuestros servicios (solo si aceptas comunicaciones)</li>
+                        <li>Mejorar nuestros productos, servicios y experiencia de usuario</li>
+                        <li>Cumplir con obligaciones legales y regulatorias</li>
+                    </ol>
+                    <p class="text-base md:text-lg">Solo usaremos tus datos para fines publicitarios si nos das tu consentimiento explícito.</p>
+                </div>
+            </details>
+        </section>
+        
+        <!-- Sección 3 -->
+        <section id="proteccion" class="mb-12 scroll-mt-24">
+            <details class="md:block">
+                <summary class="cursor-pointer">
+                    <h2 class="text-primary text-2xl md:text-3xl font-semibold mb-4 inline-block">3. Protección de datos</h2>
+                </summary>
+                <div class="mt-4">
+                    <p class="mb-4 text-base md:text-lg">Implementamos medidas técnicas y organizativas robustas para proteger tu información:</p>
+                    <ul class="list-disc pl-6 mb-4 space-y-2 text-base md:text-lg">
+                        <li>Encriptación de datos sensibles (SSL/TLS)</li>
+                        <li>Sistemas de autenticación seguros</li>
+                        <li>Acceso restringido al personal autorizado</li>
+                        <li>Procedimientos regulares de copias de seguridad</li>
+                        <li>Protección contra accesos no autorizados</li>
+                    </ul>
+                    <p class="text-base md:text-lg">A pesar de nuestras medidas, ninguna transmisión por Internet es 100% segura. Te recomendamos proteger tus credenciales de acceso y no compartirlas.</p>
+                </div>
+            </details>
+        </section>
+        
+        <!-- Sección 4 -->
+        <section id="cookies" class="mb-12 scroll-mt-24">
+            <details class="md:block">
+                <summary class="cursor-pointer">
+                    <h2 class="text-primary text-2xl md:text-3xl font-semibold mb-4 inline-block">4. Uso de cookies</h2>
+                </summary>
+                <div class="mt-4">
+                    <p class="mb-4 text-base md:text-lg">Nuestra plataforma utiliza cookies para:</p>
+                    <ul class="list-disc pl-6 mb-4 space-y-2 text-base md:text-lg">
+                        <li>Garantizar el funcionamiento básico del sitio</li>
+                        <li>Recordar tus preferencias</li>
+                        <li>Analizar el tráfico y uso del sitio (Google Analytics)</li>
+                        <li>Personalizar contenido y anuncios (solo con tu consentimiento)</li>
+                    </ul>
+                    <p class="text-base md:text-lg">Puedes gestionar o desactivar las cookies desde la configuración de tu navegador. Ten en cuenta que algunas funciones podrían no estar disponibles sin cookies esenciales.</p>
+                </div>
+            </details>
+        </section>
+        
+        <!-- Sección 5 -->
+        <section id="terceros" class="mb-12 scroll-mt-24">
+            <details class="md:block">
+                <summary class="cursor-pointer">
+                    <h2 class="text-primary text-2xl md:text-3xl font-semibold mb-4 inline-block">5. Compartir datos con terceros</h2>
+                </summary>
+                <div class="mt-4">
+                    <p class="mb-4 text-base md:text-lg">Tu información personal solo se comparte en los siguientes casos:</p>
+                    <ul class="list-disc pl-6 mb-4 space-y-2 text-base md:text-lg">
+                        <li><strong>Procesadores de pago:</strong> Para completar tus transacciones (Mercado Pago, PayPal)</li>
+                        <li><strong>Servicios de envío:</strong> Empresas logísticas para entregar tus pedidos</li>
+                        <li><strong>Cumplimiento legal:</strong> Cuando sea requerido por autoridades competentes</li>
+                    </ul>
+                    <p class="text-base md:text-lg"><strong>No vendemos ni compartimos tus datos con fines publicitarios</strong> sin tu consentimiento explícito.</p>
+                </div>
+            </details>
+        </section>
+        
+        <!-- Sección 6 -->
+        <section id="derechos" class="mb-12 scroll-mt-24">
+            <details class="md:block">
+                <summary class="cursor-pointer">
+                    <h2 class="text-primary text-2xl md:text-3xl font-semibold mb-4 inline-block">6. Derechos del usuario</h2>
+                </summary>
+                <div class="mt-4">
+                    <p class="mb-4 text-base md:text-lg">De acuerdo con la Ley de Protección de Datos Personales (25.326), tienes derecho a:</p>
+                    <ul class="list-disc pl-6 mb-4 space-y-2 text-base md:text-lg">
+                        <li>Acceder a tus datos personales que almacenamos</li>
+                        <li>Solicitar la rectificación de información incorrecta</li>
+                        <li>Pedir la eliminación de tus datos cuando ya no sean necesarios</li>
+                        <li>Oponerte al tratamiento de tus datos en ciertos casos</li>
+                        <li>Retirar tu consentimiento cuando el tratamiento se base en él</li>
+                    </ul>
+                    <p class="text-base md:text-lg">Para ejercer estos derechos, contáctanos a <a href="mailto:protecciondedatos@tiendamas.com" class="text-secondary font-medium hover:text-primary transition-colors underline">protecciondedatos@tiendamas.com</a>.</p>
+                </div>
+            </details>
+        </section>
+        
+        <!-- Sección 7 -->
+        <section id="cambios" class="mb-12 scroll-mt-24">
+            <details class="md:block">
+                <summary class="cursor-pointer">
+                    <h2 class="text-primary text-2xl md:text-3xl font-semibold mb-4 inline-block">7. Cambios en la política</h2>
+                </summary>
+                <div class="mt-4">
+                    <p class="mb-4 text-base md:text-lg">Esta política puede actualizarse periódicamente para reflejar cambios en nuestras prácticas o requisitos legales. Te notificaremos sobre cambios significativos y publicaremos la versión actualizada en nuestro sitio.</p>
+                    <p class="mb-4 text-base md:text-lg"><strong>Fecha de última actualización:</strong> 15 de noviembre de 2023</p>
+                    <p class="text-base md:text-lg">Te recomendamos revisar esta política regularmente para estar informado sobre cómo protegemos tu información.</p>
+                </div>
+            </details>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="bg-secondary text-white text-center py-8 mt-12">
+        <p>© Tienda Más - Todos los derechos reservados</p>
+    </footer>
+    
+    <!-- Script para el menú móvil -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenuDropdown = document.getElementById('mobile-menu-dropdown');
+            
+            mobileMenuButton.addEventListener('click', function() {
+                mobileMenuDropdown.classList.toggle('hidden');
+            });
+            
+            // Cerrar menú móvil al hacer clic en un enlace
+            const mobileMenuLinks = mobileMenuDropdown.querySelectorAll('a');
+            mobileMenuLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    mobileMenuDropdown.classList.add('hidden');
+                });
+            });
+            
+            // En dispositivos móviles, mantener abiertas las secciones al hacer clic en enlaces del índice
+            const tocLinks = document.querySelectorAll('.grid a');
+            tocLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    if (window.innerWidth < 768) {
+                        const targetId = this.getAttribute('href').substring(1);
+                        const targetSection = document.getElementById(targetId);
+                        const detailsElement = targetSection.querySelector('details');
+                        detailsElement.open = true;
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
