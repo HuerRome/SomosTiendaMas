@@ -196,12 +196,27 @@
             </div> 
           </div> 
         </div> 
-      </section>     
-    
-      <!-- ===========================
-           CATEGORÍAS DESTACADAS
-           =========================== -->
-      <section id="categorias" class="py-12">
+      </section>    
+       
+      <section class="categorias">
+        <div class="texto">
+            <h2 class="text-2xl font-semibold">Categorías destacadas</h2>
+            <a href="#categorias" class="text-sm text-[var(--tm-blue)] hover:underline">Ver todas</a>
+        </div>
+        <div class="categorias-container">
+            <a href="#" class="">
+              <div>
+                <img src="assets/products/electronics/computadoras.png" alt="Tecnología"/>
+              </div>
+              <span>Tecnología</span>
+            </a>
+        </div>
+      </section>
+
+      <!--===========================
+            CATEGORÍAS DESTACADAS
+          ===========================-->
+      <section id="categorias" class="py-0">
         <div class="mx-auto max-w-[var(--max-width)] px-4 sm:px-6 lg:px-8">
           <div class="flex items-center justify-between mb-6">
             <h2 class="text-2xl font-semibold">Categorías destacadas</h2>
@@ -276,9 +291,9 @@
           </div>      
         </div>
       </section>   
-      <!-- ===========================
-           SLIDER PRODUCTOS DESTACADOS
-           =========================== -->
+      <!--===========================
+          SLIDER PRODUCTOS DESTACADOS
+          ===========================-->
       <section class="bg-gray-50 py-10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <!-- Header -->
@@ -288,7 +303,7 @@
             </h2>
             <a href="#" class="text-sm text-blue-600 hover:underline">Ver más</a>
           </div>
-      
+           
           <!-- Carousel container -->
           <div class="relative">
             <!-- Slider -->
@@ -405,7 +420,7 @@
                   <p class="text-[11px] text-gray-500">12 cuotas de $29.999</p>
                 </div>
               </div>
-              <!---------------------------------------------------- -->
+              <!------------------------------------------------------>
               <div class="flex-none w-[140px] sm:w-[160px] md:w-[180px] bg-white rounded-md border hover:shadow-md transition">
                 <img src="assets/products/home/aire acondicionado.png" alt="Producto"
                      class="w-full h-32 object-contain p-2">
@@ -520,15 +535,130 @@
 
             </div>
       
-            <!-- Botones -->
-            <button onclick="scrollLeft()" 
-                    class="absolute top-1/2 left-0 transform -translate-y-1/2 bg-white shadow-md rounded-full p-2 hover:bg-gray-100">
-              ◀
-            </button>
-            <button onclick="scrollRight()" 
-                    class="absolute top-1/2 right-0 transform -translate-y-1/2 bg-white shadow-md rounded-full p-2 hover:bg-gray-100">
-              ▶
-            </button>
+
+          </div>
+        </div>
+      </section>
+
+      <section class="bg-gray-50 py-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <!-- Header -->
+          <div class="flex items-center justify-between mb-6">
+            <h2 class="text-2xl font-bold text-gray-900">
+              Más vendidos de la semana en Aires Acondicionados
+            </h2>
+            <a href="#" class="text-sm text-blue-600 hover:underline">Ver más</a>
+          </div>
+      
+          <!-- Carousel container -->
+          <div class="relative">
+            <!-- Slider -->
+            <div id="productSlider" class="flex flex-wrap justify-center bg-blue-500 gap-4">          
+              <div class="flex-1 min-w-[180px] sm:min-w-[200px] md:min-w-[220px] lg:min-w-[240px] max-w-[240px] bg-white rounded-lg shadow hover:shadow-lg transition">
+                <img src="assets/products/home/aire acondicionado.png" alt="Producto"
+                     class="w-full h-40 object-contain p-4">
+                <div class="p-4">
+                  <h3 class="text-sm font-semibold text-gray-700 line-clamp-2">
+                    Aire Acondicionado Portátil Frío/Calor 3000fs
+                  </h3>
+                  <p class="text-xs text-gray-400 line-through">$999.999</p>
+                  <p class="text-lg font-bold text-green-600">$599.999</p>
+                  <p class="text-xs text-green-600">40% OFF</p>
+                  <p class="text-xs text-gray-500">12 cuotas de $99.999</p>
+                </div>
+              </div>
+              <div class="flex-1 min-w-[180px] sm:min-w-[200px] md:min-w-[220px] lg:min-w-[240px] max-w-[240px] bg-white rounded-lg shadow hover:shadow-lg transition">
+                <img src="assets/products/electronics/smart Tv Grande.png" alt="Producto"
+                     class="w-full h-40 object-contain p-4">
+                <div class="p-4">
+                  <h3 class="text-sm font-semibold text-gray-700 line-clamp-2">
+                    Smart TV 50" 4K Ultra HD Samsung Crystal
+                  </h3>
+                  <p class="text-xs text-gray-400 line-through">$899.999</p>
+                  <p class="text-lg font-bold text-green-600">$539.999</p>
+                  <p class="text-xs text-green-600">40% OFF</p>
+                  <p class="text-xs text-gray-500">12 cuotas de $89.999</p>
+                </div>
+              </div>
+              <div class="flex-1 min-w-[180px] sm:min-w-[200px] md:min-w-[220px] lg:min-w-[240px] max-w-[240px] bg-white rounded-lg shadow hover:shadow-lg transition">
+                <img src="img/Heladera.jpg" alt="Producto"
+                     class="w-full h-40 object-contain p-4">
+                <div class="p-4">
+                  <h3 class="text-sm font-semibold text-gray-700 line-clamp-2">
+                    Heladera No Frost Whirlpool 400L Inverter
+                  </h3>
+                  <p class="text-xs text-gray-400 line-through">$1.299.999</p>
+                  <p class="text-lg font-bold text-green-600">$799.999</p>
+                  <p class="text-xs text-green-600">40% OFF</p>
+                  <p class="text-xs text-gray-500">12 cuotas de $129.999</p>
+                </div>
+              </div>
+              <div class="flex-1 min-w-[180px] sm:min-w-[200px] md:min-w-[220px] lg:min-w-[240px] max-w-[240px] bg-white rounded-lg shadow hover:shadow-lg transition">
+                <img src="img/funda-protectora.jpg" alt="Producto"
+                     class="w-full h-40 object-contain p-4">
+                <div class="p-4">
+                  <h3 class="text-sm font-semibold text-gray-700 line-clamp-2">
+                    Aire Acondicionado Portátil Frío/Calor 3000fs
+                  </h3>
+                  <p class="text-xs text-gray-400 line-through">$999.999</p>
+                  <p class="text-lg font-bold text-green-600">$599.999</p>
+                  <p class="text-xs text-green-600">40% OFF</p>
+                  <p class="text-xs text-gray-500">12 cuotas de $99.999</p>
+                </div>
+              </div>
+              <div class="flex-1 min-w-[180px] sm:min-w-[200px] md:min-w-[220px] lg:min-w-[240px] max-w-[240px] bg-white rounded-lg shadow hover:shadow-lg transition">
+                <img src="img/" alt="Producto"
+                     class="w-full h-40 object-contain p-4">
+                <div class="p-4">
+                  <h3 class="text-sm font-semibold text-gray-700 line-clamp-2">
+                    Aire Acondicionado Portátil Frío/Calor 3000fs
+                  </h3>
+                  <p class="text-xs text-gray-400 line-through">$999.999</p>
+                  <p class="text-lg font-bold text-green-600">$599.999</p>
+                  <p class="text-xs text-green-600">40% OFF</p>
+                  <p class="text-xs text-gray-500">12 cuotas de $99.999</p>
+                </div>
+              </div>
+              <div class="flex-1 min-w-[180px] sm:min-w-[200px] md:min-w-[220px] lg:min-w-[240px] max-w-[240px] bg-white rounded-lg shadow hover:shadow-lg transition">
+                <img src="img/funda-protectora.jpg" alt="Producto"
+                     class="w-full h-40 object-contain p-4">
+                <div class="p-4">
+                  <h3 class="text-sm font-semibold text-gray-700 line-clamp-2">
+                    Aire Acondicionado Portátil Frío/Calor 3000fs
+                  </h3>
+                  <p class="text-xs text-gray-400 line-through">$999.999</p>
+                  <p class="text-lg font-bold text-green-600">$599.999</p>
+                  <p class="text-xs text-green-600">40% OFF</p>
+                  <p class="text-xs text-gray-500">12 cuotas de $99.999</p>
+                </div>
+              </div>
+              <div class="flex-1 min-w-[180px] sm:min-w-[200px] md:min-w-[220px] lg:min-w-[240px] max-w-[240px] bg-white rounded-lg shadow hover:shadow-lg transition">
+                <img src="img/" alt="Producto"
+                     class="w-full h-40 object-contain p-4">
+                <div class="p-4">
+                  <h3 class="text-sm font-semibold text-gray-700 line-clamp-2">
+                    Aire Acondicionado Portátil Frío/Calor 3000fs
+                  </h3>
+                  <p class="text-xs text-gray-400 line-through">$999.999</p>
+                  <p class="text-lg font-bold text-green-600">$599.999</p>
+                  <p class="text-xs text-green-600">40% OFF</p>
+                  <p class="text-xs text-gray-500">12 cuotas de $99.999</p>
+                </div>
+              </div>
+              <div class="flex-1 min-w-[180px] sm:min-w-[200px] md:min-w-[220px] lg:min-w-[240px] max-w-[240px] bg-white rounded-lg shadow hover:shadow-lg transition">
+                <img src="img/funda-protectora.jpg" alt="Producto"
+                     class="w-full h-40 object-contain p-4">
+                <div class="p-4">
+                  <h3 class="text-sm font-semibold text-gray-700 line-clamp-2">
+                    Aire Acondicionado Portátil Frío/Calor 3000fs
+                  </h3>
+                  <p class="text-xs text-gray-400 line-through">$999.999</p>
+                  <p class="text-lg font-bold text-green-600">$599.999</p>
+                  <p class="text-xs text-green-600">40% OFF</p>
+                  <p class="text-xs text-gray-500">12 cuotas de $99.999</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -547,8 +677,8 @@
           <div class="relative">
             <!-- Slider -->
             <div id="productSlider" class="flex gap-2 overflow-x-auto scroll-smooth no-scrollbar">          
-              <div class="flex-none w-[180px] sm:w-[200px] md:w-[220px] lg:w-[240px] bg-black rounded-lg shadow hover:shadow-lg transition">
-                <img src="img/slider 2/aire.png" alt="Producto"
+              <div class="flex-none w-[180px] sm:w-[200px] md:w-[220px] lg:w-[240px] bg-white rounded-lg shadow hover:shadow-lg transition">
+                <img src="assets/products/home/aire acondicionado.png" alt="Producto"
                      class="w-full h-40 object-contain p-4">
                 <div class="p-4">
                   <h3 class="text-sm font-semibold text-gray-700 line-clamp-2">
@@ -560,8 +690,8 @@
                   <p class="text-xs text-gray-500">12 cuotas de $99.999</p>
                 </div>
               </div>
-              <div class="flex-none w-[180px] sm:w-[200px] md:w-[220px] lg:w-[240px] bg-black rounded-lg shadow hover:shadow-lg transition">
-                <img src="img/TV.jpg" alt="Producto"
+              <div class="flex-none w-[180px] sm:w-[200px] md:w-[220px] lg:w-[240px] bg-white rounded-lg shadow hover:shadow-lg transition">
+                <img src="assets/products/electronics/smart Tv Grande.png" alt="Producto"
                      class="w-full h-40 object-contain p-4">
                 <div class="p-4">
                   <h3 class="text-sm font-semibold text-gray-700 line-clamp-2">
@@ -652,21 +782,9 @@
                 </div>
               </div>
             </div>
-      
-            <!-- Botones -->
-            <button onclick="scrollLeft()" 
-                    class="absolute top-1/2 left-0 transform -translate-y-1/2 bg-white shadow-md rounded-full p-2 hover:bg-gray-100">
-              ◀
-            </button>
-            <button onclick="scrollRight()" 
-                    class="absolute top-1/2 right-0 transform -translate-y-1/2 bg-white shadow-md rounded-full p-2 hover:bg-gray-100">
-              ▶
-            </button>
           </div>
         </div>
       </section>
-
-
       
       
 <!-- ===========================
@@ -732,8 +850,6 @@
               <a href="#" class="px-3 py-2 rounded-md text-xs font-semibold bg-[var(--tm-orange)] text-white hover:bg-[var(--tm-orange-hover)] focus-ring">Contactar</a>
             </div>
           </article>
-
-          <!-- Repeat short list (sustituir con dinámica) -->
           <article class="min-w-[240px] w-[240px] bg-white rounded-xl p-4 border card-lift snap-child">
             <div class="aspect-[4/3] bg-gray-100 rounded-lg overflow-hidden flex items-center justify-center">
               <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=..." alt="Producto ejemplo" class="object-cover w-full h-full" />
@@ -748,7 +864,6 @@
               <a href="#" class="px-3 py-2 rounded-md text-xs font-semibold bg-[var(--tm-orange)] text-white hover:bg-[var(--tm-orange-hover)] focus-ring">Contactar</a>
             </div>
           </article>
-
           <article class="min-w-[240px] w-[240px] bg-white rounded-xl p-4 border card-lift snap-child">
             <div class="aspect-[4/3] bg-gray-100 rounded-lg overflow-hidden flex items-center justify-center">
               <img src="https://images.unsplash.com/photo-1580910051074-0b0f5b1f9bf9?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=..." alt="Producto ejemplo" class="object-cover w-full h-full" />
@@ -764,6 +879,48 @@
             </div>
           </article>
 
+          <article class="min-w-[240px] w-[240px] bg-white rounded-xl p-4 border card-lift snap-child" role="group" aria-label="Producto 1">
+            <div class="aspect-[4/3] bg-gray-100 rounded-lg overflow-hidden flex items-center justify-center">
+              <img src="https://images.unsplash.com/photo-1585386959984-a415522c9f12?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=..." alt="Producto ejemplo" class="object-cover w-full h-full" />
+            </div>
+            <h3 class="mt-3 font-semibold text-sm">Auricular Bluetooth inalámbrico</h3>
+            <p class="mt-1 text-xs text-slate-500">Código: A-12345 · Stock: 120</p>
+            <div class="mt-3 flex items-center justify-between">
+              <div>
+                <div class="text-sm font-bold">$39.091</div>
+                <div class="text-xs text-slate-500">Precio mayorista</div>
+              </div>
+              <a href="#" class="px-3 py-2 rounded-md text-xs font-semibold bg-[var(--tm-orange)] text-white hover:bg-[var(--tm-orange-hover)] focus-ring">Contactar</a>
+            </div>
+          </article>
+          <article class="min-w-[240px] w-[240px] bg-white rounded-xl p-4 border card-lift snap-child">
+            <div class="aspect-[4/3] bg-gray-100 rounded-lg overflow-hidden flex items-center justify-center">
+              <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=..." alt="Producto ejemplo" class="object-cover w-full h-full" />
+            </div>
+            <h3 class="mt-3 font-semibold text-sm">Parlante portátil TWS</h3>
+            <p class="mt-1 text-xs text-slate-500">Código: P-23412 · Stock: 50</p>
+            <div class="mt-3 flex items-center justify-between">
+              <div>
+                <div class="text-sm font-bold">$343.825</div>
+                <div class="text-xs text-slate-500">Precio mayorista</div>
+              </div>
+              <a href="#" class="px-3 py-2 rounded-md text-xs font-semibold bg-[var(--tm-orange)] text-white hover:bg-[var(--tm-orange-hover)] focus-ring">Contactar</a>
+            </div>
+          </article>
+          <article class="min-w-[240px] w-[240px] bg-white rounded-xl p-4 border card-lift snap-child">
+            <div class="aspect-[4/3] bg-gray-100 rounded-lg overflow-hidden flex items-center justify-center">
+              <img src="https://images.unsplash.com/photo-1580910051074-0b0f5b1f9bf9?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=..." alt="Producto ejemplo" class="object-cover w-full h-full" />
+            </div>
+            <h3 class="mt-3 font-semibold text-sm">Mochila porta notebook 15.6"</h3>
+            <p class="mt-1 text-xs text-slate-500">Código: M-77777 · Stock: 20</p>
+            <div class="mt-3 flex items-center justify-between">
+              <div>
+                <div class="text-sm font-bold">$19.499</div>
+                <div class="text-xs text-slate-500">Precio mayorista</div>
+              </div>
+              <a href="#" class="px-3 py-2 rounded-md text-xs font-semibold bg-[var(--tm-orange)] text-white hover:bg-[var(--tm-orange-hover)] focus-ring">Contactar</a>
+            </div>
+          </article>
           <!-- Add more cards as needed / or render server-side -->
         </div>
       </div>
