@@ -50,7 +50,7 @@ main .banner {
 /*-Responsive--------------------------------------------------------------------------------------------------*/
 
 /* 🔹 Pantallas grandes (desktop) */
-@media (min-width: 1000px) {
+@media (min-width: 1200px) {
   main .banner {
     height: 450px; /* respeta proporción original */
     height: auto;
@@ -64,50 +64,65 @@ main .banner {
   }
 }
 
-/*
-tablets
+/*------tablets-------*/
 @media (max-width: 1024px) {
   main .banner {
-    height: 35vh;
+    height: 20vh;
+    height: 250px;
+    background-position: -100px center;
     background-position: center top; 
   }
 }
 
-celulares
+/*-----celulares------*/
 @media (max-width: 768px) {
   main .banner {
     height: 30vh;
+    height: 25vh;
+    height: 200px;
     background-position: right center; 
+    background-position: -80px center;
   }
 }
 
-moviles pequeños
+/*-----moviles pequeños-----*/
 @media (max-width: 480px) {
   main .banner {
     height: 35vh;
     height: 450px;
+    height: 180px;
     background-size: contain; 
     background-position: right top;
     background-color: #f25c2b; 
   }
+
+  main .banner {
+    width: 100%;
+    height: 180px;
+    background-image: url('../assets/banners/Banner principal.png');
+    background-position: -110px center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0;
+    overflow: hidden;
+  }
 }
-*/
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+@media (max-width: 344px) {
+  main .banner {
+    width: 100%;
+    height: 180px;
+    background-image: url('../assets/banners/Banner principal.png');
+    background-position: -120px center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0;
+    overflow: hidden;
+  }
+}

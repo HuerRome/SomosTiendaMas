@@ -1,0 +1,114 @@
+.informacion {  
+    display: flex; 
+    background: #ff6b35;
+   
+} 
+
+.informacion .info-container{ 
+    display: flex;
+    flex-wrap: nowrap;              /* 👈 Ahora no baja de línea */
+    overflow-x: auto;               /* 👈 Permite desplazamiento horizontal */
+    scroll-snap-type: x mandatory;  /* 👈 Hace que se “pegue” al item siguiente */
+    -webkit-overflow-scrolling: touch;
+    /*---------------------*/
+    border-radius: 8px; 
+    width: 100%; 
+    display: flex; 
+    padding: 10px 0; 
+    justify-content: space-around; 
+    margin: 0 1vw;
+    flex-wrap: nowrap;
+    background-color: #111010;
+} 
+
+.informacion .info-container .info-item { 
+    flex: 0 0 auto;                 /* 👈 Mantiene el ancho fijo */
+                   
+    scroll-snap-align: start;
+    /*----------------------*/
+    color: white; 
+    font-size: 10px;
+    margin-right: 0px; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    padding: 0 10px;
+} 
+
+.informacion .info-container .info-item div { 
+    margin-left: 4px; 
+    display: flex; 
+}
+
+.informacion .info-container .info-item div p{
+    margin-left: 4px;
+}
+
+
+
+
+
+
+
+
+/* Ocultar scrollbar horizontal */
+.informacion .info-container {
+  scrollbar-width: none;            /* Firefox */
+  -ms-overflow-style: none;         /* Internet Explorer y Edge antiguos */
+}
+
+.informacion .info-container::-webkit-scrollbar {
+  display: none;                    /* Chrome, Safari y Edge modernos */
+}
+
+
+
+/*-Responsividad---------------------------------------------------------------------------------------------------------------- */
+
+/* Celulares pequeños */
+@media (max-width: 480px) {
+
+}
+
+/* Tablets */
+@media (min-width: 481px) and (max-width: 768px) {
+
+}
+
+/* Escritorio grande */
+@media (min-width: 1024px) {
+    .informacion { 
+        display: flex; 
+        background: #ff6b35;
+       
+    } 
+    
+    .informacion .info-container{ 
+        border-radius: 8px; 
+        width: 100%; 
+        display: flex; 
+        padding: 10px 0; 
+        justify-content: space-around; 
+        margin: 0 1vw;
+        background-color: #111010;
+    } 
+    
+    .informacion .info-container .info-item { 
+        color: white; 
+        font-size: 14px;
+        margin-right: 0px; 
+        display: flex; 
+        justify-content: center; 
+        align-items: center; 
+    } 
+    
+    .informacion .info-container .info-item div { 
+        margin-left: 8px; 
+        display: flex; 
+    }
+    
+    .informacion .info-container .info-item div p{
+        margin-left: 4px;
+    }
+
+}

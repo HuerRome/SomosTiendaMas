@@ -57,6 +57,7 @@
   </style>
   <link rel="stylesheet" href="css/header.css">
   <link rel="stylesheet" href="css/banner.css">
+  <link rel="stylesheet" href="css/informacion.css">
 </head>
 <body class="antialiased text-slate-800 bg-white font-['Inter',system-ui,Arial]">
   <!-- ===========================
@@ -164,104 +165,39 @@
       <section class="banner">
       </section>
 
-      <section id="hero" class="w-full py-6 px-4 md:px-10">
-        <!-- Contenedor principal -->
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-          
-          <!-- Texto principal -->
-          <div class="w-full md:w-2/3">
-              <p class="text-xs md:text-sm font-medium text-black-600 mb-2">
-                <span class="font-semibold">La Promo termina: 8 oct., 03:59 (GMT-3)</span>
-              </p>
-              <!-- Botón CTA -->
-              <div class="mt-0 flex">
-                <h1 class="text-2xl md:text-3xl font-extrabold text-[#D71A28] leading-tight">
-                  Hasta <span class="text-gray-900">-60%</span> DTO.
-                </h1>
-                <a href="#ofertas" 
-                   class="inline-block ml-2 px-4 py-2 rounded-full bg-gray-900 text-white text-sm font-semibold shadow-md hover:scale-105 hover:bg-gray-800 transition-all duration-300">
-                  Ver Ofertas →
-                </a>
-
-              </div>
-              <!-- CONTENEDOR GENERAL -->
-              <div class="mt-4">
-              
-                <!-- VERSIÓN DESKTOP (grilla) -->
-                <div class="hidden sm:grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-                  <!-- Producto 1 -->
-                  <a href="#" class="bg-white shadow-sm hover:shadow-md transition rounded-md overflow-hidden">
-                    <img src="assets/products/clothes/fashion/conjuntos.jpg" alt="Producto 1" class="w-full h-36 object-cover">
-                    <div class="p-2">
-                      <p class="text-sm font-semibold text-blue-700">Conjuntos en tendencia</p>
-                      <p class="bg-gray-800 text-white text-sm font-bold px-2 py-1 mt-1 inline-block rounded">
-                        $104,454.00
-                      </p>
-                    </div>
-                  </a>
-              
-                  <!-- Producto 2 -->
-                  <a href="#" class="bg-white shadow-sm hover:shadow-md transition rounded-md overflow-hidden">
-                    <img src="assets/products/clothes/sports/zapatillas nike blancas.jpg" alt="Producto 2" class="w-full h-36 object-cover">
-                    <div class="p-2">
-                      <p class="text-sm font-semibold text-gray-800">Lo mejor en el deporte</p>
-                      <p class="bg-gray-800 text-white text-sm font-bold px-2 py-1 mt-1 inline-block rounded">
-                        $1,362.00
-                      </p>
-                    </div>
-                  </a>
-              
-                  <!-- Producto 3 -->
-                  <a href="#" class="bg-white shadow-sm hover:shadow-md transition rounded-md overflow-hidden">
-                    <img src="assets/products/home/construir.jpg" alt="Producto 3" class="w-full h-36 object-cover">
-                    <div class="p-2">
-                      <p class="text-sm font-semibold text-pink-600">Construye tu casa</p>
-                      <p class="bg-gray-800 text-white text-sm font-bold px-2 py-1 mt-1 inline-block rounded">
-                        $145,714.00
-                      </p>
-                    </div>
-                  </a>
-                </div>
-              
-                <!-- VERSIÓN MÓVIL (slider con ID único) -->
-                <div
-                  id="slider-header"
-                  class="sm:hidden overflow-x-auto flex gap-3 snap-x snap-mandatory scroll-smooth slider-container"
-                >
-                  <a href="#" class="min-w-[80%] bg-white shadow-sm rounded-md overflow-hidden snap-start">
-                    <img src="img/conjuntos.jpg" alt="Producto 1" class="w-full h-36 object-cover">
-                    <div class="p-2">
-                      <p class="text-sm font-semibold text-blue-700">Conjuntos en tendencia</p>
-                      <p class="bg-gray-800 text-white text-sm font-bold px-2 py-1 mt-1 inline-block rounded">
-                        $104,454.00
-                      </p>
-                    </div>
-                  </a>
-              
-                  <a href="#" class="min-w-[80%] bg-white shadow-sm rounded-md overflow-hidden snap-start">
-                    <img src="img/zapatillas nike.jpg" alt="Producto 2" class="w-full h-36 object-cover">
-                    <div class="p-2">
-                      <p class="text-sm font-semibold text-gray-800">Lo mejor en el deporte</p>
-                      <p class="bg-gray-800 text-white text-sm font-bold px-2 py-1 mt-1 inline-block rounded">
-                        $1,362.00
-                      </p>
-                    </div>
-                  </a>
-              
-                  <a href="#" class="min-w-[80%] bg-white shadow-sm rounded-md overflow-hidden snap-start">
-                    <img src="img/construir.jpg" alt="Producto 3" class="w-full h-36 object-cover">
-                    <div class="p-2">
-                      <p class="text-sm font-semibold text-pink-600">Construye tu casa</p>
-                      <p class="bg-gray-800 text-white text-sm font-bold px-2 py-1 mt-1 inline-block rounded">
-                        $145,714.00
-                      </p>
-                    </div>
-                  </a>
-                </div>
-              </div> 
-          </div>
-        </div>
-      </section>
+      <section class="informacion"> 
+        <div class="info-container"> 
+          <div class="info-item"> 
+            <i class="fa-solid fa-truck-fast"></i> 
+            <div> 
+              <h3>Envío Gratis</h3> 
+              <p>En compras mayores a $50,000</p> 
+            </div> 
+          </div> 
+          <div class="info-item"> 
+            <i class="fa-solid fa-headset"></i> 
+            <div> 
+              <h3>Soporte 24/7</h3> 
+              <p>Estamos para ayudarte</p> 
+            </div> 
+          </div> 
+          <div class="info-item"> 
+            <i class="fa-solid fa-shield-halved"></i> 
+            <div> 
+              <h3>Compra Segura</h3> 
+              <p>Protegemos tus datos</p> 
+            </div> 
+          </div> 
+          <div class="info-item"> 
+            <i class="fa-solid fa-tags"></i> 
+            <div> 
+              <h3>Mejores Precios</h3> 
+              <p>Ofertas exclusivas</p> 
+            </div> 
+          </div> 
+        </div> 
+      </section>     
+    
       <!-- ===========================
            CATEGORÍAS DESTACADAS
            =========================== -->
