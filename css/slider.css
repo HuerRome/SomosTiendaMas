@@ -8,7 +8,20 @@
 
 
 
+/* Celulares pequeños */
+@media (max-width: 480px) {
+    .ofertas-scroll {
+      scrollbar-width: none; /* Firefox */
+      -ms-overflow-style: none; /* IE y Edge antiguos */
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+    }
+    
+    .ofertas-scroll::-webkit-scrollbar {
+      display: none; /* Chrome, Safari y Edge */
+    }
 
+}
 
 
 

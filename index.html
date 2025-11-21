@@ -63,7 +63,7 @@
   <!-- ===========================
        HEADER (FIXED)
        =========================== -->
-  <header class="header fixed md:static inset-x-0 top-0 z-40 bg-white backdrop-blur-md border-b border-slate-200">
+  <header class="header fixed md:static inset-x-0 top-0 z-40 bg-blue-500 backdrop-blur-md border-b border-slate-200">
     <div class="mx-auto w-full max-w-[var(--max-width)] px-4 sm:px-6 lg:px-8">  
       <!-- Fila 1: Logo + Buscador + Acciones -->
       <div class="flex items-center justify-between h-16 gap-4">
@@ -72,7 +72,7 @@
         <a href="#" class="flex items-center gap-3 shrink-0">
 
           <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background:linear-gradient(135deg,var(--tm-orange),var(--tm-orange-hover));">
-            <img src="assets/marketplace-data/Logo.png" alt="Logo" class="w-full h-full object-cover">
+            <img src="assets/marketplace-data/Logo.png" alt="Logo" class="w-full h-full object-cover"> 
           </div>
 
           <div class="hidden sm:block">
@@ -103,7 +103,7 @@
             <i class="fa-solid fa-user"></i> Ingresá
           </a>
           <a href="#registrarse" class="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold bg-[var(--tm-orange)] text-white focus-ring transition" aria-label="Registrarse en Tienda Mas">
-            Registrarse
+            Regístrate
           </a>
           <!-- Carrito -->
           <a id="carrito" href="/carrito" class="relative flex items-center space-x-2 p-2 rounded-full hover:bg-slate-100 transition hidden md:block">
@@ -130,13 +130,28 @@
       </div>
   
       <!-- Fila 2: Navegación -->
-      <nav class="hidden md:flex items-center gap-6 py-2 border-t border-slate-200" aria-label="Main navigation">
-        <a href="#categorias" class="text-sm hover:text-[#2563EB] transition">Categorías</a>
+      <!--<nav id="nav" class="hidden md:flex items-center gap-6 py-2 border-t border-slate-200" aria-label="Main navigation">
+        <a href="#categorias" class="text-sm hover:text-[#2563EB] transition">Categorías <i class="fa-solid fa-chevron-down"></i></a>
+        <a href="#ofertas" class="text-sm hover:text-[#2563EB] transition">Ofertas</a>
         <a href="#destacados" class="text-sm hover:text-[#2563EB] transition">Destacados</a>
         <a href="#novedades" class="text-sm hover:text-[#2563EB] transition">Novedades</a>
         <a href="#contacto" class="text-sm hover:text-[#2563EB] transition">Contacto / Soporte</a>
         <a href="#ayuda" class="text-sm hover:text-[#2563EB] transition">Ayuda</a>
         <a href="#vender" class="text-sm hover:text-[#2563EB] transition">Vender</a>
+        <img src="assets/marketplace-data/envio - delivery.jpg" alt="">
+      </nav>-->
+      <!-- Fila 2: Navegación -->
+      <nav id="nav" class="hidden md:flex justify-between w-full items-center gap-6 border-t border-slate-200 bg-gray-50" aria-label="Main navigation">
+        <div class="flex items-center gap-6 bg-gray-100 gap-6 py-2">
+          <a href="#categorias" class="text-sm hover:text-[#2563EB] transition">Categorías <i class="fa-solid fa-chevron-down"></i></a>
+          <a href="#ofertas" class="text-sm hover:text-[#2563EB] transition">Ofertas</a>
+          <a href="#destacados" class="text-sm hover:text-[#2563EB] transition">Destacados</a>
+          <a href="#novedades" class="text-sm hover:text-[#2563EB] transition">Novedades</a>
+          <a href="#contacto" class="text-sm hover:text-[#2563EB] transition">Contacto / Soporte</a>
+          <a href="#ayuda" class="text-sm hover:text-[#2563EB] transition">Ayuda</a>
+          <a href="#vender" class="text-sm hover:text-[#2563EB] transition">Vender</a>
+        </div>
+        <img src="assets/marketplace-data/envio - delivery.jpg" alt="">
       </nav>
     </div>
   
@@ -476,7 +491,7 @@
           </div>
       
           <!-- Scrollable horizontal list (touch friendly) -->
-          <div class="overflow-x-auto snap-x flex gap-4 pb-4">
+          <div class="overflow-x-auto snap-x flex gap-4 pb-4 scroll-hide ofertas-scroll">
             <!-- Card product example -->
             <article class="min-w-[240px] w-[240px] bg-white rounded-xl p-4 border card-lift snap-child" role="group" aria-label="Producto 1">
               <div class="aspect-[4/3] bg-gray-100 rounded-lg overflow-hidden flex items-center justify-center">

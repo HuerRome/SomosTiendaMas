@@ -1,0 +1,297 @@
+<!-- index.html -->
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>TiendaMas — Marketplace</title>
+
+  <!-- Tailwind CDN (rápido para prototipo). Para producción usar build de Tailwind. -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    // Configuración rápida de colores personalizados
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: '#063940',
+            sand: '#ece1c3'
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Pequeñas reglas adicionales */
+    .line-clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  </style>
+</head>
+<body class="antialiased bg-white text-gray-800">
+
+  <!-- Top bar -->
+  <div class="bg-brand text-white text-sm">
+    <div class="max-w-7xl mx-auto px-4 py-1 flex justify-between items-center">
+      <div class="flex items-center gap-4 text-xs">
+        <span>Envío Gratis en compras mayores a $50.000</span>
+        <span>·</span>
+        <span>Soporte 24/7</span>
+        <span>·</span>
+        <span>Compra Segura</span>
+      </div>
+      <div class="hidden sm:flex gap-4 items-center text-xs">
+        <a href="#" class="underline">Ayuda</a>
+        <a href="#" class="underline">Vender en TiendaMas</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="bg-white shadow-sm sticky top-0 z-40">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-4">
+        <!-- Mobile menu button -->
+        <button id="btn-mobile" class="sm:hidden p-2 rounded-md hover:bg-gray-100" aria-label="Abrir menú">
+          <svg class="w-6 h-6 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+
+        <!-- Logo -->
+        <a href="#" class="flex items-center gap-3">
+          <div class="text-2xl font-extrabold text-brand">Tienda<span class="text-sand">Mas</span></div>
+        </a>
+
+        <!-- Desktop nav -->
+        <nav class="hidden sm:flex gap-6 ml-4 items-center text-sm">
+          <a href="#" class="hover:text-brand">Tecnología</a>
+          <a href="#" class="hover:text-brand">Moda</a>
+          <a href="#" class="hover:text-brand">Hogar</a>
+          <a href="#" class="hover:text-brand">Belleza</a>
+          <a href="#" class="hover:text-brand">Ferretería</a>
+        </nav>
+      </div>
+
+      <!-- Actions -->
+      <div class="flex items-center gap-3">
+        <div class="hidden md:block">
+          <input id="search" type="text" placeholder="Buscar productos..." class="border rounded-md px-3 py-2 w-72 focus:outline-none focus:ring-2 focus:ring-brand" />
+        </div>
+        <button class="p-2 rounded-md hover:bg-gray-100">Carrito</button>
+        <button class="p-2 rounded-md border border-gray-200">Ingresar</button>
+        <button class="hidden sm:inline-block bg-brand text-white px-4 py-2 rounded-md">Registrate</button>
+      </div>
+    </div>
+
+    <!-- Mobile menu (hidden by default) -->
+    <div id="mobile-menu" class="sm:hidden hidden border-t bg-white">
+      <div class="px-4 py-3 flex flex-col gap-3">
+        <input type="text" placeholder="Buscar..." class="border rounded-md px-3 py-2 focus:outline-none" />
+        <a href="#" class="py-2 border-b">Tecnología</a>
+        <a href="#" class="py-2 border-b">Moda</a>
+        <a href="#" class="py-2 border-b">Hogar</a>
+        <a href="#" class="py-2 border-b">Belleza</a>
+        <a href="#" class="py-2 border-b">Ferretería</a>
+        <a href="#" class="py-2">Soporte</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main -->
+  <main class="max-w-7xl mx-auto px-4 py-6">
+
+    <!-- Hero + Sidebar -->
+    <section class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+      <!-- Hero block -->
+      <div class="lg:col-span-2 bg-gradient-to-r from-sand to-white rounded-lg p-6 flex flex-col justify-between">
+        <div>
+          <h1 class="text-3xl md:text-4xl font-extrabold text-brand">La Promo termina: 8 oct., 03:59 (GMT-3)</h1>
+          <p class="mt-3 text-gray-700 max-w-xl">Hasta -40% DTO. Encontrá las mejores ofertas en tecnología, hogar y moda. Envíos rápidos y pagos seguros.</p>
+          <div class="mt-6 flex gap-3">
+            <a href="#" class="bg-brand text-white px-5 py-3 rounded-md shadow">Ver Ofertas</a>
+            <a href="#" class="px-5 py-3 border rounded-md">Categorías</a>
+          </div>
+        </div>
+
+        <div class="mt-6 md:mt-4">
+          <!-- Image banner -->
+          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1200&q=60" alt="Promo" class="w-full rounded-md shadow-sm" />
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <aside class="bg-white border rounded-lg p-4">
+        <h3 class="font-semibold text-lg mb-3">Categorías</h3>
+        <ul class="grid grid-cols-2 gap-2 text-sm">
+          <li class="py-2 px-2 border rounded-md text-center">Tecnología</li>
+          <li class="py-2 px-2 border rounded-md text-center">Moda</li>
+          <li class="py-2 px-2 border rounded-md text-center">Hogar</li>
+          <li class="py-2 px-2 border rounded-md text-center">Belleza</li>
+          <li class="py-2 px-2 border rounded-md text-center">Ferretería</li>
+          <li class="py-2 px-2 border rounded-md text-center">Alimentos</li>
+        </ul>
+      </aside>
+    </section>
+
+    <!-- Products -->
+    <section>
+      <div class="flex items-center justify-between mb-4">
+        <h2 class="text-2xl font-semibold">Más vendidos de la semana</h2>
+        <a href="#" class="text-sm underline">Ver todos</a>
+      </div>
+
+      <div id="products" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <!-- Product cards se inyectan por JS -->
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div class="p-4 border rounded-md text-center">
+        <h4 class="font-semibold">Pagos seguros</h4>
+        <p class="text-sm text-gray-600">Plataforma con integraciones de pago y conciliación automatizada.</p>
+      </div>
+      <div class="p-4 border rounded-md text-center">
+        <h4 class="font-semibold">Soporte dedicado</h4>
+        <p class="text-sm text-gray-600">Atención a vendedores y compradores con SLA personalizado.</p>
+      </div>
+      <div class="p-4 border rounded-md text-center">
+        <h4 class="font-semibold">Escalabilidad</h4>
+        <p class="text-sm text-gray-600">Soporta crecimiento de catálogo y tráfico con caching y microservicios.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-50 border-t mt-12">
+    <div class="max-w-7xl mx-auto px-4 py-10 grid grid-cols-1 md:grid-cols-4 gap-6">
+      <div>
+        <h5 class="font-bold text-brand">TiendaMas</h5>
+        <p class="text-sm text-gray-600 mt-2">Regístrate, subí tu catálogo y accedé a ventas mayoristas desde el primer día.</p>
+      </div>
+      <div>
+        <h6 class="font-semibold">Categorías</h6>
+        <ul class="text-sm text-gray-600 mt-2 space-y-1">
+          <li>Tecnología</li>
+          <li>Moda</li>
+          <li>Hogar</li>
+          <li>Ferretería</li>
+        </ul>
+      </div>
+      <div>
+        <h6 class="font-semibold">Soporte</h6>
+        <ul class="text-sm text-gray-600 mt-2 space-y-1">
+          <li>Contacto</li>
+          <li>Preguntas Frecuentes</li>
+        </ul>
+      </div>
+      <div>
+        <h6 class="font-semibold">Contacto</h6>
+        <p class="text-sm text-gray-600 mt-2">soporte@tiendamas.com</p>
+        <p class="text-sm text-gray-600">+54 9 11 1234 5678</p>
+      </div>
+    </div>
+    <div class="border-t py-4 text-center text-sm text-gray-500">© <span id="year"></span> TiendaMas. Todos los derechos reservados.</div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Mobile menu toggle
+    const btnMobile = document.getElementById('btn-mobile');
+    const mobileMenu = document.getElementById('mobile-menu');
+    btnMobile.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Productos dummy (reemplazá con tus datos reales)
+    const productsData = [
+      { id:1, title:'Lavarropas Automático Drean 8kg EcoSilent', price:'599.999', oldPrice:'999.999', discount:'40% OFF', installments:'12 cuotas de $99.999', img:'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=60' },
+      { id:2, title:'Heladera No Frost Whirlpool 400L Inverter', price:'779.999', oldPrice:'1.299.999', discount:'40% OFF', installments:'12 cuotas de $129.999', img:'https://images.unsplash.com/photo-1542293787938-c9e299b88035?auto=format&fit=crop&w=800&q=60' },
+      { id:3, title:'Taladro Percutor Profesional 900W', price:'49.999', oldPrice:'79.999', discount:'38% OFF', installments:'6 cuotas de $8.333', img:'https://images.unsplash.com/photo-1581092160633-9d6e1b0f8b3a?auto=format&fit=crop&w=800&q=60' },
+      { id:4, title:'Notebook 14\" Ultraligera 16GB RAM', price:'259.999', oldPrice:'339.999', discount:'23% OFF', installments:'12 cuotas de $21.666', img:'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=800&q=60' },
+      { id:5, title:'Smart TV 50\" 4K QLED', price:'199.999', oldPrice:'299.999', discount:'33% OFF', installments:'12 cuotas $16.666', img:'https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=800&q=60' },
+      { id:6, title:'Silla Ergonómica Office Pro', price:'39.999', oldPrice:'59.999', discount:'33% OFF', installments:'6 cuotas $6.666', img:'https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=800&q=60' },
+      { id:7, title:'Set de ollas antiadherentes 10 piezas', price:'12.999', oldPrice:'19.999', discount:'35% OFF', installments:'3 cuotas $4.333', img:'https://images.unsplash.com/photo-1525755662778-989d0524087e?auto=format&fit=crop&w=800&q=60' },
+      { id:8, title:'Cargador Solar Portátil 20W', price:'8.999', oldPrice:'13.499', discount:'33% OFF', installments:'3 cuotas $2.999', img:'https://images.unsplash.com/photo-1509395176047-4a66953fd231?auto=format&fit=crop&w=800&q=60' }
+    ];
+
+    const productsEl = document.getElementById('products');
+
+    function createCard(p) {
+      const card = document.createElement('article');
+      card.className = 'border rounded-lg p-3 hover:shadow-lg transition-shadow bg-white flex flex-col';
+
+      const imgWrap = document.createElement('div');
+      imgWrap.className = 'w-full h-48 bg-gray-100 rounded-md overflow-hidden flex items-center justify-center';
+      const img = document.createElement('img');
+      img.src = p.img;
+      img.alt = p.title;
+      img.className = 'object-cover w-full h-full';
+      imgWrap.appendChild(img);
+
+      const h3 = document.createElement('h3');
+      h3.className = 'mt-3 font-medium text-sm line-clamp-2';
+      h3.textContent = p.title;
+
+      const priceRow = document.createElement('div');
+      priceRow.className = 'mt-2 flex items-baseline gap-2';
+      const priceEl = document.createElement('span');
+      priceEl.className = 'text-lg font-bold text-brand';
+      priceEl.textContent = '$' + p.price;
+      const oldEl = document.createElement('span');
+      oldEl.className = 'text-sm text-gray-500 line-through';
+      oldEl.textContent = '$' + p.oldPrice;
+      const disc = document.createElement('span');
+      disc.className = 'ml-auto text-xs bg-yellow-200 px-2 py-1 rounded-md';
+      disc.textContent = p.discount;
+
+      priceRow.appendChild(priceEl);
+      priceRow.appendChild(oldEl);
+      priceRow.appendChild(disc);
+
+      const inst = document.createElement('p');
+      inst.className = 'text-xs text-gray-600 mt-2';
+      inst.textContent = p.installments;
+
+      const actions = document.createElement('div');
+      actions.className = 'mt-3 flex gap-2 mt-auto';
+      const buy = document.createElement('button');
+      buy.className = 'flex-1 bg-brand text-white py-2 rounded-md';
+      buy.textContent = 'Comprar';
+      const det = document.createElement('button');
+      det.className = 'flex-1 border py-2 rounded-md';
+      det.textContent = 'Detalles';
+      actions.appendChild(buy);
+      actions.appendChild(det);
+
+      card.appendChild(imgWrap);
+      card.appendChild(h3);
+      card.appendChild(priceRow);
+      card.appendChild(inst);
+      card.appendChild(actions);
+
+      return card;
+    }
+
+    // Render products
+    productsData.forEach(p => {
+      productsEl.appendChild(createCard(p));
+    });
+
+    // Simple search filter (cliente)
+    document.getElementById('search')?.addEventListener('input', (e) => {
+      const q = e.target.value.toLowerCase();
+      productsEl.innerHTML = '';
+      const filtered = productsData.filter(p => p.title.toLowerCase().includes(q));
+      if (filtered.length === 0) {
+        productsEl.innerHTML = '<p class="text-gray-500">No se encontraron productos.</p>';
+      } else {
+        filtered.forEach(p => productsEl.appendChild(createCard(p)));
+      }
+    });
+  </script>
+</body>
+</html>
