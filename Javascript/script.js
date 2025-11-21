@@ -1,17 +1,4 @@
-//Slider del header
-/*document.addEventListener("DOMContentLoaded", () => {
-  const slider = document.getElementById("slider-header");
-  if (!slider) return;
-  let scrollPos = 0;
-  const step = () => slider.clientWidth * 0.8;
-  setInterval(() => {
-    scrollPos += step();
-    if (scrollPos >= slider.scrollWidth - slider.clientWidth) {
-      scrollPos = 0;
-    }
-    slider.scrollTo({ left: scrollPos, behavior: "smooth" });
-  }, 3000);
-});*/
+
 
 //Slider de productos
 
