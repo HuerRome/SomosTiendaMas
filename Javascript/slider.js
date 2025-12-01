@@ -1,58 +1,60 @@
 
-  const swiper = new Swiper(".categoriaSlider", {
-    slidesPerView: 2,
-    spaceBetween: 10,
-    grabCursor: true,
-    loop: true,
-    centeredSlides: false,
-    autoplay: {
-      delay: 2500,
-      disableOnInteraction: false,
-    },
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-    },
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-    breakpoints: {
-      640: { slidesPerView: 4, spaceBetween: 15 },
-      1024: { slidesPerView: 6, spaceBetween: 20 },
-      1280: { slidesPerView: 8, spaceBetween: 24 },
-    },
-  });
+const slider = document.querySelector('.slider');
+const slides = document.querySelectorAll('.slide');
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
+const dotsContainer = document.getElementById('dots');
 
-  const slider = document.getElementById("ofertasScroll");
-  let isDown = false;
-  let startX;
-  let scrollLeft;
+let index = 0;
 
-  slider.addEventListener("mousedown", (e) => {
-    isDown = true;
-    slider.classList.add("cursor-grabbing");
-    startX = e.pageX - slider.offsetLeft;
-    scrollLeft = slider.scrollLeft;
-  });
+/* Crear puntos dinámicos */
+slides.forEach((_, i) => {
+  const dot = document.createElement('span');
+  dot.setAttribute('data-index', i);
+  dotsContainer.appendChild(dot);
+});
+updateDots();
 
-  slider.addEventListener("mouseleave", () => {
-    isDown = false;
-    slider.classList.remove("cursor-grabbing");
-  });
+/* Mover slider */
+function showSlide(i) {
+  index = (i + slides.length) % slides.length;
+  slider.style.transform = `translateX(${-index * 100}%)`;
+  updateDots();
+}
 
-  slider.addEventListener("mouseup", () => {
-    isDown = false;
-    slider.classList.remove("cursor-grabbing");
+/* Actualizar puntos */
+function updateDots() {
+  document.querySelectorAll('.dots span').forEach((dot, i) => {
+    dot.classList.toggle('active', i === index);
+    dot.onclick = () => showSlide(i);
   });
+}
 
-  slider.addEventListener("mousemove", (e) => {
-    if (!isDown) return;
-    e.preventDefault();
-    const x = e.pageX - slider.offsetLeft;
-    const walk = (x - startX) * 1.5; // velocidad del arrastre
-    slider.scrollLeft = scrollLeft - walk;
-  });
+/* Flechas */
+prevBtn.onclick = () => showSlide(index - 1);
+nextBtn.onclick = () => showSlide(index + 1);
+
+/* Swipe para móviles */
+let startX = 0;
+slider.addEventListener('touchstart', e => startX = e.touches[0].clientX);
+slider.addEventListener('touchend', e => {
+  let endX = e.changedTouches[0].clientX;
+  if (startX - endX > 50) showSlide(index + 1);
+  if (endX - startX > 50) showSlide(index - 1);
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

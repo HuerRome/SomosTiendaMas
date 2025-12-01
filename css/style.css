@@ -1,0 +1,35 @@
+:root{
+  --tm-orange: #FF6B35;
+  --tm-orange-hover: #E55627;
+  --tm-blue: #004E89;
+  --tm-gray-light: #F8F9FA;
+  --max-width: 1200px;
+  --titulo-naranja:#ffff;
+  --titulo-azul: #2563EB;
+}
+
+/* Focus visible personalizado para accesibilidad */
+.focus-ring:focus {
+  outline: 3px solid rgba(0,78,137,0.18);
+  outline-offset: 3px;
+}
+
+/* Card subtle lift */
+.card-lift {
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.card-lift:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 30px rgba(2,6,23,.08);
+}
+
+/* Tiny horizontal scroll snap para productos destacados */
+.snap-x { scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; }
+.snap-child { scroll-snap-align: start; }
+
+/* Badge */
+.badge {
+  background: linear-gradient(90deg, var(--tm-orange), var(--tm-orange-hover));
+  color: white;
+  font-weight: 600;
+}

@@ -1,42 +1,52 @@
+// Header mobile toggle (accessible)
+(function(){
+  const btn = document.getElementById('btn-mobile');
+  const menu = document.getElementById('mobile-menu');
+  const iconOpen = document.getElementById('icon-open');
+  const iconClose = document.getElementById('icon-close');
+
+  btn.addEventListener('click', () => {
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!expanded));
+    if (menu.hasAttribute('hidden')) {
+      menu.removeAttribute('hidden');
+      iconOpen.classList.add('hidden');
+      iconClose.classList.remove('hidden');
+    } else {
+      menu.setAttribute('hidden', '');
+      iconOpen.classList.remove('hidden');
+      iconClose.classList.add('hidden');
+    }
+  });
+
+  // Keyboard: close mobile menu on ESC
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      menu.setAttribute('hidden', '');
+      btn.setAttribute('aria-expanded', 'false');
+      iconOpen.classList.remove('hidden');
+      iconClose.classList.add('hidden');
+    }
+  });
+
+      // Update footer year
+  document.getElementById('year').textContent = new Date().getFullYear();
+})();
+
+// Small enhancement: prefer-reduced-motion respect
+(function() {
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReduced) {
+    document.documentElement.classList.add('reduce-motion');
+  }
+})();
 
 
-//Slider de productos
 
-      const carousel = document.getElementById('carousel');
-      const items = document.querySelectorAll('.carousel-item');
-      const dots = document.querySelectorAll('.dot');
-      let index = 0;
-  
-      function updateCarousel() {
-        carousel.style.transform = `translateX(-${index * 100}%)`;
-        dots.forEach((dot, i) => {
-          dot.classList.toggle('bg-white', i === index);
-          dot.classList.toggle('bg-white/50', i !== index);
-        });
-      }
-  
-      document.getElementById('next').addEventListener('click', () => {
-        index = (index + 1) % items.length;
-        updateCarousel();
-      });
-  
-      document.getElementById('prev').addEventListener('click', () => {
-        index = (index - 1 + items.length) % items.length;
-        updateCarousel();
-      });
-  
-      dots.forEach((dot, i) => {
-        dot.addEventListener('click', () => {
-          index = i;
-          updateCarousel();
-        });
-      });
-  
-      // Cambio automático cada 5 segundos
-      setInterval(() => {
-        index = (index + 1) % items.length;
-        updateCarousel();
-      }, 5000);
-  
-      updateCarousel();
-    
+
+
+
+
+
+
+

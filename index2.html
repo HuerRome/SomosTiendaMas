@@ -7,73 +7,31 @@
   <link rel="shortcut icon" href="assets/marketplace-data/Logo.png">
   <!-- Tailwind Play CDN (rápido para prototipo) -->
   <script src="https://cdn.tailwindcss.com"></script>
-
   <!-- Tipografías -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-
   <!-- Font Awesome para iconos (opcional) -->
   <script src="https://kit.fontawesome.com/your_kit_id.js" crossorigin="anonymous"></script>
   <!-- Si no tenés kit, podés usar: https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
- 
   <!-- Paleta y pequeños estilos adicionales -->
-  <style>
-    :root{
-      --tm-orange: #FF6B35;
-      --tm-orange-hover: #E55627;
-      --tm-blue: #004E89;
-      --tm-gray-light: #F8F9FA;
-      --max-width: 1200px;
-      --titulo-naranja:#ffff;
-      --titulo-azul: #2563EB;
-    }
-
-    /* Focus visible personalizado para accesibilidad */
-    .focus-ring:focus {
-      outline: 3px solid rgba(0,78,137,0.18);
-      outline-offset: 3px;
-    }
-
-    /* Card subtle lift */
-    .card-lift {
-      transition: transform .18s ease, box-shadow .18s ease;
-    }
-    .card-lift:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 14px 30px rgba(2,6,23,.08);
-    }
-
-    /* Tiny horizontal scroll snap para productos destacados */
-    .snap-x { scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; }
-    .snap-child { scroll-snap-align: start; }
-
-    /* Badge */
-    .badge {
-      background: linear-gradient(90deg, var(--tm-orange), var(--tm-orange-hover));
-      color: white;
-      font-weight: 600;
-    }
-  </style>
-  <link rel="stylesheet" href="css/pagina_principal.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/header.css">
   <link rel="stylesheet" href="css/banner.css">
+  <link rel="stylesheet" href="css/informacion.css">
+  <link rel="stylesheet" href="css/slider.css">
 </head>
 <body class="antialiased text-slate-800 bg-white font-['Inter',system-ui,Arial]">
   <!-- ===========================
        HEADER (FIXED)
        =========================== -->
-  <header class="header fixed md:static inset-x-0 top-0 z-40 bg-white backdrop-blur-md border-b border-slate-200">
+  <header class="header fixed md:static inset-x-0 top-0 z-40 backdrop-blur-md bg-white border-b border-slate-200">
     <div class="mx-auto w-full max-w-[var(--max-width)] px-4 sm:px-6 lg:px-8">  
-      <!-- Fila 1: Logo + Buscador + Acciones -->
       <div class="flex items-center justify-between h-16 gap-4">
-        
-        <!-- Logo -->
         <a href="#" class="flex items-center gap-3 shrink-0">
-
           <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background:linear-gradient(135deg,var(--tm-orange),var(--tm-orange-hover));">
-            <img src="assets/marketplace-data/Logo.png" alt="Logo" class="w-full h-full object-cover">
+            <img src="assets/marketplace-data/Logo.png" alt="Logo" class="w-full h-full object-cover"> 
           </div>
-
           <div class="hidden sm:block">
             <span class="font-semibold text-lg text-orange-500">Tienda<span class="text-blue-600">Mas+</span></span>
             <p class="text-xs text-slate-500">Marketplace mayorista</p>
@@ -102,7 +60,7 @@
             <i class="fa-solid fa-user"></i> Ingresá
           </a>
           <a href="#registrarse" class="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold bg-[var(--tm-orange)] text-white focus-ring transition" aria-label="Registrarse en Tienda Mas">
-            Registrarse
+            Regístrate
           </a>
           <!-- Carrito -->
           <a id="carrito" href="/carrito" class="relative flex items-center space-x-2 p-2 rounded-full hover:bg-slate-100 transition hidden md:block">
@@ -129,13 +87,30 @@
       </div>
   
       <!-- Fila 2: Navegación -->
-      <nav class="hidden md:flex items-center gap-6 py-2 border-t border-slate-200" aria-label="Main navigation">
-        <a href="#categorias" class="text-sm hover:text-[#2563EB] transition">Categorías</a>
+      <!--<nav id="nav" class="hidden md:flex items-center gap-6 py-2 border-t border-slate-200" aria-label="Main navigation">
+        <a href="#categorias" class="text-sm hover:text-[#2563EB] transition">Categorías <i class="fa-solid fa-chevron-down"></i></a>
+        <a href="#ofertas" class="text-sm hover:text-[#2563EB] transition">Ofertas</a>
         <a href="#destacados" class="text-sm hover:text-[#2563EB] transition">Destacados</a>
         <a href="#novedades" class="text-sm hover:text-[#2563EB] transition">Novedades</a>
         <a href="#contacto" class="text-sm hover:text-[#2563EB] transition">Contacto / Soporte</a>
         <a href="#ayuda" class="text-sm hover:text-[#2563EB] transition">Ayuda</a>
         <a href="#vender" class="text-sm hover:text-[#2563EB] transition">Vender</a>
+        <img src="assets/marketplace-data/envio - delivery.jpg" alt="">
+      </nav>-->
+      <!-- Fila 2: Navegación -->
+      <nav id="nav" class="hidden md:flex justify-between w-full items-center border-t border-slate-200" aria-label="Main navigation">
+        <div class="flex items-center gap-6 gap-6 py-2">
+          <a href="#categorias" class="text-sm hover:text-[#2563EB] transition">Categorías <i class="fa-solid fa-chevron-down"></i></a>
+          <a href="#ofertas" class="text-sm hover:text-[#2563EB] transition">Ofertas</a>
+          <a href="#destacados" class="text-sm hover:text-[#2563EB] transition">Destacados</a>
+          <a href="#novedades" class="text-sm hover:text-[#2563EB] transition">Novedades</a>
+          <a href="#contacto" class="text-sm hover:text-[#2563EB] transition">Contacto / Soporte</a>
+          <a href="#ayuda" class="text-sm hover:text-[#2563EB] transition">Ayuda</a>
+          <a href="#vender" class="text-sm hover:text-[#2563EB] transition">Vender</a>
+        </div>
+        <a href="#">
+          <img src="assets/marketplace-data/envio 3.png" alt="">
+        </a>
       </nav>
     </div>
   
@@ -161,117 +136,82 @@
        HERO
        =========================== -->
   <main class="pt-16 md:pt-0">
-      <section class="banner">
-
-      </section>
-      <section id="hero" class="w-full py-6 px-4 md:px-10">
-        <!-- Contenedor principal -->
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-          
-          <!-- Texto principal -->
-          <div class="w-full md:w-2/3">
-              <p class="text-xs md:text-sm font-medium text-black-600 mb-2">
-                <span class="font-semibold">La Promo termina: 8 oct., 03:59 (GMT-3)</span>
-              </p>
-              <!-- Botón CTA -->
-              <div class="mt-0 flex">
-                <h1 class="text-2xl md:text-3xl font-extrabold text-[#D71A28] leading-tight">
-                  Hasta <span class="text-gray-900">-60%</span> DTO.
-                </h1>
-                <a href="#ofertas" 
-                   class="inline-block ml-2 px-4 py-2 rounded-full bg-gray-900 text-white text-sm font-semibold shadow-md hover:scale-105 hover:bg-gray-800 transition-all duration-300">
-                  Ver Ofertas →
-                </a>
-
-              </div>
-              <!-- CONTENEDOR GENERAL -->
-              <div class="mt-0">
-              
-                <!-- VERSIÓN DESKTOP (grilla) -->
-                <div class="hidden sm:grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-                  <!-- Producto 1 -->
-                  <a href="#" class="bg-white shadow-sm hover:shadow-md transition rounded-md overflow-hidden">
-                    <img src="assets/products/clothes/fashion/conjuntos.jpg" alt="Producto 1" class="w-full h-36 object-cover">
-                    <div class="p-2">
-                      <p class="text-sm font-semibold text-blue-700">Conjuntos en tendencia</p>
-                      <p class="bg-gray-800 text-white text-sm font-bold px-2 py-1 mt-1 inline-block rounded">
-                        $104,454.00
-                      </p>
-                    </div>
-                  </a>
-              
-                  <!-- Producto 2 -->
-                  <a href="#" class="bg-white shadow-sm hover:shadow-md transition rounded-md overflow-hidden">
-                    <img src="assets/products/clothes/sports/zapatillas nike blancas.jpg" alt="Producto 2" class="w-full h-36 object-cover">
-                    <div class="p-2">
-                      <p class="text-sm font-semibold text-gray-800">Lo mejor en el deporte</p>
-                      <p class="bg-gray-800 text-white text-sm font-bold px-2 py-1 mt-1 inline-block rounded">
-                        $1,362.00
-                      </p>
-                    </div>
-                  </a>
-              
-                  <!-- Producto 3 -->
-                  <a href="#" class="bg-white shadow-sm hover:shadow-md transition rounded-md overflow-hidden">
-                    <img src="assets/products/home/construir.jpg" alt="Producto 3" class="w-full h-36 object-cover">
-                    <div class="p-2">
-                      <p class="text-sm font-semibold text-pink-600">Construye tu casa</p>
-                      <p class="bg-gray-800 text-white text-sm font-bold px-2 py-1 mt-1 inline-block rounded">
-                        $145,714.00
-                      </p>
-                    </div>
-                  </a>
-                </div>
-              
-                <!-- VERSIÓN MÓVIL (slider con ID único) -->
-                <div
-                  id="slider-header"
-                  class="sm:hidden overflow-x-auto flex gap-3 snap-x snap-mandatory scroll-smooth slider-container"
-                >
-                  <a href="#" class="min-w-[80%] bg-white shadow-sm rounded-md overflow-hidden snap-start">
-                    <img src="img/conjuntos.jpg" alt="Producto 1" class="w-full h-36 object-cover">
-                    <div class="p-2">
-                      <p class="text-sm font-semibold text-blue-700">Conjuntos en tendencia</p>
-                      <p class="bg-gray-800 text-white text-sm font-bold px-2 py-1 mt-1 inline-block rounded">
-                        $104,454.00
-                      </p>
-                    </div>
-                  </a>
-              
-                  <a href="#" class="min-w-[80%] bg-white shadow-sm rounded-md overflow-hidden snap-start">
-                    <img src="img/zapatillas nike.jpg" alt="Producto 2" class="w-full h-36 object-cover">
-                    <div class="p-2">
-                      <p class="text-sm font-semibold text-gray-800">Lo mejor en el deporte</p>
-                      <p class="bg-gray-800 text-white text-sm font-bold px-2 py-1 mt-1 inline-block rounded">
-                        $1,362.00
-                      </p>
-                    </div>
-                  </a>
-              
-                  <a href="#" class="min-w-[80%] bg-white shadow-sm rounded-md overflow-hidden snap-start">
-                    <img src="img/construir.jpg" alt="Producto 3" class="w-full h-36 object-cover">
-                    <div class="p-2">
-                      <p class="text-sm font-semibold text-pink-600">Construye tu casa</p>
-                      <p class="bg-gray-800 text-white text-sm font-bold px-2 py-1 mt-1 inline-block rounded">
-                        $145,714.00
-                      </p>
-                    </div>
-                  </a>
-                </div>
-              </div> 
+      <div class="slider-container">
+        <div class="slider">
+          <div class="slide">
+            <img src="assets/banners/Banner principal.png" alt="Promo 1">
+          </div>
+          <div class="slide">
+            <img src="banner2.jpg" alt="Promo 2">
+          </div>
+          <div class="slide">
+            <img src="banner3.jpg" alt="Promo 3">
+          </div>
+          <div class="slide">
+            <img src="banner3.jpg" alt="Promo 4">
+          </div>
+          <div class="slide">
+            <img src="banner3.jpg" alt="Promo 4">
           </div>
         </div>
+      
+        <!-- Flechas -->
+        <button class="arrow left" id="prevBtn">&#10094;</button>
+        <button class="arrow right" id="nextBtn">&#10095;</button>
+      
+        <!-- Puntos -->
+        <div class="dots" id="dots"></div>
+      </div>
+
+      <section class="banner">
       </section>
-      <!-- ===========================
-           CATEGORÍAS DESTACADAS
-           =========================== -->
-      <section id="categorias" class="py-12">
-        <div class="mx-auto max-w-[var(--max-width)] px-4 sm:px-6 lg:px-8">
+
+      <section class="informacion"> 
+        <div class="info-container"> 
+          <div class="info-item"> 
+            <i class="fa-solid fa-truck-fast"></i> 
+            <div> 
+              <h3>Envío Gratis</h3> 
+              <p>En compras mayores a $50,000</p> 
+            </div> 
+          </div> 
+          <div class="info-item"> 
+            <i class="fa-solid fa-headset"></i> 
+            <div> 
+              <h3>Soporte 24/7</h3> 
+              <p>Estamos para ayudarte</p> 
+            </div> 
+          </div> 
+          <div class="info-item"> 
+            <i class="fa-solid fa-shield-halved"></i> 
+            <div> 
+              <h3>Compra Segura</h3> 
+              <p>Protegemos tus datos</p> 
+            </div> 
+          </div> 
+          <div class="info-item"> 
+            <i class="fa-solid fa-tags"></i> 
+            <div> 
+              <h3>Mejores Precios</h3> 
+              <p>Ofertas exclusivas</p> 
+            </div> 
+          </div> 
+        </div> 
+      </section>    
+
+      <!--===========================
+            CATEGORÍAS DESTACADAS
+          ===========================-->
+
+      <section class="bg-gray-50 py-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <!-- Header -->
           <div class="flex items-center justify-between mb-6">
-            <h2 class="text-2xl font-semibold">Categorías destacadas</h2>
-            <a href="#categorias" class="text-sm text-[var(--tm-blue)] hover:underline">Ver todas</a>
+            <h2 class="text-2xl font-bold text-gray-900">
+              Categorías
+            </h2>
+            <a href="#" class="text-sm text-blue-600 hover:underline">Ver más</a>
           </div>
-  
           <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-9 gap-4">
             <!-- Categoria card - reutilizable -->
             <a href="#"
@@ -337,18 +277,17 @@
               </div>
               <span class="text-sm sm:text-base font-medium mt-1 text-gray-800 text-center">Celulares</span>
             </a>
-          </div>      
+          </div>     
+          
         </div>
       </section>   
-      <!-- ===========================
-           SLIDER PRODUCTOS DESTACADOS
-           =========================== -->
+
       <section class="bg-gray-50 py-10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <!-- Header -->
           <div class="flex items-center justify-between mb-6">
             <h2 class="text-2xl font-bold text-gray-900">
-              Productos más vendidos de la semana
+              Más vendidos de la semana
             </h2>
             <a href="#" class="text-sm text-blue-600 hover:underline">Ver más</a>
           </div>
@@ -356,267 +295,13 @@
           <!-- Carousel container -->
           <div class="relative">
             <!-- Slider -->
-            <div id="productSlider" class="flex flex-wrap gap-4 justify-center sm:justify-start">
-              <!-- Products card -->
-              <div class="flex-none w-[140px] sm:w-[160px] md:w-[180px] bg-white rounded-md border hover:shadow-md transition">
+            <div id="productSlider" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 gap-4">          
+              <div class="bg-white rounded-lg shadow hover:shadow-lg transition">
                 <img src="assets/products/home/aire acondicionado.png" alt="Producto"
-                     class="w-full h-32 object-contain p-2">
-                <div class="px-2 pb-3">
-                  <h3 class="text-xs font-medium text-gray-700 line-clamp-2">
-                    Aire Acondicionado Portátil Frío/Calor 3000fs
-                  </h3>
-                  <p class="text-[11px] text-gray-400 line-through">$999.999</p>
-                  <p class="text-base font-bold text-green-600">$599.999</p>
-                  <p class="text-[11px] text-green-600">40% OFF</p>
-                  <p class="text-[11px] text-gray-500">12 cuotas de $99.999</p>
-                </div>
-              </div>
-        
-              <div class="flex-none w-[140px] sm:w-[160px] md:w-[180px] bg-white rounded-md border hover:shadow-md transition">
-                <img src="assets/products/electronics/smart Tv Grande.png" alt="Producto"
-                     class="w-full h-32 object-contain p-2">
-                <div class="px-2 pb-3">
-                  <h3 class="text-xs font-medium text-gray-700 line-clamp-2">
-                    Smart TV 50" 4K Ultra HD Samsung Crystal
-                  </h3>
-                  <p class="text-[11px] text-gray-400 line-through">$899.999</p>
-                  <p class="text-base font-bold text-green-600">$539.999</p>
-                  <p class="text-[11px] text-green-600">40% OFF</p>
-                  <p class="text-[11px] text-gray-500">12 cuotas de $89.999</p>
-                </div>
-              </div>
-       
-              <div class="flex-none w-[140px] sm:w-[160px] md:w-[180px] bg-white rounded-md border hover:shadow-md transition">
-                <img src="assets/products/home/heladera.jpg" alt="Producto"
-                     class="w-full h-32 object-contain p-2">
-                <div class="px-2 pb-3">
-                  <h3 class="text-xs font-medium text-gray-700 line-clamp-2">
-                    Heladera No Frost Whirlpool 400L Inverter
-                  </h3>
-                  <p class="text-[11px] text-gray-400 line-through">$1.299.999</p>
-                  <p class="text-base font-bold text-green-600">$779.999</p>
-                  <p class="text-[11px] text-green-600">40% OFF</p>
-                  <p class="text-[11px] text-gray-500">12 cuotas de $129.999</p>
-                </div>
-              </div>
-       
-              <div class="flex-none w-[140px] sm:w-[160px] md:w-[180px] bg-white rounded-md border hover:shadow-md transition">
-                <img src="assets/products/home/lavarropas.jpg" alt="Producto"
-                     class="w-full h-32 object-contain p-2">
-                <div class="px-2 pb-3">
-                  <h3 class="text-xs font-medium text-gray-700 line-clamp-2">
-                    Lavarropas Automático Drean 8kg EcoSilent
-                  </h3>
-                  <p class="text-[11px] text-gray-400 line-through">$999.999</p>
-                  <p class="text-base font-bold text-green-600">$599.999</p>
-                  <p class="text-[11px] text-green-600">40% OFF</p>
-                  <p class="text-[11px] text-gray-500">12 cuotas de $99.999</p>
-                </div>
-              </div>
-         
-              <div class="flex-none w-[140px] sm:w-[160px] md:w-[180px] bg-white rounded-md border hover:shadow-md transition">
-                <img src="assets/products/electronics/silla gamer.jpg" alt="Producto"
-                     class="w-full h-32 object-contain p-2">
-                <div class="px-2 pb-3">
-                  <h3 class="text-xs font-medium text-gray-700 line-clamp-2">
-                    Silla Ergonómica Gamer Reclinable con Luces LED RGB
-                  </h3>
-                  <p class="text-[11px] text-gray-400 line-through">$499.999</p>
-                  <p class="text-base font-bold text-green-600">$299.999</p>
-                  <p class="text-[11px] text-green-600">40% OFF</p>
-                  <p class="text-[11px] text-gray-500">12 cuotas de $49.999</p>
-                </div>
-              </div>
-       
-              <div class="flex-none w-[140px] sm:w-[160px] md:w-[180px] bg-white rounded-md border hover:shadow-md transition">
-                <img src="assets/products/electronics/parlante Home Theather.png" alt="Producto"
-                     class="w-full h-32 object-contain p-2">
-                <div class="px-2 pb-3">
-                  <h3 class="text-xs font-medium text-gray-700 line-clamp-2">
-                    Parlante Bluetooth JBL Charge 5 Portátil
-                  </h3>
-                  <p class="text-[11px] text-gray-400 line-through">$399.999</p>
-                  <p class="text-base font-bold text-green-600">$239.999</p>
-                  <p class="text-[11px] text-green-600">40% OFF</p>
-                  <p class="text-[11px] text-gray-500">12 cuotas de $39.999</p>
-                </div>
-              </div>
-           
-              <div class="flex-none w-[140px] sm:w-[160px] md:w-[180px] bg-white rounded-md border hover:shadow-md transition">
-                <img src="assets/products/electronics/smartWatch.jpg" alt="Producto"
-                     class="w-full h-32 object-contain p-2">
-                <div class="px-2 pb-3">
-                  <h3 class="text-xs font-medium text-gray-700 line-clamp-2">
-                    Smartwatch Xiaomi Mi Watch Active 2
-                  </h3>
-                  <p class="text-[11px] text-gray-400 line-through">$299.999</p>
-                  <p class="text-base font-bold text-green-600">$179.999</p>
-                  <p class="text-[11px] text-green-600">40% OFF</p>
-                  <p class="text-[11px] text-gray-500">12 cuotas de $29.999</p>
-                </div>
-              </div>
-
-              <div class="flex-none w-[140px] sm:w-[160px] md:w-[180px] bg-white rounded-md border hover:shadow-md transition">
-                <img src="assets/products/clothes/sports/zapatillas nike.jpg" alt="Producto"
-                     class="w-full h-32 object-contain p-2">
-                <div class="px-2 pb-3">
-                  <h3 class="text-xs font-medium text-gray-700 line-clamp-2">
-                    Zapatillas Nike Air Max 270 Hombre Originales
-                  </h3>
-                  <p class="text-[11px] text-gray-400 line-through">$299.999</p>
-                  <p class="text-base font-bold text-green-600">$179.999</p>
-                  <p class="text-[11px] text-green-600">40% OFF</p>
-                  <p class="text-[11px] text-gray-500">12 cuotas de $29.999</p>
-                </div>
-              </div>
-              <!---------------------------------------------------- -->
-              <div class="flex-none w-[140px] sm:w-[160px] md:w-[180px] bg-white rounded-md border hover:shadow-md transition">
-                <img src="assets/products/home/aire acondicionado.png" alt="Producto"
-                     class="w-full h-32 object-contain p-2">
-                <div class="px-2 pb-3">
-                  <h3 class="text-xs font-medium text-gray-700 line-clamp-2">
-                    Aire Acondicionado Portátil Frío/Calor 3000fs
-                  </h3>
-                  <p class="text-[11px] text-gray-400 line-through">$999.999</p>
-                  <p class="text-base font-bold text-green-600">$599.999</p>
-                  <p class="text-[11px] text-green-600">40% OFF</p>
-                  <p class="text-[11px] text-gray-500">12 cuotas de $99.999</p>
-                </div>
-              </div>
-        
-              <div class="flex-none w-[140px] sm:w-[160px] md:w-[180px] bg-white rounded-md border hover:shadow-md transition">
-                <img src="assets/products/electronics/smart Tv Grande.png" alt="Producto"
-                     class="w-full h-32 object-contain p-2">
-                <div class="px-2 pb-3">
-                  <h3 class="text-xs font-medium text-gray-700 line-clamp-2">
-                    Smart TV 50" 4K Ultra HD Samsung Crystal
-                  </h3>
-                  <p class="text-[11px] text-gray-400 line-through">$899.999</p>
-                  <p class="text-base font-bold text-green-600">$539.999</p>
-                  <p class="text-[11px] text-green-600">40% OFF</p>
-                  <p class="text-[11px] text-gray-500">12 cuotas de $89.999</p>
-                </div>
-              </div>
-       
-              <div class="flex-none w-[140px] sm:w-[160px] md:w-[180px] bg-white rounded-md border hover:shadow-md transition">
-                <img src="assets/products/home/heladera.jpg" alt="Producto"
-                     class="w-full h-32 object-contain p-2">
-                <div class="px-2 pb-3">
-                  <h3 class="text-xs font-medium text-gray-700 line-clamp-2">
-                    Heladera No Frost Whirlpool 400L Inverter
-                  </h3>
-                  <p class="text-[11px] text-gray-400 line-through">$1.299.999</p>
-                  <p class="text-base font-bold text-green-600">$779.999</p>
-                  <p class="text-[11px] text-green-600">40% OFF</p>
-                  <p class="text-[11px] text-gray-500">12 cuotas de $129.999</p>
-                </div>
-              </div>
-       
-              <div class="flex-none w-[140px] sm:w-[160px] md:w-[180px] bg-white rounded-md border hover:shadow-md transition">
-                <img src="assets/products/home/lavarropas.jpg" alt="Producto"
-                     class="w-full h-32 object-contain p-2">
-                <div class="px-2 pb-3">
-                  <h3 class="text-xs font-medium text-gray-700 line-clamp-2">
-                    Lavarropas Automático Drean 8kg EcoSilent
-                  </h3>
-                  <p class="text-[11px] text-gray-400 line-through">$999.999</p>
-                  <p class="text-base font-bold text-green-600">$599.999</p>
-                  <p class="text-[11px] text-green-600">40% OFF</p>
-                  <p class="text-[11px] text-gray-500">12 cuotas de $99.999</p>
-                </div>
-              </div>
-         
-              <div class="flex-none w-[140px] sm:w-[160px] md:w-[180px] bg-white rounded-md border hover:shadow-md transition">
-                <img src="assets/products/electronics/silla gamer.jpg" alt="Producto"
-                     class="w-full h-32 object-contain p-2">
-                <div class="px-2 pb-3">
-                  <h3 class="text-xs font-medium text-gray-700 line-clamp-2">
-                    Silla Ergonómica Gamer Reclinable con Luces LED RGB
-                  </h3>
-                  <p class="text-[11px] text-gray-400 line-through">$499.999</p>
-                  <p class="text-base font-bold text-green-600">$299.999</p>
-                  <p class="text-[11px] text-green-600">40% OFF</p>
-                  <p class="text-[11px] text-gray-500">12 cuotas de $49.999</p>
-                </div>
-              </div>
-       
-              <div class="flex-none w-[140px] sm:w-[160px] md:w-[180px] bg-white rounded-md border hover:shadow-md transition">
-                <img src="assets/products/electronics/parlante Home Theather.png" alt="Producto"
-                     class="w-full h-32 object-contain p-2">
-                <div class="px-2 pb-3">
-                  <h3 class="text-xs font-medium text-gray-700 line-clamp-2">
-                    Parlante Bluetooth JBL Charge 5 Portátil
-                  </h3>
-                  <p class="text-[11px] text-gray-400 line-through">$399.999</p>
-                  <p class="text-base font-bold text-green-600">$239.999</p>
-                  <p class="text-[11px] text-green-600">40% OFF</p>
-                  <p class="text-[11px] text-gray-500">12 cuotas de $39.999</p>
-                </div>
-              </div>
-           
-              <div class="flex-none w-[140px] sm:w-[160px] md:w-[180px] bg-white rounded-md border hover:shadow-md transition">
-                <img src="assets/products/electronics/smartWatch.jpg" alt="Producto"
-                     class="w-full h-32 object-contain p-2">
-                <div class="px-2 pb-3">
-                  <h3 class="text-xs font-medium text-gray-700 line-clamp-2">
-                    Smartwatch Xiaomi Mi Watch Active 2
-                  </h3>
-                  <p class="text-[11px] text-gray-400 line-through">$299.999</p>
-                  <p class="text-base font-bold text-green-600">$179.999</p>
-                  <p class="text-[11px] text-green-600">40% OFF</p>
-                  <p class="text-[11px] text-gray-500">12 cuotas de $29.999</p>
-                </div>
-              </div>
-
-              <div class="flex-none w-[140px] sm:w-[160px] md:w-[180px] bg-white rounded-md border hover:shadow-md transition">
-                <img src="assets/products/clothes/sports/zapatillas nike.jpg" alt="Producto"
-                     class="w-full h-32 object-contain p-2">
-                <div class="px-2 pb-3">
-                  <h3 class="text-xs font-medium text-gray-700 line-clamp-2">
-                    Zapatillas Nike Air Max 270 Hombre Originales
-                  </h3>
-                  <p class="text-[11px] text-gray-400 line-through">$299.999</p>
-                  <p class="text-base font-bold text-green-600">$179.999</p>
-                  <p class="text-[11px] text-green-600">40% OFF</p>
-                  <p class="text-[11px] text-gray-500">12 cuotas de $29.999</p>
-                </div>
-              </div>
-
-            </div>
-      
-            <!-- Botones -->
-            <button onclick="scrollLeft()" 
-                    class="absolute top-1/2 left-0 transform -translate-y-1/2 bg-white shadow-md rounded-full p-2 hover:bg-gray-100">
-              ◀
-            </button>
-            <button onclick="scrollRight()" 
-                    class="absolute top-1/2 right-0 transform -translate-y-1/2 bg-white shadow-md rounded-full p-2 hover:bg-gray-100">
-              ▶
-            </button>
-          </div>
-        </div>
-      </section>
-
-      <section class="bg-gray-50 py-10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <!-- Header -->
-          <div class="flex items-center justify-between mb-6">
-            <h2 class="text-2xl font-bold text-gray-900">
-              Más vendidos de la semana en Aires Acondicionados
-            </h2>
-            <a href="#" class="text-sm text-blue-600 hover:underline">Ver más</a>
-          </div>
-      
-          <!-- Carousel container -->
-          <div class="relative">
-            <!-- Slider -->
-            <div id="productSlider" class="flex gap-2 overflow-x-auto scroll-smooth no-scrollbar">          
-              <div class="flex-none w-[180px] sm:w-[200px] md:w-[220px] lg:w-[240px] bg-black rounded-lg shadow hover:shadow-lg transition">
-                <img src="img/slider 2/aire.png" alt="Producto"
                      class="w-full h-40 object-contain p-4">
                 <div class="p-4">
                   <h3 class="text-sm font-semibold text-gray-700 line-clamp-2">
-                    Aire Acondicionado Portátil Frío/Calor 3000fs
+                    Aire Acondicionado Portátil Frío/Calor 3000
                   </h3>
                   <p class="text-xs text-gray-400 line-through">$999.999</p>
                   <p class="text-lg font-bold text-green-600">$599.999</p>
@@ -624,8 +309,8 @@
                   <p class="text-xs text-gray-500">12 cuotas de $99.999</p>
                 </div>
               </div>
-              <div class="flex-none w-[180px] sm:w-[200px] md:w-[220px] lg:w-[240px] bg-black rounded-lg shadow hover:shadow-lg transition">
-                <img src="img/TV.jpg" alt="Producto"
+              <div class="bg-white rounded-lg shadow hover:shadow-lg transition">
+                <img src="assets/products/electronics/smart Tv Grande.png" alt="Producto"
                      class="w-full h-40 object-contain p-4">
                 <div class="p-4">
                   <h3 class="text-sm font-semibold text-gray-700 line-clamp-2">
@@ -637,21 +322,84 @@
                   <p class="text-xs text-gray-500">12 cuotas de $89.999</p>
                 </div>
               </div>
-              <div class="flex-none w-[180px] sm:w-[200px] md:w-[220px] lg:w-[240px] bg-black rounded-lg shadow hover:shadow-lg transition">
-                <img src="img/Heladera.jpg" alt="Producto"
+              <div class="bg-white rounded-lg shadow hover:shadow-lg transition">
+                <img src="assets/products/home/heladera.jpg" alt="Producto"
                      class="w-full h-40 object-contain p-4">
                 <div class="p-4">
                   <h3 class="text-sm font-semibold text-gray-700 line-clamp-2">
                     Heladera No Frost Whirlpool 400L Inverter
                   </h3>
                   <p class="text-xs text-gray-400 line-through">$1.299.999</p>
-                  <p class="text-lg font-bold text-green-600">$799.999</p>
+                  <p class="text-lg font-bold text-green-600">$779.999</p>
                   <p class="text-xs text-green-600">40% OFF</p>
                   <p class="text-xs text-gray-500">12 cuotas de $129.999</p>
                 </div>
               </div>
-              <div class="flex-none w-[180px] sm:w-[200px] md:w-[220px] lg:w-[240px] bg-black rounded-lg shadow hover:shadow-lg transition">
-                <img src="img/funda-protectora.jpg" alt="Producto"
+              <div class="bg-white rounded-lg shadow hover:shadow-lg transition">
+                <img src="assets/products/home/lavarropas.jpg" alt="Producto"
+                     class="w-full h-40 object-contain p-4">
+                <div class="p-4">
+                  <h3 class="text-sm font-semibold text-gray-700 line-clamp-2">Lavarropas Automático Drean 8kg EcoSilent</h3>
+                  <p class="text-xs text-gray-400 line-through">$999.999</p>
+                  <p class="text-lg font-bold text-green-600">$599.999</p>
+                  <p class="text-xs text-green-600">40% OFF</p>
+                  <p class="text-xs text-gray-500">12 cuotas de $99.999</p>
+                </div>
+              </div>
+              <div class="bg-white rounded-lg shadow hover:shadow-lg transition">
+                <img src="assets/products/electronics/silla gamer.jpg" alt="Producto"
+                     class="w-full h-40 object-contain p-4">
+                <div class="p-4">
+                  <h3 class="text-sm font-semibold text-gray-700 line-clamp-2">
+                    Silla Ergonómica Gamer Reclinable con Luces LED RGB
+                  </h3>
+                  <p class="text-xs text-gray-400 line-through">$499.999</p>
+                  <p class="text-lg font-bold text-green-600">$299.999</p>
+                  <p class="text-xs text-green-600">40% OFF</p>
+                  <p class="text-xs text-gray-500">12 cuotas de $49.999</p>
+                </div>
+              </div>
+              <div class="bg-white rounded-lg shadow hover:shadow-lg transition">
+                <img src="assets/products/electronics/parlante Home Theather.png" alt="Producto"
+                     class="w-full h-40 object-contain p-4">
+                <div class="p-4">
+                  <h3 class="text-sm font-semibold text-gray-700 line-clamp-2">
+                    Parlante Bluetooth JBL Charge 5 Portátil
+                  </h3>
+                  <p class="text-xs text-gray-400 line-through">$399.999</p>
+                  <p class="text-lg font-bold text-green-600">$239.999</p>
+                  <p class="text-xs text-green-600">40% OFF</p>
+                  <p class="text-xs text-gray-500">12 cuotas de $39.999</p>
+                </div>
+              </div>
+              <div class="bg-white rounded-lg shadow hover:shadow-lg transition">
+                <img src="assets/products/electronics/smartWatch.jpg" alt="Producto"
+                     class="w-full h-40 object-contain p-4">
+                <div class="p-4">
+                  <h3 class="text-sm font-semibold text-gray-700 line-clamp-2">
+                    Smartwatch Xiaomi Mi Watch Active 2
+                  </h3>
+                  <p class="text-xs text-gray-400 line-through">$299.999</p>
+                  <p class="text-lg font-bold text-green-600">$179.999</p>
+                  <p class="text-xs text-green-600">40% OFF</p>
+                  <p class="text-xs text-gray-500">12 cuotas de $29.999</p>
+                </div>
+              </div>
+              <div class="bg-white rounded-lg shadow hover:shadow-lg transition">
+                <img src="assets/products/clothes/sports/zapatillas nike blancas.jpg" alt="Producto"
+                     class="w-full h-40 object-contain p-4">
+                <div class="p-4">
+                  <h3 class="text-sm font-semibold text-gray-700 line-clamp-2">
+                    Zapatillas Nike Air Max 270 Hombre Originales
+                  </h3>
+                  <p class="text-xs text-gray-400 line-through">$299.999</p>
+                  <p class="text-lg font-bold text-green-600">$179.999</p>
+                  <p class="text-xs text-green-600">40% OFF</p>
+                  <p class="text-xs text-gray-500">12 cuotas de $29.999</p>
+                </div>
+              </div>
+              <div class="bg-white rounded-lg shadow hover:shadow-lg transition">
+                <img src="assets/products/home/aire acondicionado.png" alt="Producto"
                      class="w-full h-40 object-contain p-4">
                 <div class="p-4">
                   <h3 class="text-sm font-semibold text-gray-700 line-clamp-2">
@@ -663,79 +411,24 @@
                   <p class="text-xs text-gray-500">12 cuotas de $99.999</p>
                 </div>
               </div>
-              <div class="flex-none w-[180px] sm:w-[200px] md:w-[220px] lg:w-[240px] bg-black rounded-lg shadow hover:shadow-lg transition">
-                <img src="img/" alt="Producto"
+              <div class="bg-white rounded-lg shadow hover:shadow-lg transition">
+                <img src="assets/products/electronics/smart Tv Grande.png" alt="Producto"
                      class="w-full h-40 object-contain p-4">
                 <div class="p-4">
                   <h3 class="text-sm font-semibold text-gray-700 line-clamp-2">
-                    Aire Acondicionado Portátil Frío/Calor 3000fs
+                    Smart TV 50" 4K Ultra HD Samsung Crystal
                   </h3>
-                  <p class="text-xs text-gray-400 line-through">$999.999</p>
-                  <p class="text-lg font-bold text-green-600">$599.999</p>
+                  <p class="text-xs text-gray-400 line-through">$899.999</p>
+                  <p class="text-lg font-bold text-green-600">$539.999</p>
                   <p class="text-xs text-green-600">40% OFF</p>
-                  <p class="text-xs text-gray-500">12 cuotas de $99.999</p>
-                </div>
-              </div>
-              <div class="flex-none w-[180px] sm:w-[200px] md:w-[220px] lg:w-[240px] bg-black rounded-lg shadow hover:shadow-lg transition">
-                <img src="img/funda-protectora.jpg" alt="Producto"
-                     class="w-full h-40 object-contain p-4">
-                <div class="p-4">
-                  <h3 class="text-sm font-semibold text-gray-700 line-clamp-2">
-                    Aire Acondicionado Portátil Frío/Calor 3000fs
-                  </h3>
-                  <p class="text-xs text-gray-400 line-through">$999.999</p>
-                  <p class="text-lg font-bold text-green-600">$599.999</p>
-                  <p class="text-xs text-green-600">40% OFF</p>
-                  <p class="text-xs text-gray-500">12 cuotas de $99.999</p>
-                </div>
-              </div>
-              <div class="flex-none w-[180px] sm:w-[200px] md:w-[220px] lg:w-[240px] bg-black rounded-lg shadow hover:shadow-lg transition">
-                <img src="img/" alt="Producto"
-                     class="w-full h-40 object-contain p-4">
-                <div class="p-4">
-                  <h3 class="text-sm font-semibold text-gray-700 line-clamp-2">
-                    Aire Acondicionado Portátil Frío/Calor 3000fs
-                  </h3>
-                  <p class="text-xs text-gray-400 line-through">$999.999</p>
-                  <p class="text-lg font-bold text-green-600">$599.999</p>
-                  <p class="text-xs text-green-600">40% OFF</p>
-                  <p class="text-xs text-gray-500">12 cuotas de $99.999</p>
-                </div>
-              </div>
-              <div class="flex-none w-[180px] sm:w-[200px] md:w-[220px] lg:w-[240px] bg-black rounded-lg shadow hover:shadow-lg transition">
-                <img src="img/funda-protectora.jpg" alt="Producto"
-                     class="w-full h-40 object-contain p-4">
-                <div class="p-4">
-                  <h3 class="text-sm font-semibold text-gray-700 line-clamp-2">
-                    Aire Acondicionado Portátil Frío/Calor 3000fs
-                  </h3>
-                  <p class="text-xs text-gray-400 line-through">$999.999</p>
-                  <p class="text-lg font-bold text-green-600">$599.999</p>
-                  <p class="text-xs text-green-600">40% OFF</p>
-                  <p class="text-xs text-gray-500">12 cuotas de $99.999</p>
+                  <p class="text-xs text-gray-500">12 cuotas de $89.999</p>
                 </div>
               </div>
             </div>
-      
-            <!-- Botones -->
-            <button onclick="scrollLeft()" 
-                    class="absolute top-1/2 left-0 transform -translate-y-1/2 bg-white shadow-md rounded-full p-2 hover:bg-gray-100">
-              ◀
-            </button>
-            <button onclick="scrollRight()" 
-                    class="absolute top-1/2 right-0 transform -translate-y-1/2 bg-white shadow-md rounded-full p-2 hover:bg-gray-100">
-              ▶
-            </button>
           </div>
         </div>
       </section>
 
-
-      
-      
-<!-- ===========================
-     HERO OPTIMIZADO
-     =========================== -->
        <section id="powerade-anuncio" class="relative w-full bg-black text-white overflow-hidden">
          <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between px-6 md:px-12 lg:px-16 py-12 gap-10">
            
@@ -768,70 +461,112 @@
        
          </div>
        </section>
-
     <!-- ===========================
          PRODUCTOS / VENDEDORES DESTACADOS (Scrollable carousel simple)
          =========================== -->
-    <section id="destacados" class="py-12 bg-[var(--tm-gray-light)]">
-      <div class="mx-auto max-w-[var(--max-width)] px-4 sm:px-6 lg:px-8">
-        <div class="flex items-center justify-between mb-6">
-          <h2 class="text-2xl font-semibold">Productos destacados</h2>
-          <a href="#" class="text-sm text-[var(--tm-blue)]">Explorar catálogo</a>
+      <section class="bg-gray-50 py-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <!-- Header -->
+          <div class="flex items-center justify-between mb-6">
+            <h2 class="text-2xl font-bold text-gray-900">
+              Ofertas de la semana
+            </h2>
+            <a href="#" class="text-sm text-blue-600 hover:underline">Ver más</a>
+          </div>
+      
+          <!-- Scrollable horizontal list (touch friendly) -->
+          <div class="overflow-x-auto snap-x flex gap-4 pb-4 scroll-hide ofertas-scroll">
+            <!-- Card product example -->
+            <article class="min-w-[240px] w-[240px] bg-white rounded-xl p-4 border card-lift snap-child" role="group" aria-label="Producto 1">
+              <div class="aspect-[4/3] bg-gray-100 rounded-lg overflow-hidden flex items-center justify-center">
+                <img src="assets/products/electronics/auriculares-inalambricos-pro.jpg" alt="Producto ejemplo" class="object-cover w-full h-full" />
+              </div>
+              <h3 class="mt-3 font-semibold text-sm">Auricular Bluetooth inalámbrico</h3>
+              <p class="mt-1 text-xs text-slate-500">Código: A-12345 · Stock: 120</p>
+              <div class="mt-3 flex items-center justify-between">
+                <div>
+                  <div class="text-sm font-bold">$39.091</div>
+                  <div class="text-xs text-slate-500">Precio mayorista</div>
+                </div>
+                <a href="#" class="px-3 py-2 rounded-md text-xs font-semibold bg-[var(--tm-orange)] text-white hover:bg-[var(--tm-orange-hover)] focus-ring">Contactar</a>
+              </div>
+            </article>
+            <article class="min-w-[240px] w-[240px] bg-white rounded-xl p-4 border card-lift snap-child">
+              <div class="aspect-[4/3] bg-gray-100 rounded-lg overflow-hidden flex items-center justify-center">
+                <img src="assets/products/electronics/parlante.jpg" alt="Producto ejemplo" class="object-cover w-full h-full" />
+              </div>
+              <h3 class="mt-3 font-semibold text-sm">Parlante Bluetooth Portátil Aiwa Aw-t408 14000w </h3>
+              <p class="mt-1 text-xs text-slate-500">Código: P-23412 · Stock: 50</p>
+              <div class="mt-3 flex items-center justify-between">
+                <div>
+                  <div class="text-sm font-bold">$343.825</div>
+                  <div class="text-xs text-slate-500">Precio mayorista</div>
+                </div>
+                <a href="#" class="px-3 py-2 rounded-md text-xs font-semibold bg-[var(--tm-orange)] text-white hover:bg-[var(--tm-orange-hover)] focus-ring">Contactar</a>
+              </div>
+            </article>
+            <article class="min-w-[240px] w-[240px] bg-white rounded-xl p-4 border card-lift snap-child">
+              <div class="aspect-[4/3] bg-gray-100 rounded-lg overflow-hidden flex items-center justify-center">
+                <img src="assets/products/clothes/normal/mochila.png" alt="Producto ejemplo" class="object-cover w-full h-full" />
+              </div>
+              <h3 class="mt-3 font-semibold text-sm">Mochila Kossok Tactica Rondon Porta Notebook</h3>
+              <p class="mt-1 text-xs text-slate-500">Código: M-77777 · Stock: 20</p>
+              <div class="mt-3 flex items-center justify-between">
+                <div>
+                  <div class="text-sm font-bold">$19.499</div>
+                  <div class="text-xs text-slate-500">Precio mayorista</div>
+                </div>
+                <a href="#" class="px-3 py-2 rounded-md text-xs font-semibold bg-[var(--tm-orange)] text-white hover:bg-[var(--tm-orange-hover)] focus-ring">Contactar</a>
+              </div>
+            </article>
+  
+            <article class="min-w-[240px] w-[240px] bg-white rounded-xl p-4 border card-lift snap-child" role="group" aria-label="Producto 1">
+              <div class="aspect-[4/3] bg-gray-100 rounded-lg overflow-hidden flex items-center justify-center">
+                <img src="assets/products/electronics/adiculares.png" alt="Producto ejemplo" class="object-cover w-full h-full" />
+              </div>
+              <h3 class="mt-3 font-semibold text-sm">Auricular Bluetooth inalámbrico</h3>
+              <p class="mt-1 text-xs text-slate-500">Código: A-12345 · Stock: 120</p>
+              <div class="mt-3 flex items-center justify-between">
+                <div>
+                  <div class="text-sm font-bold">$39.091</div>
+                  <div class="text-xs text-slate-500">Precio mayorista</div>
+                </div>
+                <a href="#" class="px-3 py-2 rounded-md text-xs font-semibold bg-[var(--tm-orange)] text-white hover:bg-[var(--tm-orange-hover)] focus-ring">Contactar</a>
+              </div>
+            </article>
+            <article class="min-w-[240px] w-[240px] bg-white rounded-xl p-4 border card-lift snap-child">
+              <div class="aspect-[4/3] bg-gray-100 rounded-lg overflow-hidden flex items-center justify-center">
+                <img src="assets/products/electronics/parlante.jpg" alt="Producto ejemplo" class="object-cover w-full h-full" />
+              </div>
+              <h3 class="mt-3 font-semibold text-sm">Parlante Bluetooth Portátil Aiwa Aw-t408 14000w </h3>
+              <p class="mt-1 text-xs text-slate-500">Código: P-23412 · Stock: 50</p>
+              <div class="mt-3 flex items-center justify-between">
+                <div>
+                  <div class="text-sm font-bold">$343.825</div>
+                  <div class="text-xs text-slate-500">Precio mayorista</div>
+                </div>
+                <a href="#" class="px-3 py-2 rounded-md text-xs font-semibold bg-[var(--tm-orange)] text-white hover:bg-[var(--tm-orange-hover)] focus-ring">Contactar</a>
+              </div>
+            </article>
+            <article class="min-w-[240px] w-[240px] bg-white rounded-xl p-4 border card-lift snap-child">
+              <div class="aspect-[4/3] bg-gray-100 rounded-lg overflow-hidden flex items-center justify-center">
+                <img src="assets/products/clothes/normal/mochila.png" alt="Producto ejemplo" class="object-cover w-full h-full" />
+              </div>
+              <h3 class="mt-3 font-semibold text-sm">Mochila Kossok Tactica Rondon Porta Notebook</h3>
+              <p class="mt-1 text-xs text-slate-500">Código: M-77777 · Stock: 20</p>
+              <div class="mt-3 flex items-center justify-between">
+                <div>
+                  <div class="text-sm font-bold">$19.499</div>
+                  <div class="text-xs text-slate-500">Precio mayorista</div>
+                </div>
+                <a href="#" class="px-3 py-2 rounded-md text-xs font-semibold bg-[var(--tm-orange)] text-white hover:bg-[var(--tm-orange-hover)] focus-ring">Contactar</a>
+              </div>
+            </article>
+          </div>
         </div>
+      </section>
 
-        <!-- Scrollable horizontal list (touch friendly) -->
-        <div class="overflow-x-auto snap-x flex gap-4 pb-4">
-          <!-- Card product example -->
-          <article class="min-w-[240px] w-[240px] bg-white rounded-xl p-4 border card-lift snap-child" role="group" aria-label="Producto 1">
-            <div class="aspect-[4/3] bg-gray-100 rounded-lg overflow-hidden flex items-center justify-center">
-              <img src="https://images.unsplash.com/photo-1585386959984-a415522c9f12?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=..." alt="Producto ejemplo" class="object-cover w-full h-full" />
-            </div>
-            <h3 class="mt-3 font-semibold text-sm">Auricular Bluetooth inalámbrico</h3>
-            <p class="mt-1 text-xs text-slate-500">Código: A-12345 · Stock: 120</p>
-            <div class="mt-3 flex items-center justify-between">
-              <div>
-                <div class="text-sm font-bold">$39.091</div>
-                <div class="text-xs text-slate-500">Precio mayorista</div>
-              </div>
-              <a href="#" class="px-3 py-2 rounded-md text-xs font-semibold bg-[var(--tm-orange)] text-white hover:bg-[var(--tm-orange-hover)] focus-ring">Contactar</a>
-            </div>
-          </article>
 
-          <!-- Repeat short list (sustituir con dinámica) -->
-          <article class="min-w-[240px] w-[240px] bg-white rounded-xl p-4 border card-lift snap-child">
-            <div class="aspect-[4/3] bg-gray-100 rounded-lg overflow-hidden flex items-center justify-center">
-              <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=..." alt="Producto ejemplo" class="object-cover w-full h-full" />
-            </div>
-            <h3 class="mt-3 font-semibold text-sm">Parlante portátil TWS</h3>
-            <p class="mt-1 text-xs text-slate-500">Código: P-23412 · Stock: 50</p>
-            <div class="mt-3 flex items-center justify-between">
-              <div>
-                <div class="text-sm font-bold">$343.825</div>
-                <div class="text-xs text-slate-500">Precio mayorista</div>
-              </div>
-              <a href="#" class="px-3 py-2 rounded-md text-xs font-semibold bg-[var(--tm-orange)] text-white hover:bg-[var(--tm-orange-hover)] focus-ring">Contactar</a>
-            </div>
-          </article>
-
-          <article class="min-w-[240px] w-[240px] bg-white rounded-xl p-4 border card-lift snap-child">
-            <div class="aspect-[4/3] bg-gray-100 rounded-lg overflow-hidden flex items-center justify-center">
-              <img src="https://images.unsplash.com/photo-1580910051074-0b0f5b1f9bf9?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=..." alt="Producto ejemplo" class="object-cover w-full h-full" />
-            </div>
-            <h3 class="mt-3 font-semibold text-sm">Mochila porta notebook 15.6"</h3>
-            <p class="mt-1 text-xs text-slate-500">Código: M-77777 · Stock: 20</p>
-            <div class="mt-3 flex items-center justify-between">
-              <div>
-                <div class="text-sm font-bold">$19.499</div>
-                <div class="text-xs text-slate-500">Precio mayorista</div>
-              </div>
-              <a href="#" class="px-3 py-2 rounded-md text-xs font-semibold bg-[var(--tm-orange)] text-white hover:bg-[var(--tm-orange-hover)] focus-ring">Contactar</a>
-            </div>
-          </article>
-
-          <!-- Add more cards as needed / or render server-side -->
-        </div>
-      </div>
-    </section>
 
     <!-- ===========================
          BENEFICIOS / VENTAJAS
@@ -994,349 +729,12 @@
       </div>
     </footer>
   </main>
-  <!--
-    - FOOTER
-  -->
 
-  <footer>
-
-    <div class="footer-category">
-
-      <div class="container">
-
-        <h2 class="footer-category-title">Brand directory</h2>
-
-        <div class="footer-category-box">
-
-          <h3 class="category-box-title">Fashion :</h3>
-
-          <a href="#" class="footer-category-link">T-shirt</a>
-          <a href="#" class="footer-category-link">Shirts</a>
-          <a href="#" class="footer-category-link">shorts & jeans</a>
-          <a href="#" class="footer-category-link">jacket</a>
-          <a href="#" class="footer-category-link">dress & frock</a>
-          <a href="#" class="footer-category-link">innerwear</a>
-          <a href="#" class="footer-category-link">hosiery</a>
-
-        </div>
-
-        <div class="footer-category-box">
-          <h3 class="category-box-title">footwear :</h3>
-        
-          <a href="#" class="footer-category-link">sport</a>
-          <a href="#" class="footer-category-link">formal</a>
-          <a href="#" class="footer-category-link">Boots</a>
-          <a href="#" class="footer-category-link">casual</a>
-          <a href="#" class="footer-category-link">cowboy shoes</a>
-          <a href="#" class="footer-category-link">safety shoes</a>
-          <a href="#" class="footer-category-link">Party wear shoes</a>
-          <a href="#" class="footer-category-link">Branded</a>
-          <a href="#" class="footer-category-link">Firstcopy</a>
-          <a href="#" class="footer-category-link">Long shoes</a>
-        </div>
-
-        <div class="footer-category-box">
-          <h3 class="category-box-title">jewellery :</h3>
-        
-          <a href="#" class="footer-category-link">Necklace</a>
-          <a href="#" class="footer-category-link">Earrings</a>
-          <a href="#" class="footer-category-link">Couple rings</a>
-          <a href="#" class="footer-category-link">Pendants</a>
-          <a href="#" class="footer-category-link">Crystal</a>
-          <a href="#" class="footer-category-link">Bangles</a>
-          <a href="#" class="footer-category-link">bracelets</a>
-          <a href="#" class="footer-category-link">nosepin</a>
-          <a href="#" class="footer-category-link">chain</a>
-          <a href="#" class="footer-category-link">Earrings</a>
-          <a href="#" class="footer-category-link">Couple rings</a>
-        </div>
-
-        <div class="footer-category-box">
-          <h3 class="category-box-title">cosmetics :</h3>
-        
-          <a href="#" class="footer-category-link">Shampoo</a>
-          <a href="#" class="footer-category-link">Bodywash</a>
-          <a href="#" class="footer-category-link">Facewash</a>
-          <a href="#" class="footer-category-link">makeup kit</a>
-          <a href="#" class="footer-category-link">liner</a>
-          <a href="#" class="footer-category-link">lipstick</a>
-          <a href="#" class="footer-category-link">prefume</a>
-          <a href="#" class="footer-category-link">Body soap</a>
-          <a href="#" class="footer-category-link">scrub</a>
-          <a href="#" class="footer-category-link">hair gel</a>
-          <a href="#" class="footer-category-link">hair colors</a>
-          <a href="#" class="footer-category-link">hair dye</a>
-          <a href="#" class="footer-category-link">sunscreen</a>
-          <a href="#" class="footer-category-link">skin loson</a>
-          <a href="#" class="footer-category-link">liner</a>
-          <a href="#" class="footer-category-link">lipstick</a>
-        </div>
-
-      </div>
-
-    </div>
-
-    <div class="footer-nav">
-
-      <div class="container">
-
-        <ul class="footer-nav-list">
-
-          <li class="footer-nav-item">
-            <h2 class="nav-title">Popular Categories</h2>
-          </li>
-
-          <li class="footer-nav-item">
-            <a href="#" class="footer-nav-link">Fashion</a>
-          </li>
-
-          <li class="footer-nav-item">
-            <a href="#" class="footer-nav-link">Electronic</a>
-          </li>
-
-          <li class="footer-nav-item">
-            <a href="#" class="footer-nav-link">Cosmetic</a>
-          </li>
-
-          <li class="footer-nav-item">
-            <a href="#" class="footer-nav-link">Health</a>
-          </li>
-
-          <li class="footer-nav-item">
-            <a href="#" class="footer-nav-link">Watches</a>
-          </li>
-
-        </ul>
-
-        <ul class="footer-nav-list">
-        
-          <li class="footer-nav-item">
-            <h2 class="nav-title">Products</h2>
-          </li>
-        
-          <li class="footer-nav-item">
-            <a href="#" class="footer-nav-link">Prices drop</a>
-          </li>
-        
-          <li class="footer-nav-item">
-            <a href="#" class="footer-nav-link">New products</a>
-          </li>
-        
-          <li class="footer-nav-item">
-            <a href="#" class="footer-nav-link">Best sales</a>
-          </li>
-        
-          <li class="footer-nav-item">
-            <a href="#" class="footer-nav-link">Contact us</a>
-          </li>
-        
-          <li class="footer-nav-item">
-            <a href="#" class="footer-nav-link">Sitemap</a>
-          </li>
-        
-        </ul>
-
-        <ul class="footer-nav-list">
-        
-          <li class="footer-nav-item">
-            <h2 class="nav-title">Our Company</h2>
-          </li>
-        
-          <li class="footer-nav-item">
-            <a href="#" class="footer-nav-link">Delivery</a>
-          </li>
-        
-          <li class="footer-nav-item">
-            <a href="#" class="footer-nav-link">Legal Notice</a>
-          </li>
-        
-          <li class="footer-nav-item">
-            <a href="#" class="footer-nav-link">Terms and conditions</a>
-          </li>
-        
-          <li class="footer-nav-item">
-            <a href="#" class="footer-nav-link">About us</a>
-          </li>
-        
-          <li class="footer-nav-item">
-            <a href="#" class="footer-nav-link">Secure payment</a>
-          </li>
-        
-        </ul>
-
-        <ul class="footer-nav-list">
-        
-          <li class="footer-nav-item">
-            <h2 class="nav-title">Services</h2>
-          </li>
-        
-          <li class="footer-nav-item">
-            <a href="#" class="footer-nav-link">Prices drop</a>
-          </li>
-        
-          <li class="footer-nav-item">
-            <a href="#" class="footer-nav-link">New products</a>
-          </li>
-        
-          <li class="footer-nav-item">
-            <a href="#" class="footer-nav-link">Best sales</a>
-          </li>
-        
-          <li class="footer-nav-item">
-            <a href="#" class="footer-nav-link">Contact us</a>
-          </li>
-        
-          <li class="footer-nav-item">
-            <a href="#" class="footer-nav-link">Sitemap</a>
-          </li>
-        
-        </ul>
-
-        <ul class="footer-nav-list">
-
-          <li class="footer-nav-item">
-            <h2 class="nav-title">Contact</h2>
-          </li>
-
-          <li class="footer-nav-item flex">
-            <div class="icon-box">
-              <ion-icon name="location-outline"></ion-icon>
-            </div>
-
-            <address class="content">
-              419 State 414 Rte
-              Beaver Dams, New York(NY), 14812, USA
-            </address>
-          </li>
-
-          <li class="footer-nav-item flex">
-            <div class="icon-box">
-              <ion-icon name="call-outline"></ion-icon>
-            </div>
-
-            <a href="tel:+607936-8058" class="footer-nav-link">(607) 936-8058</a>
-          </li>
-
-          <li class="footer-nav-item flex">
-            <div class="icon-box">
-              <ion-icon name="mail-outline"></ion-icon>
-            </div>
-
-            <a href="mailto:example@gmail.com" class="footer-nav-link">example@gmail.com</a>
-          </li>
-
-        </ul>
-
-        <ul class="footer-nav-list">
-
-          <li class="footer-nav-item">
-            <h2 class="nav-title">Follow Us</h2>
-          </li>
-
-          <li>
-            <ul class="social-link">
-
-              <li class="footer-nav-item">
-                <a href="#" class="footer-nav-link">
-                  <ion-icon name="logo-facebook"></ion-icon>
-                </a>
-              </li>
-
-              <li class="footer-nav-item">
-                <a href="#" class="footer-nav-link">
-                  <ion-icon name="logo-twitter"></ion-icon>
-                </a>
-              </li>
-
-              <li class="footer-nav-item">
-                <a href="#" class="footer-nav-link">
-                  <ion-icon name="logo-linkedin"></ion-icon>
-                </a>
-              </li>
-
-              <li class="footer-nav-item">
-                <a href="#" class="footer-nav-link">
-                  <ion-icon name="logo-instagram"></ion-icon>
-                </a>
-              </li>
-
-            </ul>
-          </li>
-
-        </ul>
-
-      </div>
-
-    </div>
-
-    <div class="footer-bottom">
-
-      <div class="container">
-
-        <img src="./assets/images/payment.png" alt="payment method" class="payment-img">
-
-        <p class="copyright">
-          Copyright &copy; <a href="#">Anon</a> all rights reserved.
-        </p>
-
-      </div>
-
-    </div>
-
-  </footer>
-
-  <!--- custom js link --->
-  <script src="./assets/js/script.js"></script>
-  <!--- ionicon link --->
-  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
   <!-- ===========================
        SCRIPTS: interacción y accesibilidad
        =========================== -->
-  <script>
-    // Header mobile toggle (accessible)
-    (function(){
-      const btn = document.getElementById('btn-mobile');
-      const menu = document.getElementById('mobile-menu');
-      const iconOpen = document.getElementById('icon-open');
-      const iconClose = document.getElementById('icon-close');
-
-      btn.addEventListener('click', () => {
-        const expanded = btn.getAttribute('aria-expanded') === 'true';
-        btn.setAttribute('aria-expanded', String(!expanded));
-        if (menu.hasAttribute('hidden')) {
-          menu.removeAttribute('hidden');
-          iconOpen.classList.add('hidden');
-          iconClose.classList.remove('hidden');
-        } else {
-          menu.setAttribute('hidden', '');
-          iconOpen.classList.remove('hidden');
-          iconClose.classList.add('hidden');
-        }
-      });
-
-      // Keyboard: close mobile menu on ESC
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') {
-          menu.setAttribute('hidden', '');
-          btn.setAttribute('aria-expanded', 'false');
-          iconOpen.classList.remove('hidden');
-          iconClose.classList.add('hidden');
-        }
-      });
-
-      // Update footer year
-      document.getElementById('year').textContent = new Date().getFullYear();
-    })();
-
-    // Small enhancement: prefer-reduced-motion respect
-    (function() {
-      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      if (prefersReduced) {
-        document.documentElement.classList.add('reduce-motion');
-      }
-    })();
-  </script>
+  <!-- Script Swiper -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
   <!-- ===========================
        Notas / sugerencias de producción
@@ -1348,5 +746,6 @@
        5) Añadir tests de accesibilidad (axe) y performance audits (Lighthouse).
   -->
   <script src="Javascript/script.js"></script>
+  <script src="Javascript/slider.js"></script>
 </body>
 </html>
