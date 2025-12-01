@@ -16,7 +16,7 @@
     display: flex; 
     padding: 10px 0; 
     justify-content: space-around; 
-    margin: 0 1vw;
+    margin: 0 ;
     flex-wrap: nowrap;
     background-color: #111010;
 } 

@@ -17,9 +17,9 @@
   <!-- Paleta y pequeños estilos adicionales -->
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/header.css">
-  <link rel="stylesheet" href="css/banner.css">
-  <link rel="stylesheet" href="css/informacion.css">
   <link rel="stylesheet" href="css/slider.css">
+  <link rel="stylesheet" href="css/informacion.css">
+  <link rel="stylesheet" href="css/categorias.css">
 </head>
 <body class="antialiased text-slate-800 bg-white font-['Inter',system-ui,Arial]">
   <!-- ===========================
@@ -136,35 +136,62 @@
        HERO
        =========================== -->
   <main class="pt-16 md:pt-0">
-      <div class="slider-container">
-        <div class="slider">
-          <div class="slide">
-            <img src="assets/banners/Banner principal.png" alt="Promo 1">
+      <div class="ml-slider">
+        <!--
+        <button class="ml-arrow ml-prev" aria-label="Anterior"><p>&#10094;</p></button>
+        <button class="ml-arrow ml-next" aria-label="Siguiente"><p>&#10095;</p></button>
+        -->
+        <button class="ml-arrow ml-prev" aria-label="Anterior">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none"
+               stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="14 4 6 12 14 20"></polyline>
+          </svg>
+        </button>
+        <button class="ml-arrow ml-next" aria-label="Siguiente">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none"
+               stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="10 4 18 12 10 20"></polyline>
+          </svg>
+        </button> 
+        <div class="ml-track">
+          <!-- Slide 1 -->
+          <div class="ml-slide">
+            <picture>
+              <source media="(max-width: 480px)" srcset="assets/banners/bannerFormatoMovil/bannerPrincipal.png">
+              <source media="(min-width: 481px)" srcset="assets/banners/bannerFormatoMovil/bannerPrincipal.png">
+              <img src="assets/banners/bannerFormatoDesktop/Banner principal.png" alt="Promoción 2">
+            </picture>
           </div>
-          <div class="slide">
-            <img src="banner2.jpg" alt="Promo 2">
+          <!-- Slide 2 -->
+          <div class="ml-slide">
+            <picture>
+              <source media="(max-width: 480px)" srcset="assets">
+              <source media="(min-width: 481px)" srcset="banner-desktop-2.jpg">
+              <img src="banner-desktop-2.jpg" alt="Promoción 2">
+            </picture>
           </div>
-          <div class="slide">
-            <img src="banner3.jpg" alt="Promo 3">
-          </div>
-          <div class="slide">
-            <img src="banner3.jpg" alt="Promo 4">
-          </div>
-          <div class="slide">
-            <img src="banner3.jpg" alt="Promo 4">
-          </div>
-        </div>
       
-        <!-- Flechas -->
-        <button class="arrow left" id="prevBtn">&#10094;</button>
-        <button class="arrow right" id="nextBtn">&#10095;</button>
-      
-        <!-- Puntos -->
-        <div class="dots" id="dots"></div>
-      </div>
+          <!-- Slide 3 -->
+          <div class="ml-slide">
+            <picture>
+              <source media="(max-width: 480px)" srcset="banner-mobile-3.jpg">
+              <source media="(min-width: 481px)" srcset="banner-desktop-3.jpg">
+              <img src="banner-desktop-3.jpg" alt="Promoción 3">
+            </picture>
+          </div>
 
-      <section class="banner">
-      </section>
+          <!-- Slide 4 -->
+          <div class="ml-slide">
+            <picture>
+              <source media="(max-width: 480px)" srcset="banner-mobile-3.jpg">
+              <source media="(min-width: 481px)" srcset="banner-desktop-3.jpg">
+              <img src="banner-desktop-3.jpg" alt="Promoción 4">
+            </picture>
+          </div>
+      
+        </div>   
+        <div class="ml-dots"></div>
+      </div>
 
       <section class="informacion"> 
         <div class="info-container"> 
@@ -203,7 +230,7 @@
             CATEGORÍAS DESTACADAS
           ===========================-->
 
-      <section class="bg-gray-50 py-6">
+      <section class="Categoria bg-gray-50 py-6">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <!-- Header -->
           <div class="flex items-center justify-between mb-6">

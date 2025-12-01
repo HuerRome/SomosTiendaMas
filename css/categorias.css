@@ -1,0 +1,62 @@
+.Categoria{
+    background: #323232;
+}
+
+
+.Categoria .grid {
+  display: flex;
+  overflow-x: auto;        /* Habilita scroll horizontal */
+  gap: 1rem;
+  padding-bottom: 4px;
+
+  /* Ocultar barra de scroll */
+  scrollbar-width: none;   /* Firefox */
+}
+
+.Categoria .grid::-webkit-scrollbar {
+  display: none;           /* Chrome/Safari */
+}
+
+/* Cada tarjeta mantiene su tamaño como "slide" */
+.Categoria .grid > a {
+  min-width: 120px;
+  flex: 0 0 auto;
+}
+
+
+
+@media (max-width: 640px) { 
+  .Categoria .grid {
+    display: flex;
+    overflow-x: auto;
+    gap: 1rem;
+    padding-bottom: 4px;
+
+    /* Ocultar barra de scroll */
+    scrollbar-width: none;      /* Firefox */
+  }
+
+  .Categoria .grid::-webkit-scrollbar {
+    display: none;              /* Chrome/Safari */
+  }
+
+  /* Cada tarjeta mantiene su tamaño como "slide" */
+  .Categoria .grid > a {
+    min-width: 120px;
+    flex: 0 0 auto;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
