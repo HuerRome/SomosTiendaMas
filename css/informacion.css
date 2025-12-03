@@ -80,8 +80,6 @@
 @media (min-width: 1024px) {
     .informacion { 
         display: flex; 
-        background: #ff6b35;
-       
     } 
     
     .informacion .info-container{ 
@@ -90,7 +88,6 @@
         display: flex; 
         padding: 10px 0; 
         justify-content: space-around; 
-        margin: 0 1vw;
         background-color: #111010;
     } 
     
@@ -113,3 +110,6 @@
     }
 
 }
+
+
+

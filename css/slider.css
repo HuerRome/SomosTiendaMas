@@ -7,6 +7,10 @@
   overflow: hidden;
   border-radius: 8px;
   border-radius: 0px;
+
+  margin-left: calc(-2vw);
+  margin-right: calc(-2vw);
+  width: calc(100% + 4vw);
 }
 
 /* Contenedor deslizante */

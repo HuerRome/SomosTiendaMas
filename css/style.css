@@ -33,3 +33,47 @@
   color: white;
   font-weight: 600;
 }
+
+/*------------ main ----------*/
+main {
+  padding: 2vw;  /* PC por defecto */
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  main {
+    padding: 3vw;
+  }
+}
+
+/* Móvil */
+@media (max-width: 768px) {
+  main {
+    padding: 4vw;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
