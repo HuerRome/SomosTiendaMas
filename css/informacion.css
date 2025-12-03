@@ -1,7 +1,8 @@
 .informacion {  
+    margin: 6px 0;
     display: flex; 
-    background: #ff6b35;
-   
+    align-items: center;
+    justify-content: center;
 } 
 
 .informacion .info-container{ 
@@ -10,9 +11,9 @@
     overflow-x: auto;               /* 👈 Permite desplazamiento horizontal */
     scroll-snap-type: x mandatory;  /* 👈 Hace que se “pegue” al item siguiente */
     -webkit-overflow-scrolling: touch;
-    /*---------------------*/
     border-radius: 8px; 
-    width: 100%; 
+    width: 96%; 
+    margin: 0 2%;
     display: flex; 
     padding: 10px 0; 
     justify-content: space-around; 

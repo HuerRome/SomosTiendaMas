@@ -6,6 +6,7 @@
   margin: auto;
   overflow: hidden;
   border-radius: 8px;
+  border-radius: 0px;
 }
 
 /* Contenedor deslizante */
@@ -90,8 +91,28 @@
 
 /* ======== RESPONSIVE ======== */
 @media (max-width: 480px) {
-  .ml-slider {
-    border-radius: 4px;
+  /* Cada slide */
+  .ml-slide {
+    min-width: 96%;
+    user-select: none;
+    margin: 0 2%;
+  }
+  
+  .banner-rounded {
+    border-radius: 10px;
+    overflow: hidden; /* ESTO es clave */
+    display: block;
+  }
+  
+  .banner-rounded img {
+    border-radius: inherit;
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  .ml-arrow {
+    display: none;
   }
 }
 

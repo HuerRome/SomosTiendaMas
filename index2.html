@@ -156,36 +156,43 @@
         <div class="ml-track">
           <!-- Slide 1 -->
           <div class="ml-slide">
-            <picture>
+            <picture class="banner-rounded">
               <source media="(max-width: 480px)" srcset="assets/banners/bannerFormatoMovil/bannerPrincipal.png">
-              <source media="(min-width: 481px)" srcset="assets/banners/bannerFormatoMovil/bannerPrincipal.png">
-              <img src="assets/banners/bannerFormatoDesktop/Banner principal.png" alt="Promoción 2">
-            </picture>
+              <source media="(min-width: 481px)" srcset="assets/banners/bannerFormatoDesktop/Banner principal.png">
+              <img src="assets/banners/bannerFormatoDesktop/Banner principal.png" alt="Promoción 1">
+            </picture>     
           </div>
           <!-- Slide 2 -->
           <div class="ml-slide">
-            <picture>
-              <source media="(max-width: 480px)" srcset="assets">
-              <source media="(min-width: 481px)" srcset="banner-desktop-2.jpg">
-              <img src="banner-desktop-2.jpg" alt="Promoción 2">
+            <picture class="banner-rounded">
+              <!-- Móvil -->
+              <source media="(max-width: 480px)" srcset="assets/banners/bannerFormatoMovil/banner1.png">
+              <!-- Desktop -->
+              <source media="(min-width: 481px)" srcset="assets/banners/bannerFormatoDesktop/banner1.png">
+              <!-- Fallback -->
+              <img src="assets/banners/bannerFormatoDesktop/banner1.png" alt="Promoción 2">
             </picture>
           </div>
-      
           <!-- Slide 3 -->
           <div class="ml-slide">
-            <picture>
-              <source media="(max-width: 480px)" srcset="banner-mobile-3.jpg">
-              <source media="(min-width: 481px)" srcset="banner-desktop-3.jpg">
-              <img src="banner-desktop-3.jpg" alt="Promoción 3">
+            <picture class="banner-rounded">
+              <!-- Móvil -->
+              <source media="(max-width: 480px)" srcset="assets/banners/bannerFormatoMovil/banner2.png">
+              <!-- Desktop -->
+              <source media="(min-width: 481px)" srcset="assets/banners/bannerFormatoDesktop/banner2.png">
+              <!-- Fallback -->
+              <img src="assets/banners/bannerFormatoDesktop/banner2.png" alt="Promoción 3">
             </picture>
           </div>
-
           <!-- Slide 4 -->
           <div class="ml-slide">
-            <picture>
-              <source media="(max-width: 480px)" srcset="banner-mobile-3.jpg">
-              <source media="(min-width: 481px)" srcset="banner-desktop-3.jpg">
-              <img src="banner-desktop-3.jpg" alt="Promoción 4">
+            <picture class="banner-rounded">
+              <!-- Móvil -->
+              <source media="(max-width: 480px)" srcset="assets/banners/bannerFormatoMovil/banner3.png">
+              <!-- Desktop -->
+              <source media="(min-width: 481px)" srcset="assets/banners/bannerFormatoDesktop/banner3.png">
+              <!-- Fallback -->
+              <img src="assets/banners/bannerFormatoDesktop/banner3.png" alt="Promoción 4">
             </picture>
           </div>
       
@@ -229,16 +236,8 @@
       <!--===========================
             CATEGORÍAS DESTACADAS
           ===========================-->
-
       <section class="Categoria bg-gray-50 py-6">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <!-- Header -->
-          <div class="flex items-center justify-between mb-6">
-            <h2 class="text-2xl font-bold text-gray-900">
-              Categorías
-            </h2>
-            <a href="#" class="text-sm text-blue-600 hover:underline">Ver más</a>
-          </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-blue-500">
           <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-9 gap-4">
             <!-- Categoria card - reutilizable -->
             <a href="#"
@@ -305,7 +304,6 @@
               <span class="text-sm sm:text-base font-medium mt-1 text-gray-800 text-center">Celulares</span>
             </a>
           </div>     
-          
         </div>
       </section>   
 
