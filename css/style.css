@@ -8,6 +8,37 @@
   --titulo-azul: #2563EB;
 }
 
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', system-ui, Arial, sans-serif;
+}
+
+/* Estilos base para toda la página */
+html, body {
+  font-family: sans-serif; /* Cambiala por la fuente que quieras */
+  background-color: #ffffff;
+  color: #333333;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Enlaces */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Imágenes que se adapten */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
 /* Focus visible personalizado para accesibilidad */
 .focus-ring:focus {
   outline: 3px solid rgba(0,78,137,0.18);

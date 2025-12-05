@@ -1,93 +1,3 @@
-.categoria {
-  background: #f9fafb;
-  padding: 20px 0;
-}
-
-/* ============================ */
-/*       MOBILE (TOUCH)         */
-/* ============================ */
-
-.categoria-slider {
-  display: flex;
-  gap: 14px;
-  overflow-x: auto;
-  padding: 0 16px;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-}
-
-.categoria-slider::-webkit-scrollbar {
-  display: none;
-}
-
-/* Cards */
-.cat-card {
-  flex: 0 0 auto;
-  width: 110px;
-  background: white;
-  border-radius: 14px;
-  padding: 10px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.08);
-  text-decoration: none;
-  color: #333;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  scroll-snap-align: start;
-  transition: all 0.2s ease;
-}
-
-.cat-card:hover {
-  transform: scale(1.03);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.12);
-}
-
-/* Imagen */
-.cat-img {
-  width: 70px;
-  height: 70px;
-  border-radius: 10px;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.cat-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
-.cat-card span {
-  margin-top: 6px;
-  font-size: 14px;
-  font-weight: 600;
-  text-align: center;
-  color: #222;
-}
-
-/* ============================ */
-/*        DESKTOP & TABLET      */
-/* ============================ */
-
-@media (min-width: 768px) {
-  .categoria-slider {
-    display: grid;
-    grid-template-columns: repeat(9, 1fr);
-    gap: 20px;
-    overflow-x: visible;      /* 🔥 NO slider */
-    scroll-snap-type: none;   /* 🔥 NO scroll-snap */
-    padding: 0;               /* ajusta diseño */
-  }
-
-  .cat-card {
-    width: 100%;              /* se acomodan en la grilla */
-    flex: unset;
-  }
-}
-
-
 
 /*--------------------------------------------------------------------------------------------------*/
 
@@ -101,7 +11,7 @@
   gap: 20px;
   overflow-x: auto;
   flex-wrap: nowrap;
-  padding: 10px 0px;
+  padding: 16px 0px;
   -webkit-overflow-scrolling: touch;
 }
 
@@ -162,6 +72,7 @@
   .categories-slider {
     scroll-snap-type: x mandatory;  /* slider tipo carrusel */
     justify-content: flex-start;
+    padding: 10px 0px;
     gap: 12px;
   }
 
