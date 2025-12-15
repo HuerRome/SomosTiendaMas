@@ -99,7 +99,6 @@ img, ion-icon, button, a { display: block; }
 span { display: inline-block; }
 
 html {
-  font-family: "Poppins", sans-serif;
   overscroll-behavior: contain;
 }
 
