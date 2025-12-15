@@ -9,29 +9,19 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Tipografías -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <!-- Font Awesome para iconos (opcional) -->
   <script src="https://kit.fontawesome.com/your_kit_id.js" crossorigin="anonymous"></script>
   <!-- Si no tenés kit, podés usar: https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <!-- Paleta y pequeños estilos adicionales -->
-  <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/header.css">
   <link rel="stylesheet" href="css/slider.css">
   <link rel="stylesheet" href="css/informacion.css">
   <link rel="stylesheet" href="css/categorias.css">
-  
-  <link rel="stylesheet" href="../ludus-free-premium-ecommerce-template-master/css/vendor.css">
-  <link rel="stylesheet" href="../ludus-free-premium-ecommerce-template-master/css/utility.css">
-  <link rel="stylesheet" href="../ludus-free-premium-ecommerce-template-master/css/app.css">
-  
-  
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-
+  <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="antialiased text-slate-800 bg-white font-['Inter']">
+<body class="antialiased text-slate-800 bg-white font-['Inter',system-ui,Arial]">
   <!-- ===========================
        HEADER (FIXED)
        =========================== -->
@@ -108,7 +98,7 @@
         <img src="assets/marketplace-data/envio - delivery.jpg" alt="">
       </nav>-->
       <!-- Fila 2: Navegación -->
-      <nav id="nav" class="hidden md:flex justify-between w-full items-center border-t border-slate-200 text-black" aria-label="Main navigation">
+      <nav id="nav" class="hidden md:flex justify-between w-full items-center border-t border-slate-200" aria-label="Main navigation">
         <div class="flex items-center gap-6 gap-6 py-2">
           <a href="#categorias" class="text-sm hover:text-[#2563EB] transition">Categorías <i class="fa-solid fa-chevron-down"></i></a>
           <a href="#ofertas" class="text-sm hover:text-[#2563EB] transition">Ofertas</a>
@@ -145,665 +135,640 @@
   <!-- ===========================
        HERO
        =========================== -->
+  <main class="pt-16 md:pt-0">
+      <div class="ml-slider">
+        <!--
+        <button class="ml-arrow ml-prev" aria-label="Anterior"><p>&#10094;</p></button>
+        <button class="ml-arrow ml-next" aria-label="Siguiente"><p>&#10095;</p></button>
+        -->
+        <button class="ml-arrow ml-prev" aria-label="Anterior">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none"
+               stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="14 4 6 12 14 20"></polyline>
+          </svg>
+        </button>
+        <button class="ml-arrow ml-next" aria-label="Siguiente">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none"
+               stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="10 4 18 12 10 20"></polyline>
+          </svg>
+        </button> 
+        <div class="ml-track">
+          <!-- Slide 1 -->
+          <div class="ml-slide">
+            <picture class="banner-rounded">
+              <source media="(max-width: 480px)" srcset="assets/banners/bannerFormatoMovil/bannerPrincipal.png">
+              <source media="(min-width: 481px)" srcset="assets/banners/bannerFormatoDesktop/Banner principal.png">
+              <img src="assets/banners/bannerFormatoDesktop/Banner principal.png" alt="Promoción 1">
+            </picture>     
+          </div>
+          <!-- Slide 2 -->
+          <div class="ml-slide">
+            <picture class="banner-rounded">
+              <!-- Móvil -->
+              <source media="(max-width: 480px)" srcset="assets/banners/bannerFormatoMovil/banner1.png">
+              <!-- Desktop -->
+              <source media="(min-width: 481px)" srcset="assets/banners/bannerFormatoDesktop/banner1.png">
+              <!-- Fallback -->
+              <img src="assets/banners/bannerFormatoDesktop/banner1.png" alt="Promoción 2">
+            </picture>
+          </div>
+          <!-- Slide 3 -->
+          <div class="ml-slide">
+            <picture class="banner-rounded">
+              <!-- Móvil -->
+              <source media="(max-width: 480px)" srcset="assets/banners/bannerFormatoMovil/banner2.png">
+              <!-- Desktop -->
+              <source media="(min-width: 481px)" srcset="assets/banners/bannerFormatoDesktop/banner2.png">
+              <!-- Fallback -->
+              <img src="assets/banners/bannerFormatoDesktop/banner2.png" alt="Promoción 3">
+            </picture>
+          </div>
+          <!-- Slide 4 -->
+          <div class="ml-slide">
+            <picture class="banner-rounded">
+              <!-- Móvil -->
+              <source media="(max-width: 480px)" srcset="assets/banners/bannerFormatoMovil/banner3.png">
+              <!-- Desktop -->
+              <source media="(min-width: 481px)" srcset="assets/banners/bannerFormatoDesktop/banner3.png">
+              <!-- Fallback -->
+              <img src="assets/banners/bannerFormatoDesktop/banner3.png" alt="Promoción 4">
+            </picture>
+          </div>
+      
+        </div>   
+        <div class="ml-dots"></div>
+      </div>
 
-        <main class="pt-16 md:pt-0 font-['Inter',system-ui,Arial]">
-            <div class="app-content">
-        
-                <!--====== Section 1 ======-->
-                <div class="u-s-p-t-90">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-5">
-        
-                                <!--====== Product Breadcrumb ======-->
-                                <div class="pd-breadcrumb u-s-m-b-30">
-                                    <ul class="pd-breadcrumb__list">
-                                        <li class="has-separator">
-                                            <a href="index.hml">Inicio</a>
-                                        </li>
-                                        <li class="has-separator">
-                                            <a href="shop-side-version-2.html">Electrónica</a>
-                                        </li>
-                                        <li class="has-separator">
-                                            <a href="shop-side-version-2.html">Cámaras DSLR</a>
-                                        </li>
-                                        <li class="is-marked">
-                                            <a href="shop-side-version-2.html">Cámaras Nikon</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <!--====== End - Product Breadcrumb ======-->
-        
-                                <!--====== Product Detail Zoom ======-->
-                                <div class="pd u-s-m-b-30">
-                                    <div class="slider-fouc pd-wrap">
-        
-                                        <div id="pd-o-initiate">
-                                            <div class="pd-o-img-wrap" data-src="">
-                                                <img class="u-img-fluid" src="../ludus-free-premium-ecommerce-template-master/images/product/product-d-1.jpg" data-zoom-image="../ludus-free-premium-ecommerce-template-master/images/product/product-d-1.jpg" alt="">
-                                            </div>
-                                            <div class="pd-o-img-wrap" data-src="../ludus-free-premium-ecommerce-template-master/images/product/product-d-2.jpg">
-                                                <img class="u-img-fluid" src="../ludus-free-premium-ecommerce-template-master/images/product/product-d-2.jpg" data-zoom-image="../ludus-free-premium-ecommerce-template-master/images/product/product-d-2.jpg" alt="">
-                                            </div>
-                                            <div class="pd-o-img-wrap" data-src="../ludus-free-premium-ecommerce-template-master/images/product/product-d-3.jpg">
-                                                <img class="u-img-fluid" src="../ludus-free-premium-ecommerce-template-master/images/product/product-d-3.jpg" data-zoom-image="../ludus-free-premium-ecommerce-template-master/images/product/product-d-3.jpg" alt="">
-                                            </div>
-                                            <div class="pd-o-img-wrap" data-src="../ludus-free-premium-ecommerce-template-master/images/product/product-d-4.jpg">
-                                                <img class="u-img-fluid" src="../ludus-free-premium-ecommerce-template-master/images/product/product-d-4.jpg" data-zoom-image="../ludus-free-premium-ecommerce-template-master/images/product/product-d-4.jpg" alt="">
-                                            </div>
-                                            <div class="pd-o-img-wrap" data-src="../ludus-free-premium-ecommerce-template-master/images/product/product-d-5.jpg">
-                                                <img class="u-img-fluid" src="../ludus-free-premium-ecommerce-template-master/images/product/product-d-5.jpg" data-zoom-image="../ludus-free-premium-ecommerce-template-master/images/product/product-d-5.jpg" alt="">
-                                            </div>
-                                        </div>
-        
-                                        <span class="pd-text">Haz clic para ver zoom</span>
-                                    </div>
-                                    <div class="u-s-m-t-15">
-                                        <div class="slider-fouc">
-                                            <div id="pd-o-thumbnail">
-                                                <div>
-                                                    <img class="u-img-fluid" src="images/product/product-d-1.jpg" alt="">
-                                                </div>
-                                                <div>
-                                                    <img class="u-img-fluid" src="images/product/product-d-2.jpg" alt="">
-                                                </div>
-                                                <div>
-                                                    <img class="u-img-fluid" src="images/product/product-d-3.jpg" alt="">
-                                                </div>
-                                                <div>
-                                                    <img class="u-img-fluid" src="images/product/product-d-4.jpg" alt="">
-                                                </div>
-                                                <div>
-                                                    <img class="u-img-fluid" src="images/product/product-d-5.jpg" alt="">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--====== End - Product Detail Zoom ======-->
-                            </div>
-        
-                            <div class="col-lg-7">
-        
-                                <!--====== Product Right Side Details ======-->
-                                <div class="pd-detail">
-                                    <div>
-                                        <span class="pd-detail__name">Cámara Nikon 4K Lente Zoom Pro</span>
-                                    </div>
-        
-                                    <div>
-                                        <div class="pd-detail__inline">
-                                            <span class="pd-detail__price">$6.99</span>
-                                            <span class="pd-detail__discount">(76% OFF)</span>
-                                            <del class="pd-detail__del">$28.97</del>
-                                        </div>
-                                    </div>
-        
+      <section class="informacion"> 
+        <div class="info-container"> 
+          <div class="info-item"> 
+            <i class="fa-solid fa-truck-fast"></i> 
+            <div> 
+              <h3>Envío Gratis</h3> 
+              <p>En compras mayores a $50,000</p> 
+            </div> 
+          </div> 
+          <div class="info-item"> 
+            <i class="fa-solid fa-headset"></i> 
+            <div> 
+              <h3>Soporte 24/7</h3> 
+              <p>Estamos para ayudarte</p> 
+            </div> 
+          </div> 
+          <div class="info-item"> 
+            <i class="fa-solid fa-shield-halved"></i> 
+            <div> 
+              <h3>Compra Segura</h3> 
+              <p>Protegemos tus datos</p> 
+            </div> 
+          </div> 
+          <div class="info-item"> 
+            <i class="fa-solid fa-tags"></i> 
+            <div> 
+              <h3>Mejores Precios</h3> 
+              <p>Ofertas exclusivas</p> 
+            </div> 
+          </div> 
+        </div> 
+      </section>    
 
-        
-                                    <div class="u-s-m-b-15">
-                                        <div class="pd-detail__inline">
-                                            <span class="pd-detail__stock">200 en stock</span>
-                                            <span class="pd-detail__left">Solo quedan 2</span>
-                                        </div>
-                                    </div>
-        
-                                    <div class="u-s-m-b-15">
-                                        <span class="pd-detail__preview-desc">
-                                            Llevá tus fotos y videos al próximo nivel con esta cámara digital diseñada para quienes buscan nitidez, color realista y rendimiento en cualquier situación. Ideal para crear contenido, grabar vlogs, registrar eventos o simplemente inmortalizar tus mejores momentos.
-                                        </span>
-                                    </div>
-        
-                                    <div class="u-s-m-b-15">
-                                        <div class="pd-detail__inline">
-                                            <span class="pd-detail__click-wrap"><i class="far fa-heart u-s-m-r-6"></i>
-                                                <a href="signin.html">Agregar a Favoritos</a>
-                                                <span class="pd-detail__click-count">(222)</span>
-                                            </span>
-                                        </div>
-                                    </div>
-        
-                                    <div class="u-s-m-b-15">
-                                        <div class="pd-detail__inline">
-                                            <span class="pd-detail__click-wrap"><i class="far fa-envelope u-s-m-r-6"></i>
-                                                <a href="signin.html">Envíame un correo cuando baje el precio</a>
-                                                <span class="pd-detail__click-count">(20)</span>
-                                            </span>
-                                        </div>
-                                    </div>
-        
-                                    <div class="u-s-m-b-15">
-                                        <ul class="pd-social-list">
-                                            <li><a class="s-fb--color-hover" href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                            <li><a class="s-tw--color-hover" href="#"><i class="fab fa-twitter"></i></a></li>
-                                            <li><a class="s-insta--color-hover" href="#"><i class="fab fa-instagram"></i></a></li>
-                                            <li><a class="s-wa--color-hover" href="#"><i class="fab fa-whatsapp"></i></a></li>
-                                            <li><a class="s-gplus--color-hover" href="#"><i class="fab fa-google-plus-g"></i></a></li>
-                                        </ul>
-                                    </div>
-        
-                                    <div class="u-s-m-b-15">
-                                        <form class="pd-detail__form">
-                                            <div class="pd-detail-inline-2">
-                                                <div class="u-s-m-b-15">
-                                                    <div class="input-counter">
-                                                        <span class="input-counter__minus fas fa-minus"></span>
-                                                        <input class="input-counter__text input-counter--text-primary-style" type="text" value="1" data-min="1" data-max="1000">
-                                                        <span class="input-counter__plus fas fa-plus"></span>
-                                                    </div>
-                                                </div>
-                                                <div class="u-s-m-b-15">
-                                                    <button class="btn btn--e-brand-b-2" type="submit">Agregar al Carrito</button>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-        
-                                    <div class="u-s-m-b-15">
-                                        <span class="pd-detail__label u-s-m-b-8">Política del Producto:</span>
-                                        <ul class="pd-detail__policy-list">
-                                            <li><i class="fas fa-check-circle u-s-m-r-8"></i><span>Protección al comprador.</span></li>
-                                            <li><i class="fas fa-check-circle u-s-m-r-8"></i><span>Reembolso completo si no recibes tu pedido.</span></li>
-                                            <li><i class="fas fa-check-circle u-s-m-r-8"></i><span>Devoluciones aceptadas si el producto no es como se describe.</span></li>
-                                        </ul>
-                                    </div>
-        
-                                </div>
-                                <!--====== End - Product Right Side Details ======-->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-        
-                <!--====== Product Detail Tab ======-->
-                <div class="u-s-p-y-90">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-12">
-        
-                                <div class="pd-tab">
-                                    <div class="u-s-m-b-30">
-                                        <ul class="nav pd-tab__list">
-                                            <li class="nav-item">
-                                                <a class="nav-link active" data-toggle="tab" href="#pd-desc">DESCRIPCIÓN</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" data-toggle="tab" href="#pd-tag">ETIQUETAS</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" id="view-review" data-toggle="tab" href="#pd-rev">RESEÑAS <span>(23)</span></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-        
-                                    <div class="tab-content">
-        
-                                        <!--====== Tab 1 ======-->
-                                        <div class="tab-pane fade show active" id="pd-desc">
-                                            <div class="pd-tab__desc">
-        
-                                                <div class="u-s-m-b-15">
-                                                    <p>
-                                                        Lorem Ipsum es simplemente un texto ficticio utilizado en la impresión y la composición tipográfica...
-                                                    </p>
-                                                </div>
-        
-                                                <div class="u-s-m-b-30">
-                                                    <ul>
-                                                        <li><i class="fas fa-check u-s-m-r-8"></i><span>Protección al comprador.</span></li>
-                                                        <li><i class="fas fa-check u-s-m-r-8"></i><span>Reembolso completo si no recibes tu pedido.</span></li>
-                                                        <li><i class="fas fa-check u-s-m-r-8"></i><span>Devoluciones aceptadas si el producto no es como se describe.</span></li>
-                                                    </ul>
-                                                </div>
-        
-                                                <div class="u-s-m-b-15">
-                                                    <h4>INFORMACIÓN DEL PRODUCTO</h4>
-                                                </div>
-        
-                                                <div class="u-s-m-b-15">
-                                                    <div class="pd-table gl-scroll">
-                                                        <table>
-                                                            <tbody>
-                                                                <tr><td>Material Principal</td><td>Algodón</td></tr>
-                                                                <tr><td>Color</td><td>Verde, Azul, Rojo</td></tr>
-                                                                <tr><td>Mangas</td><td>Manga Larga</td></tr>
-                                                                <tr><td>Ajuste Superior</td><td>Regular</td></tr>
-                                                                <tr><td>Estampado</td><td>Sin Estampar</td></tr>
-                                                                <tr><td>Cuello</td><td>Cuello Redondo</td></tr>
-                                                                <tr><td>Cantidad de Piezas</td><td>1 Pieza</td></tr>
-                                                                <tr><td>Ocasión</td><td>Casual</td></tr>
-                                                                <tr><td>Peso de Envío (kg)</td><td>0.5</td></tr>
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
-                                                </div>
-        
-                                            </div>
-                                        </div>
-                                        <!--====== End - Tab 1 ======-->
-        
-                                        <!--====== Tab 2 ======-->
-                                        <div class="tab-pane" id="pd-tag">
-                                            <div class="pd-tab__tag">
-                                                <h2 class="u-s-m-b-15">AGREGAR TUS ETIQUETAS</h2>
-                                                <div class="u-s-m-b-15">
-                                                    <form>
-                                                        <input class="input-text input-text--primary-style" type="text">
-                                                        <button class="btn btn--e-brand-b-2" type="submit">AGREGAR ETIQUETAS</button>
-                                                    </form>
-                                                </div>
-        
-                                                <span class="gl-text">Usa espacios para separar etiquetas. Usá comillas simples (') para frases.</span>
-                                            </div>
-                                        </div>
-                                        <!--====== End - Tab 2 ======-->
-        
-                                        <!--====== Tab 3 ======-->
-                                        <div class="tab-pane" id="pd-rev">
-                                            <div class="pd-tab__rev">
-        
-                                                <div class="u-s-m-b-30">
-                                                    <div class="pd-tab__rev-score">
-                                                        <div class="u-s-m-b-8">
-                                                            <h2>23 Reseñas - 4.6 (General)</h2>
-                                                        </div>
-        
-                                                        <div class="gl-rating-style-2 u-s-m-b-8">
-                                                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                                                        </div>
-        
-                                                        <div class="u-s-m-b-8">
-                                                            <h4>¡Queremos saber tu opinión!</h4>
-                                                        </div>
-        
-                                                        <span class="gl-text">Contanos qué te pareció este producto</span>
-                                                    </div>
-                                                </div>
-        
-                                                <div class="u-s-m-b-30">
-                                                    <form class="pd-tab__rev-f1">
-                                                        <div class="rev-f1__group">
-                                                            <div class="u-s-m-b-15">
-                                                                <h2>23 Reseña(s) para Remera con Aplique Floral Fruncido</h2>
-                                                            </div>
-        
-                                                            <div class="u-s-m-b-15">
-                                                                <label for="sort-review"></label>
-                                                                <select class="select-box select-box--primary-style" id="sort-review">
-                                                                    <option selected>Ordenar por: Mejor Calificación</option>
-                                                                    <option>Ordenar por: Peor Calificación</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-        
-                                                        <div class="rev-f1__review">
-                                                            <div class="review-o u-s-m-b-15">
-                                                                <div class="review-o__info u-s-m-b-8">
-                                                                    <span class="review-o__name">John Doe</span>
-                                                                    <span class="review-o__date">27 Feb 2018 10:57:43</span>
-                                                                </div>
-        
-                                                                <div class="review-o__rating gl-rating-style u-s-m-b-8">
-                                                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
-                                                                    <span>(4)</span>
-                                                                </div>
-        
-                                                                <p class="review-o__text">Lorem Ipsum es simplemente texto ficticio utilizado en impresión y diseño...</p>
-                                                            </div>
-        
-                                                            <div class="review-o u-s-m-b-15">
-                                                                <div class="review-o__info u-s-m-b-8">
-                                                                    <span class="review-o__name">John Doe</span>
-                                                                    <span class="review-o__date">27 Feb 2018 10:57:43</span>
-                                                                </div>
-        
-                                                                <div class="review-o__rating gl-rating-style u-s-m-b-8">
-                                                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
-                                                                    <span>(4)</span>
-                                                                </div>
-        
-                                                                <p class="review-o__text">Lorem Ipsum es simplemente texto ficticio utilizado en impresión y diseño...</p>
-                                                            </div>
-        
-                                                            <div class="review-o u-s-m-b-15">
-                                                                <div class="review-o__info u-s-m-b-8">
-                                                                    <span class="review-o__name">John Doe</span>
-                                                                    <span class="review-o__date">27 Feb 2018 10:57:43</span>
-                                                                </div>
-        
-                                                                <div class="review-o__rating gl-rating-style u-s-m-b-8">
-                                                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
-                                                                    <span>(4)</span>
-                                                                </div>
-        
-                                                                <p class="review-o__text">Lorem Ipsum es simplemente texto ficticio utilizado en impresión y diseño...</p>
-                                                            </div>
-                                                        </div>
-                                                    </form>
-                                                </div>
-        
-                                                <div class="u-s-m-b-30">
-                                                    <form class="pd-tab__rev-f2">
-                                                        <h2 class="u-s-m-b-15">Agregar una Reseña</h2>
-        
-                                                        <span class="gl-text u-s-m-b-15">Tu correo no será publicado. Los campos obligatorios están marcados *</span>
-        
-                                                        <div class="u-s-m-b-30">
-                                                            <div class="rev-f2__table-wrap gl-scroll">
-                                                                <table class="rev-f2__table">
-                                                                    <thead>
-                                                                        <tr>
-                                                                            <th><div class="gl-rating-style-2"><i class="fas fa-star"></i><span>(1)</span></div></th>
-                                                                            <th><div class="gl-rating-style-2"><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><span>(1.5)</span></div></th>
-                                                                            <th><div class="gl-rating-style-2"><i class="fas fa-star"></i><i class="fas fa-star"></i><span>(2)</span></div></th>
-                                                                            <th><div class="gl-rating-style-2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><span>(2.5)</span></div></th>
-                                                                            <th><div class="gl-rating-style-2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span>(3)</span></div></th>
-                                                                            <th><div class="gl-rating-style-2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><span>(3.5)</span></div></th>
-                                                                            <th><div class="gl-rating-style-2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span>(4)</span></div></th>
-                                                                            <th><div class="gl-rating-style-2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><span>(4.5)</span></div></th>
-                                                                            <th><div class="gl-rating-style-2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span>(5)</span></div></th>
-                                                                        </tr>
-                                                                    </thead>
-        
-                                                                    <tbody>
-                                                                        <!-- radios sin traducir porque no tienen texto -->
-                                                                        <tr>
-                                                                            <td><div class="radio-box"><input type="radio" id="star-1" name="rating"><div class="radio-box__state radio-box__state--primary"><label class="radio-box__label" for="star-1"></label></div></div></td>
-                                                                            <td><div class="radio-box"><input type="radio" id="star-1.5" name="rating"><div class="radio-box__state radio-box__state--primary"><label class="radio-box__label" for="star-1.5"></label></div></div></td>
-                                                                            <td><div class="radio-box"><input type="radio" id="star-2" name="rating"><div class="radio-box__state radio-box__state--primary"><label class="radio-box__label" for="star-2"></label></div></div></td>
-                                                                            <td><div class="radio-box"><input type="radio" id="star-2.5" name="rating"><div class="radio-box__state radio-box__state--primary"><label class="radio-box__label" for="star-2.5"></label></div></div></td>
-                                                                            <td><div class="radio-box"><input type="radio" id="star-3" name="rating"><div class="radio-box__state radio-box__state--primary"><label class="radio-box__label" for="star-3"></label></div></div></td>
-                                                                            <td><div class="radio-box"><input type="radio" id="star-3.5" name="rating"><div class="radio-box__state radio-box__state--primary"><label class="radio-box__label" for="star-3.5"></label></div></div></td>
-                                                                            <td><div class="radio-box"><input type="radio" id="star-4" name="rating"><div class="radio-box__state radio-box__state--primary"><label class="radio-box__label" for="star-4"></label></div></div></td>
-                                                                            <td><div class="radio-box"><input type="radio" id="star-4.5" name="rating"><div class="radio-box__state radio-box__state--primary"><label class="radio-box__label" for="star-4.5"></label></div></div></td>
-                                                                            <td><div class="radio-box"><input type="radio" id="star-5" name="rating"><div class="radio-box__state radio-box__state--primary"><label class="radio-box__label" for="star-5"></label></div></div></td>
-                                                                        </tr>
-                                                                    </tbody>
-                                                                </table>
-                                                            </div>
-                                                        </div>
-        
-                                                        <div class="rev-f2__group">
-                                                            <div class="u-s-m-b-15">
-                                                                <label class="gl-label" for="reviewer-text">TU RESEÑA *</label>
-                                                                <textarea class="text-area text-area--primary-style" id="reviewer-text"></textarea>
-                                                            </div>
-        
-                                                            <div>
-                                                                <p class="u-s-m-b-30">
-                                                                    <label class="gl-label" for="reviewer-name">NOMBRE *</label>
-                                                                    <input class="input-text input-text--primary-style" type="text" id="reviewer-name">
-                                                                </p>
-        
-                                                                <p class="u-s-m-b-30">
-                                                                    <label class="gl-label" for="reviewer-email">CORREO ELECTRÓNICO *</label>
-                                                                    <input class="input-text input-text--primary-style" type="text" id="reviewer-email">
-                                                                </p>
-                                                            </div>
-                                                        </div>
-        
-                                                        <div>
-                                                            <button class="btn btn--e-brand-shadow" type="submit">ENVIAR</button>
-                                                        </div>
-        
-                                                    </form>
-                                                </div>
-        
-                                            </div>
-                                        </div>
-                                        <!--====== End - Tab 3 ======-->
-        
-                                    </div>
-        
-                                </div>
-        
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--====== End - Product Detail Tab ======-->
-        
+      <!--===========================
+            CATEGORÍAS DESTACADAS
+          ===========================-->
+
+
+      <section class="categories">
+        <div class="categories-slider">
+      
+          <a href="#" class="cat-item">
+            <div class="cat-circle">
+              <img src="assets/products/electronics/adiculares.png" alt="Mobile">
             </div>
-        </main>
-        
-          <!--====== Quick Look Modal ======-->
-        <div class="modal fade" id="quick-look">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content modal--shadow">
-
-                    <button class="btn dismiss-button fas fa-times" type="button" data-dismiss="modal"></button>
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="col-lg-5">
-
-                                <!--====== Product Breadcrumb ======-->
-                                <div class="pd-breadcrumb u-s-m-b-30">
-                                    <ul class="pd-breadcrumb__list">
-                                        <li class="has-separator">
-
-                                            <a href="index.hml">Home</a></li>
-                                        <li class="has-separator">
-
-                                            <a href="shop-side-version-2.html">Electronics</a></li>
-                                        <li class="has-separator">
-
-                                            <a href="shop-side-version-2.html">DSLR Cameras</a></li>
-                                        <li class="is-marked">
-
-                                            <a href="shop-side-version-2.html">Nikon Cameras</a></li>
-                                    </ul>
-                                </div>
-                                <!--====== End - Product Breadcrumb ======-->
-
-
-                                <!--====== Product Detail ======-->
-                                <div class="pd u-s-m-b-30">
-                                    <div class="pd-wrap">
-                                        <div id="js-product-detail-modal">
-                                            <div>
-
-                                                <img class="u-img-fluid" src="images/product/product-d-1.jpg" alt=""></div>
-                                            <div>
-
-                                                <img class="u-img-fluid" src="images/product/product-d-2.jpg" alt=""></div>
-                                            <div>
-
-                                                <img class="u-img-fluid" src="images/product/product-d-3.jpg" alt=""></div>
-                                            <div>
-
-                                                <img class="u-img-fluid" src="images/product/product-d-4.jpg" alt=""></div>
-                                            <div>
-
-                                                <img class="u-img-fluid" src="images/product/product-d-5.jpg" alt=""></div>
-                                        </div>
-                                    </div>
-                                    <div class="u-s-m-t-15">
-                                        <div id="js-product-detail-modal-thumbnail">
-                                            <div>
-
-                                                <img class="u-img-fluid" src="images/product/product-d-1.jpg" alt=""></div>
-                                            <div>
-
-                                                <img class="u-img-fluid" src="images/product/product-d-2.jpg" alt=""></div>
-                                            <div>
-
-                                                <img class="u-img-fluid" src="images/product/product-d-3.jpg" alt=""></div>
-                                            <div>
-
-                                                <img class="u-img-fluid" src="images/product/product-d-4.jpg" alt=""></div>
-                                            <div>
-
-                                                <img class="u-img-fluid" src="images/product/product-d-5.jpg" alt=""></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--====== End - Product Detail ======-->
-                            </div>
-                            <div class="col-lg-7">
-
-                                <!--====== Product Right Side Details ======-->
-                                <div class="pd-detail">
-                                    <div>
-
-                                        <span class="pd-detail__name">Nikon Camera 4k Lens Zoom Pro</span></div>
-                                    <div>
-                                        <div class="pd-detail__inline">
-
-                                            <span class="pd-detail__price">$6.99</span>
-
-                                            <span class="pd-detail__discount">(76% OFF)</span><del class="pd-detail__del">$28.97</del></div>
-                                    </div>
-                                    <div class="u-s-m-b-15">
-                                        <div class="pd-detail__rating gl-rating-style"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-
-                                            <span class="pd-detail__review u-s-m-l-4">
-
-                                                <a href="product-detail.html">23 Reviews</a></span></div>
-                                    </div>
-                                    <div class="u-s-m-b-15">
-                                        <div class="pd-detail__inline">
-
-                                            <span class="pd-detail__stock">200 in stock</span>
-
-                                            <span class="pd-detail__left">Only 2 left</span></div>
-                                    </div>
-                                    <div class="u-s-m-b-15">
-
-                                        <span class="pd-detail__preview-desc">Llevá tus fotos y videos al próximo nivel con esta cámara digital diseñada para quienes buscan nitidez, color realista y rendimiento en cualquier situación. Ideal para crear contenido, grabar vlogs, registrar eventos o simplemente inmortalizar tus mejores momentos.</span></div>
-                                    <div class="u-s-m-b-15">
-                                        <div class="pd-detail__inline">
-
-                                            <span class="pd-detail__click-wrap"><i class="far fa-heart u-s-m-r-6"></i>
-
-                                                <a href="signin.html">Add to Wishlist</a>
-
-                                                <span class="pd-detail__click-count">(222)</span></span></div>
-                                    </div>
-                                    <div class="u-s-m-b-15">
-                                        <div class="pd-detail__inline">
-
-                                            <span class="pd-detail__click-wrap"><i class="far fa-envelope u-s-m-r-6"></i>
-
-                                                <a href="signin.html">Email me When the price drops</a>
-
-                                                <span class="pd-detail__click-count">(20)</span></span></div>
-                                    </div>
-                                    <div class="u-s-m-b-15">
-                                        <ul class="pd-social-list">
-                                            <li>
-
-                                                <a class="s-fb--color-hover" href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                            <li>
-
-                                                <a class="s-tw--color-hover" href="#"><i class="fab fa-twitter"></i></a></li>
-                                            <li>
-
-                                                <a class="s-insta--color-hover" href="#"><i class="fab fa-instagram"></i></a></li>
-                                            <li>
-
-                                                <a class="s-wa--color-hover" href="#"><i class="fab fa-whatsapp"></i></a></li>
-                                            <li>
-
-                                                <a class="s-gplus--color-hover" href="#"><i class="fab fa-google-plus-g"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="u-s-m-b-15">
-                                        <form class="pd-detail__form">
-                                            <div class="pd-detail-inline-2">
-                                                <div class="u-s-m-b-15">
-
-                                                    <!--====== Input Counter ======-->
-                                                    <div class="input-counter">
-
-                                                        <span class="input-counter__minus fas fa-minus"></span>
-
-                                                        <input class="input-counter__text input-counter--text-primary-style" type="text" value="1" data-min="1" data-max="1000">
-
-                                                        <span class="input-counter__plus fas fa-plus"></span></div>
-                                                    <!--====== End - Input Counter ======-->
-                                                </div>
-                                                <div class="u-s-m-b-15">
-
-                                                    <button class="btn btn--e-brand-b-2" type="submit">Add to Cart</button></div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                    <div class="u-s-m-b-15">
-
-                                        <span class="pd-detail__label u-s-m-b-8">Product Policy:</span>
-                                        <ul class="pd-detail__policy-list">
-                                            <li><i class="fas fa-check-circle u-s-m-r-8"></i>
-
-                                                <span>Buyer Protection.</span></li>
-                                            <li><i class="fas fa-check-circle u-s-m-r-8"></i>
-
-                                                <span>Full Refund if you don't receive your order.</span></li>
-                                            <li><i class="fas fa-check-circle u-s-m-r-8"></i>
-
-                                                <span>Returns accepted if product not as described.</span></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <!--====== End - Product Right Side Details ======-->
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <span>Mobile</span>
+          </a>
+      
+          <a href="#" class="cat-item">
+            <div class="cat-circle">
+              <img src="assets/products/electronics/iphone.jpg" alt="Mobile">
             </div>
+            <span>Mobile</span>
+          </a>
+      
+          <a href="#" class="cat-item">
+            <div class="cat-circle">
+              <img src="assets/products/electronics/smart Tv Grande.png" alt="Mobile">
+            </div>
+            <span>Mobile</span>
+          </a>
+      
+          <a href="#" class="cat-item">
+            <div class="cat-circle">
+              <img src="assets/products/beauty/serum.png" alt="Mobile">
+            </div>
+            <span>Mobile</span>
+          </a>
+      
+          <a href="#" class="cat-item">
+            <div class="cat-circle">
+              <img src="assets/products/clothes/sports/Zapatilla Nike.png" alt="Mobile">
+            </div>
+            <span>Mobile</span>
+          </a>
+      
+          <a href="#" class="cat-item">
+            <div class="cat-circle">
+              <img src="assets/products/clothes/fashion/Top celeste.png" alt="Cosmetics">
+            </div>
+            <span>Cosmetics</span>
+          </a>
+      
+          <a href="#" class="cat-item">
+            <div class="cat-circle">
+              <img src="assets/products/home/heladera.jpg" alt="Electronics">
+            </div>
+            <span>Electronics</span>
+          </a>
+      
+          <a href="#" class="cat-item">
+            <div class="cat-circle">
+              <img src="assets/products/pets/alimento para perro.jpg" alt="Furniture">
+            </div>
+            <span>Furniture</span>
+          </a>
+      
+          <a href="#" class="cat-item">
+            <div class="cat-circle">
+              <img src="assets/products/clothes/normal/mochila.png" alt="Watches">
+            </div>
+            <span>Watches</span>
+          </a>
+      
+          <a href="#" class="cat-item">
+            <div class="cat-circle">
+              <img src="assets/products/clothes/Carteras y mochilas/Mini Bag.jpg" alt="Decor">
+            </div>
+            <span>Decor</span>
+          </a>
+      
+          <a href="#" class="cat-item">
+            <div class="cat-circle">
+              <img src="assets/products/electronics/smartWatch.jpg" alt="Accessories">
+            </div>
+            <span>Accessories</span>
+          </a>
+      
         </div>
-        <!--====== End - Quick Look Modal ======-->
+      </section>
+      
 
-
-        <!--====== Add to Cart Modal ======-->
-        <div class="modal fade" id="add-to-cart">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content modal-radius modal-shadow">
-
-                    <button class="btn dismiss-button fas fa-times" type="button" data-dismiss="modal"></button>
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="col-lg-6 col-md-12">
-                                <div class="success u-s-m-b-30">
-                                    <div class="success__text-wrap"><i class="fas fa-check"></i>
-
-                                        <span>Item is added successfully!</span></div>
-                                    <div class="success__img-wrap">
-
-                                        <img class="u-img-fluid" src="assets/products/electronics/Camara.png" alt=""></div>
-                                    <div class="success__info-wrap">
-
-                                        <span class="success__name">Beats Bomb Wireless Headphone</span>
-
-                                        <span class="success__quantity">Quantity: 1</span>
-
-                                        <span class="success__price">$170.00</span></div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-md-12">
-                                <div class="s-option">
-
-                                    <span class="s-option__text">1 item (s) in your cart</span>
-                                    <div class="s-option__link-box">
-
-                                        <a class="s-option__link btn--e-white-brand-shadow" data-dismiss="modal">CONTINUE SHOPPING</a>
-
-                                        <a class="s-option__link btn--e-white-brand-shadow" href="cart.html">VIEW CART</a>
-
-                                        <a class="s-option__link btn--e-brand-shadow" href="checkout.html">PROCEED TO CHECKOUT</a></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+      <section class="bg-gray-50 py-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <!-- Header -->
+          <div class="flex items-center justify-between mb-6">
+            <h2 class="text-2xl font-bold text-gray-900">
+              Más vendidos de la semana
+            </h2>
+            <a href="#" class="text-sm text-blue-600 hover:underline">Ver más</a>
+          </div>
+      
+          <!-- Carousel container -->
+          <div class="relative">
+            <!-- Slider -->
+            <div id="productSlider" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 gap-4">          
+              <div class="bg-white rounded-lg shadow hover:shadow-lg transition">
+                <img src="assets/products/home/aire acondicionado.png" alt="Producto"
+                     class="w-full h-40 object-contain p-4">
+                <div class="p-4">
+                  <h3 class="text-sm font-semibold text-gray-700 line-clamp-2">
+                    Aire Acondicionado Portátil Frío/Calor 3000
+                  </h3>
+                  <p class="text-xs text-gray-400 line-through">$999.999</p>
+                  <p class="text-lg font-bold text-green-600">$599.999</p>
+                  <p class="text-xs text-green-600">40% OFF</p>
+                  <p class="text-xs text-gray-500">12 cuotas de $99.999</p>
                 </div>
+              </div>
+              <div class="bg-white rounded-lg shadow hover:shadow-lg transition">
+                <img src="assets/products/electronics/smart Tv Grande.png" alt="Producto"
+                     class="w-full h-40 object-contain p-4">
+                <div class="p-4">
+                  <h3 class="text-sm font-semibold text-gray-700 line-clamp-2">
+                    Smart TV 50" 4K Ultra HD Samsung Crystal
+                  </h3>
+                  <p class="text-xs text-gray-400 line-through">$899.999</p>
+                  <p class="text-lg font-bold text-green-600">$539.999</p>
+                  <p class="text-xs text-green-600">40% OFF</p>
+                  <p class="text-xs text-gray-500">12 cuotas de $89.999</p>
+                </div>
+              </div>
+              <div class="bg-white rounded-lg shadow hover:shadow-lg transition">
+                <img src="assets/products/home/heladera.jpg" alt="Producto"
+                     class="w-full h-40 object-contain p-4">
+                <div class="p-4">
+                  <h3 class="text-sm font-semibold text-gray-700 line-clamp-2">
+                    Heladera No Frost Whirlpool 400L Inverter
+                  </h3>
+                  <p class="text-xs text-gray-400 line-through">$1.299.999</p>
+                  <p class="text-lg font-bold text-green-600">$779.999</p>
+                  <p class="text-xs text-green-600">40% OFF</p>
+                  <p class="text-xs text-gray-500">12 cuotas de $129.999</p>
+                </div>
+              </div>
+              <div class="bg-white rounded-lg shadow hover:shadow-lg transition">
+                <img src="assets/products/home/lavarropas.jpg" alt="Producto"
+                     class="w-full h-40 object-contain p-4">
+                <div class="p-4">
+                  <h3 class="text-sm font-semibold text-gray-700 line-clamp-2">Lavarropas Automático Drean 8kg EcoSilent</h3>
+                  <p class="text-xs text-gray-400 line-through">$999.999</p>
+                  <p class="text-lg font-bold text-green-600">$599.999</p>
+                  <p class="text-xs text-green-600">40% OFF</p>
+                  <p class="text-xs text-gray-500">12 cuotas de $99.999</p>
+                </div>
+              </div>
+              <div class="bg-white rounded-lg shadow hover:shadow-lg transition">
+                <img src="assets/products/electronics/silla gamer.jpg" alt="Producto"
+                     class="w-full h-40 object-contain p-4">
+                <div class="p-4">
+                  <h3 class="text-sm font-semibold text-gray-700 line-clamp-2">
+                    Silla Ergonómica Gamer Reclinable con Luces LED RGB
+                  </h3>
+                  <p class="text-xs text-gray-400 line-through">$499.999</p>
+                  <p class="text-lg font-bold text-green-600">$299.999</p>
+                  <p class="text-xs text-green-600">40% OFF</p>
+                  <p class="text-xs text-gray-500">12 cuotas de $49.999</p>
+                </div>
+              </div>
+              <div class="bg-white rounded-lg shadow hover:shadow-lg transition">
+                <img src="assets/products/electronics/parlante Home Theather.png" alt="Producto"
+                     class="w-full h-40 object-contain p-4">
+                <div class="p-4">
+                  <h3 class="text-sm font-semibold text-gray-700 line-clamp-2">
+                    Parlante Bluetooth JBL Charge 5 Portátil
+                  </h3>
+                  <p class="text-xs text-gray-400 line-through">$399.999</p>
+                  <p class="text-lg font-bold text-green-600">$239.999</p>
+                  <p class="text-xs text-green-600">40% OFF</p>
+                  <p class="text-xs text-gray-500">12 cuotas de $39.999</p>
+                </div>
+              </div>
+              <div class="bg-white rounded-lg shadow hover:shadow-lg transition">
+                <img src="assets/products/electronics/smartWatch.jpg" alt="Producto"
+                     class="w-full h-40 object-contain p-4">
+                <div class="p-4">
+                  <h3 class="text-sm font-semibold text-gray-700 line-clamp-2">
+                    Smartwatch Xiaomi Mi Watch Active 2
+                  </h3>
+                  <p class="text-xs text-gray-400 line-through">$299.999</p>
+                  <p class="text-lg font-bold text-green-600">$179.999</p>
+                  <p class="text-xs text-green-600">40% OFF</p>
+                  <p class="text-xs text-gray-500">12 cuotas de $29.999</p>
+                </div>
+              </div>
+              <div class="bg-white rounded-lg shadow hover:shadow-lg transition">
+                <img src="assets/products/clothes/sports/zapatillas nike blancas.jpg" alt="Producto"
+                     class="w-full h-40 object-contain p-4">
+                <div class="p-4">
+                  <h3 class="text-sm font-semibold text-gray-700 line-clamp-2">
+                    Zapatillas Nike Air Max 270 Hombre Originales
+                  </h3>
+                  <p class="text-xs text-gray-400 line-through">$299.999</p>
+                  <p class="text-lg font-bold text-green-600">$179.999</p>
+                  <p class="text-xs text-green-600">40% OFF</p>
+                  <p class="text-xs text-gray-500">12 cuotas de $29.999</p>
+                </div>
+              </div>
+              <div class="bg-white rounded-lg shadow hover:shadow-lg transition">
+                <img src="assets/products/home/aire acondicionado.png" alt="Producto"
+                     class="w-full h-40 object-contain p-4">
+                <div class="p-4">
+                  <h3 class="text-sm font-semibold text-gray-700 line-clamp-2">
+                    Aire Acondicionado Portátil Frío/Calor 3000fs
+                  </h3>
+                  <p class="text-xs text-gray-400 line-through">$999.999</p>
+                  <p class="text-lg font-bold text-green-600">$599.999</p>
+                  <p class="text-xs text-green-600">40% OFF</p>
+                  <p class="text-xs text-gray-500">12 cuotas de $99.999</p>
+                </div>
+              </div>
+              <div class="bg-white rounded-lg shadow hover:shadow-lg transition">
+                <img src="assets/products/electronics/smart Tv Grande.png" alt="Producto"
+                     class="w-full h-40 object-contain p-4">
+                <div class="p-4">
+                  <h3 class="text-sm font-semibold text-gray-700 line-clamp-2">
+                    Smart TV 50" 4K Ultra HD Samsung Crystal
+                  </h3>
+                  <p class="text-xs text-gray-400 line-through">$899.999</p>
+                  <p class="text-lg font-bold text-green-600">$539.999</p>
+                  <p class="text-xs text-green-600">40% OFF</p>
+                  <p class="text-xs text-gray-500">12 cuotas de $89.999</p>
+                </div>
+              </div>
             </div>
+          </div>
         </div>
-        <!--====== End - Add to Cart Modal ======-->
-        <!--====== End - Modal Section ======-->
-      <!-- ===========================
+      </section>
+
+       <section id="powerade-anuncio" class="relative w-full bg-black text-white overflow-hidden">
+         <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between px-6 md:px-12 lg:px-16 py-12 gap-10">
+           
+           <!-- Imagen principal -->
+           <div class="w-full md:w-1/2 relative flex justify-center">
+             <img 
+               src="assets/ads/powerade.jpg" 
+               alt="Lamine Yamal embajador Powerade" 
+               class="w-full max-w-lg object-cover rounded-2xl shadow-xl"
+             >
+             <!-- Efecto de luz -->
+             <div class="absolute -z-10 w-64 h-64 bg-blue-500/40 rounded-full top-1/2 -translate-y-1/2 right-0 blur-3xl opacity-70"></div>
+           </div>
+       
+           <!-- Texto principal -->
+           <div class="w-full md:w-1/2 z-10 text-center md:text-left">
+             <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight leading-tight mb-4">
+               <span class="text-blue-400">POWERADE</span><br>
+               <span class="text-white">No se trata de tener energia. <br>Se trata de tener poder</span>
+             </h2>
+             <p class="text-lg text-gray-300 mb-6">
+               Hidratate con Powerade, la bebida con electrolitos que repone lo que tu entrenamiento exige
+             </p>
+             
+             <a href="#comprar" 
+                class="inline-block px-8 py-3 rounded-full bg-blue-500 hover:bg-blue-600 text-white font-semibold text-lg shadow-md hover:shadow-lg transition-all duration-300">
+               DESCUBRIR MÁS →
+             </a>
+           </div>
+       
+         </div>
+       </section>
+    <!-- ===========================
+         PRODUCTOS / VENDEDORES DESTACADOS (Scrollable carousel simple)
+         =========================== -->
+      <section class="bg-gray-50 py-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <!-- Header -->
+          <div class="flex items-center justify-between mb-6">
+            <h2 class="text-2xl font-bold text-gray-900">
+              Ofertas de la semana
+            </h2>
+            <a href="#" class="text-sm text-blue-600 hover:underline">Ver más</a>
+          </div>
+      
+          <!-- Scrollable horizontal list (touch friendly) -->
+          <div class="overflow-x-auto snap-x flex gap-4 pb-4 scroll-hide ofertas-scroll">
+            <!-- Card product example -->
+            <article class="min-w-[240px] w-[240px] bg-white rounded-xl p-4 border card-lift snap-child" role="group" aria-label="Producto 1">
+              <div class="aspect-[4/3] bg-gray-100 rounded-lg overflow-hidden flex items-center justify-center">
+                <img src="assets/products/electronics/auriculares-inalambricos-pro.jpg" alt="Producto ejemplo" class="object-cover w-full h-full" />
+              </div>
+              <h3 class="mt-3 font-semibold text-sm">Auricular Bluetooth inalámbrico</h3>
+              <p class="mt-1 text-xs text-slate-500">Código: A-12345 · Stock: 120</p>
+              <div class="mt-3 flex items-center justify-between">
+                <div>
+                  <div class="text-sm font-bold">$39.091</div>
+                  <div class="text-xs text-slate-500">Precio mayorista</div>
+                </div>
+                <a href="#" class="px-3 py-2 rounded-md text-xs font-semibold bg-[var(--tm-orange)] text-white hover:bg-[var(--tm-orange-hover)] focus-ring">Contactar</a>
+              </div>
+            </article>
+            <article class="min-w-[240px] w-[240px] bg-white rounded-xl p-4 border card-lift snap-child">
+              <div class="aspect-[4/3] bg-gray-100 rounded-lg overflow-hidden flex items-center justify-center">
+                <img src="assets/products/electronics/parlante.jpg" alt="Producto ejemplo" class="object-cover w-full h-full" />
+              </div>
+              <h3 class="mt-3 font-semibold text-sm">Parlante Bluetooth Portátil Aiwa Aw-t408 14000w </h3>
+              <p class="mt-1 text-xs text-slate-500">Código: P-23412 · Stock: 50</p>
+              <div class="mt-3 flex items-center justify-between">
+                <div>
+                  <div class="text-sm font-bold">$343.825</div>
+                  <div class="text-xs text-slate-500">Precio mayorista</div>
+                </div>
+                <a href="#" class="px-3 py-2 rounded-md text-xs font-semibold bg-[var(--tm-orange)] text-white hover:bg-[var(--tm-orange-hover)] focus-ring">Contactar</a>
+              </div>
+            </article>
+            <article class="min-w-[240px] w-[240px] bg-white rounded-xl p-4 border card-lift snap-child">
+              <div class="aspect-[4/3] bg-gray-100 rounded-lg overflow-hidden flex items-center justify-center">
+                <img src="assets/products/clothes/normal/mochila.png" alt="Producto ejemplo" class="object-cover w-full h-full" />
+              </div>
+              <h3 class="mt-3 font-semibold text-sm">Mochila Kossok Tactica Rondon Porta Notebook</h3>
+              <p class="mt-1 text-xs text-slate-500">Código: M-77777 · Stock: 20</p>
+              <div class="mt-3 flex items-center justify-between">
+                <div>
+                  <div class="text-sm font-bold">$19.499</div>
+                  <div class="text-xs text-slate-500">Precio mayorista</div>
+                </div>
+                <a href="#" class="px-3 py-2 rounded-md text-xs font-semibold bg-[var(--tm-orange)] text-white hover:bg-[var(--tm-orange-hover)] focus-ring">Contactar</a>
+              </div>
+            </article>
+  
+            <article class="min-w-[240px] w-[240px] bg-white rounded-xl p-4 border card-lift snap-child" role="group" aria-label="Producto 1">
+              <div class="aspect-[4/3] bg-gray-100 rounded-lg overflow-hidden flex items-center justify-center">
+                <img src="assets/products/electronics/adiculares.png" alt="Producto ejemplo" class="object-cover w-full h-full" />
+              </div>
+              <h3 class="mt-3 font-semibold text-sm">Auricular Bluetooth inalámbrico</h3>
+              <p class="mt-1 text-xs text-slate-500">Código: A-12345 · Stock: 120</p>
+              <div class="mt-3 flex items-center justify-between">
+                <div>
+                  <div class="text-sm font-bold">$39.091</div>
+                  <div class="text-xs text-slate-500">Precio mayorista</div>
+                </div>
+                <a href="#" class="px-3 py-2 rounded-md text-xs font-semibold bg-[var(--tm-orange)] text-white hover:bg-[var(--tm-orange-hover)] focus-ring">Contactar</a>
+              </div>
+            </article>
+            <article class="min-w-[240px] w-[240px] bg-white rounded-xl p-4 border card-lift snap-child">
+              <div class="aspect-[4/3] bg-gray-100 rounded-lg overflow-hidden flex items-center justify-center">
+                <img src="assets/products/electronics/parlante.jpg" alt="Producto ejemplo" class="object-cover w-full h-full" />
+              </div>
+              <h3 class="mt-3 font-semibold text-sm">Parlante Bluetooth Portátil Aiwa Aw-t408 14000w </h3>
+              <p class="mt-1 text-xs text-slate-500">Código: P-23412 · Stock: 50</p>
+              <div class="mt-3 flex items-center justify-between">
+                <div>
+                  <div class="text-sm font-bold">$343.825</div>
+                  <div class="text-xs text-slate-500">Precio mayorista</div>
+                </div>
+                <a href="#" class="px-3 py-2 rounded-md text-xs font-semibold bg-[var(--tm-orange)] text-white hover:bg-[var(--tm-orange-hover)] focus-ring">Contactar</a>
+              </div>
+            </article>
+            <article class="min-w-[240px] w-[240px] bg-white rounded-xl p-4 border card-lift snap-child">
+              <div class="aspect-[4/3] bg-gray-100 rounded-lg overflow-hidden flex items-center justify-center">
+                <img src="assets/products/clothes/normal/mochila.png" alt="Producto ejemplo" class="object-cover w-full h-full" />
+              </div>
+              <h3 class="mt-3 font-semibold text-sm">Mochila Kossok Tactica Rondon Porta Notebook</h3>
+              <p class="mt-1 text-xs text-slate-500">Código: M-77777 · Stock: 20</p>
+              <div class="mt-3 flex items-center justify-between">
+                <div>
+                  <div class="text-sm font-bold">$19.499</div>
+                  <div class="text-xs text-slate-500">Precio mayorista</div>
+                </div>
+                <a href="#" class="px-3 py-2 rounded-md text-xs font-semibold bg-[var(--tm-orange)] text-white hover:bg-[var(--tm-orange-hover)] focus-ring">Contactar</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+
+
+    <!-- ===========================
+         BENEFICIOS / VENTAJAS
+         =========================== -->
+    <section id="beneficios" class="py-12 bg-white">
+      <div class="mx-auto max-w-[var(--max-width)] px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-8">
+          <h3 class="text-xl font-semibold">Por qué elegir Tienda Mas</h3>
+          <p class="text-sm text-slate-500">Herramientas pensadas para vendedores y compradores mayoristas.</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <article class="p-6 bg-[var(--tm-gray-light)] rounded-xl card-lift" aria-labelledby="b1">
+            <div class="w-12 h-12 flex items-center justify-center rounded-md bg-white shadow-sm mb-4">
+              <i class="fa-solid fa-shield-check text-[var(--tm-blue)]"></i>
+            </div>
+            <h4 id="b1" class="font-semibold">Pagos seguros</h4>
+            <p class="mt-2 text-sm text-slate-600">Plataforma con integraciones de pago y conciliación automatizada.</p>
+          </article>
+
+          <article class="p-6 bg-[var(--tm-gray-light)] rounded-xl card-lift" aria-labelledby="b2">
+            <div class="w-12 h-12 flex items-center justify-center rounded-md bg-white shadow-sm mb-4">
+              <i class="fa-solid fa-rocket text-[var(--tm-blue)]"></i>
+            </div>
+            <h4 id="b2" class="font-semibold">Escalabilidad</h4>
+            <p class="mt-2 text-sm text-slate-600">Soporta crecimiento de catálogo y tráfico con caching y microservicios.</p>
+          </article>
+
+          <article class="p-6 bg-[var(--tm-gray-light)] rounded-xl card-lift" aria-labelledby="b3">
+            <div class="w-12 h-12 flex items-center justify-center rounded-md bg-white shadow-sm mb-4">
+              <i class="fa-solid fa-chart-line text-[var(--tm-blue)]"></i>
+            </div>
+            <h4 id="b3" class="font-semibold">Analytics</h4>
+            <p class="mt-2 text-sm text-slate-600">Métricas clave para vendedores: ventas, vistas y conversión.</p>
+          </article>
+
+          <article class="p-6 bg-[var(--tm-gray-light)] rounded-xl card-lift" aria-labelledby="b4">
+            <div class="w-12 h-12 flex items-center justify-center rounded-md bg-white shadow-sm mb-4">
+              <i class="fa-solid fa-headset text-[var(--tm-blue)]"></i>
+            </div>
+            <h4 id="b4" class="font-semibold">Soporte dedicado</h4>
+            <p class="mt-2 text-sm text-slate-600">Atención a vendedores y compradores con SLA personalizado.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===========================
+         TESTIMONIOS (Cards)
+         =========================== -->
+    <section id="testimonios" class="py-12">
+      <div class="mx-auto max-w-[var(--max-width)] px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between mb-6">
+          <h2 class="text-2xl font-semibold">Historias de éxito</h2>
+          <a href="#" class="text-sm text-[var(--tm-blue)]">Ver más casos</a>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <figure class="p-6 bg-white rounded-xl border card-lift">
+            <figcaption class="flex items-center gap-3">
+              <img class="w-12 h-12 rounded-full object-cover" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&s=..." alt="">
+              <div>
+                <div class="font-semibold">La Mendocina</div>
+                <div class="text-xs text-slate-500">Distribuidora · Mendoza</div>
+              </div>
+            </figcaption>
+            <blockquote class="mt-4 text-sm text-slate-600">"Desde que vendemos en Tienda Mas aumentamos 40% las ventas mayoristas. La gestión de stock y pagos es realmente sencilla."</blockquote>
+          </figure>
+
+          <figure class="p-6 bg-white rounded-xl border card-lift">
+            <figcaption class="flex items-center gap-3">
+              <img class="w-12 h-12 rounded-full object-cover" src="https://images.unsplash.com/photo-1545996124-1b5c3da42d75?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&s=..." alt="">
+              <div>
+                <div class="font-semibold">Distribuidora CI</div>
+                <div class="text-xs text-slate-500">Construcción · Salta</div>
+              </div>
+            </figcaption>
+            <blockquote class="mt-4 text-sm text-slate-600">"El sistema de pedidos y los canales de comunicación con compradores nos ahorraron muchas horas mensuales."</blockquote>
+          </figure>
+
+          <figure class="p-6 bg-white rounded-xl border card-lift">
+            <figcaption class="flex items-center gap-3">
+              <img class="w-12 h-12 rounded-full object-cover" src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&s=..." alt="">
+              <div>
+                <div class="font-semibold">BM Distribuidora</div>
+                <div class="text-xs text-slate-500">Cosmética · Córdoba</div>
+              </div>
+            </figcaption>
+            <blockquote class="mt-4 text-sm text-slate-600">"Excelente soporte y entregas confiables a distintos puntos del país."</blockquote>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===========================
+         CTA SECUNDARIA (Empieza a vender)
+         =========================== -->
+    <section id="vender" class="py-12 bg-[var(--tm-blue)] text-white">
+      <div class="mx-auto max-w-[var(--max-width)] px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+        <div>
+          <h3 class="text-xl font-semibold">¿Tenés un negocio? Empieza a vender en Tienda Mas</h3>
+          <p class="text-sm text-slate-100 mt-2">Regístrate, subí tu catálogo y accedé a ventas mayoristas desde el primer día.</p>
+        </div>
+        <div class="flex gap-3">
+          <a href="#registrarse" class="px-5 py-3 bg-white text-[var(--tm-blue)] rounded-md font-semibold focus-ring">Crear cuenta vendedor</a>
+          <a href="#contacto" class="px-5 py-3 border border-white rounded-md text-white font-semibold focus-ring">Contactar soporte</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===========================
          FOOTER
          =========================== -->
+    <footer class="bg-slate-900 text-slate-300 mt-12">
+      <div class="mx-auto max-w-[var(--max-width)] px-4 sm:px-6 lg:px-8 py-12 grid grid-cols-1 md:grid-cols-4 gap-6">
+        <div>
+          <a href="#" class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background:linear-gradient(135deg,var(--tm-orange),var(--tm-orange-hover));">
+              <span class="text-white font-bold">TM</span>
+            </div>
+            <div>
+              <div class="text-white font-semibold">Tienda Mas</div>
+              <div class="text-xs text-slate-400">Marketplace mayorista</div>
+            </div>
+          </a>
+          <p class="mt-4 text-sm text-slate-400">© <span id="year"></span> Tienda Mas. Todos los derechos reservados.</p>
+        </div>
 
+        <div>
+          <h4 class="font-semibold text-white mb-3">Empresa</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#" class="hover:underline">Acerca</a></li>
+            <li><a href="#" class="hover:underline">Prensa</a></li>
+            <li><a href="#" class="hover:underline">Contacto</a></li>
+          </ul>
+        </div>
 
+        <div>
+          <h4 class="font-semibold text-white mb-3">Vendedores</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#" class="hover:underline">Cómo vender</a></li>
+            <li><a href="#" class="hover:underline">Costos y comisiones</a></li>
+            <li><a href="#" class="hover:underline">Soporte</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-semibold text-white mb-3">Síguenos</h4>
+          <div class="flex gap-3">
+            <a class="p-2 rounded-md bg-slate-800 hover:bg-slate-700" href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a class="p-2 rounded-md bg-slate-800 hover:bg-slate-700" href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a class="p-2 rounded-md bg-slate-800 hover:bg-slate-700" href="#" aria-label="Linkedin"><i class="fa-brands fa-linkedin-in"></i></a>
+          </div>
+
+          <div class="mt-4">
+            <a href="#" class="text-xs text-slate-400 hover:underline">Términos y condiciones</a> ·
+            <a href="#" class="text-xs text-slate-400 hover:underline">Política de privacidad</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </main>
 
   <!-- ===========================
        SCRIPTS: interacción y accesibilidad
@@ -822,44 +787,57 @@
   -->
   <script src="Javascript/script.js"></script>
   <script src="Javascript/slider.js"></script>
+  <script>
+const slider = document.querySelector('.categories-slider');
 
-      <!--====== Google Analytics: change UA-XXXXX-Y to be your site's ID ======-->
-    <script>
-        window.ga = function() {
-            ga.q.push(arguments)
-        };
-        ga.q = [];
-        ga.l = +new Date;
-        ga('create', 'UA-XXXXX-Y', 'auto');
-        ga('send', 'pageview')
-    </script>
-    <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+let isDragging = false;
+let startX = 0;
+let startScroll = 0;
+let moved = false;
 
-    <!--====== Vendor Js ======-->
-    <script src="../ludus-free-premium-ecommerce-template-master/js/vendor.js"></script>
+slider.addEventListener('pointerdown', (e) => {
+  isDragging = true;
+  moved = false;
+  slider.classList.add('dragging');
 
-    <!--====== jQuery Shopnav plugin ======-->
-    <script src="../ludus-free-premium-ecommerce-template-master/js/jquery.shopnav.js"></script>
+  startX = e.clientX;
+  startScroll = slider.scrollLeft;
 
-    <!--====== App ======-->
-    <script src="../ludus-free-premium-ecommerce-template-master/js/app.js"></script>
+  slider.setPointerCapture(e.pointerId);
+});
 
-    <!--====== Noscript ======-->
-    <noscript>
-        <div class="app-setting">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="app-setting__wrap">
-                            <h1 class="app-setting__h1">JavaScript is disabled in your browser.</h1>
+slider.addEventListener('pointermove', (e) => {
+  if (!isDragging) return;
 
-                            <span class="app-setting__text">Please enable JavaScript in your browser or upgrade to a JavaScript-capable browser.</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </noscript>
+  const dx = e.clientX - startX;
+  if (Math.abs(dx) > 5) moved = true;
+
+  slider.scrollLeft = startScroll - dx;
+});
+
+slider.addEventListener('pointerup', (e) => {
+  isDragging = false;
+  slider.classList.remove('dragging');
+  slider.releasePointerCapture(e.pointerId);
+});
+
+slider.addEventListener('pointerleave', () => {
+  isDragging = false;
+  slider.classList.remove('dragging');
+});
+
+/* 🔥 Cancelar click si hubo drag */
+slider.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', (e) => {
+    if (moved) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+  });
+});
+</script>
+
+
 
 </body>
 </html>

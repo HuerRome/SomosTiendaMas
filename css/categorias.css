@@ -1,52 +1,97 @@
 
-/*--------------------------------------------------------------------------------------------------*/
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Estilos base para el contenedor de las categorías */
 .categories {
+  position: relative;
   width: 100%;
+  padding: 16px 0;
 }
 
+/* Fade sutil en el borde derecho para indicar más contenido */
+.categories::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 60px;
+  height: 100%;
+  pointer-events: none;
+  background: linear-gradient(to right, rgba(255,255,255,0), #fff);
+}
+
+/* Estilo del contenedor de las categorías */
 .categories-slider {
   display: flex;
-  gap: 16px;
   gap: 20px;
   overflow-x: auto;
-  flex-wrap: nowrap;
-  padding: 16px 0px;
-  -webkit-overflow-scrolling: touch;
+  padding: 16px 0;
+  cursor: grab;
+  user-select: none; /* Previene la selección de texto al hacer scroll */
+  touch-action: pan-y; /* Permite scroll horizontal sin interferir con el scroll vertical */
+  scroll-behavior: smooth;
 }
 
 .categories-slider::-webkit-scrollbar {
-  display: none; /* opcional */
+  display: none; /* Oculta el scrollbar */
 }
 
-/* Card */
+/* Cursor de agarre cuando se puede hacer drag */
+.categories-slider.dragging {
+  cursor: grabbing;
+}
+
+/* Estilo de cada item de categoría */
 .cat-item {
+  flex: 0 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-decoration: none;
-  color: #222;
-  transition: transform 0.2s ease;
-  flex: 0 0 auto;             /* 🔥 importante para slider */
+  color: inherit;
+  transition: transform 0.2s ease; /* Suaviza el efecto de hover */
 }
 
 .cat-item:hover {
-  transform: scale(1.04);
+  transform: scale(1.04); /* Efecto al hacer hover */
 }
 
-/* Circle */
+/* Estilo del círculo de cada categoría */
 .cat-circle {
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  background: #e5f8ff;
   background: #fff;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   overflow: hidden;
-  transition: 0.25s ease;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
 }
 
 .cat-circle img {
@@ -55,7 +100,7 @@
   object-fit: contain;
 }
 
-/* Text */
+/* Estilo del texto debajo de cada círculo */
 .cat-item span {
   margin-top: 10px;
   font-size: 15px;
@@ -63,23 +108,8 @@
   color: #3a3a3a;
 }
 
-
-/* ======================================== */
-/*   MOBILE — ACTIVAR SCROLL SNAP SUAVE     */
-/* ======================================== */
-
+/* Estilos para la versión móvil */
 @media (max-width: 768px) {
-  .categories-slider {
-    scroll-snap-type: x mandatory;  /* slider tipo carrusel */
-    justify-content: flex-start;
-    padding: 10px 0px;
-    gap: 12px;
-  }
-
-  .cat-item {
-    scroll-snap-align: start;
-  }
-
   .cat-circle {
     width: 60px;
     height: 60px;
@@ -88,7 +118,6 @@
 
   .cat-item span {
     font-size: 12px;
-    margin-top: 2px;
+    margin-top: 4px;
   }
-
 }
