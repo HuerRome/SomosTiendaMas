@@ -1,0 +1,59 @@
+.registro-steps{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 0 48px 0;
+}
+
+.registro-steps > div{
+    padding: 10px 12px;
+    width: 24%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+    background: #ffffff;
+    border-radius: 6px;
+    border: 1px solid #eaeaea;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+}
+
+.registro-steps > div img{
+    height: 40px;
+}
+
+.registro-steps > div > span{
+    font-size: 12px;
+    flex: 1;
+}
+
+.registro-steps > div div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.registro-steps > div div span{
+    text-align: center;
+    font-size: 16px;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -1px;
+}
+
+.registro-steps > div div a{
+    font-size: 10px;
+    text-align: center;
+    font-size: 10px;
+    line-height: 1;
+    white-space: nowrap; 
+    color: #919090;
+    text-decoration: underline;
+}
+
+
+
+

@@ -1,16 +1,14 @@
-/*--------------------------------------------------------------------------------------------------*/
-
 .categories {
   width: 100%;
 }
 
 .categories-slider {
   display: flex;
-  gap: 16px;
-  gap: 20px;
+  justify-content: space-between;
   overflow-x: auto;
   flex-wrap: nowrap;
-  padding: 16px 0px;
+  flex-wrap: wrap;
+  padding: 16px 6px;
   -webkit-overflow-scrolling: touch;
 }
 
@@ -25,21 +23,22 @@
   align-items: center;
   text-decoration: none;
   color: #222;
-  transition: transform 0.2s ease;
+  transition: transform 0.1s ease;
   flex: 0 0 auto;             /* 🔥 importante para slider */
 }
 
 .cat-item:hover {
-  transform: scale(1.04);
+  transform: scale(1.01);
 }
 
 /* Circle */
 .cat-circle {
-  width: 100px;
-  height: 100px;
+  width: 90px;
+  height: 90px;
   border-radius: 50%;
   background: #e5f8ff;
   background: #fff;
+  background: #e5f8ff;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -60,15 +59,29 @@
   font-size: 15px;
   font-weight: 500;
   color: #3a3a3a;
+  width: 100px;
+  text-align: center;
+  word-wrap: break-word;
+  line-height: 1.1;
 }
 
+.mas-vendidos .cat-circle{
+  border: 2px solid #00FF00; 
+  background: white;
+}
+
+.mas-vendidos .cat-circle img{
+  width: 50%;
+}
 
 /* ======================================== */
 /*   MOBILE — ACTIVAR SCROLL SNAP SUAVE     */
 /* ======================================== */
 
 @media (max-width: 768px) {
+
   .categories-slider {
+    flex-wrap: nowrap;  
     scroll-snap-type: x mandatory;  /* slider tipo carrusel */
     justify-content: flex-start;
     padding: 10px 0px;
@@ -80,35 +93,28 @@
   }
 
   .cat-circle {
-    width: 60px;
-    height: 60px;
-    background: #e5f8ff;
+    width: 50px;
+    height: 50px;
   }
 
   .cat-item span {
-    font-size: 12px;
+    font-size: 10px;
     margin-top: 2px;
+    width: 55px;
+    text-align: center;
+    word-wrap: break-word;
+    line-height: 1.1;
   }
 
+  .mas-vendidos .cat-circle{
+    border: 1px solid #00FF00; 
+    background: white;
+  }
+  
+  .mas-vendidos .cat-circle img{
+    width: 50%;
+  }
+  
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 

@@ -19,14 +19,14 @@
   <link rel="stylesheet" href="css/slider.css">
   <link rel="stylesheet" href="css/informacion.css">
   <link rel="stylesheet" href="css/categorias.css">
+  <link rel="stylesheet" href="css/cards.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="antialiased text-slate-800 bg-white font-['Inter',system-ui,Arial]">
-  <!-- ===========================
-       HEADER (FIXED)
-       =========================== -->
-  <header class="header fixed md:static inset-x-0 top-0 z-40 backdrop-blur-md bg-white border-b border-slate-200">
-    <div class="mx-auto w-full max-w-[var(--max-width)] px-4 sm:px-6 lg:px-8">  
+
+  
+  <header class="header">
+    <div class="primeraFila">  
       <div class="flex items-center justify-between h-16 gap-4">
         <a href="#" class="flex items-center gap-3 shrink-0">
           <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background:linear-gradient(135deg,var(--tm-orange),var(--tm-orange-hover));">
@@ -55,31 +55,17 @@
         </div>
 
         <!-- Acciones -->
-        <div class="flex items-center gap-3">
-          <a href="#vender" class="hidden md:inline-flex items-center gap-2 border border-blue-600 text-blue-600 px-4 py-2 rounded-full text-sm font-semibold hover:bg-blue-600 hover:text-white transition focus-ring" aria-label="Vender en Tienda Mas">
-            <i class="fa-solid fa-user"></i> Ingresá
-          </a>
-          <a href="#registrarse" class="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold bg-[var(--tm-orange)] text-white focus-ring transition" aria-label="Registrarse en Tienda Mas">
-            Regístrate
-          </a>
-          <!-- Carrito -->
-          <a id="carrito" href="/carrito" class="relative flex items-center space-x-2 p-2 rounded-full hover:bg-slate-100 transition hidden md:block">
-            <!-- Ícono de carrito moderno -->
-            <svg xmlns="http://www.w3.org/2000/svg" 
-                 class="w-6 h-6 text-slate-700" 
-                 fill="none" viewBox="0 0 24 24" 
-                 stroke="currentColor" stroke-width="1.8">
-              <path stroke-linecap="round" stroke-linejoin="round" 
-                    d="M2.25 2.25h2.25l1.5 12.75h12.75l1.5-9H6.75M9 21a.75.75 0 100-1.5.75.75 0 000 1.5zm9 0a.75.75 0 100-1.5.75.75 0 000 1.5z" />
-            </svg>    
-            <!-- Badge de cantidad -->
-            <span class="absolute -top-1 -right-1 bg-blue-600 text-white text-xs font-bold px-1.5 py-0.5 rounded-full">
-              3
-            </span>
+        <div class="header-links flex items-center gap-3">
+          <a href="" class="header-anuncio"><img src="assets/images/logo/envio.png" alt=""></a>
+          <a href="" class="carrito">
+            <div>
+              <i class="fa-solid fa-bag-shopping"></i> <span>3</span>
+            </div>
+            <span>Carrito</span>
           </a>
 
           <!-- Botón menú mobile -->
-          <button id="btn-mobile" aria-expanded="false" aria-controls="mobile-menu" class="md:hidden p-0 rounded-lg focus:outline-none focus:ring-0 active:outline-none active:ring-0">
+          <button id="btn-mobile" aria-expanded="false" aria-controls="mobile-menu" class="lg:hidden p-0 rounded-lg focus:outline-none focus:ring-0 active:outline-none active:ring-0">
             <svg id="icon-open" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 8h16M4 16h16"/></svg>
             <svg id="icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
           </button>
@@ -97,14 +83,17 @@
           <a href="#ayuda" class="text-sm hover:text-[#2563EB] transition">Ayuda</a>
           <a href="#vender" class="text-sm hover:text-[#2563EB] transition">Vender</a>
         </div>
-        <a href="#">
-          <img src="assets/marketplace-data/envio 3.png" alt="">
-        </a>
+        <div class="nav-links">
+          <a href=""><i class="fa-solid fa-user"></i> <span>Cuenta</span> <i class="fa-solid fa-chevron-down"></i></a>
+          <a href=""><i class="fa-solid fa-bookmark"></i> <span>Favorito</span></a>
+          <a href=""><i class="fa-solid fa-location-dot"></i> <span>Ubicación</span></a>
+        </div>
+
       </nav>
     </div>
   
     <!-- Mobile menu -->
-    <div id="mobile-menu" class="md:hidden" hidden>
+    <div id="mobile-menu" class="lg:hidden" hidden>
       <div class="px-4 pb-6 pt-2 border-t border-slate-200 bg-white">
         <a href="#carrito" class="block py-2 text-base">Carrito</a>
         <a href="#categorias" class="block py-2 text-base">Categorías</a>
@@ -121,6 +110,7 @@
     </div>
   </header>
 
+  
   <!-- ===========================
        HERO
        =========================== -->
@@ -148,7 +138,23 @@
             <picture class="banner-rounded">
               <source media="(max-width: 480px)" srcset="assets/banners/bannerFormatoMovil/bannerPrincipal.png">
               <source media="(min-width: 481px)" srcset="assets/banners/bannerFormatoDesktop/Banner principal.png">
-              <img src="assets/banners/bannerFormatoDesktop/Banner principal.png" alt="Promoción 1">
+              <img src="assets/banners/bannerFormatoDesktop/banner 0.png" alt="Promoción 1">
+            </picture>     
+          </div>
+          <!-- Slide 1 -->
+          <div class="ml-slide">
+            <picture class="banner-rounded">
+              <source media="(max-width: 480px)" srcset="assets/banners/bannerFormatoMovil/bannerPrincipal.png">
+              <source media="(min-width: 481px)" srcset="assets/banners/bannerFormatoDesktop/bannerSteps.png">
+              <img src="assets/banners/bannerFormatoDesktop/banner 0.png" alt="Promoción 1">
+            </picture>     
+          </div>
+          <!-- Slide 1 -->
+          <div class="ml-slide">
+            <picture class="banner-rounded">
+              <source media="(max-width: 480px)" srcset="assets/banners/bannerFormatoMovil/bannerPrincipal">
+              <source media="(min-width: 481px)" srcset="assets/banners/bannerFormatoDesktop/anuncioGato.png">
+              <img src="assets/banners/bannerFormatoDesktop/banner 0.png" alt="Promoción 1">
             </picture>     
           </div>
           <!-- Slide 2 -->
@@ -227,75 +233,104 @@
           ===========================-->
       <section class="categories">
         <div class="categories-slider">  
-          <a href="#" class="cat-item">
+          <a href="#" class="cat-item mas-vendidos" >
             <div class="cat-circle">
-              <img src="assets/products/electronics/adiculares.png" alt="Mobile">
+              <img src="assets/icons/star.png" alt="Mobile">
             </div>
-            <span>Mobile</span>
+            <span>+vendidos</span>
           </a>
           <a href="#" class="cat-item">
             <div class="cat-circle">
-              <img src="assets/products/electronics/iphone.jpg" alt="Mobile">
+              <img src="assets/products/home/heladera.png" alt="Mobile">
             </div>
-            <span>Mobile</span>
+            <span>Electro</span>
           </a>
           <a href="#" class="cat-item">
             <div class="cat-circle">
-              <img src="assets/products/electronics/smart Tv Grande.png" alt="Mobile">
+              <img src="assets/products/electronics/iphone.png" alt="Mobile">
             </div>
-            <span>Mobile</span>
+            <span>Electrónica</span>
           </a>
           <a href="#" class="cat-item">
             <div class="cat-circle">
-              <img src="assets/products/beauty/serum.png" alt="Mobile">
+              <img src="assets/products/home/lampara de mesa.png" alt="Mobile">
             </div>
-            <span>Mobile</span>
+            <span>Hogar</span>
           </a>
           <a href="#" class="cat-item">
             <div class="cat-circle">
-              <img src="assets/products/clothes/sports/Zapatilla Nike.png" alt="Mobile">
+              <img src="assets/products/home/single sofa.png" alt="Mobile">
             </div>
-            <span>Mobile</span>
+            <span>Muebles</span>
           </a>
           <a href="#" class="cat-item">
             <div class="cat-circle">
-              <img src="assets/products/clothes/fashion/Top celeste.png" alt="Cosmetics">
+              <img src="assets/products/beauty/frasco Nivea.png" alt="Cosmetics">
             </div>
-            <span>Cosmetics</span>
+            <span>Belleza</span>
           </a>
           <a href="#" class="cat-item">
             <div class="cat-circle">
-              <img src="assets/products/home/heladera.jpg" alt="Electronics">
+              <img src="assets/products/clothes/normal/remeras.png" alt="Electronics">
             </div>
-            <span>Electronics</span>
+            <span>Moda</span>
           </a>
           <a href="#" class="cat-item">
             <div class="cat-circle">
-              <img src="assets/products/pets/alimento para perro.jpg" alt="Furniture">
+              <img src="assets/products/clothes/Carteras y mochilas/mini bag.png" alt="Furniture">
             </div>
-            <span>Furniture</span>
+            <span>Accesorios</span>
           </a>     
+          <a href="#" class="cat-item">
+            <div class="cat-circle">
+              <img src="assets/products/clothes/sports/zapatillas nike.png" alt="Decor">
+            </div>
+            <span>Deporte</span>
+          </a> 
           <a href="#" class="cat-item">
             <div class="cat-circle">
               <img src="assets/products/clothes/normal/mochila.png" alt="Watches">
             </div>
-            <span>Watches</span>
+            <span>Viaje</span>
           </a>   
-          <a href="#" class="cat-item">
-            <div class="cat-circle">
-              <img src="assets/products/clothes/Carteras y mochilas/Mini Bag.jpg" alt="Decor">
-            </div>
-            <span>Decor</span>
-          </a>
-          <a href="#" class="cat-item">
-            <div class="cat-circle">
-              <img src="assets/products/electronics/smartWatch.jpg" alt="Accessories">
-            </div>
-            <span>Accessories</span>
-          </a>
-      
+
         </div>
       </section> 
+
+      <section class="registro-steps">
+        <div>
+          <img src="assets/icons/american-express.png" alt="">
+          <span>Comprá cuando quieras y programá tu entrega los días Jueves.</span>
+          <div>
+            <span>25%</span>
+            <a href="">Ver legales</a>
+          </div>
+        </div>
+        <div>
+          <img src="assets/icons/Banco_galicia_logo.png" alt="">
+          <span>3 cuotas sin interés en toda la compra. Válido de Jueves a domingo.</span>
+          <div>
+            <span></span>
+            <a href="">Ver legales</a>
+          </div>
+        </div>
+        <div>
+          <img src="assets/icons/cencopay.png" alt="">
+          <span>Realizá tu compra los días Miércoles y programá tu entrega para el día que prefieras.</span>
+          <div>
+            <span>20%</span>
+            <a href="">Ver legales</a>
+          </div>
+        </div>
+        <div>
+          <img src="assets/icons/agregar-usuario.png" alt="">
+          <span>Creá tu cuenta y disfrutá de una experiencia más rápida y personalizada.</span>
+          <div>
+            <span>20%</span>
+            <a href="">Ver legales</a>
+          </div>
+        </div>
+      </section>
 
       <section class="bg-gray-50 py-10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
