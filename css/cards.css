@@ -2,9 +2,12 @@
 .registro-steps{
     width: 100%;
     display: flex;
-    /*justify-content: space-between;*/
-    gap: 16px; /*borrar por las dudas*/
+    justify-content: space-between;
+    gap: 16px; 
     padding: 0 0 48px 0;
+    padding: 16px 0 16px 0;
+    background: #f0f0f0;
+
 }
 
 /*ESpacio entre el contenido del div*/
@@ -92,6 +95,7 @@
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
+    justify-content: flex-start;
   }
 
   .registro-steps::-webkit-scrollbar {
@@ -108,6 +112,7 @@
   .registro-steps {
     gap: 12px;
     padding-left: 12px;
+    justify-content: flex-start;
   }
 
   .registro-steps > div {
