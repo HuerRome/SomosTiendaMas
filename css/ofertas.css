@@ -1,0 +1,60 @@
+.ofertas{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ofertas img{
+    width: 49.5%;
+}
+
+
+.bannersDeAnuncio{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bannersDeAnuncio img{
+    width: 24%;
+    border-radius: 8px;
+}
+
+
+
+@media (max-width: 1024px) {}
+
+
+
+
+@media (max-width: 640px) {
+    .ofertas{
+        width: 100%;
+        gap: 6px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .ofertas img{
+        width: 100%;
+    }
+    
+    .bannersDeAnuncio{
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1vw;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .bannersDeAnuncio img{
+        width: 49%;
+        border-radius: 10px;
+    }
+    
+}
