@@ -20,6 +20,7 @@
 html, body {
   font-family: sans-serif; /* Cambiala por la fuente que quieras */
   background-color: #ffffff;
+  background: #F9FAFB;
   color: #333333;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;

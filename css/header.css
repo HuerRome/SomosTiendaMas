@@ -158,6 +158,25 @@
 
 
 /*----------------------------------------------------------------------------------*/
+
+body {
+  margin: 0;
+  font-family: sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #1e293b;
+  background-color: #ffffff;
+  font-family: 'Inter', system-ui, Arial, sans-serif;
+}
+
+
+.body-container {
+  width: 100%;
+  background: #0053E2;
+  margin: 0 auto;
+
+}
+
 .header {
   position: fixed;
   inset: 0 0 auto 0;
@@ -165,6 +184,7 @@
   background: #fff;
   border-bottom: 1px solid #e2e8f0;
   backdrop-filter: blur(12px);
+  background: #0053E2;
 }
 
 /* Desktop: vuelve al flujo */
@@ -202,7 +222,6 @@
   gap: 2vw;
   color: #2b07ca;
   color: #2563eb;
- 
 }
 
 .header .fa-chevron-down{
@@ -215,9 +234,10 @@
 .primeraFila {
   width: 100%;
   max-width: 1200px;
+  max-width: 100%;
   margin-inline: auto;
   padding-inline: 1rem;
-
+  background: #FFFFFF;
 }
 
 @media (min-width: 640px) {
