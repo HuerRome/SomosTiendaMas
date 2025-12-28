@@ -29,15 +29,17 @@
   <div class="body-container">
     <header class="header">
       <div class="primeraFila">  
-        <div class="flex items-center justify-between h-16 gap-4">
+        <div class="flex items-center justify-between h-16 gap-4 bg-white">
           <a href="#" class="flex items-center gap-3 shrink-0">
-            <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background:linear-gradient(135deg,var(--tm-orange),var(--tm-orange-hover));">
-              <img src="assets/marketplace-data/Logo.png" alt="Logo" class="w-full h-full object-cover"> 
+            <img src="assets/marketplace-data/Logo-text.png" alt="Logo" class="w-full h-full object-cover" style="width: 200px;"> 
+            <!--
+            <div class="w-14 h-14 rounded-xl flex items-center justify-center">
             </div>
-            <div class="hidden sm:block">
-              <span class="font-semibold text-lg text-orange-500">Tienda<span class="text-blue-600">Mas+</span></span>
+            <div class="logo-text hidden sm:block">
+              <span class="font-semibold text-lg text-blue-600">Tienda<span class="text-orange-500">Mas+</span></span>
               <p class="text-xs text-slate-500">Marketplace mayorista</p>
             </div>
+            -->
           </a>
   
           <!-- Buscador -->
@@ -58,7 +60,7 @@
   
           <!-- Acciones -->
           <div class="header-links flex items-center gap-3">
-            <a href="" class="header-anuncio"><img src="assets/images/logo/envio.png" alt=""></a>
+            <a href="" class="header-anuncio"><img src="assets/marketplace-data/envio.png" alt=""></a>
             <a href="" class="carrito">
               <div>
                 <i class="fa-solid fa-bag-shopping"></i> <span>3</span>
@@ -111,87 +113,84 @@
         </div>
       </div>
     </header>
+    <main class="pt-16 md:pt-0">
+        <div class="ml-slider">
+          <button class="ml-arrow ml-prev" aria-label="Anterior">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none"
+                 stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="14 4 6 12 14 20"></polyline>
+            </svg>
+          </button>
+          <button class="ml-arrow ml-next" aria-label="Siguiente">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none"
+                 stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="10 4 18 12 10 20"></polyline>
+            </svg>
+          </button> 
+          <div class="ml-slider-container">
+            <div class="ml-track">
+              <div class="ml-slide">
+                <picture class="banner-rounded">
+                  <source media="(max-width: 480px)" srcset="assets/banners/bannerFormatoMovil/bannerPrincipal.png">
+                  <source media="(min-width: 481px)" srcset="assets/banners/bannerFormatoDesktop/Banner principal.png">
+                  <img src="assets/banners/bannerFormatoDesktop/banner 0.png" alt="Promoción 1">
+                </picture>     
+              </div>
+              <!-- Slide 1 -->
+              <div class="ml-slide">
+                <picture class="banner-rounded">
+                  <source media="(max-width: 480px)" srcset="assets/banners/bannerFormatoMovil/bannerPrincipal.png">
+                  <source media="(min-width: 481px)" srcset="assets/banners/bannerFormatoDesktop/bannerSteps.png">
+                  <img src="assets/banners/bannerFormatoDesktop/banner 0.png" alt="Promoción 1">
+                </picture>     
+              </div>
+              <!-- Slide 1 -->
+              <div class="ml-slide">
+                <picture class="banner-rounded">
+                  <source media="(max-width: 480px)" srcset="assets/banners/bannerFormatoMovil/bannerPrincipal">
+                  <source media="(min-width: 481px)" srcset="assets/banners/bannerFormatoDesktop/anuncioGato.png">
+                  <img src="assets/banners/bannerFormatoDesktop/banner 0.png" alt="Promoción 1">
+                </picture>     
+              </div>
+              <!-- Slide 2 -->
+              <div class="ml-slide">
+                <picture class="banner-rounded">
+                  <!-- Móvil -->
+                  <source media="(max-width: 480px)" srcset="assets/banners/bannerFormatoMovil/banner1.png">
+                  <!-- Desktop -->
+                  <source media="(min-width: 481px)" srcset="assets/banners/bannerFormatoDesktop/banner1.png">
+                  <!-- Fallback -->
+                  <img src="assets/banners/bannerFormatoDesktop/banner1.png" alt="Promoción 2">
+                </picture>
+              </div>
+              <!-- Slide 3 -->
+              <div class="ml-slide">
+                <picture class="banner-rounded">
+                  <!-- Móvil -->
+                  <source media="(max-width: 480px)" srcset="assets/banners/bannerFormatoMovil/banner2.png">
+                  <!-- Desktop -->
+                  <source media="(min-width: 481px)" srcset="assets/banners/bannerFormatoDesktop/banner2.png">
+                  <!-- Fallback -->
+                  <img src="assets/banners/bannerFormatoDesktop/banner2.png" alt="Promoción 3">
+                </picture>
+              </div>
+              <!-- Slide 4 -->
+              <div class="ml-slide">
+                <picture class="banner-rounded">
+                  <!-- Móvil -->
+                  <source media="(max-width: 480px)" srcset="assets/banners/bannerFormatoMovil/banner3.png">
+                  <!-- Desktop -->
+                  <source media="(min-width: 481px)" srcset="assets/banners/bannerFormatoDesktop/banner3.png">
+                  <!-- Fallback -->
+                  <img src="assets/banners/bannerFormatoDesktop/banner3.png" alt="Promoción 4">
+                </picture>
+              </div>
+          
+            </div>   
+            <div class="ml-dots"></div>
+          </div>
 
-
-
-  
-    <div class="ml-slider pt-16 md:pt-0">
-      <button class="ml-arrow ml-prev" aria-label="Anterior">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none"
-             stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <polyline points="14 4 6 12 14 20"></polyline>
-        </svg>
-      </button>
-      <button class="ml-arrow ml-next" aria-label="Siguiente">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none"
-             stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <polyline points="10 4 18 12 10 20"></polyline>
-        </svg>
-      </button> 
-      <div class="ml-track">
-        <!-- Slide 1 -->
-        <div class="ml-slide">
-          <picture class="banner-rounded">
-            <source media="(max-width: 480px)" srcset="assets/banners/bannerFormatoMovil/bannerPrincipal.png">
-            <source media="(min-width: 481px)" srcset="assets/banners/bannerFormatoDesktop/Banner principal.png">
-            <img src="assets/banners/bannerFormatoDesktop/banner 0.png" alt="Promoción 1">
-          </picture>     
         </div>
-        <!-- Slide 1 -->
-        <div class="ml-slide">
-          <picture class="banner-rounded">
-            <source media="(max-width: 480px)" srcset="assets/banners/bannerFormatoMovil/bannerPrincipal.png">
-            <source media="(min-width: 481px)" srcset="assets/banners/bannerFormatoDesktop/bannerSteps.png">
-            <img src="assets/banners/bannerFormatoDesktop/banner 0.png" alt="Promoción 1">
-          </picture>     
-        </div>
-        <!-- Slide 1 -->
-        <div class="ml-slide">
-          <picture class="banner-rounded">
-            <source media="(max-width: 480px)" srcset="assets/banners/bannerFormatoMovil/bannerPrincipal">
-            <source media="(min-width: 481px)" srcset="assets/banners/bannerFormatoDesktop/anuncioGato.png">
-            <img src="assets/banners/bannerFormatoDesktop/banner 0.png" alt="Promoción 1">
-          </picture>     
-        </div>
-        <!-- Slide 2 -->
-        <div class="ml-slide">
-          <picture class="banner-rounded">
-            <!-- Móvil -->
-            <source media="(max-width: 480px)" srcset="assets/banners/bannerFormatoMovil/banner1.png">
-            <!-- Desktop -->
-            <source media="(min-width: 481px)" srcset="assets/banners/bannerFormatoDesktop/banner1.png">
-            <!-- Fallback -->
-            <img src="assets/banners/bannerFormatoDesktop/banner1.png" alt="Promoción 2">
-          </picture>
-        </div>
-        <!-- Slide 3 -->
-        <div class="ml-slide">
-          <picture class="banner-rounded">
-            <!-- Móvil -->
-            <source media="(max-width: 480px)" srcset="assets/banners/bannerFormatoMovil/banner2.png">
-            <!-- Desktop -->
-            <source media="(min-width: 481px)" srcset="assets/banners/bannerFormatoDesktop/banner2.png">
-            <!-- Fallback -->
-            <img src="assets/banners/bannerFormatoDesktop/banner2.png" alt="Promoción 3">
-          </picture>
-        </div>
-        <!-- Slide 4 -->
-        <div class="ml-slide">
-          <picture class="banner-rounded">
-            <!-- Móvil -->
-            <source media="(max-width: 480px)" srcset="assets/banners/bannerFormatoMovil/banner3.png">
-            <!-- Desktop -->
-            <source media="(min-width: 481px)" srcset="assets/banners/bannerFormatoDesktop/banner3.png">
-            <!-- Fallback -->
-            <img src="assets/banners/bannerFormatoDesktop/banner3.png" alt="Promoción 4">
-          </picture>
-        </div>
-      </div>   
-      <div class="ml-dots"></div>
-    </div>
-    <main class="pt-16">
-
-  
         <section class="informacion"> 
           <div class="info-container"> 
             <div class="info-item"> 

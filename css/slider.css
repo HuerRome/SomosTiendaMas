@@ -2,31 +2,36 @@
 .ml-slider {
   position: relative;
   width: 100%;
+  max-width: 1600px;
   margin: auto;
   overflow: hidden;
-  border-radius: 0px;
   border-radius: 8px;
-  background-color: aqua;
-    padding: 0 2vw;          /* ✅ espacio lateral */
-  box-sizing: border-box;
+  border-radius: 0px;
+  
+  margin-left: calc(-2vw);
+  margin-right: calc(-2vw);
+  width: calc(100% + 4vw);
+}
+
+.ml-slider-container{
+  width: 100%;
+  padding: 0;
 }
 
 
-/* Contenedor deslizante  max-width: 1600px;*/
+/* Contenedor deslizante */
 .ml-track {
   display: flex;
   transition: transform 0.45s ease;
-  background: #eb7425;
-  
-  min-width: 100%;
-  margin: 0;
-  
+
 }
 
 /* Cada slide */
 .ml-slide {
   min-width: 100%;
   user-select: none;
+  min-width: 100%;
+  overflow: hidden;
 }
 
 /* Imágenes fluidas */
@@ -35,10 +40,14 @@
   display: block;
   object-fit: cover;
   height: auto;
+
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
 }
 
 /* ======== FLECHAS ======== */
-/*
 .ml-arrow {
   position: absolute;
   top: 50%;
@@ -71,8 +80,6 @@
 .ml-prev { left: 12px; }
 .ml-next { right: 12px; }
 
-*/
-
 /* ======== PUNTOS ======== */
 .ml-dots {
   position: absolute;
@@ -100,122 +107,6 @@
   background: #2563EB;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-.ml-arrow {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  margin: auto 0;
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.9);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 10;
-}
-
-.ml-prev {
-  left: 0;
-  transform: translateX(-50%);
-}
-
-.ml-next {
-  right: 0;
-  transform: translateX(50%);
-}
-*/
-
-
-
-.ml-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.85);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 10;
-  cursor: pointer;
-  border: none;
-}
-
-.ml-prev {
-  left: 6px;
-}
-
-.ml-next {
-  right: 6px;
-}
-
-.ml-arrow:hover {
-  background: rgba(255, 255, 255, 1);
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* ======== RESPONSIVE ======== */
 @media (max-width: 480px) {
   /* Cada slide */
@@ -242,3 +133,8 @@
     display: none;
   }
 }
+
+
+
+
+

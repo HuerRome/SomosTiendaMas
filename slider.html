@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Slider Profesional</title>
+
+  <style>
+    /* ===== RESET BÁSICO ===== */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #f5f7fb;
+    }
+
+    /* ===== FULL BLEED ===== */
+    .slider-bleed {
+      width: 100vw;
+      margin-left: calc(50% - 50vw);
+    }
+
+    /* ===== SLIDER ===== */
+    .slider {
+      position: relative;
+      max-width: 1200px;
+      margin: 40px auto;
+      margin: 40px 4vw;
+      margin: 40px auto;
+    }
+
+    /* Frame que recorta SOLO la imagen */
+    .slider-frame {
+      overflow: hidden;
+      border-radius: 16px;
+      background: #1f2a44;
+    }
+
+    /* Track */
+    .slider-track {
+      display: flex;
+      transition: transform 0.45s ease;
+      touch-action: pan-y;
+    }
+
+    /* Slide */
+    .slide {
+      min-width: 100%;
+    }
+
+    .slide img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* ===== FLECHAS ===== */
+    .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 44px;
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      border: none;
+      background: #eff1ff;
+      border: solid 6px #ffffff;
+      color: #2563eb;
+      font-size: 20px;
+      cursor: pointer;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .prev { left: -32px; }
+    .next { right: -32px; }
+
+    /* ===== DOTS ===== */
+    .dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .dots button {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      border: none;
+      background: #cbd5e1;
+      cursor: pointer;
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    .dots button.active {
+      background: #2563eb;
+      transform: scale(1.6);
+    }
+
+    /* ===== MOBILE ===== */
+    @media (max-width: 480px) {
+      .arrow {
+        display: none;
+      }
+
+      .slider-frame {
+        border-radius: 12px;
+      }
+
+      .slider{
+        width: 100%;
+      }
+
+      .dots {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        margin-top: 8px;
+      }
+
+      .dots button {
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        border: none;
+        background: #cbd5e1;
+        cursor: pointer;
+        transition: transform 0.2s, background 0.2s;
+      }
+  
+      .dots button.active {
+        background: #2563eb;
+        transform: scale(1.6);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="slider-bleed">
+    <div class="slider">
+
+      <!-- Flechas -->
+      <button class="arrow prev" aria-label="Anterior">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                 stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="14 4 6 12 14 20"></polyline>
+            </svg>
+      </button>
+      <button class="arrow next" aria-label="Siguiente">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                 stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="10 4 18 12 10 20"></polyline>
+            </svg>
+      </button>
+
+      <!-- Frame -->
+      <div class="slider-frame">
+        <div class="slider-track">
+          <div class="slide">
+            <picture class="banner-rounded">
+              <source media="(max-width: 480px)" srcset="assets/banners/bannerFormatoMovil/bannerPrincipal.png">
+              <source media="(min-width: 481px)" srcset="assets/banners/bannerFormatoDesktop/Banner principal.png">
+              <img src="assets/banners/bannerFormatoDesktop/banner 0.png" alt="Promoción 1">
+            </picture>  
+          </div>
+          <div class="slide">
+            <picture class="banner-rounded">
+              <source media="(max-width: 480px)" srcset="assets/banners/bannerFormatoMovil/bannerPrincipal.png">
+              <source media="(min-width: 481px)" srcset="assets/banners/bannerFormatoDesktop/Banner principal.png">
+              <img src="assets/banners/bannerFormatoDesktop/banner 0.png" alt="Promoción 1">
+            </picture>  
+          </div>
+          <div class="slide">
+            <picture class="banner-rounded">
+              <source media="(max-width: 480px)" srcset="assets/banners/bannerFormatoMovil/bannerPrincipal.png">
+              <source media="(min-width: 481px)" srcset="assets/banners/bannerFormatoDesktop/Banner principal.png">
+              <img src="assets/banners/bannerFormatoDesktop/banner 0.png" alt="Promoción 1">
+            </picture>  
+          </div>
+          <div class="slide">
+            <picture class="banner-rounded">
+              <source media="(max-width: 480px)" srcset="assets/banners/bannerFormatoMovil/bannerPrincipal.png">
+              <source media="(min-width: 481px)" srcset="assets/banners/bannerFormatoDesktop/Banner principal.png">
+              <img src="assets/banners/bannerFormatoDesktop/banner 0.png" alt="Promoción 1">
+            </picture>  
+          </div>
+        </div>
+      </div>
+
+      <!-- Dots -->
+      <div class="dots"></div>
+
+    </div>
+  </section>
+
+  <script>
+    const track = document.querySelector('.slider-track');
+    const slides = document.querySelectorAll('.slide');
+    const dotsContainer = document.querySelector('.dots');
+    const prevBtn = document.querySelector('.prev');
+    const nextBtn = document.querySelector('.next');
+
+    let index = 0;
+
+    /* Crear dots automáticamente */
+    slides.forEach((_, i) => {
+      const dot = document.createElement('button');
+      if (i === 0) dot.classList.add('active');
+      dot.addEventListener('click', () => goToSlide(i));
+      dotsContainer.appendChild(dot);
+    });
+
+    const dots = dotsContainer.querySelectorAll('button');
+
+    function updateSlider() {
+      track.style.transform = `translateX(-${index * 100}%)`;
+      dots.forEach(dot => dot.classList.remove('active'));
+      dots[index].classList.add('active');
+    }
+
+    function goToSlide(i) {
+      index = i;
+      updateSlider();
+    }
+
+    nextBtn.addEventListener('click', () => {
+      index = (index + 1) % slides.length;
+      updateSlider();
+    });
+
+    prevBtn.addEventListener('click', () => {
+      index = (index - 1 + slides.length) % slides.length;
+      updateSlider();
+    });
+
+    /* Swipe mobile */
+    let startX = 0;
+
+    track.addEventListener('touchstart', e => {
+      startX = e.touches[0].clientX;
+    });
+
+    track.addEventListener('touchend', e => {
+      const endX = e.changedTouches[0].clientX;
+      if (startX - endX > 50) nextBtn.click();
+      if (endX - startX > 50) prevBtn.click();
+    });
+
+    let autoplayDelay = 4000; // 4 segundos
+    let autoplay;
+    
+    function startAutoplay() {
+      autoplay = setInterval(() => {
+        index = (index + 1) % slides.length;
+        updateSlider();
+      }, autoplayDelay);
+    }
+    
+    function stopAutoplay() {
+      clearInterval(autoplay);
+    }
+    
+    // iniciar autoplay
+    startAutoplay();
+
+
+
+
+
+    track.addEventListener('mouseenter', stopAutoplay);
+    track.addEventListener('mouseleave', startAutoplay);
+    track.addEventListener('touchstart', stopAutoplay);
+    track.addEventListener('touchend', startAutoplay);
+    
+  </script>
+
+</body>
+</html>
