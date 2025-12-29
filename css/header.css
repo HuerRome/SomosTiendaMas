@@ -6,23 +6,24 @@ body {
   -moz-osx-font-smoothing: grayscale;
   color: #1e293b;
   background-color: #ffffff;
+  background: #e5f8ff;
   font-family: 'Inter', system-ui, Arial, sans-serif;
 }
 
 .body-container {
   width: 100%;
   margin: 0 auto;
-
+  background: #e5f8ff;
+  background: #EBEBEB;
 }
 
 .header {
   position: fixed;
   inset: 0 0 auto 0;
   z-index: 40;
-  background: #fff;
+  background: #ffffff;
   border-bottom: 1px solid #e2e8f0;
   backdrop-filter: blur(12px);
-  background: #0053E2;
   color: #1F2937;
 }
 
@@ -49,6 +50,15 @@ body {
   background: #f3f9fb;
   padding: 4px 12px;
   border-radius: 12px;
+}
+
+#nav > div:first-child a:first-child{
+  background: #2563eb;
+  color: #ffffff;
+}
+
+#nav > div:first-child a:first-child .fa-solid{
+  color: #ffffff;
 }
 
 .header-links > .carrito{
@@ -104,22 +114,38 @@ body {
   max-width: 100%;
   margin-inline: auto;
   padding-inline: 1rem;
-  background: #FFFFFF;
+  background: #ffffff;
+
 }
 
 .primeraFila > div a .logo-text{
   color: #1e293b;
 }
 
+.primeraFila > div{
+  padding-inline: 4rem;
+  background: #c0c0c0;
+  background: #f3f9fb;
+  background: #2563eb;
+  background: #0e2455;
+}
+
+.primeraFila > nav{
+  /*Aqui podes agregar estilos para la primera fila del menu background: #0e2455;*/
+  padding-inline: 4rem;
+}
+
 @media (min-width: 640px) {
   .primeraFila {
     padding-inline: 1.5rem;
+    
   }
 }
 
 @media (min-width: 1024px) {
   .primeraFila {
-    padding-inline: 4rem;
+    padding-inline: 0rem;
+    
   }
 
 }
@@ -143,6 +169,7 @@ body {
   width: 100%;
   max-width: 600px;
 }
+
 
 #search-input {
   width: 100%;
@@ -177,6 +204,7 @@ body {
   font-size: 0.9rem;
 
   background-color: #f8fafc;        /* fondo suave */
+  background: #ffffff;
   border: 1px solid #e2e8f0;        /* borde más moderno */
   border-radius: 999px;  
   border-radius: 12px;           /* pill real */
@@ -209,6 +237,7 @@ body {
   transform: translateY(-50%);
   width: 16px;
   height: 16px;
+  color: #2563eb;
   color: #94a3b8;
   pointer-events: none;
   transition: color .2s ease;
@@ -275,11 +304,13 @@ body {
   }
   .buscador-container {
     max-width: 700px;
+    width: 100%;
   }
 
   #search-input {
     font-size: 0.9375rem;
     padding: 0.6rem 2.75rem 0.6rem 1rem;
+  
   }
 
   .search-icon {

@@ -1,140 +1,143 @@
-/* ======== BASE DEL SLIDER ======== */
-.ml-slider {
-  position: relative;
-  width: 100%;
-  max-width: 1600px;
-  margin: auto;
-  overflow: hidden;
-  border-radius: 8px;
-  border-radius: 0px;
+    /* ===== RESET BÁSICO ===== */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #f5f7fb;
+    }
+
+    /* ===== FULL BLEED ===== */
+    .slider-bleed {
+      width: 100vw;
+      /*width: calc(100vw - 4rem);*/
+      margin-left: calc(50% - 50vw);
+
+    }
+
+    /* ===== SLIDER ===== */
+    .slider {
+      position: relative;
+      /*max-width: 1200px;*/
+      /*margin: 40px auto;*/
+      margin: 40px 4vw;
+      margin: 40px auto;
+      margin: 0;
+      margin: 0 4rem;
+    }
+
+    /* Frame que recorta SOLO la imagen */
+    .slider-frame {
+      overflow: hidden;
+      border-radius: 16px;
+      background: #1f2a44;
+    }
+
+    /* Track */
+    .slider-track {
+      display: flex;
+      transition: transform 0.45s ease;
+      touch-action: pan-y;
+    }
+
+    /* Slide */
+    .slide {
+      min-width: 100%;
+    }
+
+    .slide img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* ===== FLECHAS ===== */
+    .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 44px;
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      border: none;
+      background: #eff1ff;
+      border: solid 6px #ffffff;
+      color: #2563eb;
+      font-size: 20px;
+      cursor: pointer;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .prev { left: -32px; }
+    .next { right: -32px; }
+
+    /* ===== DOTS ===== */
+    .dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .dots button {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      border: none;
+      background: #cbd5e1;
+      cursor: pointer;
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    .dots button.active {
+      background: #2563eb;
+      transform: scale(1.6);
+    }
+
+    /* ===== MOBILE ===== */
+    @media (max-width: 480px) {
+      .arrow {
+        display: none;
+      }
+
+      .slider-frame {
+        border-radius: 12px;
+      }
+
+      .slider{
+        /*width: 100%;      Este estilo hacia que el slider no se centre horizontalmente por eso lo comente*/
+        margin: 0 4vw;
+      }
+
+      .dots {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        margin-top: 8px;
+      }
+
+      .dots button {
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        border: none;
+        background: #cbd5e1;
+        cursor: pointer;
+        transition: transform 0.2s, background 0.2s;
+      }
   
-  margin-left: calc(-2vw);
-  margin-right: calc(-2vw);
-  width: calc(100% + 4vw);
-}
-
-.ml-slider-container{
-  width: 100%;
-  padding: 0;
-}
-
-
-/* Contenedor deslizante */
-.ml-track {
-  display: flex;
-  transition: transform 0.45s ease;
-
-}
-
-/* Cada slide */
-.ml-slide {
-  min-width: 100%;
-  user-select: none;
-  min-width: 100%;
-  overflow: hidden;
-}
-
-/* Imágenes fluidas */
-.ml-slide img {
-  width: 100%;
-  display: block;
-  object-fit: cover;
-  height: auto;
-
-  width: 100%;
-  height: 100%;
-  display: block;
-  object-fit: cover;
-}
-
-/* ======== FLECHAS ======== */
-.ml-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: clamp(32px, 4vw, 52px);
-  height: clamp(32px, 4vw, 52px);
-  border: none;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.4);
-  color: #2563EB;
-  font-size: clamp(18px, 3vw, 26px);
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 10;
-  transition: background 0.3s;
-  padding: 0;
-}
-
-.ml-arrow p{
-  padding: 0;
-  margin: 0;
-}
-
-.ml-arrow:hover {
-  background: rgba(255, 255, 255, 0.65);
-}
-
-.ml-prev { left: 12px; }
-.ml-next { right: 12px; }
-
-/* ======== PUNTOS ======== */
-.ml-dots {
-  position: absolute;
-  bottom: 15px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-}
-
-.ml-dots button {
-  width: clamp(4px, 1.8vw, 4px);
-  height: clamp(4px, 1.8vw, 4px);
-  border-radius: 50%;
-  border: 1px solid #c6c6c6;
-  border: none;
-  background: #c6c6c6;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-.ml-dots button.active {
-  border: 4px solid #2563EB;
-  background: #2563EB;
-}
-
-/* ======== RESPONSIVE ======== */
-@media (max-width: 480px) {
-  /* Cada slide */
-  .ml-slide {
-    min-width: 96%;
-    user-select: none;
-    margin: 0 2%;
-  }
-  
-  .banner-rounded {
-    border-radius: 10px;
-    overflow: hidden; /* ESTO es clave */
-    display: block;
-  }
-  
-  .banner-rounded img {
-    border-radius: inherit;
-    width: 100%;
-    height: auto;
-    display: block;
-  }
-  
-  .ml-arrow {
-    display: none;
-  }
-}
-
-
+      .dots button.active {
+        background: #2563eb;
+        transform: scale(1.6);
+      }
+    }
 
 
 

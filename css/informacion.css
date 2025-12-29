@@ -18,6 +18,7 @@
     margin: 0 ;
     flex-wrap: nowrap;
     background-color: #111010;
+      
 } 
 
 .informacion .info-container .info-item { 
@@ -87,6 +88,10 @@
         padding: 10px 0; 
         justify-content: space-around; 
         background-color: #111010;
+        background: #0e2455;
+        background: linear-gradient(to bottom, #2563eb 0%, #0e2455 100%);
+        background: linear-gradient(135deg, #2563eb, #0e2455);
+        background: linear-gradient(135deg, #2563eb, #FF6B35);
     } 
     
     .informacion .info-container .info-item { 

@@ -1,114 +1,76 @@
+    const track = document.querySelector('.slider-track');
+    const slides = document.querySelectorAll('.slide');
+    const dotsContainer = document.querySelector('.dots');
+    const prevBtn = document.querySelector('.prev');
+    const nextBtn = document.querySelector('.next');
 
-const track = document.querySelector('.ml-track');
-const slides = Array.from(document.querySelectorAll('.ml-slide'));
-const dotsContainer = document.querySelector('.ml-dots');
-const prevBtn = document.querySelector('.ml-prev');
-const nextBtn = document.querySelector('.ml-next');
-let index = 0;
-// Crear puntos dinámicamente
-slides.forEach((_, i) => {
-  const b = document.createElement('button');
-  if (i === 0) b.classList.add('active');
-  dotsContainer.appendChild(b);
-  b.addEventListener('click', () => goToSlide(i));
-});
-const dots = Array.from(document.querySelectorAll('.ml-dots button'));
-function goToSlide(i) {
-  index = i;
-  updateSlider();
-}
-function updateSlider() {
-  track.style.transform = `translateX(-${index * 100}%)`;
-  dots.forEach(d => d.classList.remove('active'));
-  dots[index].classList.add('active');
-}
-prevBtn.addEventListener('click', () => {
-  index = (index - 1 + slides.length) % slides.length;
-  updateSlider();
-});
-nextBtn.addEventListener('click', () => {
-  index = (index + 1) % slides.length;
-  updateSlider();
-});
+    let index = 0;
 
+    /* Crear dots automáticamente */
+    slides.forEach((_, i) => {
+      const dot = document.createElement('button');
+      if (i === 0) dot.classList.add('active');
+      dot.addEventListener('click', () => goToSlide(i));
+      dotsContainer.appendChild(dot);
+    });
 
-/* ========================
-   DESLIZAR EN CELULAR
-   ======================== */
+    const dots = dotsContainer.querySelectorAll('button');
 
-let startX = 0;
-let moveX = 0;
-let isMoving = false;
+    function updateSlider() {
+      track.style.transform = `translateX(-${index * 100}%)`;
+      dots.forEach(dot => dot.classList.remove('active'));
+      dots[index].classList.add('active');
+    }
 
-track.addEventListener("touchstart", (e) => {
-  startX = e.touches[0].clientX;
-  isMoving = true;
-});
+    function goToSlide(i) {
+      index = i;
+      updateSlider();
+    }
 
-track.addEventListener("touchmove", (e) => {
-  if (!isMoving) return;
-  moveX = e.touches[0].clientX;
+    nextBtn.addEventListener('click', () => {
+      index = (index + 1) % slides.length;
+      updateSlider();
+    });
 
-  const diff = startX - moveX;
+    prevBtn.addEventListener('click', () => {
+      index = (index - 1 + slides.length) % slides.length;
+      updateSlider();
+    });
 
-  // Para que se mueva un poquito mientras arrastrás (opcional)
-  track.style.transform = `translateX(-${index * 100 + diff / 5}%)`;
-});
+    /* Swipe mobile */
+    let startX = 0;
 
-track.addEventListener("touchend", () => {
-  isMoving = false;
+    track.addEventListener('touchstart', e => {
+      startX = e.touches[0].clientX;
+    });
 
-  const diff = startX - moveX;
+    track.addEventListener('touchend', e => {
+      const endX = e.changedTouches[0].clientX;
+      if (startX - endX > 50) nextBtn.click();
+      if (endX - startX > 50) prevBtn.click();
+    });
 
-  // Sensibilidad del swipe (50px)
-  if (diff > 50) {
-    index = (index + 1) % slides.length; // swipe izquierda → siguiente
-  } else if (diff < -50) {
-    index = (index - 1 + slides.length) % slides.length; // swipe derecha → anterior
-  }
+    let autoplayDelay = 4000; // 4 segundos
+    let autoplay;
+    
+    function startAutoplay() {
+      autoplay = setInterval(() => {
+        index = (index + 1) % slides.length;
+        updateSlider();
+      }, autoplayDelay);
+    }
+    
+    function stopAutoplay() {
+      clearInterval(autoplay);
+    }
+    
+    // iniciar autoplay
+    startAutoplay();
 
-  updateSlider();
-  track.style.transition = "transform 0.45s ease";
-});
-
-/* ========================
-   AUTOPLAY
-   ======================== */
-
-let autoplayInterval;
-const autoplayDelay = 4000; // tiempo en ms (4 segundos)
-
-function startAutoplay() {
-  autoplayInterval = setInterval(() => {
-    index = (index + 1) % slides.length;
-    updateSlider();
-  }, autoplayDelay);
-}
-
-function stopAutoplay() {
-  clearInterval(autoplayInterval);
-}
-
-// Iniciar autoplay al cargar
-startAutoplay();
-
-// Pausar autoplay si el usuario interactúa
-track.addEventListener("mouseenter", stopAutoplay); // desktop
-track.addEventListener("mouseleave", startAutoplay);
-
-track.addEventListener("touchstart", stopAutoplay); // mobile
-track.addEventListener("touchend", startAutoplay);
-
-
-
-
-
-
-
-
-
-
-
+    track.addEventListener('mouseenter', stopAutoplay);
+    track.addEventListener('mouseleave', startAutoplay);
+    track.addEventListener('touchstart', stopAutoplay);
+    track.addEventListener('touchend', startAutoplay);
 
 
 
