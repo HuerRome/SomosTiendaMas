@@ -85,8 +85,8 @@
 /*------------------- Banner Publicitario 3 -------------------*/
 .bannerPublicitario3{
     width: 100%;
-    display: flex;
-    justify-content: space-between;
+    margin-top: 48px;
+    margin-top: 24px;
 }
 
 .bannerPublicitario3 a{

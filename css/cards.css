@@ -1,16 +1,20 @@
 
 .registro-steps{
     width: 100%;
+    margin-top: 48px;
+}
+
+.registro-steps .registro-steps-container{
+    width: 100%;
     display: flex;
     justify-content: space-between;
     gap: 16px; 
-    padding: 0 0 48px 0;
-    padding: 16px 0 16px 0;
+
 
 }
 
 /*ESpacio entre el contenido del div*/
-.registro-steps > div{
+.registro-steps .registro-steps-container > div{
     padding: 10px 12px;
     padding: 14px 14px;
     width: 24%;
@@ -25,23 +29,23 @@
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
 }
 
-.registro-steps > div img{
+.registro-steps .registro-steps-container > div img{
     height: 35px;
 }
 
-.registro-steps > div > span{
+.registro-steps .registro-steps-container > div > span{
     font-size: 12px;
     flex: 1;
 }
 
-.registro-steps > div div{
+.registro-steps .registro-steps-container > div div{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.registro-steps > div div span{
+.registro-steps .registro-steps-container > div div span{
     text-align: center;
     font-size: 16px;
     font-size: 18px;
@@ -50,7 +54,7 @@
     letter-spacing: -1px;
 }
 
-.registro-steps > div div a{
+.registro-steps .registro-steps-container > div div a{
     font-size: 10px;
     text-align: center;
     font-size: 10px;
@@ -90,46 +94,46 @@
 
 
 @media (max-width: 1024px) {
-  .registro-steps {
+  .registro-steps .registro-steps-container {
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
     justify-content: flex-start;
   }
 
-  .registro-steps::-webkit-scrollbar {
+  .registro-steps .registro-steps-container::-webkit-scrollbar {
     display: none;
   }
 
-  .registro-steps > div {
+  .registro-steps .registro-steps-container > div {
     flex: 0 0 45%;
     scroll-snap-align: start;
   }
 }
 
 @media (max-width: 640px) {
-  .registro-steps {
+  .registro-steps .registro-steps-container{
     gap: 12px;
     padding-left: 12px;
     justify-content: flex-start;
   }
 
-  .registro-steps > div {
+  .registro-steps .registro-steps-container > div {
     flex: 0 0 80%;
   }
 
-  .registro-steps > div{
+  .registro-steps .registro-steps-container > div{
     padding: 8px 10px;
     
   }
   
-  .registro-steps > div > span{
+  .registro-steps .registro-steps-container > div > span{
     font-size: 10px;
     flex: 1;
     
   }
 
-  .registro-steps > div div span{
+  .registro-steps .registro-steps-container > div div span{
        text-align: center;
        font-size: 16px;
        font-size: 16px;
@@ -138,7 +142,7 @@
        letter-spacing: -1px;
    }
    
-   .registro-steps > div div a{
+   .registro-steps .registro-steps-container > div div a{
        font-size: 10px;
        text-align: center;
        font-size: 8px;

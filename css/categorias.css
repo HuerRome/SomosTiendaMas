@@ -1,6 +1,5 @@
 .categories {
   width: 100%;
-  
 }
 
 .categories-slider {
@@ -38,6 +37,8 @@
   height: 90px;
   border-radius: 50%;
   background: #e5f8ff;
+  background: #7fa6fa;
+  background: #dee8fd;
   display: flex;
   justify-content: center;
   align-items: center;
