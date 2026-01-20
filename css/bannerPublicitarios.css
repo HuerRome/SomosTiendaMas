@@ -1,0 +1,324 @@
+.bannerPublicitario1{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.bannerPublicitario1 a{
+    width: 32%;
+}
+
+.bannerPublicitario1 a img{
+    width: 100%;
+}
+
+/*------------------- Banner Publicitario 2 -------------------*/
+
+.bannerPublicitario2{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.bannerPublicitario2 a{
+    width: 24%;
+    border-radius: 8px;
+}
+
+.bannerPublicitario2 a img{
+    width: 100%;
+}
+
+/*Por si quieres que el scrollbar desaparezca*/
+.bannerPublicitario2::-webkit-scrollbar {
+  display: none;
+}
+.bannerPublicitario2 {
+  scrollbar-width: none;
+}
+
+.bannerPublicitario2{
+  padding-bottom: 0.8rem;
+}
+
+
+@media (max-width: 1024px) {
+  .bannerPublicitario2{
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    gap: 1rem;
+
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .bannerPublicitario2 a{
+    min-width: 45%; /* se ven 2 banners */
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .bannerPublicitario2{
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    gap: 0.75rem;
+
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .bannerPublicitario2 a{
+    min-width: 85%;
+    min-width: 65%;
+    flex: 0 0 auto;
+
+    scroll-snap-align: center;
+  }
+}
+
+@media (max-width: 640px) {
+}
+
+/*------------------- Banner Publicitario 3 -------------------*/
+.bannerPublicitario3{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.bannerPublicitario3 a{
+    width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.offers-section {
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 48px;
+}
+
+
+.offers-section-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 1fr 1fr;
+  grid-template-rows: 280px 200px;
+  gap: 1rem;
+  grid-template-areas:
+    "a b c c"
+    "a b d d";
+}
+
+/* Asignamos áreas */
+.offer-1 { grid-area: a; }
+.offer-2 { grid-area: b; }
+.offer-3 { grid-area: c; }
+.offer-4 { grid-area: d; }
+
+/* Card base */
+.offer-card {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #000;
+}
+
+.offer-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Overlay */
+.offer-content {
+  position: absolute;
+  inset: 0;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  color: #fff;
+}
+
+.offer-content:hover {
+  background: linear-gradient(to top, rgba(0,0,0,.55), transparent);
+}
+
+.offer-tag {
+  font-size: .75rem;
+  opacity: .9;
+  margin-bottom: .5rem;
+  margin-bottom: 0;
+  color: #f53920;
+}
+
+.offer-content h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+  margin-top: .25rem;
+}
+
+.offer-btn {
+  margin-top: .75rem;
+  align-self: flex-start;
+  padding: 0.4rem 1.2rem;
+  background: #1c449c;
+  background: #2563EB;
+  color: #fff;
+  border-radius: 999px;
+  border-radius: 8px;
+  font-size: .85rem;
+  text-decoration: none;
+}
+
+/*----------- Diseñando las cards ------------*/
+.offers-section-container .offer-2 .offer-content{
+  justify-content: flex-start;
+}
+
+.offers-section-container .offer-1 .offer-content, 
+.offers-section-container .offer-2 .offer-content{
+  align-items: center;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.offers-section-container .offer-1 .offer-content a, 
+.offers-section-container .offer-2 .offer-content a{
+  align-items: center;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.offers-section-container .offer-3 .offer-content{
+  display: flex;
+  flex-direction: column;      /* para que el texto vaya uno debajo del otro */
+  justify-content: flex-end;   /* abajo */
+  align-items: flex-end;       /* derecha */
+  text-align: right;           /* alinea el texto */
+}
+
+.offers-section-container .offer-4 .offer-content{
+  display: flex;
+
+}
+
+.offers-section-container .offer-3 .offer-content a{
+  align-self: flex-end;
+}
+
+.offers-section-container .offer-3 .offer-content h3{
+  margin-bottom: 0;
+}
+
+.offers-section-container .offer-4 .offer-content h3{
+  margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+  .offers-section-container {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    gap: 0.5rem;
+    grid-template-areas:
+      "a b"
+      "c c"
+      "d d";
+      
+  }
+
+  .offer-card {
+    min-height: 220px;
+    min-height: 180px;
+    min-height: auto;
+  }
+
+  .offer-content {
+    padding: 1rem;
+  }
+
+  .offer-tag {
+    font-size: .6rem;
+    line-height: 0.95;
+    opacity: 0.9;
+    margin-bottom: .5rem;
+    margin-bottom: 0;
+    color: #f53920;
+  }
+  
+  .offer-content h3 {
+    font-size: 1.25rem;
+    font-size: 0.9rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 0.25rem;
+    margin-top: .2rem;
+  }
+  
+  .offer-btn {
+    margin-top: .75rem;
+    padding: 0.2rem 0.8rem;
+
+    border-radius: 6px;
+    font-size: .65rem;
+  }
+
+
+}

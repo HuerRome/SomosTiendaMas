@@ -15,25 +15,18 @@
       width: 100vw;
       /*width: calc(100vw - 4rem);*/
       margin-left: calc(50% - 50vw);
-
     }
 
     /* ===== SLIDER ===== */
     .slider {
       position: relative;
-      /*max-width: 1200px;*/
-      /*margin: 40px auto;*/
-      margin: 40px 4vw;
-      margin: 40px auto;
-      margin: 0;
       margin: 0 4rem;
     }
 
     /* Frame que recorta SOLO la imagen */
     .slider-frame {
       overflow: hidden;
-      border-radius: 16px;
-      background: #1f2a44;
+      border-radius: 16px; 
     }
 
     /* Track */
@@ -59,7 +52,6 @@
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      width: 44px;
       width: 64px;
       height: 64px;
       border-radius: 50%;
