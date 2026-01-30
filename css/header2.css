@@ -1,0 +1,557 @@
+
+body {
+  margin: 0;
+  font-family: sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #1e293b;
+  background-color: #ffffff;
+  background: #e5f8ff;
+  font-family: 'Inter', system-ui, Arial, sans-serif;
+}
+
+.body-container {
+  width: 100%;
+  margin: 0 auto;
+  background: #e5f8ff;
+  background: #EBEBEB;
+  background: #ffffff;
+}
+
+.header {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 40;
+  background: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+  backdrop-filter: blur(12px);
+  color: #1F2937;
+}
+
+.header .primeraFila .logo-desktop{
+  width: 200px;
+}
+
+.header .primeraFila .logo-movil{
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .header {
+    position: static;
+  }
+}
+
+#nav img {
+  width: 150px;
+}
+
+#nav > div:first-child a{
+  background: #e8f0ff;
+  background: #f3f9fb;
+  padding: 4px 12px;
+  border-radius: 12px;
+}
+
+#nav > div:first-child a:first-child{
+  background: #2563eb;
+  color: #ffffff;
+}
+
+#nav > div:first-child a:first-child .fa-solid{
+  color: #ffffff;
+}
+
+.header-links > .carrito{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  padding-left: 1vw;
+}
+
+.header-links > .carrito > div{
+  color: #1e293b;
+  color: #FF6B35;
+}
+
+.header-links > .carrito > div .fa-solid{
+  color: #1e293b;
+  color: #2563eb;
+}
+
+.header-links a span{
+  font-size: 14px;
+}
+
+.header-links a img{
+  width: 200px;
+}
+
+.nav-links{
+  font-size: 14px;
+  display: flex;
+  gap: 2vw;
+  color: #2563eb;
+  
+}
+
+.nav-links span{
+  color: #1e293b;
+}
+
+.header .fa-chevron-down{
+  font-size: 10px;
+  color: #94a3b8;
+  color: #2563eb;
+}
+
+/* ================= CONTAINER ================= */
+
+.primeraFila {
+  width: 100%;
+  max-width: 1200px;
+  max-width: 100%;
+  margin-inline: auto;
+  background: #ffffff;
+}
+
+.primeraFila > div a .logo-text{
+  color: #1e293b;
+}
+
+.primeraFila > div{
+  padding-inline: 4rem;
+  background: #c0c0c0;
+  background: #f3f9fb;
+
+}
+
+.primeraFila > nav{
+  /*Aqui podes agregar estilos para la primera fila del menu background: #0e2455;*/
+  padding-inline: 4rem;
+}
+
+@media (min-width: 640px) {
+  .primeraFila {
+    padding-inline: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .primeraFila {
+    padding-inline: 0rem;
+  }
+
+}
+
+@media (max-width: 1024px){
+  .header-links > .carrito, .header-links > .header-anuncio, .header nav{
+    display: none;
+  }
+}
+
+
+/* ================= BUSCADOR ================= */
+
+#buscador {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.buscador-container {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+}
+
+#search-input {
+  width: 100%;
+  padding: 0.5rem 2.5rem 0.5rem 1rem;
+  font-size: 0.875rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 1px 2px rgba(0,0,0,.1);
+}
+
+.search-icon {
+  position: absolute;
+  top: 50%;
+  right: 0.75rem;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  color: #94a3b8;
+  pointer-events: none;
+  color: #2563eb;
+}
+
+.buscador-container:focus-within .search-icon {
+  color: #2563eb;
+}
+
+/*------------Aqui cambian los estilos del buscador-----------------------------------------------------------------*/
+#search-input {
+  width: 100%;
+  padding: 0.6rem 2.75rem 0.6rem 1rem;
+  font-size: 0.9rem;
+
+  background-color: #f8fafc;        /* fondo suave */
+  background: #ffffff;
+  border: 1px solid #e2e8f0;        /* borde más moderno */
+  border-radius: 999px;  
+  border-radius: 12px;           /* pill real */
+
+  color: #0f172a;
+  box-shadow: 0 1px 2px rgba(0,0,0,.04);
+
+  outline: none;
+  transition: 
+    border-color .2s ease,
+    box-shadow .2s ease,
+    background-color .2s ease;
+}
+
+#search-input:focus {
+  background-color: #ffffff;
+  border-color: #2563eb;
+  /*box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);*/
+}
+
+#search-input::placeholder {
+  color: #94a3b8;
+  font-size: 0.85rem;
+}
+
+.search-icon {
+  position: absolute;
+  top: 50%;
+  right: 0.9rem;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  color: #2563eb;
+  color: #94a3b8;
+  pointer-events: none;
+  transition: color .2s ease;
+}
+
+.buscador-container:focus-within .search-icon {
+  color: #2563eb;
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+/* Mobile chico */
+@media (max-width: 480px) {
+  .buscador-container {
+    max-width: 100%;
+  }
+
+  #search-input {
+    font-size: 0.8125rem;
+    padding: 0.5rem 2.25rem 0.5rem 0.75rem;
+  }
+
+  .search-icon {
+    width: 14px;
+    height: 14px;
+    right: 0.6rem;
+  }
+
+  #buscador{
+    width: 100%;
+  }
+
+  .header .primeraFila .logo-movil{
+    display: flex;
+    width: 3rem;
+    height: 3rem;
+  }
+  
+  .header .primeraFila .logo-desktop{
+    display: none;
+  }
+  
+}
+
+/* Desktop grande */
+@media (min-width: 1024px) {
+  #buscador{
+    padding: 0 16px;
+  }
+  .buscador-container {
+    max-width: 700px;
+    width: 100%;
+  }
+
+  #search-input {
+    font-size: 0.9375rem;
+    padding: 0.6rem 2.75rem 0.6rem 1rem;
+  
+  }
+
+  .search-icon {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <section class="slider-bleed">
+          <div class="slider">
+      
+            <!-- Flechas -->
+            <button class="arrow prev" aria-label="Anterior">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                       stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="14 4 6 12 14 20"></polyline>
+                  </svg>
+            </button>
+            <button class="arrow next" aria-label="Siguiente">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                       stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="10 4 18 12 10 20"></polyline>
+                  </svg>
+            </button>
+      
+            <!-- Frame -->
+            <div class="slider-frame">
+              <div class="slider-track">
+                <a href="" class="slide">
+                  <picture class="banner-rounded">
+                    <source media="(max-width: 480px)" srcset="assets/banners/bannerFormatoMovil/bannerPrincipal.png">
+                    <source media="(min-width: 481px)" srcset="assets/banners/bannerFormatoDesktop/Banner principal.png">
+                    <img src="assets/banners/bannerFormatoDesktop/banner 0.png" alt="Promoción 1">
+                  </picture>  
+                </a>
+                <a href="" class="slide">
+                  <picture class="banner-rounded">
+                    <source media="(max-width: 480px)" srcset="assets/banners/bannerFormatoMovil/bannerPrincipal.png">
+                    <source media="(min-width: 481px)" srcset="assets/banners/bannerFormatoDesktop/Banner principal.png">
+                    <img src="assets/banners/bannerFormatoDesktop/banner 0.png" alt="Promoción 1">
+                  </picture>  
+                </a>
+                <a href="" class="slide">
+                  <picture class="banner-rounded">
+                    <source media="(max-width: 480px)" srcset="assets/banners/bannerFormatoMovil/bannerPrincipal.png">
+                    <source media="(min-width: 481px)" srcset="assets/banners/bannerFormatoDesktop/Banner principal.png">
+                    <img src="assets/banners/bannerFormatoDesktop/banner 0.png" alt="Promoción 1">
+                  </picture>  
+                </a>
+                <a href="" class="slide">
+                  <picture class="banner-rounded">
+                    <source media="(max-width: 480px)" srcset="assets/banners/bannerFormatoMovil/bannerPrincipal.png">
+                    <source media="(min-width: 481px)" srcset="assets/banners/bannerFormatoDesktop/Banner principal.png">
+                    <img src="assets/banners/bannerFormatoDesktop/banner 0.png" alt="Promoción 1">
+                  </picture>  
+                </a>                
+              </div>
+            </div>
+      
+            <!-- Dots -->
+            <div class="dots"></div>
+      
+          </div>
+        </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <section class="slider-bleed">
+          <div class="slider">
+            <!-- Flechas -->
+            <button class="arrow prev" aria-label="Anterior">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                       stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="14 4 6 12 14 20"></polyline>
+                  </svg>
+            </button>
+            <button class="arrow next" aria-label="Siguiente">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                       stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="10 4 18 12 10 20"></polyline>
+                  </svg>
+            </button>
+            <!-- Frame -->
+            <div class="slider-frame">
+              <div class="slider-track">
+                <a href="" class="slide">
+                  <picture class="banner-rounded">
+                    <source media="(max-width: 480px)" 
+                            srcset="assets/banners/bannerFormatoMovil/bannerPrincipal.png">
+                    <source media="(max-width: 1024px)" 
+                            srcset="assets/banners/bannerFormatoTablet/bannerPrincipal.png">
+                    <img src="assets/banners/bannerFormatoDesktop/banner 0.png" 
+                         alt="Promoción 1">
+                  </picture>
+                </a>
+                <a href="" class="slide">
+                  <picture class="banner-rounded">
+                    <source media="(max-width: 480px)" 
+                            srcset="assets/banners/bannerFormatoMovil/bannerPrincipal.png">
+                    <source media="(max-width: 1024px)" 
+                            srcset="assets/banners/bannerFormatoTablet/bannerPrincipal.png">
+                    <img src="assets/banners/bannerFormatoDesktop/banner 0.png" 
+                         alt="Promoción 1">
+                  </picture>
+                </a>                             
+                <a href="" class="slide">
+                  <picture class="banner-rounded">
+                    <source media="(max-width: 480px)" 
+                            srcset="assets/banners/bannerFormatoMovil/bannerPrincipal.png">
+                    <source media="(max-width: 1024px)" 
+                            srcset="assets/banners/bannerFormatoTablet/bannerPrincipal.png">
+                    <img src="assets/banners/bannerFormatoDesktop/banner 0.png" 
+                         alt="Promoción 1">
+                  </picture>
+                </a>
+                <a href="" class="slide">
+                  <picture class="banner-rounded">
+                    <source media="(max-width: 480px)" 
+                            srcset="assets/banners/bannerFormatoMovil/bannerPrincipal.png">
+                    <source media="(max-width: 1024px)" 
+                            srcset="assets/banners/bannerFormatoTablet/bannerPrincipal.png">
+                    <img src="assets/banners/bannerFormatoDesktop/banner 0.png" 
+                         alt="Promoción 1">
+                  </picture>
+                </a>             
+              </div>
+            </div>
+            <!-- Dots -->
+            <div class="dots"></div>
+          </div>
+        </section>

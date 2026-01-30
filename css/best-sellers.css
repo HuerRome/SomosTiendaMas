@@ -164,7 +164,6 @@
 
 /* BOTONES DEL SLIDER */
 .slider-btn {
-  
   border: none;
   cursor: pointer;
   font-size: 18px;
@@ -234,14 +233,11 @@
 
 /*----------------------------------------------------------------------------------------------*/
 .section-header {
-  margin: 64px auto 24px;
   margin: 0px auto 24px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-
   border-bottom: 1px solid #e5e5e5;
-  
 }
 
 .section-title {
@@ -279,10 +275,11 @@
 
 
 @media (max-width: 640px) {
+  /*Aqui vemos si hay que cambiar el margin*/
   .section-header {
     margin: 32px auto 12px;
+    margin: 0 auto 8px;
   }
-
   .view-all {
     align-self: flex-end;
   }
@@ -299,6 +296,26 @@
     align-items: center;
     gap: 4px;
     padding-bottom: 8px;
+  }
+
+  .best-sellers .view-all{
+    padding-bottom: 8px;
+    margin-right: 0px;
+  }
+  
+
+  /*------------------------------------------*/
+  .best-sellers {
+    margin-top: 24px; /* o incluso 12px */
+    margin-top: 16px;
+  }
+
+  .section-title {
+    padding-bottom: 6px;
+  }
+
+  .view-all {
+    padding-bottom: 6px;
   }
 }
 

@@ -1,16 +1,12 @@
-.footer {
-  position: relative;
-  background-color: #0a8fd8;
-  overflow: hidden;
-}
+/* =========================
+   FOOTER BASE
+========================= */
 
 .footer {
   position: relative;
   background-color: #0a8fd8;
   color: white;
-  
-  
-  overflow: hidden; 
+  overflow: hidden;
 }
 
 /* círculo decorativo */
@@ -25,79 +21,71 @@
   background: rgba(255, 255, 255, 0.05);
 }
 
-/*---------- Contenido de los links del footer ----------*/
-.footer-container > div:first-child{
-    padding: 4rem;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    width: 100%;
-    border-top: 1px solid #f1faff;
-    border-bottom: 1px solid #f1faff;
+/* =========================
+   CONTENEDOR PRINCIPAL
+========================= */
+
+.footer-container > div:first-child {
+  padding: 4rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
+  width: 100%;
+  border-top: 1px solid #f1faff;
+  border-bottom: 1px solid #f1faff;
 }
 
-.footer-container > div:first-child > div{
-    display: flex;
-    flex-direction: column;
-  }
-  
-.footer-container > div:first-child > div:first-child{
+/* Columnas */
+.footer-container > div:first-child > div {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Logo + redes */
+.footer-container > div:first-child > div:first-child {
   align-items: center;
+  text-align: center;
 }
 
-.footer-container > div:first-child > div a {
-  color: white;
-  text-decoration: none;
-  margin-bottom: 10px;
+.footer-container > div:first-child > div:first-child img {
+  height: 40px;
 }
 
-.footer-container > div:first-child > div a:hover {
-  text-decoration: underline;
+.footer-container > div:first-child > div:first-child > div {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
 }
 
-.footer-container > div:first-child > div:first-child > img{
-    height: 40px;
+.footer-container > div:first-child > div:first-child > div img {
+  height: 32px;
 }
 
-.footer-container > div:first-child > div:first-child > div{
-    display: flex;
-    gap: 10px;
-    margin-top: 10px;
-}
-
-.footer-container > div:first-child > div:first-child > div img{
-    height: 24px;
-    height: 32px;
-}
-
-
+/* =========================
+   TITULOS Y LINKS
+========================= */
 
 .footer-title {
   width: fit-content;
-  padding-bottom: 6px;
-  margin-bottom: 14px;
-  border-bottom: 2px solid #fff;
-}
-
-
-
-/* TITULOS del footer */
-.footer-title {
-  width: fit-content;
-  align-self: flex-start;
-  font-size: 16px;      /* más grande */
-  font-weight: 600;     /* semi-bold */
+  font-size: 16px;
+  font-weight: 600;
   margin-bottom: 16px;
   padding-bottom: 6px;
   border-bottom: 2px solid #fff;
 }
 
-/* LINKS del footer */
 .footer-container a {
-  font-size: 14px;      /* más chico que el título */
-  font-weight: 400;     /* normal */
-  line-height: 1.6;     /* aire entre links */
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.6;
   color: #ffffff;
+  text-decoration: none;
+  margin-bottom: 6px;
+}
+
+.footer-container a:hover {
+  text-decoration: underline;
 }
 
 /* =========================
@@ -105,29 +93,17 @@
 ========================= */
 
 @media (max-width: 1023px) {
+
   .footer-container > div:first-child {
-    background: #f1faff;
+    padding: 3rem 2rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
   }
-
-  .footer-container > div:first-child > div{
-      display: flex;
-      flex-direction: column;
-      background: #55859e;
-  }
-
-  .footer-container > div:first-child > div:first-child > img{
-  
-   
- }
 
   /* Logo ocupa toda la fila */
   .footer-container > div:first-child > div:first-child {
-
-  }
-
-  /* Columnas en 2 por fila */
-  .footer-container > div:first-child > div:not(:first-child) {
-
+    grid-column: 1 / -1;
   }
 }
 
@@ -136,35 +112,48 @@
 ========================= */
 
 @media (max-width: 767px) {
-  .footer {
-
-  }
 
   .footer-container > div:first-child {
-
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 1rem;
+    gap: 1.5rem;
   }
 
+  /* Cada sección como bloque */
   .footer-container > div:first-child > div {
-
+    background: rgba(255, 255, 255, 0.08);
+    padding: 1.25rem;
+    border-radius: 10px;
   }
 
-  /* Títulos centrados */
-  .footer-title {
-
+  /* Logo y redes centrados */
+  .footer-container > div:first-child > div:first-child {
+    align-items: center;
+    text-align: center;
   }
 
-  /* Links más cómodos para tocar */
-  .footer-container a {
-
-  }
-
-  /* Redes sociales centradas */
   .footer-container > div:first-child > div:first-child > div {
-    
+    justify-content: center;
+  }
+
+  /* Títulos */
+  .footer-title {
+    font-size: 15px;
+    margin-bottom: 12px;
+  }
+
+  /* Links táctiles */
+  .footer-container a {
+    font-size: 14px;
+    padding: 6px 0;
   }
 }
 
-/*----------- Copyright TiendaMas -----------*/
+/* =========================
+   COPYRIGHT
+========================= */
+
 .footer-container > div:nth-child(2) {
   display: flex;
   flex-direction: column;
@@ -176,16 +165,16 @@
 }
 
 @media (max-width: 767px) {
-  .footer-container > div:nth-child(2){   
-    gap: 0.5rem;
+  .footer-container > div:nth-child(2) {
     padding: 2rem 0.5rem 1rem 0.5rem;
     font-size: 0.8rem;
   }
 
-  .footer-container > div:nth-child(2) img{
+  .footer-container > div:nth-child(2) img {
     width: 90%;
   }
 }
+
 
 
 /*------------------------------------------------ BRAND DIRECTORY FOOTER ---------------------------------------*/
@@ -273,11 +262,8 @@
   }
 }
 
-
-
-
-
-
+/*------------------ Vender en TiendaMas ------------------*/
 #vender{
   margin-bottom: 24px;
 }
+
