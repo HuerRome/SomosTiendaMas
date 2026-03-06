@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TiendaMas</title>
+  <meta name="description" content="Fiambrissima, supermercado con varios locales. Calidad, variedad y precios para familias y comercios." />
+  <!-- Tailwind Play CDN (rápido para prototipo) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Tipografías -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <!-- Font Awesome para iconos (opcional) -->
+  <script src="https://kit.fontawesome.com/your_kit_id.js" crossorigin="anonymous"></script>
+  <!-- Si no tenés kit, podés usar: https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <!-- Paleta y pequeños estilos adicionales -->
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/paginaProducto/producto.css" />
+  <link rel="stylesheet" href="css/paginaProducto/main.css">
+  <link rel="stylesheet" href="css/paginaProducto/footer.css">
+  <!-- Fuentes (ejemplo) -->
+  <!--
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  -->
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="primeraFila">  
+      <div class="flex items-center justify-between h-16 gap-4 ">
+        <a href="#" class="flex items-center gap-3 shrink-0">
+          <img src="assets/marketplace-data/Logo-text 2.png" alt="Logo" class="logo-desktop w-full h-full object-cover"> 
+          <img src="assets/marketplace-data/Logo.png" alt="Logo" class="logo-movil w-full h-full object-cover"> 
+        </a>
+
+        <!-- Buscador -->
+        <div id="buscador">
+          <div class="buscador-container">
+            <input 
+              type="text" 
+              id="search-input" 
+              placeholder="Buscar productos..."
+            >
+            <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" fill="none" 
+                 viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                    d="M21 21l-4.35-4.35M11 19a8 8 0 100-16 8 8 0 000 16z"/>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Acciones -->
+        <div class="header-links flex items-center gap-3">
+          <a href="" class="header-anuncio"><img src="assets/marketplace-data/envio.png" alt=""></a>
+          <!-- Botón menú mobile -->
+          <button id="btn-mobile" aria-expanded="false" aria-controls="mobile-menu" class="lg:hidden p-0 rounded-lg focus:outline-none focus:ring-0 active:outline-none active:ring-0">
+            <svg id="icon-open" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 8h16M4 16h16"/></svg>
+            <svg id="icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+          </button>
+        </div>
+      </div>
+  
+      <!-- Fila 2: Navegación -->
+      <nav id="nav" class="hidden md:flex justify-between w-full items-center border-t border-slate-200" aria-label="Main navigation">
+        <div class="flex items-center gap-6 gap-6 py-2">
+          <a href="#categorias" class="text-sm hover:text-[#2563EB] transition">Categorías <i class="fa-solid fa-chevron-down"></i></a>
+          <a href="#ofertas" class="text-sm hover:text-[#2563EB] transition">Ofertas <i class="fa-solid fa-chevron-down"></i></a>
+          <a href="#destacados" class="text-sm hover:text-[#2563EB] transition">Destacados</a>
+          <a href="#novedades" class="text-sm hover:text-[#2563EB] transition">Novedades</a>
+          <a href="#contacto" class="text-sm hover:text-[#2563EB] transition">Contacto / Soporte</a>
+          <a href="#ayuda" class="text-sm hover:text-[#2563EB] transition">Ayuda</a>
+          <a href="#vender" class="text-sm hover:text-[#2563EB] transition">Vender</a>
+        </div>
+        <div class="nav-links">
+          <a href=""><i class="fa-solid fa-user"></i> <span>Cuenta</span> <i class="fa-solid fa-chevron-down"></i></a>
+          <a href=""><i class="fa-solid fa-location-dot"></i> <span>Ubicación</span></a>
+          <a href=""><i class="fa-solid fa-cart-arrow-down"></i> <span style="color: #2563EB; font-weight:bolder;">3</span> <span>Carrito</span></a>
+        </div>
+      </nav>
+    </div>
+  
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="lg:hidden" hidden>
+      <div class="px-4 pb-6 pt-2 border-t border-slate-200 bg-white">
+        <a href="#carrito" class="block py-2 text-base">Carrito</a>
+        <a href="#categorias" class="block py-2 text-base">Categorías</a>
+        <a href="#destacados" class="block py-2 text-base">Destacados</a>
+        <a href="#novedades" class="block py-2 text-base">Novedades</a>
+        <a href="#contacto" class="block py-2 text-base">Contacto / Soporte</a>
+        <a href="#vender" class="block py-2 text-base">Vender</a>
+        <a href="#ayuda" class="block py-2 text-base">Ayuda</a>
+        <div class="flex gap-2 mt-3">
+          <a href="#vender" class="flex-1 text-center py-2 rounded-full border border-blue-600 text-blue-600">Ingresá</a>
+          <a href="#registrarse" class="flex-1 text-center py-2 rounded-full bg-[var(--tm-orange)] text-white">Registrarse</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="pt-16 md:pt-0">
+    <nav class="breadcrumb-container" aria-label="Breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="/">Home</a>
+        </li>
+  
+        <li class="breadcrumb-item">
+          <a href="/electrodomesticos">Pequeños Electrodomésticos</a>
+        </li>
+  
+        <li class="breadcrumb-item">
+          <a href="/hogar">Hogar</a>
+        </li>
+  
+        <li class="breadcrumb-item active" aria-current="page">
+          Limpiadoras a vapor
+        </li>
+      </ol>
+    </nav>
+  
+    <section class="product-gallery">
+    
+      <div class="product-gallery-wrapper">
+    
+        <!-- Thumbnails -->
+        <div class="product-thumbnails">
+    
+          <img src="assets/secciones de la página - producto/(4)Moda(ropa y calzado)/14.jpg" class="thumb active">
+          <img src="assets/secciones de la página - producto/(4)Moda(ropa y calzado)/15.jpg" class="thumb">
+          <img src="assets/secciones de la página - producto/(4)Moda(ropa y calzado)/16.jpg" class="thumb">
+          <img src="assets/secciones de la página - producto/(4)Moda(ropa y calzado)/17.jpg" class="thumb">
+          <img src="assets/secciones de la página - producto/(4)Moda(ropa y calzado)/18.jpg" class="thumb">
+    
+        </div>
+    
+    
+        <!-- Imagen principal -->
+        <div class="product-main-image">
+    
+          <div class="zoom-area">
+            <button class="share-btn" id="shareBtn"><i class="fa-solid fa-share-nodes"></i>
+
+            </button>
+
+            <img src="assets/secciones de la página - producto/(4)Moda(ropa y calzado)/14.jpg" id="mainImage">
+          </div>
+    
+        </div>
+    
+      </div>
+    
+    </section> 
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container"> 
+      <div>
+        <div>
+          <img src="assets/marketplace-data/Logo-text 2.png" alt="">
+          <div>
+            <a href=""><img src="assets/icons/whatsapp.png" alt=""></a>
+            <a href=""><img src="assets/icons/facebook.png" alt=""></a>
+            <a href=""><img src="assets/icons/instagram.png" alt=""></a>
+            <a href=""><img src="assets/icons/linkedin.png" alt=""></a>              
+          </div>
+        </div>
+        <div>
+          <h3 class="footer-title">Empresa</h3>
+          <a href="">Acerca</a>
+          <a href="">Prensa</a>
+          <a href="">Contacto</a>
+          <a href="">Condiciones</a>
+          <a href="">Terminos y servicios</a>
+          <a href="">Preguntas frecuentes</a>
+        </div>
+        <div>
+          <h3 class="footer-title">Categorias</h3>
+          <a href="">Electrónica</a>
+          <a href="">Moda y Accesorios</a>
+          <a href="">Hogar y Jardín</a>
+          <a href="">Salud y Belleza</a>
+          <a href="">Alimentos y Bebidas</a>
+          <a href="">Deportes y Fitness</a>
+        </div>
+        <div>
+          <h3 class="footer-title">Mi cuenta</h3>
+          <a href="">Iniciar sesión</a>
+          <a href="">Registrarse</a>
+          <a href="">Mis pedidos</a>
+          <a href="">Direcciones</a>
+          <a href="">Métodos de pago</a>
+          <a href="">Cerrar sesión</a>
+        </div>
+        <div>
+          <h3 class="footer-title">Contacto</h3>
+          <a href=""><i class="fa-solid fa-location-dot"></i> Catamarca, Argentina.</a>
+          <a href=""><i class="fa-brands fa-whatsapp"></i> +54 9 383 451-6154</a>
+          <a href=""><i class="fa-regular fa-envelope"></i> anroo475@gmail.com</a>
+          <a href=""><i class="fa-solid fa-headset"></i> Soporte tecnico</a>
+        </div>
+      </div>  
+      <div>
+        <img src="assets/marketplace-data/payment.png" alt="">
+        <p>© 2024 SomosTiendaMas. Todos los derechos reservados.</p>
+      </div>    
+    </div>
+  </footer>
+  <!-- JS -->
+  <script src="js/paginaProducto/script.js"></script>
+</body>
+</html>
+
+
+
+

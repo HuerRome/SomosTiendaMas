@@ -15,17 +15,18 @@
   <!-- Si no tenés kit, podés usar: https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <!-- Paleta y pequeños estilos adicionales -->
-  <link rel="stylesheet" href="css/header.css">
-  <link rel="stylesheet" href="css/slider.css">
-  <link rel="stylesheet" href="css/informacion.css">
-  <link rel="stylesheet" href="css/categorias.css">
-  <link rel="stylesheet" href="css/cards.css">
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/ofertas.css">
-  <link rel="stylesheet" href="css/best-sellers.css">
-  <link rel="stylesheet" href="css/products-section.css">
-  <link rel="stylesheet" href="css/bannerPublicitarios.css">
-  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/home/style.css">
+  <link rel="stylesheet" href="css/home/header.css">
+  <link rel="stylesheet" href="css/home/slider.css">
+  <link rel="stylesheet" href="css/home/informacion.css">
+  <link rel="stylesheet" href="css/home/categorias.css">
+  <link rel="stylesheet" href="css/home/cards.css">
+  <link rel="stylesheet" href="css/home/ofertas.css">
+  <link rel="stylesheet" href="css/home/best-sellers.css">
+  <link rel="stylesheet" href="css/home/products-section.css">
+  <link rel="stylesheet" href="css/home/bannerPublicitarios.css">
+  <link rel="stylesheet" href="css/home/footer.css">
+  <!-- https://100.89.135.67:8443/ manda al index de la aplicación -->
 </head>
 <body class="antialiased text-slate-800 bg-white font-['Inter',system-ui,Arial]">
   <div class="body-container">
@@ -268,34 +269,12 @@
             </div>
           </div>
           <div class="slider-wrapper">
-            <div class="best-sellers-container" id="bestSellersSlider">
+            <div class="best-sellers-container" id="bestSellersSlider">  
               <article class="product-card">
                 <button class="fav-btn">♡</button>
           
                 <div class="product-image">
-                  <img src="assets/products/home/aire acondicionado.png" alt="Producto">
-                </div> 
-                <h3 class="product-title">Aire Acondicionado Portátil Frío/Calor</h3>
-                <div class="product-rating">
-                  <span>$89.999</span>
-                  <span class="star">★ 4.5</span>
-                </div>
-                <div class="product-price">
-                  <span>$53.999</span>
-                  <span>40% OFF</span>
-                </div>
-                <span>12 cuotas de $89.999</span>
-                <div class="product-actions">
-                  <div>
-                    <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
-                  </div>
-                </div>
-              </article>   
-              <article class="product-card">
-                <button class="fav-btn">♡</button>
-          
-                <div class="product-image">
-                  <img src="assets/products/electronics/silla gamer.jpg" alt="Producto">
+                  <img src="assets/products/clothes/sports/discos olímpicos.png" alt="Producto">
                 </div> 
                 <h3 class="product-title">Silla Ergonómica Gamer Reclinable con Luce...</h3>
                 <div class="product-rating">
@@ -317,6 +296,27 @@
                 <button class="fav-btn">♡</button>    
                 <div class="product-image">
                   <img src="assets/products/home/heladera.png" alt="Producto">
+                </div> 
+                <h3 class="product-title">Heladera No Frost Whirlpool 400L Inverter</h3>
+                <div class="product-rating">
+                  <span>$899.999</span>
+                  <span class="star">★ 4.5</span>
+                </div>
+                <div class="product-price">
+                  <span>$539.999</span>
+                  <span>40% OFF</span>
+                </div>
+                <span>12 cuotas de $89.999</span>
+                <div class="product-actions">
+                  <div>
+                    <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
+                  </div>
+                </div>
+              </article> 
+              <article class="product-card">
+                <button class="fav-btn">♡</button>    
+                <div class="product-image">
+                  <img src="assets/products/home/single sofa.png" alt="Producto">
                 </div> 
                 <h3 class="product-title">Heladera No Frost Whirlpool 400L Inverter</h3>
                 <div class="product-rating">
@@ -360,28 +360,6 @@
                 <button class="fav-btn">♡</button>
           
                 <div class="product-image">
-                  <img src="assets/products/clothes/sports/Zapatilla Nike.png" alt="Producto">
-                </div> 
-                <h3 class="product-title">Zapatillas Nike Air Max 270 Hombre Originales</h3>
-                <div class="product-rating">
-                  <span>$899.999</span>
-                  <span class="star">★ 4.5</span>
-                </div>
-                <div class="product-price">
-                  <span>$539.999</span>
-                  <span>40% OFF</span>
-                </div>
-                <span>12 cuotas de $89.999</span>
-                <div class="product-actions">
-                  <div>
-                    <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
-                  </div>
-                </div>
-              </article> 
-              <article class="product-card">
-                <button class="fav-btn">♡</button>
-          
-                <div class="product-image">
                   <img src="assets/products/electronics/adiculares.png" alt="Producto">
                 </div> 
                 <h3 class="product-title">Auricular Bluetooth inalámbrico</h3>
@@ -399,8 +377,51 @@
                     <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
                   </div>
                 </div>
-              </article>   
-
+              </article>  
+              <article class="product-card">
+                <button class="fav-btn">♡</button>
+          
+                <div class="product-image">
+                  <img src="assets/products/pets/alimento para perro.jpg" alt="Producto">
+                </div> 
+                <h3 class="product-title">Aire Acondicionado Portátil Frío/Calor</h3>
+                <div class="product-rating">
+                  <span>$89.999</span>
+                  <span class="star">★ 4.5</span>
+                </div>
+                <div class="product-price">
+                  <span>$53.999</span>
+                  <span>40% OFF</span>
+                </div>
+                <span>12 cuotas de $89.999</span>
+                <div class="product-actions">
+                  <div>
+                    <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
+                  </div>
+                </div>
+              </article>  
+              <article class="product-card">
+                <button class="fav-btn">♡</button>
+          
+                <div class="product-image">
+                  <img src="assets/products/home/aire acondicionado.png" alt="Producto">
+                </div> 
+                <h3 class="product-title">Aire Acondicionado Portátil Frío/Calor</h3>
+                <div class="product-rating">
+                  <span>$89.999</span>
+                  <span class="star">★ 4.5</span>
+                </div>
+                <div class="product-price">
+                  <span>$53.999</span>
+                  <span>40% OFF</span>
+                </div>
+                <span>12 cuotas de $89.999</span>
+                <div class="product-actions">
+                  <div>
+                    <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
+                  </div>
+                </div>
+              </article> 
               <article class="product-card">
                 <button class="fav-btn">♡</button>
           
@@ -585,7 +606,7 @@
 
         <section class="best-sellers">
           <div class="section-header">
-            <p class="section-title">Novedades de la <a href="#">Semana</a></p>
+            <p class="section-title">Lo mejor en <a href="#">Tecnología</a></p>
             <div>
               <a href="#" class="view-all">Ver más →</a>
               <button class="slider-btn prev">&lt;</button> 
@@ -598,7 +619,7 @@
                 <button class="fav-btn">♡</button>
           
                 <div class="product-image">
-                  <img src="assets/products/home/aire acondicionado.png" alt="Producto">
+                  <img src="assets/secciones de la página - producto/(3)Tecnología/8.jpg" alt="Producto">
                 </div> 
                 <h3 class="product-title">Aire Acondicionado Portátil Frío/Calor</h3>
                 <div class="product-rating">
@@ -620,7 +641,7 @@
                 <button class="fav-btn">♡</button>
           
                 <div class="product-image">
-                  <img src="assets/products/electronics/silla gamer.jpg" alt="Producto">
+                  <img src="assets/secciones de la página - producto/(3)Tecnología/6.jpg" alt="Producto">
                 </div> 
                 <h3 class="product-title">Silla Ergonómica Gamer Reclinable con Luce...</h3>
                 <div class="product-rating">
@@ -641,7 +662,7 @@
               <article class="product-card">
                 <button class="fav-btn">♡</button>    
                 <div class="product-image">
-                  <img src="assets/products/home/heladera.png" alt="Producto">
+                  <img src="assets/secciones de la página - producto/(3)Tecnología/5.jpg" alt="Producto">
                 </div> 
                 <h3 class="product-title">Heladera No Frost Whirlpool 400L Inverter</h3>
                 <div class="product-rating">
@@ -663,7 +684,7 @@
                 <button class="fav-btn">♡</button>
           
                 <div class="product-image">
-                  <img src="assets/products/home/lavarropas.jpg" alt="Producto">
+                  <img src="assets/secciones de la página - producto/(3)Tecnología/7.jpg" alt="Producto">
                 </div> 
                 <h3 class="product-title">Lavarropas Automático Drean 8kg EcoSilent</h3>
                 <div class="product-rating">
@@ -685,74 +706,7 @@
                 <button class="fav-btn">♡</button>
           
                 <div class="product-image">
-                  <img src="assets/products/clothes/sports/Zapatilla Nike.png" alt="Producto">
-                </div> 
-                <h3 class="product-title">Zapatillas Nike Air Max 270 Hombre Originales</h3>
-                <div class="product-rating">
-                  <span>$899.999</span>
-                  <span class="star">★ 4.5</span>
-                </div>
-                <div class="product-price">
-                  <span>$539.999</span>
-                  <span>40% OFF</span>
-                </div>
-                <span>12 cuotas de $89.999</span>
-                <div class="product-actions">
-                  <div>
-                    <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
-                  </div>
-                </div>
-              </article> 
-              <article class="product-card">
-                <button class="fav-btn">♡</button>
-          
-                <div class="product-image">
-                  <img src="assets/products/electronics/adiculares.png" alt="Producto">
-                </div> 
-                <h3 class="product-title">Auricular Bluetooth inalámbrico</h3>
-                <div class="product-rating">
-                  <span>$899.999</span>
-                  <span class="star">★ 4.5</span>
-                </div>
-                <div class="product-price">
-                  <span>$539.999</span>
-                  <span>FREE <i class="fa-regular fa-truck"></i></span>
-                </div>
-                <span>12 cuotas de $89.999</span>
-                <div class="product-actions">
-                  <div>
-                    <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
-                  </div>
-                </div>
-              </article>   
-
-              <article class="product-card">
-                <button class="fav-btn">♡</button>
-          
-                <div class="product-image">
-                  <img src="assets/products/home/aire acondicionado.png" alt="Producto">
-                </div> 
-                <h3 class="product-title">Aire Acondicionado Portátil Frío/Calor</h3>
-                <div class="product-rating">
-                  <span>$89.999</span>
-                  <span class="star">★ 4.5</span>
-                </div>
-                <div class="product-price">
-                  <span>$53.999</span>
-                  <span>40% OFF</span>
-                </div>
-                <span>12 cuotas de $89.999</span>
-                <div class="product-actions">
-                  <div>
-                    <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
-                  </div>
-                </div>
-              </article>   
-              <article class="product-card">
-                <button class="fav-btn">♡</button>
-          
-                <div class="product-image">
-                  <img src="assets/products/electronics/silla gamer.jpg" alt="Producto">
+                  <img src="assets/secciones de la página - producto/(3)Tecnología/4.jpg" alt="Producto">
                 </div> 
                 <h3 class="product-title">Silla Ergonómica Gamer Reclinable con Luce...</h3>
                 <div class="product-rating">
@@ -773,7 +727,7 @@
               <article class="product-card">
                 <button class="fav-btn">♡</button>    
                 <div class="product-image">
-                  <img src="assets/products/home/heladera.png" alt="Producto">
+                  <img src="assets/secciones de la página - producto/(3)Tecnología/1.jpg" alt="Producto">
                 </div> 
                 <h3 class="product-title">Heladera No Frost Whirlpool 400L Inverter</h3>
                 <div class="product-rating">
@@ -795,51 +749,7 @@
                 <button class="fav-btn">♡</button>
           
                 <div class="product-image">
-                  <img src="assets/products/home/lavarropas.jpg" alt="Producto">
-                </div> 
-                <h3 class="product-title">Lavarropas Automático Drean 8kg EcoSilent</h3>
-                <div class="product-rating">
-                  <span>$899.999</span>
-                  <span class="star">★ 4.5</span>
-                </div>
-                <div class="product-price">
-                  <span>$539.999</span>
-                  <span>40% OFF</span>
-                </div>
-                <span>12 cuotas de $89.999</span>
-                <div class="product-actions">
-                  <div>
-                    <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
-                  </div>
-                </div>
-              </article> 
-              <article class="product-card">
-                <button class="fav-btn">♡</button>
-          
-                <div class="product-image">
-                  <img src="assets/products/clothes/sports/Zapatilla Nike.png" alt="Producto">
-                </div> 
-                <h3 class="product-title">Zapatillas Nike Air Max 270 Hombre Originales</h3>
-                <div class="product-rating">
-                  <span>$899.999</span>
-                  <span class="star">★ 4.5</span>
-                </div>
-                <div class="product-price">
-                  <span>$539.999</span>
-                  <span>40% OFF</span>
-                </div>
-                <span>12 cuotas de $89.999</span>
-                <div class="product-actions">
-                  <div>
-                    <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
-                  </div>
-                </div>
-              </article> 
-              <article class="product-card">
-                <button class="fav-btn">♡</button>
-          
-                <div class="product-image">
-                  <img src="assets/products/electronics/adiculares.png" alt="Producto">
+                  <img src="assets/secciones de la página - producto/(3)Tecnología/2.jpg" alt="Producto">
                 </div> 
                 <h3 class="product-title">Auricular Bluetooth inalámbrico</h3>
                 <div class="product-rating">
@@ -849,6 +759,28 @@
                 <div class="product-price">
                   <span>$539.999</span>
                   <span>FREE <i class="fa-regular fa-truck"></i></span>
+                </div>
+                <span>12 cuotas de $89.999</span>
+                <div class="product-actions">
+                  <div>
+                    <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
+                  </div>
+                </div>
+              </article>   
+              <article class="product-card">
+                <button class="fav-btn">♡</button>
+          
+                <div class="product-image">
+                  <img src="assets/secciones de la página - producto/(3)Tecnología/3.jpg" alt="Producto">
+                </div> 
+                <h3 class="product-title">Zapatillas Nike Air Max 270 Hombre Originales</h3>
+                <div class="product-rating">
+                  <span>$899.999</span>
+                  <span class="star">★ 4.5</span>
+                </div>
+                <div class="product-price">
+                  <span>$539.999</span>
+                  <span>40% OFF</span>
                 </div>
                 <span>12 cuotas de $89.999</span>
                 <div class="product-actions">
@@ -863,7 +795,7 @@
 
         <section class="best-sellers">
           <div class="section-header">
-            <p class="section-title">Novedades de la <a href="#">Semana</a></p>
+            <p class="section-title">Lo último en <a href="#">Moda</a></p>
             <div>
               <a href="#" class="view-all">Ver más →</a>
               <button class="slider-btn prev">&lt;</button> 
@@ -871,12 +803,12 @@
             </div>
           </div>
           <div class="slider-wrapper">
-            <div class="best-sellers-container" id="bestSellersSlider">
+            <div class="best-sellers-container" id="bestSellersSlider">  
               <article class="product-card">
                 <button class="fav-btn">♡</button>
           
                 <div class="product-image">
-                  <img src="assets/products/home/aire acondicionado.png" alt="Producto">
+                  <img src="assets/secciones de la página - producto/(4)Moda(ropa y calzado)/9.jpg" alt="Producto">
                 </div> 
                 <h3 class="product-title">Aire Acondicionado Portátil Frío/Calor</h3>
                 <div class="product-rating">
@@ -898,7 +830,7 @@
                 <button class="fav-btn">♡</button>
           
                 <div class="product-image">
-                  <img src="assets/products/electronics/silla gamer.jpg" alt="Producto">
+                  <img src="assets/secciones de la página - producto/(4)Moda(ropa y calzado)/11.jpg" alt="Producto">
                 </div> 
                 <h3 class="product-title">Silla Ergonómica Gamer Reclinable con Luce...</h3>
                 <div class="product-rating">
@@ -919,7 +851,7 @@
               <article class="product-card">
                 <button class="fav-btn">♡</button>    
                 <div class="product-image">
-                  <img src="assets/products/home/heladera.png" alt="Producto">
+                  <img src="assets/secciones de la página - producto/(4)Moda(ropa y calzado)/12.jpg" alt="Producto">
                 </div> 
                 <h3 class="product-title">Heladera No Frost Whirlpool 400L Inverter</h3>
                 <div class="product-rating">
@@ -941,7 +873,7 @@
                 <button class="fav-btn">♡</button>
           
                 <div class="product-image">
-                  <img src="assets/products/home/lavarropas.jpg" alt="Producto">
+                  <img src="assets/secciones de la página - producto/(4)Moda(ropa y calzado)/13.jpg" alt="Producto">
                 </div> 
                 <h3 class="product-title">Lavarropas Automático Drean 8kg EcoSilent</h3>
                 <div class="product-rating">
@@ -963,7 +895,29 @@
                 <button class="fav-btn">♡</button>
           
                 <div class="product-image">
-                  <img src="assets/products/clothes/sports/Zapatilla Nike.png" alt="Producto">
+                  <img src="assets/secciones de la página - producto/(4)Moda(ropa y calzado)/18.jpg" alt="Producto">
+                </div> 
+                <h3 class="product-title">Silla Ergonómica Gamer Reclinable con Luce...</h3>
+                <div class="product-rating">
+                  <span>$899.999</span>
+                  <span class="star">★ 4.5</span>
+                </div>
+                <div class="product-price">
+                  <span>$539.999</span>
+                  <span>40% OFF</span>
+                </div>
+                <span>12 cuotas de $89.999</span>
+                <div class="product-actions">
+                  <div>
+                    <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
+                  </div>
+                </div>
+              </article> 
+              <article class="product-card">
+                <button class="fav-btn">♡</button>
+          
+                <div class="product-image">
+                  <img src="assets/secciones de la página - producto/(4)Moda(ropa y calzado)/19.jpg" alt="Producto">
                 </div> 
                 <h3 class="product-title">Zapatillas Nike Air Max 270 Hombre Originales</h3>
                 <div class="product-rating">
@@ -985,7 +939,7 @@
                 <button class="fav-btn">♡</button>
           
                 <div class="product-image">
-                  <img src="assets/products/electronics/adiculares.png" alt="Producto">
+                  <img src="assets/secciones de la página - producto/(4)Moda(ropa y calzado)/20.jpg" alt="Producto">
                 </div> 
                 <h3 class="product-title">Auricular Bluetooth inalámbrico</h3>
                 <div class="product-rating">
@@ -1002,13 +956,48 @@
                     <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
                   </div>
                 </div>
-              </article>   
-
+              </article> 
               <article class="product-card">
                 <button class="fav-btn">♡</button>
           
                 <div class="product-image">
-                  <img src="assets/products/home/aire acondicionado.png" alt="Producto">
+                  <img src="assets/secciones de la página - producto/(4)Moda(ropa y calzado)/52.jpg" alt="Producto">
+                </div> 
+                <h3 class="product-title">Lavarropas Automático Drean 8kg EcoSilent</h3>
+                <div class="product-rating">
+                  <span>$899.999</span>
+                  <span class="star">★ 4.5</span>
+                </div>
+                <div class="product-price">
+                  <span>$539.999</span>
+                  <span>40% OFF</span>
+                </div>
+                <span>12 cuotas de $89.999</span>
+                <div class="product-actions">
+                  <div>
+                    <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
+                  </div>
+                </div>
+              </article> 
+            </div>
+          </div>
+        </section>
+        <section class="best-sellers">
+          <div class="section-header">
+            <p class="section-title">Hogar & <a href="#">Electrodomésticos</a></p>
+            <div>
+              <a href="#" class="view-all">Ver más →</a>
+              <button class="slider-btn prev">&lt;</button> 
+              <button class="slider-btn next">&gt;</button>
+            </div>
+          </div>
+          <div class="slider-wrapper">
+            <div class="best-sellers-container" id="bestSellersSlider">  
+              <article class="product-card">
+                <button class="fav-btn">♡</button>
+          
+                <div class="product-image">
+                  <img src="assets/secciones de la página - producto/(5)Hogar - Electro/23.jpg" alt="Producto">
                 </div> 
                 <h3 class="product-title">Aire Acondicionado Portátil Frío/Calor</h3>
                 <div class="product-rating">
@@ -1030,7 +1019,7 @@
                 <button class="fav-btn">♡</button>
           
                 <div class="product-image">
-                  <img src="assets/products/electronics/silla gamer.jpg" alt="Producto">
+                  <img src="assets/secciones de la página - producto/(5)Hogar - Electro/24.jpg" alt="Producto">
                 </div> 
                 <h3 class="product-title">Silla Ergonómica Gamer Reclinable con Luce...</h3>
                 <div class="product-rating">
@@ -1051,7 +1040,7 @@
               <article class="product-card">
                 <button class="fav-btn">♡</button>    
                 <div class="product-image">
-                  <img src="assets/products/home/heladera.png" alt="Producto">
+                  <img src="assets/secciones de la página - producto/(5)Hogar - Electro/26.jpg" alt="Producto">
                 </div> 
                 <h3 class="product-title">Heladera No Frost Whirlpool 400L Inverter</h3>
                 <div class="product-rating">
@@ -1073,9 +1062,9 @@
                 <button class="fav-btn">♡</button>
           
                 <div class="product-image">
-                  <img src="assets/products/home/lavarropas.jpg" alt="Producto">
+                  <img src="assets/secciones de la página - producto/(5)Hogar - Electro/27.jpg" alt="Producto">
                 </div> 
-                <h3 class="product-title">Lavarropas Automático Drean 8kg EcoSilent</h3>
+                <h3 class="product-title">Silla Ergonómica Gamer Reclinable con Luce...</h3>
                 <div class="product-rating">
                   <span>$899.999</span>
                   <span class="star">★ 4.5</span>
@@ -1095,7 +1084,7 @@
                 <button class="fav-btn">♡</button>
           
                 <div class="product-image">
-                  <img src="assets/products/clothes/sports/Zapatilla Nike.png" alt="Producto">
+                  <img src="assets/secciones de la página - producto/(5)Hogar - Electro/28.jpg" alt="Producto">
                 </div> 
                 <h3 class="product-title">Zapatillas Nike Air Max 270 Hombre Originales</h3>
                 <div class="product-rating">
@@ -1117,7 +1106,7 @@
                 <button class="fav-btn">♡</button>
           
                 <div class="product-image">
-                  <img src="assets/products/electronics/adiculares.png" alt="Producto">
+                  <img src="assets/secciones de la página - producto/(5)Hogar - Electro/29.jpg" alt="Producto">
                 </div> 
                 <h3 class="product-title">Auricular Bluetooth inalámbrico</h3>
                 <div class="product-rating">
@@ -1127,6 +1116,50 @@
                 <div class="product-price">
                   <span>$539.999</span>
                   <span>FREE <i class="fa-regular fa-truck"></i></span>
+                </div>
+                <span>12 cuotas de $89.999</span>
+                <div class="product-actions">
+                  <div>
+                    <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
+                  </div>
+                </div>
+              </article> 
+              <article class="product-card">
+                <button class="fav-btn">♡</button>
+          
+                <div class="product-image">
+                  <img src="assets/secciones de la página - producto/(5)Hogar - Electro/53.jpg" alt="Producto">
+                </div> 
+                <h3 class="product-title">Lavarropas Automático Drean 8kg EcoSilent</h3>
+                <div class="product-rating">
+                  <span>$899.999</span>
+                  <span class="star">★ 4.5</span>
+                </div>
+                <div class="product-price">
+                  <span>$539.999</span>
+                  <span>40% OFF</span>
+                </div>
+                <span>12 cuotas de $89.999</span>
+                <div class="product-actions">
+                  <div>
+                    <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
+                  </div>
+                </div>
+              </article> 
+              <article class="product-card">
+                <button class="fav-btn">♡</button>
+          
+                <div class="product-image">
+                  <img src="assets/secciones de la página - producto/(5)Hogar - Electro/31.jpg" alt="Producto">
+                </div> 
+                <h3 class="product-title">Lavarropas Automático Drean 8kg EcoSilent</h3>
+                <div class="product-rating">
+                  <span>$899.999</span>
+                  <span class="star">★ 4.5</span>
+                </div>
+                <div class="product-price">
+                  <span>$539.999</span>
+                  <span>40% OFF</span>
                 </div>
                 <span>12 cuotas de $89.999</span>
                 <div class="product-actions">
@@ -1141,6 +1174,195 @@
 
         <section class="bannerPublicitario3">
             <a href=""><img src="assets/ads/anuncio horizontal.png" alt=""></a>
+        </section>
+        <section class="best-sellers">
+          <div class="section-header">
+            <p class="section-title">Hogar & <a href="#">Electrodomésticos</a></p>
+            <div>
+              <a href="#" class="view-all">Ver más →</a>
+              <button class="slider-btn prev">&lt;</button> 
+              <button class="slider-btn next">&gt;</button>
+            </div>
+          </div>
+          <div class="slider-wrapper">
+            <div class="best-sellers-container" id="bestSellersSlider">  
+              <article class="product-card">
+                <button class="fav-btn">♡</button>
+          
+                <div class="product-image">
+                  <img src="assets/secciones de la página - producto/(5)Hogar - Electro/23.jpg" alt="Producto">
+                </div> 
+                <h3 class="product-title">Aire Acondicionado Portátil Frío/Calor</h3>
+                <div class="product-rating">
+                  <span>$89.999</span>
+                  <span class="star">★ 4.5</span>
+                </div>
+                <div class="product-price">
+                  <span>$53.999</span>
+                  <span>40% OFF</span>
+                </div>
+                <span>12 cuotas de $89.999</span>
+                <div class="product-actions">
+                  <div>
+                    <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
+                  </div>
+                </div>
+              </article>   
+              <article class="product-card">
+                <button class="fav-btn">♡</button>
+          
+                <div class="product-image">
+                  <img src="assets/secciones de la página - producto/(5)Hogar - Electro/24.jpg" alt="Producto">
+                </div> 
+                <h3 class="product-title">Silla Ergonómica Gamer Reclinable con Luce...</h3>
+                <div class="product-rating">
+                  <span>$899.999</span>
+                  <span class="star">★ 4.5</span>
+                </div>
+                <div class="product-price">
+                  <span>$539.999</span>
+                  <span>40% OFF</span>
+                </div>
+                <span>12 cuotas de $89.999</span>
+                <div class="product-actions">
+                  <div>
+                    <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
+                  </div>
+                </div>
+              </article> 
+              <article class="product-card">
+                <button class="fav-btn">♡</button>    
+                <div class="product-image">
+                  <img src="assets/secciones de la página - producto/(5)Hogar - Electro/26.jpg" alt="Producto">
+                </div> 
+                <h3 class="product-title">Heladera No Frost Whirlpool 400L Inverter</h3>
+                <div class="product-rating">
+                  <span>$899.999</span>
+                  <span class="star">★ 4.5</span>
+                </div>
+                <div class="product-price">
+                  <span>$539.999</span>
+                  <span>40% OFF</span>
+                </div>
+                <span>12 cuotas de $89.999</span>
+                <div class="product-actions">
+                  <div>
+                    <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
+                  </div>
+                </div>
+              </article> 
+              <article class="product-card">
+                <button class="fav-btn">♡</button>
+          
+                <div class="product-image">
+                  <img src="assets/secciones de la página - producto/(5)Hogar - Electro/27.jpg" alt="Producto">
+                </div> 
+                <h3 class="product-title">Silla Ergonómica Gamer Reclinable con Luce...</h3>
+                <div class="product-rating">
+                  <span>$899.999</span>
+                  <span class="star">★ 4.5</span>
+                </div>
+                <div class="product-price">
+                  <span>$539.999</span>
+                  <span>40% OFF</span>
+                </div>
+                <span>12 cuotas de $89.999</span>
+                <div class="product-actions">
+                  <div>
+                    <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
+                  </div>
+                </div>
+              </article> 
+              <article class="product-card">
+                <button class="fav-btn">♡</button>
+          
+                <div class="product-image">
+                  <img src="assets/secciones de la página - producto/(5)Hogar - Electro/28.jpg" alt="Producto">
+                </div> 
+                <h3 class="product-title">Zapatillas Nike Air Max 270 Hombre Originales</h3>
+                <div class="product-rating">
+                  <span>$899.999</span>
+                  <span class="star">★ 4.5</span>
+                </div>
+                <div class="product-price">
+                  <span>$539.999</span>
+                  <span>40% OFF</span>
+                </div>
+                <span>12 cuotas de $89.999</span>
+                <div class="product-actions">
+                  <div>
+                    <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
+                  </div>
+                </div>
+              </article> 
+              <article class="product-card">
+                <button class="fav-btn">♡</button>
+          
+                <div class="product-image">
+                  <img src="assets/secciones de la página - producto/(5)Hogar - Electro/29.jpg" alt="Producto">
+                </div> 
+                <h3 class="product-title">Auricular Bluetooth inalámbrico</h3>
+                <div class="product-rating">
+                  <span>$899.999</span>
+                  <span class="star">★ 4.5</span>
+                </div>
+                <div class="product-price">
+                  <span>$539.999</span>
+                  <span>FREE <i class="fa-regular fa-truck"></i></span>
+                </div>
+                <span>12 cuotas de $89.999</span>
+                <div class="product-actions">
+                  <div>
+                    <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
+                  </div>
+                </div>
+              </article> 
+              <article class="product-card">
+                <button class="fav-btn">♡</button>
+          
+                <div class="product-image">
+                  <img src="assets/secciones de la página - producto/(5)Hogar - Electro/53.jpg" alt="Producto">
+                </div> 
+                <h3 class="product-title">Lavarropas Automático Drean 8kg EcoSilent</h3>
+                <div class="product-rating">
+                  <span>$899.999</span>
+                  <span class="star">★ 4.5</span>
+                </div>
+                <div class="product-price">
+                  <span>$539.999</span>
+                  <span>40% OFF</span>
+                </div>
+                <span>12 cuotas de $89.999</span>
+                <div class="product-actions">
+                  <div>
+                    <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
+                  </div>
+                </div>
+              </article> 
+              <article class="product-card">
+                <button class="fav-btn">♡</button>
+          
+                <div class="product-image">
+                  <img src="assets/secciones de la página - producto/(5)Hogar - Electro/31.jpg" alt="Producto">
+                </div> 
+                <h3 class="product-title">Lavarropas Automático Drean 8kg EcoSilent</h3>
+                <div class="product-rating">
+                  <span>$899.999</span>
+                  <span class="star">★ 4.5</span>
+                </div>
+                <div class="product-price">
+                  <span>$539.999</span>
+                  <span>40% OFF</span>
+                </div>
+                <span>12 cuotas de $89.999</span>
+                <div class="product-actions">
+                  <div>
+                    <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
+                  </div>
+                </div>
+              </article> 
+            </div>
+          </div>
         </section>
 
         <section class="registro-steps">
@@ -1325,6 +1547,11 @@
     </footer>
 
   </div>
+  <!-- Go to top button -->
+  <button id="goTopBtn" aria-label="Volver arriba">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+  
   <!-- Script Swiper -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
@@ -1337,8 +1564,27 @@
        4) Implementar carga de productos mediante API (render SSR/SSG para SEO).
        5) Añadir tests de accesibilidad (axe) y performance audits (Lighthouse).
   -->
-  <script src="Javascript/script.js"></script>
-  <script src="Javascript/slider.js"></script>
-  <script src="Javascript/product-slider.js"></script>
+  <script src="Javascript/home/script.js"></script>
+  <script src="Javascript/home/slider.js"></script>
+  <script src="Javascript/home/product-slider.js"></script>
+  <script>
+    const goTopBtn = document.getElementById("goTopBtn");
+  
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 400) {
+        goTopBtn.classList.add("show");
+      } else {
+        goTopBtn.classList.remove("show");
+      }
+    });
+  
+    goTopBtn.addEventListener("click", () => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    });
+  </script>
+  
 </body>
 </html>
