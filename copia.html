@@ -1,0 +1,58 @@
+    <section class="product-gallery">
+    
+      <div class="product-gallery-wrapper">
+    
+        <!-- Thumbnails -->
+        <div class="product-thumbnails">
+    
+          <img src="assets/secciones de la página - producto/(4)Moda(ropa y calzado)/14.jpg" class="thumb active">
+          <img src="assets/secciones de la página - producto/(4)Moda(ropa y calzado)/15.jpg" class="thumb">
+          <img src="assets/secciones de la página - producto/(4)Moda(ropa y calzado)/16.jpg" class="thumb">
+          <img src="assets/secciones de la página - producto/(4)Moda(ropa y calzado)/17.jpg" class="thumb">
+          <img src="assets/secciones de la página - producto/(4)Moda(ropa y calzado)/18.jpg" class="thumb">
+    
+        </div>
+    
+    
+        <!-- Imagen principal -->
+        <div class="product-main-image">
+    
+          <div class="zoom-area">
+            <button class="share-btn" id="shareBtn"><i class="fa-solid fa-share-nodes"></i>
+
+            </button>
+
+            <img src="assets/secciones de la página - producto/(4)Moda(ropa y calzado)/14.jpg" id="mainImage">
+          </div>
+    
+        </div>
+    
+      </div>
+    
+    </section> 
+
+
+
+
+
+
+
+
+
+
+
+
+thumbnails.forEach(thumb => {
+
+thumb.addEventListener("click", () => {
+
+thumbnails.forEach(t => t.classList.remove("active"));
+
+thumb.classList.add("active");
+
+mainImage.src = thumb.src;
+
+});
+
+});
+

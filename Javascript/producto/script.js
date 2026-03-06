@@ -19,21 +19,21 @@ const zoomArea = document.querySelector(".zoom-area");
 
 
 // CAMBIO DE IMAGEN
-
 thumbnails.forEach(thumb => {
 
-thumb.addEventListener("click", () => {
+  thumb.addEventListener("click", () => {
 
-thumbnails.forEach(t => t.classList.remove("active"));
+    const newImage = thumb.dataset.image;
 
-thumb.classList.add("active");
+    mainImage.src = newImage;
 
-mainImage.src = thumb.src;
+    thumbnails.forEach(t => t.classList.remove("active"));
+
+    thumb.classList.add("active");
+
+  });
 
 });
-
-});
-
 
 
 // ZOOM DINAMICO

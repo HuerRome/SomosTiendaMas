@@ -76,200 +76,299 @@
 
 }
 
-/*---------------------------------- Imagen del producto ------------------------------*/
-/* CONTENEDOR GENERAL */
+/*--------------------------------------- Imagen del producto -----------------------------------*/
+.product-page{
+
+padding:20px;
+
+}
+
+.product-container{
+
+display:grid;
+grid-template-columns: 1.2fr 1fr;
+gap:40px;
+
+}
+
+
+/* GALERIA */
 
 .product-gallery{
-  width:100%;
-}
 
-.product-gallery-wrapper{
-
-  display:grid;
-  grid-template-columns:90px 1fr;
-  gap:20px;
-
-  align-items:start;
-
-}
-
-/* THUMBNAILS */
-
-.product-thumbnails{
-
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-
-}
-
-.product-thumbnails img{
-
-  width:70px;
-  height:70px;
-
-  object-fit:cover;
-
-  border:1px solid #ddd;
-  border-radius:8px;
-
-  cursor:pointer;
-
-  transition:all .2s;
-
-}
-
-.product-thumbnails img:hover{
-
-  border:1px solid #3483fa;
-
-}
-
-.product-thumbnails img.active{
-
-  border:2px solid #3483fa;
-
-}
-
-
-/* IMAGEN PRINCIPAL */
-
-.product-main-image{
-
-  width:100%;
-  max-width:650px;
-
-}
-
-.zoom-area{
-
-  width:100%;
-  aspect-ratio:1/1;
-
-  background:#f5f5f5;
-
-  border-radius:12px;
-
-  overflow:hidden;
-
-  position:relative;
-
-  cursor:zoom-in;
-
-}
-
-.zoom-area img{
-
-  width:100%;
-  height:100%;
-
-  object-fit:contain;
-
-  transition:transform .15s ease;
-
-}
-
-/* ZOOM */
-
-.zoom-area.zoomed img{
-
-  transform:scale(2);
-
-}
-
-
-/* RESPONSIVE TABLET */
-
-@media (max-width:900px){
-
-.product-gallery-wrapper{
-
-grid-template-columns:70px 1fr;
-
-}
-
-.product-thumbnails img{
-
-width:60px;
-height:60px;
-
-}
-
-}
-
-
-/* RESPONSIVE MOBILE */
-
-@media (max-width:600px){
-
-.product-gallery-wrapper{
-
-grid-template-columns:1fr;
+display:flex;
 gap:15px;
 
 }
 
-.product-thumbnails{
+.thumbnails{
+
+display:flex;
+flex-direction:column;
+gap:10px;
+
+}
+
+.thumb{
+
+width:70px;
+height:70px;
+
+object-fit:cover;
+
+border:1px solid #ddd;
+border-radius:6px;
+
+cursor:pointer;
+
+}
+
+.thumb.active{
+
+border:2px solid #3483fa;
+
+}
+
+.main-image{
+
+position:relative;
+
+background:#f5f5f5;
+
+border-radius:10px;
+
+padding:20px;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+}
+
+.main-image img{
+
+max-width:100%;
+max-height:500px;
+object-fit:contain;
+
+}
+
+.share-btn{
+
+position:absolute;
+
+top:10px;
+right:10px;
+
+background:white;
+border:none;
+
+width:40px;
+height:40px;
+
+border-radius:8px;
+
+cursor:pointer;
+
+box-shadow:0 2px 6px rgba(0,0,0,0.15);
+
+}
+
+
+/* INFO */
+
+.product-info{
+
+display:flex;
+flex-direction:column;
+gap:15px;
+
+}
+
+.brand-link{
+
+color:#3483fa;
+font-size:14px;
+cursor:pointer;
+
+}
+
+.product-header{
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+}
+
+.status{
+
+font-size:14px;
+color:#666;
+
+}
+
+.favorite{
+
+background:none;
+border:none;
+
+font-size:20px;
+cursor:pointer;
+
+}
+
+.product-title{
+
+font-size:24px;
+font-weight:500;
+
+}
+
+.rating{
+
+display:flex;
+align-items:center;
+gap:8px;
+
+}
+
+.stars{
+
+color:#3483fa;
+
+}
+
+.main-price{
+
+font-size:36px;
+font-weight:500;
+
+}
+
+.installments{
+
+color:#333;
+
+}
+
+.tax-info{
+
+font-size:12px;
+color:#888;
+
+}
+
+.discount-box{
+
+background:#e6f0ff;
+
+padding:10px;
+
+color:#3483fa;
+
+border-radius:5px;
+
+font-size:14px;
+
+}
+
+.payments-link{
+
+color:#3483fa;
+font-size:14px;
+
+cursor:pointer;
+
+}
+
+.shipping p{
+
+margin:0;
+
+}
+
+.shipping a{
+
+color:#3483fa;
+font-size:14px;
+
+}
+
+.returns span{
+
+color:green;
+font-weight:500;
+
+}
+
+.color-selector select{
+
+margin-top:5px;
+
+padding:8px;
+
+width:100%;
+
+border-radius:6px;
+
+border:1px solid #ccc;
+
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width:1024px){
+
+.product-container{
+
+grid-template-columns:1fr;
+
+}
+
+.product-gallery{
+
+justify-content:center;
+
+}
+
+}
+
+@media (max-width:600px){
+
+.product-gallery{
+
+flex-direction:column;
+
+}
+
+.thumbnails{
 
 flex-direction:row;
 justify-content:center;
 
 }
 
-.product-thumbnails img{
+.thumb{
 
-width:60px;
-height:60px;
-
-}
-
-.product-main-image{
-
-max-width:100%;
-
-}
-}
-
-/*---------------------------------- Boton compartir producto ------------------------------*/
-.share-btn{
-
-position:absolute;
-
-top:12px;
-right:12px;
-
-width:40px;
-height:40px;
-
-background:white;
-
-border:none;
-
-border-radius:10px;
-
-display:flex;
-align-items:center;
-justify-content:center;
-
-cursor:pointer;
-
-box-shadow:0 2px 8px rgba(0,0,0,0.15);
-
-transition:.2s;
-
-z-index:10;
+width:55px;
+height:55px;
 
 }
 
-.share-btn:hover{
+.product-title{
 
-transform:scale(1.05);
+font-size:20px;
 
 }
 
+.main-price{
 
+font-size:30px;
 
+}
 
-
+}
 
 
