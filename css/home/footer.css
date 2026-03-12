@@ -177,92 +177,94 @@
 
 
 /*------------------------------------------------ BRAND DIRECTORY FOOTER ---------------------------------------*/
+/* margin-top. 48px; */
 
-.footer-brand-directory {
-  padding: 0px 0px;
-  padding-bottom: 1.5rem;
-  font-family: inherit;
-  margin-top: 48px;
+/*----------------------- brands we work with -----------------------*/
+.brands {
+  padding: 60px 0;
 }
 
-/* Cada fila (Fashion, Footwear, etc.) */
-.directory-row {
+.container {
+  width: 90%;
+  
+  margin: auto;
+}
+
+/* GRID DESKTOP */
+.brands-wrapper {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 30px;
+}
+
+/* CIRCULOS */
+.brand-item {
+  background: #fff;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
   display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  margin-bottom: 12px;
-  line-height: 1.6;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease;
 }
 
-/* Label (Fashion:) */
-.directory-label {
-  font-weight: 600;
-  white-space: nowrap;
-  flex-shrink: 0;
+.brand-item img {
+  max-width: 70%;
+  max-height: 60%;
+  max-width: 80%;
+  max-height: 70%;
+  object-fit: contain;
 }
 
-.directory-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  list-style: none;
-  padding: 0;
-  margin: 0;
+.brand-item:hover {
+  transform: scale(1.05);
 }
 
-.directory-list li {
-  position: relative;
+/* TABLET */
+@media (max-width: 1024px) {
+  .brands-wrapper {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
-.directory-list li::after {
-  content: "|";
-  margin-left: 6px;
-}
-
-.directory-list li:last-child::after {
-  content: "";
-}
-
-.directory-list a {
-  font-size: 14px;
-  text-decoration: none;
-  transition: color 0.2s ease;
-  padding: 0.4rem 0.8rem;
-  border-radius: 6px;
-  background: #f2f2f2;
-}
-
-.directory-list a:hover {
-  background: #daf9ff;
-}
-
+/* MOBILE → SLIDER */
 @media (max-width: 768px) {
-  .directory-row {
-    flex-direction: column;
-    gap: 6px;
+
+  .brands-wrapper {
+    display: flex;
+    overflow-x: auto;
+    gap: 20px;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 10px;
   }
 
-  .directory-label {
-    font-size: 13px;
+  .brand-item {
+    flex: 0 0 auto;
+    width: 100px;
+    height: 100px;
+    scroll-snap-align: start;
   }
 
-  .directory-list a {
-    font-size: 13px;
+  /* Oculta scrollbar en mobile */
+  .brands-wrapper::-webkit-scrollbar {
+    display: none;
+  }
+
+  .brands-wrapper {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 }
 
-@media (max-width: 480px) {
-  .footer-brand-directory {
-    padding: 0px 0px;
-  }
-
-  .footer-brand-directory .footer-title {
-    font-size: 13px;
-  }
-}
 
 /*------------------ Vender en TiendaMas ------------------*/
 #vender{
   margin-bottom: 24px;
+  border-radius: 4px;
 }
+
+
 

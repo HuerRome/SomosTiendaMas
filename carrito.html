@@ -17,19 +17,34 @@
   <!-- Paleta y pequeños estilos adicionales -->
   <!-- CSS -->
   <link rel="stylesheet" href="css/carrito/carrito.css" />
+  <link rel="stylesheet" href="css/home/best-sellers.css">
   <link rel="stylesheet" href="css/carrito/footer.css">
   <!-- Fuentes (ejemplo) -->
   <!--
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-orange': '#FF6B35',
+                        'dark-blue': '#004E89',
+                        'light-bg': '#F8F9FA',
+                    }
+                }
+            }
+        }
+    </script>
 </head>
 <body>
   <!-- Header -->
   <header class="header">
     <div class="primeraFila">  
       <div class="flex items-center justify-between h-16 gap-4 ">
-        <a href="#" class="flex items-center gap-3 shrink-0">
+        <a href="index.html" class="flex items-center gap-3 shrink-0">
           <img src="assets/marketplace-data/Logo-text 2.png" alt="Logo" class="logo-desktop w-full h-full object-cover"> 
           <img src="assets/marketplace-data/Logo.png" alt="Logo" class="logo-movil w-full h-full object-cover"> 
         </a>
@@ -75,7 +90,7 @@
         <div class="nav-links">
           <a href=""><i class="fa-solid fa-user"></i> <span>Cuenta</span> <i class="fa-solid fa-chevron-down"></i></a>
           <a href=""><i class="fa-solid fa-location-dot"></i> <span>Ubicación</span></a>
-          <a href=""><i class="fa-solid fa-cart-arrow-down"></i> <span style="color: #2563EB; font-weight:bolder;">3</span> <span>Carrito</span></a>
+          <a href="carrito.html"><i class="fa-solid fa-cart-arrow-down"></i> <span style="color: #2563EB; font-weight:bolder;">3</span> <span>Carrito</span></a>
         </div>
       </nav>
     </div>
@@ -97,9 +112,539 @@
       </div>
     </div>
   </header>
-  <!-- Main -->
-  <main></main>
 
+    <!----Contenido Principal---->
+    <main class="container mx-auto px-4 py-8">
+        <div class="flex flex-col lg:flex-row gap-8">
+            <!-- Cart Items Section -->
+            <section class="lg:w-2/3">
+                <!-- Cart Header -->
+                <!--
+                <div class="mb-6">
+                    <h2 class="text-2xl font-bold text-dark-blue">Tu Carrito de Compras</h2>
+                    <p class="text-gray-600">Revisa tus artículos antes de pagar</p>
+                </div>
+                -->
+                <div class="mb-6 bg-gradient-to-r from-white via-gray-100 to-white shadow-md rounded-lg p-4">
+                  <h2 class="text-xl font-bold text-dark-blue">Tu Carrito de Compras</h2>
+                  <p class="text-gray-500">Revisa tus artículos antes de pagar</p>
+                </div>
+
+                <!-- Empty Cart Message (hidden by default) -->
+                <div id="empty-cart-message" class="hidden bg-white rounded-lg shadow-md p-8 text-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 mx-auto text-gray-400 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                    <h3 class="text-xl font-semibold text-gray-700 mb-2">Tu carrito está vacío</h3>
+                    <p class="text-gray-500 mb-4">Agrega productos para comenzar tu compra</p>
+                    <a href="#" class="inline-flex items-center px-4 py-2 bg-primary-orange text-white rounded-md hover:bg-orange-600 transition">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                        </svg>
+                        Ver productos
+                    </a>
+                </div>
+
+                <!-- Cart Items List -->
+                <div id="cart-items" class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <!-- Cart Item 1 -->
+                    <div class="cart-item p-4 border-b" data-id="1" data-price="12999">
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <!-- Product Image -->
+                            <div class="w-full sm:w-24 flex-shrink-0">
+                                <img src="assets/products/electronics/phones.png" alt="Smartphone X200" class="w-full h-24 object-cover rounded">
+                            </div>
+                            
+                            <!-- Product Details -->
+                            <div class="flex-grow">
+                                <div class="flex justify-between">
+                                    <div>
+                                        <h3 class="font-semibold text-dark-blue">Smartphone X200</h3>
+                                        <p class="text-gray-600">Color: Negro - 128GB</p>
+                                    </div>
+                                    <button class="remove-item text-gray-400 hover:text-red-500" aria-label="Eliminar producto">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                        </svg>
+                                    </button>
+                                </div>
+                                
+                                <div class="mt-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                                    <!-- Price -->
+                                    <div class="text-lg font-semibold">$<span class="unit-price">12,999</span></div>
+                                    
+                                    <!-- Quantity Selector -->
+                                    <!--
+                                    <div class="flex items-center">
+                                        <button class="decrement-qty px-3 py-1 border rounded-l bg-gray-100 hover:bg-gray-200" aria-label="Reducir cantidad">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4" />
+                                            </svg>
+                                        </button>
+                                        <input type="number" value="1" min="1" class="quantity w-12 text-center border-t border-b py-1 outline-none focus:ring-1 focus:ring-primary-orange" aria-label="Cantidad">
+                                        <button class="increment-qty px-3 py-1 border rounded-r bg-gray-100 hover:bg-gray-200" aria-label="Aumentar cantidad">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    -->
+                                    <div class="flex items-center border border-gray-300 rounded overflow-hidden">
+                                        <!-- Botón "-" -->
+                                        <button class="decrement-qty px-3 py-1 bg-gray-100 hover:bg-gray-200 focus:outline-none">
+                                            <span class="text-sm">−</span>
+                                        </button>
+                                    
+                                        <!-- Input de cantidad -->
+                                        <input type="number" value="1" min="1"
+                                            class="quantity w-12 text-center bg-white border-l border-r border-gray-300 py-1 outline-none focus:ring-0"
+                                            aria-label="Cantidad">
+                                    
+                                        <!-- Botón "+" -->
+                                        <button class="increment-qty px-3 py-1 bg-gray-100 hover:bg-gray-200 focus:outline-none">
+                                            <span class="text-sm">+</span>
+                                        </button>
+                                    </div>
+
+                                    <!-- Subtotal -->
+                                    <div class="text-lg font-bold text-dark-blue">$<span class="subtotal">12,999</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Cart Item 2 -->
+                    <div class="cart-item p-4 border-b" data-id="2" data-price="2499">
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <!-- Product Image -->
+                            <div class="w-full sm:w-24 flex-shrink-0">
+                                <img src="assets/products/electronics/adiculares.png" alt="Auriculares Inalámbricos Pro" class="w-full h-24 object-cover rounded">
+                            </div>
+                            
+                            <!-- Product Details -->
+                            <div class="flex-grow">
+                                <div class="flex justify-between">
+                                    <div>
+                                        <h3 class="font-semibold text-dark-blue">Auriculares Inalámbricos Pro</h3>
+                                        <p class="text-gray-600">Color: Blanco</p>
+                                    </div>
+                                    <button class="remove-item text-gray-400 hover:text-red-500" aria-label="Eliminar producto">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                        </svg>
+                                    </button>
+                                </div>
+                                
+                                <div class="mt-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                                    <!-- Price -->
+                                    <div class="text-lg font-semibold">$<span class="unit-price">2,499</span></div>
+                                    
+                                    <!-- Quantity Selector -->
+                                    <!--
+                                    <div class="flex items-center">
+                                        <button class="decrement-qty px-3 py-1 border rounded-l bg-gray-100 hover:bg-gray-200" aria-label="Reducir cantidad">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4" />
+                                            </svg>
+                                        </button>
+                                        <input type="number" value="2" min="1" class="quantity w-12 text-center border-t border-b py-1 outline-none focus:ring-1 focus:ring-primary-orange" aria-label="Cantidad">
+                                        <button class="increment-qty px-3 py-1 border rounded-r bg-gray-100 hover:bg-gray-200" aria-label="Aumentar cantidad">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    -->
+                                    <div class="flex items-center border border-gray-300 rounded overflow-hidden">
+                                        <!-- Botón "-" -->
+                                        <button class="decrement-qty px-3 py-1 bg-gray-100 hover:bg-gray-200 focus:outline-none">
+                                            <span class="text-sm">−</span>
+                                        </button>
+                                    
+                                        <!-- Input de cantidad -->
+                                        <input type="number" value="1" min="1"
+                                            class="quantity w-12 text-center bg-white border-l border-r border-gray-300 py-1 outline-none focus:ring-0"
+                                            aria-label="Cantidad">
+                                    
+                                        <!-- Botón "+" -->
+                                        <button class="increment-qty px-3 py-1 bg-gray-100 hover:bg-gray-200 focus:outline-none">
+                                            <span class="text-sm">+</span>
+                                        </button>
+                                    </div>
+
+                                    <!-- Subtotal -->
+                                    <div class="text-lg font-bold text-dark-blue">$<span class="subtotal">4,998</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Cart Item 3 -->
+                    <div class="cart-item p-4" data-id="3" data-price="899">
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <!-- Product Image -->
+                            <div class="w-full sm:w-24 flex-shrink-0">
+                                <img src="assets/products/electronics/funda-protectora.jpg" alt="Funda Protectora para Smartphone" class="w-full h-24 object-cover rounded">
+                            </div>
+                            
+                            <!-- Product Details -->
+                            <div class="flex-grow">
+                                <div class="flex justify-between">
+                                    <div>
+                                        <h3 class="font-semibold text-dark-blue">Funda Protectora</h3>
+                                        <p class="text-gray-600">Modelo: X200 - Transparente</p>
+                                    </div>
+                                    <button class="remove-item text-gray-400 hover:text-red-500" aria-label="Eliminar producto">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                        </svg>
+                                    </button>
+                                </div>
+                                
+                                <div class="mt-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                                    <!-- Price -->
+                                    <div class="text-lg font-semibold">$<span class="unit-price">899</span></div>
+                                    
+                                    <!-- Quantity Selector -->
+                                    <!--
+                                    <div class="flex items-center">
+                                        <button class="decrement-qty px-3 py-1 border rounded-l bg-gray-100 hover:bg-gray-200" aria-label="Reducir cantidad">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4" />
+                                            </svg>
+                                        </button>
+                                        <input type="number" value="1" min="1" class="quantity w-12 text-center border-t border-b py-1 outline-none focus:ring-1 focus:ring-primary-orange" aria-label="Cantidad">
+                                        <button class="increment-qty px-3 py-1 border rounded-r bg-gray-100 hover:bg-gray-200" aria-label="Aumentar cantidad">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    -->
+                                    <div class="flex items-center border border-gray-300 rounded overflow-hidden">
+                                        <!-- Botón "-" -->
+                                        <button class="decrement-qty px-3 py-1 bg-gray-100 hover:bg-gray-200 focus:outline-none">
+                                            <span class="text-sm">−</span>
+                                        </button>
+                                    
+                                        <!-- Input de cantidad -->
+                                        <input type="number" value="1" min="1"
+                                            class="quantity w-12 text-center bg-white border-l border-r border-gray-300 py-1 outline-none focus:ring-0"
+                                            aria-label="Cantidad">
+                                    
+                                        <!-- Botón "+" -->
+                                        <button class="increment-qty px-3 py-1 bg-gray-100 hover:bg-gray-200 focus:outline-none">
+                                            <span class="text-sm">+</span>
+                                        </button>
+                                    </div>
+
+                                    <!-- Subtotal -->
+                                    <div class="text-lg font-bold text-dark-blue">$<span class="subtotal">899</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Continue Shopping Link -->
+                <div class="mt-4">
+                    <a href="#" class="text-dark-blue hover:underline flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                        </svg>
+                        Continuar comprando
+                    </a>
+                </div>
+            </section>
+            
+            <!-- Order Summary Section -->
+            <aside class="lg:w-1/3">
+                <div class="bg-white rounded-lg shadow-md p-6 sticky top-4">
+                    <h2 class="text-xl font-bold text-dark-blue mb-4">Resumen de Compra</h2>
+                    
+                    <!-- Order Details -->
+                    <div class="space-y-3 mb-6">
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Subtotal (3 productos)</span>
+                            <span class="font-medium">$<span id="subtotal-amount">18,896</span></span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Envío</span>
+                            <span class="font-medium text-green-600">Gratis</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Impuestos (10%)</span>
+                            <span class="font-medium">$<span id="tax-amount">1,890</span></span>
+                        </div>
+                        <div class="border-t pt-3 mt-3 flex justify-between">
+                            <span class="font-bold text-lg text-dark-blue">Total</span>
+                            <span class="font-bold text-lg text-dark-blue">$<span id="total-amount">20,786</span></span>
+                        </div>
+                    </div>
+                    <!-- Checkout Button -->
+                    <button class="w-full bg-primary-orange hover:bg-orange-600 text-white font-bold py-3 px-4 rounded-md transition duration-200 mb-4">
+                        Proceder al pago
+                    </button>
+                    <!-- Secure Checkout -->
+                    <div class="flex items-center text-sm text-gray-500 mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                        </svg>
+                        Compra segura y protegida
+                    </div>
+                    <!-- Payment Methods -->
+                    <div class="border-t pt-4">
+                        <p class="text-gray-500 text-sm mb-2">Métodos de pago aceptados:</p>
+                        <div class="flex flex-wrap gap-2">
+                            <div class="border rounded p-2">
+                                <img src="assets/icons/logo-visa.png" alt="Visa" class="h-6">
+                            </div>
+                            <div class="border rounded p-2">
+                                <img src="assets/icons/logo-mastercard.png" alt="Mastercard" class="h-6">
+                            </div>
+                            <div class="border rounded p-2">
+                                <img src="assets/icons/logo-american-express.png" alt="American Express" class="h-6">
+                            </div>
+                            <div class="border rounded p-2">
+                                <img src="assets/icons/logo-paypal.png" alt="PayPal" class="h-6">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </main>
+        <section class="best-sellers">
+          <div class="section-header">
+            <p class="section-title">Lo mejor en <a href="#">Productos recomendados</a></p>
+            <div>
+              <a href="#" class="view-all">Ver más →</a>
+              <button class="slider-btn prev">&lt;</button> 
+              <button class="slider-btn next">&gt;</button>
+            </div>
+          </div>
+          <div class="slider-wrapper">
+            <div class="best-sellers-container" id="bestSellersSlider">  
+              <article class="product-card">
+                <button class="fav-btn">♡</button>
+          
+                <div class="product-image">
+                  <img src="assets/products/clothes/sports/discos olímpicos.png" alt="Producto">
+                </div> 
+                <h3 class="product-title">Silla Ergonómica Gamer Reclinable con Luce...</h3>
+                <div class="product-rating">
+                  <span>$899.999</span>
+                  <span class="star">★ 4.5</span>
+                </div>
+                <div class="product-price">
+                  <span>$539.999</span>
+                  <span>40% OFF</span>
+                </div>
+                <span>12 cuotas de $89.999</span>
+                <div class="product-actions">
+                  <div>
+                    <a href="paginaProducto.html"><button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button></a>
+                  </div>
+                </div>
+              </article> 
+              <article class="product-card">
+                <button class="fav-btn">♡</button>    
+                <div class="product-image">
+                  <img src="assets/products/home/heladera.png" alt="Producto">
+                </div> 
+                <h3 class="product-title">Heladera No Frost Whirlpool 400L Inverter</h3>
+                <div class="product-rating">
+                  <span>$899.999</span>
+                  <span class="star">★ 4.5</span>
+                </div>
+                <div class="product-price">
+                  <span>$539.999</span>
+                  <span>40% OFF</span>
+                </div>
+                <span>12 cuotas de $89.999</span>
+                <div class="product-actions">
+                  <div>
+                    <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
+                  </div>
+                </div>
+              </article> 
+              <article class="product-card">
+                <button class="fav-btn">♡</button>    
+                <div class="product-image">
+                  <img src="assets/products/home/single sofa.png" alt="Producto">
+                </div> 
+                <h3 class="product-title">Heladera No Frost Whirlpool 400L Inverter</h3>
+                <div class="product-rating">
+                  <span>$899.999</span>
+                  <span class="star">★ 4.5</span>
+                </div>
+                <div class="product-price">
+                  <span>$539.999</span>
+                  <span>40% OFF</span>
+                </div>
+                <span>12 cuotas de $89.999</span>
+                <div class="product-actions">
+                  <div>
+                    <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
+                  </div>
+                </div>
+              </article> 
+              <article class="product-card">
+                <button class="fav-btn">♡</button>
+          
+                <div class="product-image">
+                  <img src="assets/products/home/lavarropas.jpg" alt="Producto">
+                </div> 
+                <h3 class="product-title">Lavarropas Automático Drean 8kg EcoSilent</h3>
+                <div class="product-rating">
+                  <span>$899.999</span>
+                  <span class="star">★ 4.5</span>
+                </div>
+                <div class="product-price">
+                  <span>$539.999</span>
+                  <span>40% OFF</span>
+                </div>
+                <span>12 cuotas de $89.999</span>
+                <div class="product-actions">
+                  <div>
+                    <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
+                  </div>
+                </div>
+              </article> 
+              <article class="product-card">
+                <button class="fav-btn">♡</button>
+          
+                <div class="product-image">
+                  <img src="assets/products/electronics/adiculares.png" alt="Producto">
+                </div> 
+                <h3 class="product-title">Auricular Bluetooth inalámbrico</h3>
+                <div class="product-rating">
+                  <span>$899.999</span>
+                  <span class="star">★ 4.5</span>
+                </div>
+                <div class="product-price">
+                  <span>$539.999</span>
+                  <span>FREE <i class="fa-regular fa-truck"></i></span>
+                </div>
+                <span>12 cuotas de $89.999</span>
+                <div class="product-actions">
+                  <div>
+                    <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
+                  </div>
+                </div>
+              </article>    
+              <article class="product-card">
+                <button class="fav-btn">♡</button>
+          
+                <div class="product-image">
+                  <img src="assets/products/electronics/silla gamer.jpg" alt="Producto">
+                </div> 
+                <h3 class="product-title">Silla Ergonómica Gamer Reclinable con Luce...</h3>
+                <div class="product-rating">
+                  <span>$899.999</span>
+                  <span class="star">★ 4.5</span>
+                </div>
+                <div class="product-price">
+                  <span>$539.999</span>
+                  <span>40% OFF</span>
+                </div>
+                <span>12 cuotas de $89.999</span>
+                <div class="product-actions">
+                  <div>
+                    <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
+                  </div>
+                </div>
+              </article> 
+              <article class="product-card">
+                <button class="fav-btn">♡</button>    
+                <div class="product-image">
+                  <img src="assets/products/home/heladera.png" alt="Producto">
+                </div> 
+                <h3 class="product-title">Heladera No Frost Whirlpool 400L Inverter</h3>
+                <div class="product-rating">
+                  <span>$899.999</span>
+                  <span class="star">★ 4.5</span>
+                </div>
+                <div class="product-price">
+                  <span>$539.999</span>
+                  <span>40% OFF</span>
+                </div>
+                <span>12 cuotas de $89.999</span>
+                <div class="product-actions">
+                  <div>
+                    <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
+                  </div>
+                </div>
+              </article> 
+              <article class="product-card">
+                <button class="fav-btn">♡</button>
+          
+                <div class="product-image">
+                  <img src="assets/products/home/lavarropas.jpg" alt="Producto">
+                </div> 
+                <h3 class="product-title">Lavarropas Automático Drean 8kg EcoSilent</h3>
+                <div class="product-rating">
+                  <span>$899.999</span>
+                  <span class="star">★ 4.5</span>
+                </div>
+                <div class="product-price">
+                  <span>$539.999</span>
+                  <span>40% OFF</span>
+                </div>
+                <span>12 cuotas de $89.999</span>
+                <div class="product-actions">
+                  <div>
+                    <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
+                  </div>
+                </div>
+              </article> 
+              <article class="product-card">
+                <button class="fav-btn">♡</button>
+          
+                <div class="product-image">
+                  <img src="assets/products/clothes/sports/Zapatilla Nike.png" alt="Producto">
+                </div> 
+                <h3 class="product-title">Zapatillas Nike Air Max 270 Hombre Originales</h3>
+                <div class="product-rating">
+                  <span>$899.999</span>
+                  <span class="star">★ 4.5</span>
+                </div>
+                <div class="product-price">
+                  <span>$539.999</span>
+                  <span>40% OFF</span>
+                </div>
+                <span>12 cuotas de $89.999</span>
+                <div class="product-actions">
+                  <div>
+                    <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
+                  </div>
+                </div>
+              </article> 
+              <article class="product-card">
+                <button class="fav-btn">♡</button>
+          
+                <div class="product-image">
+                  <img src="assets/products/electronics/adiculares.png" alt="Producto">
+                </div> 
+                <h3 class="product-title">Auricular Bluetooth inalámbrico</h3>
+                <div class="product-rating">
+                  <span>$899.999</span>
+                  <span class="star">★ 4.5</span>
+                </div>
+                <div class="product-price">
+                  <span>$539.999</span>
+                  <span>FREE <i class="fa-regular fa-truck"></i></span>
+                </div>
+                <span>12 cuotas de $89.999</span>
+                <div class="product-actions">
+                  <div>
+                    <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
+                  </div>
+                </div>
+              </article> 
+            </div>
+          </div>
+        </section>
   <!-- Footer -->
   <footer class="footer">
     <div class="footer-container"> 
@@ -156,6 +701,134 @@
   </footer>
   <!-- JS -->
   <script src="js/carrito/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Format currency helper function
+            const formatCurrency = (amount) => {
+                return new Intl.NumberFormat('es-MX', {
+                    style: 'decimal',
+                    maximumFractionDigits: 0
+                }).format(amount);
+            };
+
+            // Calculate and update all cart totals
+            const updateCartTotals = () => {
+                const cartItems = document.querySelectorAll('.cart-item:not(.removed)');
+                let subtotal = 0;
+                let itemCount = 0;
+
+                // Calculate subtotal from all items
+                cartItems.forEach(item => {
+                    const price = parseInt(item.dataset.price);
+                    const quantity = parseInt(item.querySelector('.quantity').value);
+                    subtotal += price * quantity;
+                    itemCount += quantity;
+                });
+
+                // Calculate tax (10%)
+                const tax = Math.round(subtotal * 0.1);
+
+                // Update the DOM
+                document.getElementById('subtotal-amount').textContent = formatCurrency(subtotal);
+                document.getElementById('tax-amount').textContent = formatCurrency(tax);
+                document.getElementById('total-amount').textContent = formatCurrency(subtotal + tax);
+
+                // Update item count in summary
+                const itemCountElement = document.querySelector('.order-summary .text-gray-600:first-child');
+                if (itemCountElement) {
+                    itemCountElement.textContent = `Subtotal (${itemCount} ${itemCount === 1 ? 'producto' : 'productos'})`;
+                }
+
+                // Show empty cart message if no items
+                const emptyCartMessage = document.getElementById('empty-cart-message');
+                const cartItemsContainer = document.getElementById('cart-items');
+                
+                if (cartItems.length === 0) {
+                    emptyCartMessage.classList.remove('hidden');
+                    cartItemsContainer.classList.add('hidden');
+                } else {
+                    emptyCartMessage.classList.add('hidden');
+                    cartItemsContainer.classList.remove('hidden');
+                }
+            };
+
+            // Update individual item subtotal
+            const updateItemSubtotal = (item) => {
+                const price = parseInt(item.dataset.price);
+                const quantity = parseInt(item.querySelector('.quantity').value);
+                const subtotalElement = item.querySelector('.subtotal');
+                
+                subtotalElement.textContent = formatCurrency(price * quantity);
+            };
+
+            // Add event listeners to all quantity controls
+            document.querySelectorAll('.cart-item').forEach(item => {
+                const quantityInput = item.querySelector('.quantity');
+                const decrementBtn = item.querySelector('.decrement-qty');
+                const incrementBtn = item.querySelector('.increment-qty');
+                const removeBtn = item.querySelector('.remove-item');
+                
+                // Handle decrement button click
+                decrementBtn.addEventListener('click', () => {
+                    const currentValue = parseInt(quantityInput.value);
+                    if (currentValue > 1) {
+                        quantityInput.value = currentValue - 1;
+                        updateItemSubtotal(item);
+                        updateCartTotals();
+                    }
+                });
+                
+                // Handle increment button click
+                incrementBtn.addEventListener('click', () => {
+                    quantityInput.value = parseInt(quantityInput.value) + 1;
+                    updateItemSubtotal(item);
+                    updateCartTotals();
+                });
+                
+                // Handle direct input change
+                quantityInput.addEventListener('change', () => {
+                    if (quantityInput.value < 1) quantityInput.value = 1;
+                    updateItemSubtotal(item);
+                    updateCartTotals();
+                });
+                
+                // Handle remove item button
+                removeBtn.addEventListener('click', () => {
+                    item.classList.add('removed');
+                    item.style.display = 'none';
+                    updateCartTotals();
+                });
+            });
+
+            // Initialize cart totals
+            updateCartTotals();
+        });
+    </script>
+    <script>
+      // JavaScript para el menú móvil (puedes moverlo a un archivo separado)
+      document.getElementById('mobile-menu-button').addEventListener('click', function() {
+        const menu = document.getElementById('mobile-menu');
+        const isExpanded = this.getAttribute('aria-expanded') === 'true';
+        
+        this.setAttribute('aria-expanded', !isExpanded);
+        menu.classList.toggle('hidden');
+        
+        // Cambiar el ícono (opcional)
+        if (!isExpanded) {
+          this.innerHTML = `
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          `;
+        } else {
+          this.innerHTML = `
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          `;
+        }
+      });
+    </script> 
 </body>
 </html>
 

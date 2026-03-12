@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TiendaMas</title>
+  <meta name="description" content="Fiambrissima, supermercado con varios locales. Calidad, variedad y precios para familias y comercios." />
+  <!-- Tailwind Play CDN (rápido para prototipo) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Tipografías -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <!-- Font Awesome para iconos (opcional) -->
+  <script src="https://kit.fontawesome.com/your_kit_id.js" crossorigin="anonymous"></script>
+  <!-- Si no tenés kit, podés usar: https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <!-- Paleta y pequeños estilos adicionales -->
+  <!-- CSS -->
+  <link rel="stylesheet" href="../../css/paginaProducto/producto.css" />
+  <link rel="stylesheet" href="../../css/paginaProducto/main.css">
+  <link rel="stylesheet" href="../../css/paginaProducto/footer.css">
+  <!-- Fuentes (ejemplo) -->
+  <!--
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  -->
+    <style>
+        :root {
+            --primary-orange: #FF6B35;
+            --primary-blue: #004E89;
+            --light-gray: #F8F9FA;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--light-gray);
+            color: #333;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        .login-container {
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .input-field:focus {
+            border-color: var(--primary-orange);
+            box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.2);
+        }
+        
+        .btn-login {
+            background-color: var(--primary-orange);
+            transition: all 0.2s ease;
+        }
+        
+        .btn-login:hover {
+            background-color: #E55627; /* Naranja ligeramente más oscuro */
+        }
+        
+        .password-toggle {
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: #6B7280;
+        }
+        
+        .password-toggle:hover {
+            color: #374151;
+        }
+        
+        /* Ajustes responsivos */
+        @media (max-width: 640px) {
+            .login-container {
+                width: 100%;
+                border-radius: 0;
+                padding: 2rem 1.5rem;
+            }
+        }
+
+        /* Inicio Estado de Sesion */
+        #session-status { position: fixed; top:12px; right:12px; width:260px; background:#fff; border-radius:8px; box-shadow:0 6px 18px rgba(0,0,0,0.12); padding:10px 12px; font-size:13px; z-index:9999; color:#222; }
+        #session-status .row { display:flex; justify-content:space-between; margin:6px 0; align-items:center; }
+        #session-status .label { color:#666; }
+        .status-dot { width:12px; height:12px; border-radius:50%; display:inline-block; margin-left:8px; vertical-align:middle; }
+        .dot-green { background:#28a745; }
+        .dot-red { background:#dc3545; }
+        /* Fin Estado de Sesion */
+    </style>
+</head>
+<body class="">
+  <!-- Header -->
+  <header class="header">
+    <div class="primeraFila">  
+      <div class="flex items-center justify-between h-16 gap-4 ">
+        <a href="#" class="flex items-center gap-3 shrink-0">
+          <img src="assets/marketplace-data/Logo-text 2.png" alt="Logo" class="logo-desktop w-full h-full object-cover"> 
+          <img src="assets/marketplace-data/Logo.png" alt="Logo" class="logo-movil w-full h-full object-cover"> 
+        </a>
+
+        <!-- Buscador -->
+        <div id="buscador">
+          <div class="buscador-container">
+            <input 
+              type="text" 
+              id="search-input" 
+              placeholder="Buscar productos..."
+            >
+            <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" fill="none" 
+                 viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                    d="M21 21l-4.35-4.35M11 19a8 8 0 100-16 8 8 0 000 16z"/>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Acciones -->
+        <div class="header-links flex items-center gap-3">
+          <a href="" class="header-anuncio"><img src="assets/marketplace-data/envio.png" alt=""></a>
+          <!-- Botón menú mobile -->
+          <button id="btn-mobile" aria-expanded="false" aria-controls="mobile-menu" class="lg:hidden p-0 rounded-lg focus:outline-none focus:ring-0 active:outline-none active:ring-0">
+            <svg id="icon-open" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 8h16M4 16h16"/></svg>
+            <svg id="icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+          </button>
+        </div>
+      </div>
+  
+      <!-- Fila 2: Navegación -->
+      <nav id="nav" class="hidden md:flex justify-between w-full items-center border-t border-slate-200" aria-label="Main navigation">
+        <div class="flex items-center gap-6 gap-6 py-2">
+          <a href="#categorias" class="text-sm hover:text-[#2563EB] transition">Categorías <i class="fa-solid fa-chevron-down"></i></a>
+          <a href="#ofertas" class="text-sm hover:text-[#2563EB] transition">Ofertas <i class="fa-solid fa-chevron-down"></i></a>
+          <a href="#destacados" class="text-sm hover:text-[#2563EB] transition">Destacados</a>
+          <a href="#novedades" class="text-sm hover:text-[#2563EB] transition">Novedades</a>
+          <a href="#contacto" class="text-sm hover:text-[#2563EB] transition">Contacto / Soporte</a>
+          <a href="#ayuda" class="text-sm hover:text-[#2563EB] transition">Ayuda</a>
+          <a href="#vender" class="text-sm hover:text-[#2563EB] transition">Vender</a>
+        </div>
+        <div class="nav-links">
+          <a href=""><i class="fa-solid fa-user"></i> <span>Cuenta</span> <i class="fa-solid fa-chevron-down"></i></a>
+          <a href=""><i class="fa-solid fa-location-dot"></i> <span>Ubicación</span></a>
+          <a href=""><i class="fa-solid fa-cart-arrow-down"></i> <span style="color: #2563EB; font-weight:bolder;">3</span> <span>Carrito</span></a>
+        </div>
+      </nav>
+    </div>
+  
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="lg:hidden" hidden>
+      <div class="px-4 pb-6 pt-2 border-t border-slate-200 bg-white">
+        <a href="#carrito" class="block py-2 text-base">Carrito</a>
+        <a href="#categorias" class="block py-2 text-base">Categorías</a>
+        <a href="#destacados" class="block py-2 text-base">Destacados</a>
+        <a href="#novedades" class="block py-2 text-base">Novedades</a>
+        <a href="#contacto" class="block py-2 text-base">Contacto / Soporte</a>
+        <a href="#vender" class="block py-2 text-base">Vender</a>
+        <a href="#ayuda" class="block py-2 text-base">Ayuda</a>
+        <div class="flex gap-2 mt-3">
+          <a href="#vender" class="flex-1 text-center py-2 rounded-full border border-blue-600 text-blue-600">Ingresá</a>
+          <a href="#registrarse" class="flex-1 text-center py-2 rounded-full bg-[var(--tm-orange)] text-white">Registrarse</a>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="">
+    <main class="login-container bg-white rounded-xl p-8 w-full max-w-md">
+        <!----Logo and Header---->
+        <header class="text-center mb-8">
+            <h1 class="text-3xl font-bold text-gray-800 mb-2 flex items-center justify-center">
+                <span class="text-orange-500">Tienda</span>
+                <span class="text-blue-600 ml-1">Mas</span>
+            </h1>
+            <p class="text-gray-600">¡Bienvenido de nuevo! Iniciá sesión en tu cuenta</p>
+        </header>
+        
+        <!----Formulario de inicio de sesión---->
+        <form id="loginForm" class="space-y-5" novalidate>
+            <!----Mensaje de estado (oculto por defecto)---->
+            <div id="statusMessage" class="hidden p-3 rounded-lg text-sm"></div>
+            
+            <!----Campo de nombre de usuario---->
+            <div class="space-y-2">
+                <label for="username" class="block text-sm font-medium text-gray-700">
+                    Nombre de usuario <span class="text-red-500">*</span>
+                </label>
+                <div class="relative">
+                    <input 
+                        type="text"
+                        id="username"
+                        name="username"
+                        required
+                        aria-required="true"
+                        class="input-field w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none transition-all duration-200 pl-10"
+                        placeholder="tu_usuario"
+                        autocomplete="username"
+                    >
+                    <div class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400">
+                        <i class="far fa-user"></i>
+                    </div>
+                </div>
+                <p id="usernameError" class="text-red-500 text-xs mt-1 hidden">
+                    <i class="fas fa-exclamation-circle mr-1"></i> Por favor ingresá tu nombre de usuario
+                </p>
+            </div>
+            
+            <!----Campo de contraseña---->
+            <div class="space-y-2">
+                <div class="flex justify-between items-center">
+                    <label for="password" class="block text-sm font-medium text-gray-700">
+                        Contraseña <span class="text-red-500">*</span>
+                    </label>
+                    <a href="restaurarContraseña.html" class="text-sm text-blue-600 hover:underline">¿Olvidaste tu contraseña?</a>
+                </div>
+                <div class="relative">
+                    <input 
+                        type="password" 
+                        id="password" 
+                        name="password" 
+                        required
+                        aria-required="true"
+                        class="input-field w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none transition-all duration-200 pl-10 pr-10"
+                        placeholder="••••••••"
+                        autocomplete="current-password"
+                    >
+                    <div class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <button type="button" class="password-toggle" aria-label="Toggle password visibility" onclick="togglePassword('password')">
+                        <i class="far fa-eye"></i>
+                    </button>
+                </div>
+                <p id="passwordError" class="text-red-500 text-xs mt-1 hidden">
+                    <i class="fas fa-exclamation-circle mr-1"></i> Por favor ingresá tu contraseña
+                </p>
+            </div>
+            
+            <!----Recuérdame casilla de verificación---->
+            <div class="flex items-center">
+                <input 
+                    id="rememberMe" 
+                    name="rememberMe" 
+                    type="checkbox" 
+                    class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-2 focus:ring-orange-500"
+                >
+                <label for="rememberMe" class="ml-3 text-sm font-medium text-gray-700">
+                    Recordarme
+                </label>
+            </div>
+            
+            <!----Botón Enviar---->
+            <button 
+                type="submit" 
+                class="btn-login w-full text-white font-medium py-3 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2"
+                aria-label="Log in"
+            >
+                Iniciar sesión
+            </button>
+            
+            <!----Enlace de registro---->
+            <div class="text-center text-sm text-gray-600">
+                ¿No tenés una cuenta? 
+                <a href="registrarse.html" class="font-medium text-blue-600 hover:underline">Registrate</a>
+            </div>
+        </form>
+    </main>
+  </div>
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container"> 
+      <div>
+        <div>
+          <img src="assets/marketplace-data/Logo-text 2.png" alt="">
+          <div>
+            <a href=""><img src="assets/icons/whatsapp.png" alt=""></a>
+            <a href=""><img src="assets/icons/facebook.png" alt=""></a>
+            <a href=""><img src="assets/icons/instagram.png" alt=""></a>
+            <a href=""><img src="assets/icons/linkedin.png" alt=""></a>              
+          </div>
+        </div>
+        <div>
+          <h3 class="footer-title">Empresa</h3>
+          <a href="">Acerca</a>
+          <a href="">Prensa</a>
+          <a href="">Contacto</a>
+          <a href="">Condiciones</a>
+          <a href="">Terminos y servicios</a>
+          <a href="">Preguntas frecuentes</a>
+        </div>
+        <div>
+          <h3 class="footer-title">Categorias</h3>
+          <a href="">Electrónica</a>
+          <a href="">Moda y Accesorios</a>
+          <a href="">Hogar y Jardín</a>
+          <a href="">Salud y Belleza</a>
+          <a href="">Alimentos y Bebidas</a>
+          <a href="">Deportes y Fitness</a>
+        </div>
+        <div>
+          <h3 class="footer-title">Mi cuenta</h3>
+          <a href="">Iniciar sesión</a>
+          <a href="">Registrarse</a>
+          <a href="">Mis pedidos</a>
+          <a href="">Direcciones</a>
+          <a href="">Métodos de pago</a>
+          <a href="">Cerrar sesión</a>
+        </div>
+        <div>
+          <h3 class="footer-title">Contacto</h3>
+          <a href=""><i class="fa-solid fa-location-dot"></i> Catamarca, Argentina.</a>
+          <a href=""><i class="fa-brands fa-whatsapp"></i> +54 9 383 451-6154</a>
+          <a href=""><i class="fa-regular fa-envelope"></i> anroo475@gmail.com</a>
+          <a href=""><i class="fa-solid fa-headset"></i> Soporte tecnico</a>
+        </div>
+      </div>  
+      <div>
+        <img src="assets/marketplace-data/payment.png" alt="">
+        <p>© 2024 SomosTiendaMas. Todos los derechos reservados.</p>
+      </div>    
+    </div>
+  </footer>
+  <!-- JS -->
+  <script src="js/paginaProducto/script.js"></script>
+    <script>
+        /**
+         * Tienda Mas Login Page JavaScript
+         * Handles form validation and user feedback
+         */
+        
+        // DOM Elements
+        const loginForm = document.getElementById('loginForm');
+        const statusMessage = document.getElementById('statusMessage');
+        
+        // Toggle password visibility
+        function togglePassword(fieldId) {
+            const field = document.getElementById(fieldId);
+            const toggleIcon = field.parentNode.querySelector('.password-toggle i');
+            
+            if (field.type === 'password') {
+                field.type = 'text';
+                toggleIcon.classList.replace('fa-eye', 'fa-eye-slash');
+            } else {
+                field.type = 'password';
+                toggleIcon.classList.replace('fa-eye-slash', 'fa-eye');
+            }
+        }
+        
+        // Show error message
+        function showError(fieldId, errorId, message) {
+            const field = document.getElementById(fieldId);
+            const errorElement = document.getElementById(errorId);
+            
+            field.classList.add('border-red-500');
+            errorElement.textContent = message;
+            errorElement.classList.remove('hidden');
+        }
+        
+        // Hide error message
+        function hideError(fieldId, errorId) {
+            const field = document.getElementById(fieldId);
+            const errorElement = document.getElementById(errorId);
+            
+            field.classList.remove('border-red-500');
+            errorElement.classList.add('hidden');
+        }
+        
+        // Show status message
+        function showStatus(message, isSuccess) {
+            statusMessage.textContent = message;
+            statusMessage.classList.remove('hidden');
+            
+            if (isSuccess) {
+                statusMessage.classList.add('bg-green-100', 'text-green-700');
+                statusMessage.classList.remove('bg-red-100', 'text-red-700');
+            } else {
+                statusMessage.classList.add('bg-red-100', 'text-red-700');
+                statusMessage.classList.remove('bg-green-100', 'text-green-700');
+            }
+            
+            // Hide message after 5 seconds
+            setTimeout(() => {
+                statusMessage.classList.add('hidden');
+            }, 5000);
+        }
+        
+        // Real-time validation para nombre de usuario
+        document.getElementById('username').addEventListener('blur', function() {
+            const username = this.value.trim();
+            if (!username) {
+                showError('username', 'usernameError', 'Por favor ingresá tu nombre de usuario');
+            } else {
+                hideError('username', 'usernameError');
+            }
+        });
+        
+        // Real-time validation para password
+        document.getElementById('password').addEventListener('blur', function() {
+            if (!this.value) {
+                showError('password', 'passwordError', 'Por favor ingresá tu contraseña');
+            } else {
+                hideError('password', 'passwordError');
+            }
+        });
+
+        loginForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            let isValid = true;
+
+            // Reset all errors
+            document.querySelectorAll('[id$="Error"]').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll('.border-red-500').forEach(el => el.classList.remove('border-red-500'));
+
+            // Validar username (antes era email)
+            const username = document.getElementById('username').value.trim();
+            if (!username) {
+                showError('username', 'usernameError', 'Por favor ingresá tu nombre de usuario');
+                isValid = false;
+            }
+
+            // Validar password
+            const password = document.getElementById('password').value;
+            if (!password) {
+                showError('password', 'passwordError', 'Por favor ingresá tu contraseña');
+                isValid = false;
+            }
+
+            if (!isValid) {
+                showStatus('Por favor corregí los errores del formulario', false);
+                return;
+            }
+
+            // Real login: POST to backend endpoint
+            try {
+                const payload = { username: username, password: password };
+                const res = await fetch('/api/auth/public/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                    credentials: 'include',
+                    body: JSON.stringify(payload)
+                });
+
+                if (!res.ok) {
+                    // intentar leer mensaje del backend
+                    const err = await res.json().catch(() => null);
+                    const msg = err?.message || err?.error || 'Login fallido';
+                    showStatus(msg, false);
+                    return;
+                }
+
+                // Login exitoso: el backend setea las cookies (HttpOnly).  
+                showStatus('Login exitoso. Redirigiendo...', true);
+
+                // Recargar para que session-status.js detecte la sesión (cookies enviadas)
+                setTimeout(() => { window.location.href = '/'; }, 700);
+
+            } catch (error) {
+                showStatus('Error conectando al servidor', false);
+                console.error('Login error', error);
+            }
+        });
+        
+    </script>
+</body>
+</html>

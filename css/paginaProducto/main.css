@@ -78,71 +78,67 @@
 
 /*--------------------------------------- Imagen del producto -----------------------------------*/
 .product-page{
-
 padding:20px;
-
+padding: 20px 0;
+margin: 0 4rem;
 }
 
 .product-container{
-
 display:grid;
 grid-template-columns: 1.2fr 1fr;
 gap:40px;
-
 }
-
 
 /* GALERIA */
-
 .product-gallery{
-
 display:flex;
 gap:15px;
+}
+
+/* Aqui esta el cambio del position sticky*/
+.product-gallery{
+display:flex;
+gap:15px;
+top: 20px;
+align-self: start;
+}
+
+/* SOLO desktop */
+@media (min-width: 1025px){
+  .product-gallery{
+    position: sticky;
+  }
 
 }
 
+/*-------------------------------------------*/
 .thumbnails{
-
 display:flex;
 flex-direction:column;
 gap:10px;
-
 }
 
 .thumb{
-
 width:70px;
 height:70px;
-
 object-fit:cover;
-
 border:1px solid #ddd;
 border-radius:6px;
-
 cursor:pointer;
-
 }
 
 .thumb.active{
-
 border:2px solid #3483fa;
-
 }
 
 .main-image{
-
 position:relative;
-
 background:#f5f5f5;
-
 border-radius:10px;
-
 padding:20px;
-
 display:flex;
 justify-content:center;
 align-items:center;
-
 }
 
 .main-image img{
@@ -194,181 +190,422 @@ cursor:pointer;
 }
 
 .product-header{
-
 display:flex;
 justify-content:space-between;
 align-items:center;
-
 }
 
 .status{
-
 font-size:14px;
 color:#666;
-
 }
 
 .favorite{
-
 background:none;
 border:none;
-
 font-size:20px;
 cursor:pointer;
-
 }
 
 .product-title{
-
 font-size:24px;
 font-weight:500;
-
 }
 
 .rating{
-
 display:flex;
 align-items:center;
 gap:8px;
-
 }
 
 .stars{
-
 color:#3483fa;
-
 }
 
 .main-price{
-
 font-size:36px;
 font-weight:500;
-
 }
 
 .installments{
-
 color:#333;
-
 }
 
 .tax-info{
-
 font-size:12px;
 color:#888;
-
 }
 
 .discount-box{
-
 background:#e6f0ff;
-
 padding:10px;
-
 color:#3483fa;
-
 border-radius:5px;
-
 font-size:14px;
-
 }
 
 .payments-link{
-
 color:#3483fa;
 font-size:14px;
-
 cursor:pointer;
-
 }
 
 .shipping p{
-
 margin:0;
-
 }
 
 .shipping a{
-
 color:#3483fa;
 font-size:14px;
-
 }
 
 .returns span{
-
 color:green;
 font-weight:500;
-
 }
+
 
 .color-selector select{
+  margin-top:5px;
+  padding:8px 40px 8px 8px;
+  width:100%;
+  border-radius:6px;
+  border:1px solid #ccc;
 
-margin-top:5px;
-
-padding:8px;
-
-width:100%;
-
-border-radius:6px;
-
-border:1px solid #ccc;
-
+  appearance:none;
+  -webkit-appearance:none;
+  -moz-appearance:none;
 }
 
+.color-selector{
+  position:relative;
+}
+
+.color-selector::after{
+  content:"▼";
+  position:absolute;
+  right:12px;
+  top:42px;
+  font-size:12px;
+  pointer-events:none; 
+  color:#555;
+}
+
+.quantity-counter{
+  display:flex;
+  align-items:center;
+  margin-top:5px;
+  width:120px;
+  border:1px solid #ccc;
+  border-radius:6px;
+  overflow:hidden;
+}
+
+.qty-btn{
+  width:35px;
+  height:35px;
+  border:none;
+  background:#f3f3f3;
+  font-size:18px;
+  cursor:pointer;
+}
+
+.qty-btn:hover{
+  background:#e5e5e5;
+}
+
+.qty-input{
+  width:50px;
+  text-align:center;
+  border:none;
+  font-size:16px;
+}
+
+.qty-input:focus{
+  outline:none;
+}
 
 /* RESPONSIVE */
 
 @media (max-width:1024px){
-
 .product-container{
-
 grid-template-columns:1fr;
-
 }
 
 .product-gallery{
-
 justify-content:center;
-
 }
 
 }
 
 @media (max-width:600px){
-
 .product-gallery{
-
 flex-direction:column;
-
 }
 
 .thumbnails{
-
 flex-direction:row;
 justify-content:center;
-
 }
 
 .thumb{
-
 width:55px;
 height:55px;
-
 }
 
 .product-title{
-
 font-size:20px;
-
 }
 
 .main-price{
-
 font-size:30px;
-
 }
 
 }
 
+/*--------------------------------------------------- Detalles del producto -----------------------------------------------*/
+.best-sellers{
+  margin: 0 4rem;
+  margin-bottom: 20px;
+}
 
+/* =========================
+   SMALL DEVICES (telefonos)
+   ========================= */
+
+@media (max-width: 480px) {
+  .best-sellers{
+    margin: 0 1rem;
+    margin-bottom: 20px;
+  }
+
+  .product-page{
+    padding:20px;
+    padding: 20px 0;
+    margin: 0 1rem;
+  }
+
+}
+
+.shipping-buy-box{
+margin-top:25px;
+padding-top:20px;
+margin: 0;
+border-top:1px solid #e6e6e6;
+}
+
+.shipping-option{
+display:flex;
+gap:12px;
+margin-bottom:14px;
+font-size:14px;
+color:#333;
+}
+
+.shipping-option i{
+font-size:18px;
+color:#555;
+margin-top:3px;
+}
+
+.shipping-option p{
+margin:0;
+}
+
+.shipping-option span{
+font-size:13px;
+color:#777;
+}
+
+.shipping-option a{
+color:#3483fa;
+text-decoration:none;
+}
+
+.store-link{
+font-size:13px;
+}
+
+.divider{
+height:1px;
+background:#e6e6e6;
+margin:18px 0;
+}
+
+.buy-buttons{
+display:flex;
+flex-direction:column;
+gap:10px;
+}
+
+.btn-buy{
+background:linear-gradient(90deg,#7b2cff,#9338ff);
+color:white;
+border:none;
+padding:14px;
+border-radius:8px;
+font-size:16px;
+font-weight:600;
+cursor:pointer;
+transition:0.2s;
+}
+
+.btn-buy:hover{
+opacity:0.95;
+}
+
+.btn-cart{
+background:#d8cfee;
+color:#5b44c4;
+border:none;
+padding:14px;
+border-radius:8px;
+font-size:15px;
+font-weight:600;
+cursor:pointer;
+transition:0.2s;
+}
+
+.btn-cart:hover{
+background:#cfc5ea;
+}
+
+/*------------------- Banner Publicitario 3 -------------------*/
+.bannerPublicitario3{
+    width: 100%;
+    margin-top: 48px;
+    margin-top: 24px;;
+    padding: 24px 2rem;
+}
+
+.bannerPublicitario3 a{
+    width: 100%;
+}
+
+.bannerPublicitario3 a img{
+    width: 100%;
+    border-radius: 16px;
+}
+
+
+/*----------------------- seccion ad number one -----------------------*/
+.promo-banners{
+  width:100%;
+  max-width:1400px;
+  margin:40px auto;
+  padding:0 20px;
+
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
+}
+
+.banner{
+  width:100%;
+  overflow:hidden;
+  box-shadow:0 4px 14px rgba(0,0,0,0.08);
+  transition:.3s;
+}
+
+.banner img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+.banner:hover{
+  box-shadow:0 8px 24px rgba(0,0,0,0.12);
+}
+
+/*----------------------- seccion ad number second -----------------------*/
+
+
+
+
+/*----------------------- brands we work with -----------------------*/
+.brands {
+  background: #f5f5f5;
+  padding: 60px 0;
+  margin: 0 4rem;
+}
+
+.container {
+  width: 90%;
+  max-width: 1300px;
+  margin: auto;
+}
+
+.brands-title {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 40px;
+  color: #222;
+}
+
+/* GRID DESKTOP */
+.brands-wrapper {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 30px;
+}
+
+/* CIRCULOS */
+.brand-item {
+  background: #fff;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease;
+}
+
+.brand-item img {
+  max-width: 70%;
+  max-height: 60%;
+  object-fit: contain;
+}
+
+.brand-item:hover {
+  transform: scale(1.05);
+}
+
+/* TABLET */
+@media (max-width: 1024px) {
+  .brands-wrapper {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* MOBILE → SLIDER */
+@media (max-width: 768px) {
+
+  .brands-wrapper {
+    display: flex;
+    overflow-x: auto;
+    gap: 20px;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 10px;
+  }
+
+  .brand-item {
+    flex: 0 0 auto;
+    width: 100px;
+    height: 100px;
+    scroll-snap-align: start;
+  }
+
+  /* Oculta scrollbar en mobile */
+  .brands-wrapper::-webkit-scrollbar {
+    display: none;
+  }
+
+  .brands-wrapper {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}

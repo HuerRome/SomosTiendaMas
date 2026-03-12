@@ -18,6 +18,7 @@
   <!-- CSS -->
   <link rel="stylesheet" href="css/paginaProducto/producto.css" />
   <link rel="stylesheet" href="css/paginaProducto/main.css">
+  <link rel="stylesheet" href="css/home/best-sellers.css">
   <link rel="stylesheet" href="css/paginaProducto/footer.css">
   <!-- Fuentes (ejemplo) -->
   <!--
@@ -30,7 +31,7 @@
   <header class="header">
     <div class="primeraFila">  
       <div class="flex items-center justify-between h-16 gap-4 ">
-        <a href="#" class="flex items-center gap-3 shrink-0">
+        <a href="index.html" class="flex items-center gap-3 shrink-0">
           <img src="assets/marketplace-data/Logo-text 2.png" alt="Logo" class="logo-desktop w-full h-full object-cover"> 
           <img src="assets/marketplace-data/Logo.png" alt="Logo" class="logo-movil w-full h-full object-cover"> 
         </a>
@@ -76,7 +77,7 @@
         <div class="nav-links">
           <a href=""><i class="fa-solid fa-user"></i> <span>Cuenta</span> <i class="fa-solid fa-chevron-down"></i></a>
           <a href=""><i class="fa-solid fa-location-dot"></i> <span>Ubicación</span></a>
-          <a href=""><i class="fa-solid fa-cart-arrow-down"></i> <span style="color: #2563EB; font-weight:bolder;">3</span> <span>Carrito</span></a>
+          <a href="carrito.html"><i class="fa-solid fa-cart-arrow-down"></i> <span style="color: #2563EB; font-weight:bolder;">3</span> <span>Carrito</span></a>
         </div>
       </nav>
     </div>
@@ -103,23 +104,22 @@
     <nav class="breadcrumb-container" aria-label="Breadcrumb">
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="/">Home</a>
+          <a href="/">Página principal</a>
         </li>
   
         <li class="breadcrumb-item">
-          <a href="/electrodomesticos">Pequeños Electrodomésticos</a>
+          <a href="/electrodomesticos">Moda y ropa</a>
         </li>
   
         <li class="breadcrumb-item">
-          <a href="/hogar">Hogar</a>
+          <a href="/hogar">Invierno</a>
         </li>
   
         <li class="breadcrumb-item active" aria-current="page">
-          Limpiadoras a vapor
+          pullovers
         </li>
       </ol>
     </nav>
-
     <section class="product-page">
       <div class="product-container">
         <!-- GALERIA -->
@@ -197,9 +197,293 @@
               <option>Blanco</option>
             </select>
           </div> 
-        </div>    
+          <div class="quantity-selector">
+            <label>Cantidad</label>
+            <div class="quantity-counter">
+              <button class="qty-btn minus">−</button>
+              <input type="number" value="1" min="1" class="qty-input">
+              <button class="qty-btn plus">+</button>
+            </div>
+          </div>
+          <div class="shipping-buy-box">
+          
+            <div class="shipping-option">
+              <i class="fa-solid fa-truck"></i>
+              <div>
+                <p>
+                  Envío a <a href="#">Capital Federal (1406)</a>
+                  <strong>$4.499</strong>
+                </p>
+                <span>Entrega estimada 5 días hábiles</span>
+              </div>
+            </div>
+          
+            <div class="shipping-option">
+              <i class="fa-solid fa-store"></i>
+              <div>
+                <p>Retiro <strong>GRATIS</strong> en sucursal</p>
+                <a href="#" class="store-link">Ver sucursales</a>
+              </div>
+            </div>
+          
+            <div class="divider"></div>
+          
+            <div class="buy-buttons">
+              <button class="btn-buy">Comprar</button>
+              <button class="btn-cart">Agregar al carrito</button>
+            </div>
+          
+          </div>
+        </div>   
+
       </div>
     </section>
+
+        <section class="best-sellers">
+          <div class="section-header">
+            <p class="section-title">Lo mejor en <a href="#">Productos recomendados</a></p>
+            <div>
+              <a href="#" class="view-all">Ver más →</a>
+              <button class="slider-btn prev">&lt;</button> 
+              <button class="slider-btn next">&gt;</button>
+            </div>
+          </div>
+          <div class="slider-wrapper">
+            <div class="best-sellers-container" id="bestSellersSlider">  
+              <article class="product-card">
+                <button class="fav-btn">♡</button>
+          
+                <div class="product-image">
+                  <img src="assets/products/clothes/sports/discos olímpicos.png" alt="Producto">
+                </div> 
+                <h3 class="product-title">Silla Ergonómica Gamer Reclinable con Luce...</h3>
+                <div class="product-rating">
+                  <span>$899.999</span>
+                  <span class="star">★ 4.5</span>
+                </div>
+                <div class="product-price">
+                  <span>$539.999</span>
+                  <span>40% OFF</span>
+                </div>
+                <span>12 cuotas de $89.999</span>
+                <div class="product-actions">
+                  <div>
+                    <a href="paginaProducto.html"><button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button></a>
+                  </div>
+                </div>
+              </article> 
+              <article class="product-card">
+                <button class="fav-btn">♡</button>    
+                <div class="product-image">
+                  <img src="assets/products/home/heladera.png" alt="Producto">
+                </div> 
+                <h3 class="product-title">Heladera No Frost Whirlpool 400L Inverter</h3>
+                <div class="product-rating">
+                  <span>$899.999</span>
+                  <span class="star">★ 4.5</span>
+                </div>
+                <div class="product-price">
+                  <span>$539.999</span>
+                  <span>40% OFF</span>
+                </div>
+                <span>12 cuotas de $89.999</span>
+                <div class="product-actions">
+                  <div>
+                    <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
+                  </div>
+                </div>
+              </article> 
+              <article class="product-card">
+                <button class="fav-btn">♡</button>    
+                <div class="product-image">
+                  <img src="assets/products/home/single sofa.png" alt="Producto">
+                </div> 
+                <h3 class="product-title">Heladera No Frost Whirlpool 400L Inverter</h3>
+                <div class="product-rating">
+                  <span>$899.999</span>
+                  <span class="star">★ 4.5</span>
+                </div>
+                <div class="product-price">
+                  <span>$539.999</span>
+                  <span>40% OFF</span>
+                </div>
+                <span>12 cuotas de $89.999</span>
+                <div class="product-actions">
+                  <div>
+                    <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
+                  </div>
+                </div>
+              </article> 
+              <article class="product-card">
+                <button class="fav-btn">♡</button>
+          
+                <div class="product-image">
+                  <img src="assets/products/home/lavarropas.jpg" alt="Producto">
+                </div> 
+                <h3 class="product-title">Lavarropas Automático Drean 8kg EcoSilent</h3>
+                <div class="product-rating">
+                  <span>$899.999</span>
+                  <span class="star">★ 4.5</span>
+                </div>
+                <div class="product-price">
+                  <span>$539.999</span>
+                  <span>40% OFF</span>
+                </div>
+                <span>12 cuotas de $89.999</span>
+                <div class="product-actions">
+                  <div>
+                    <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
+                  </div>
+                </div>
+              </article> 
+              <article class="product-card">
+                <button class="fav-btn">♡</button>
+          
+                <div class="product-image">
+                  <img src="assets/products/electronics/adiculares.png" alt="Producto">
+                </div> 
+                <h3 class="product-title">Auricular Bluetooth inalámbrico</h3>
+                <div class="product-rating">
+                  <span>$899.999</span>
+                  <span class="star">★ 4.5</span>
+                </div>
+                <div class="product-price">
+                  <span>$539.999</span>
+                  <span>FREE <i class="fa-regular fa-truck"></i></span>
+                </div>
+                <span>12 cuotas de $89.999</span>
+                <div class="product-actions">
+                  <div>
+                    <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
+                  </div>
+                </div>
+              </article>    
+              <article class="product-card">
+                <button class="fav-btn">♡</button>
+          
+                <div class="product-image">
+                  <img src="assets/products/electronics/silla gamer.jpg" alt="Producto">
+                </div> 
+                <h3 class="product-title">Silla Ergonómica Gamer Reclinable con Luce...</h3>
+                <div class="product-rating">
+                  <span>$899.999</span>
+                  <span class="star">★ 4.5</span>
+                </div>
+                <div class="product-price">
+                  <span>$539.999</span>
+                  <span>40% OFF</span>
+                </div>
+                <span>12 cuotas de $89.999</span>
+                <div class="product-actions">
+                  <div>
+                    <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
+                  </div>
+                </div>
+              </article> 
+              <article class="product-card">
+                <button class="fav-btn">♡</button>    
+                <div class="product-image">
+                  <img src="assets/products/home/heladera.png" alt="Producto">
+                </div> 
+                <h3 class="product-title">Heladera No Frost Whirlpool 400L Inverter</h3>
+                <div class="product-rating">
+                  <span>$899.999</span>
+                  <span class="star">★ 4.5</span>
+                </div>
+                <div class="product-price">
+                  <span>$539.999</span>
+                  <span>40% OFF</span>
+                </div>
+                <span>12 cuotas de $89.999</span>
+                <div class="product-actions">
+                  <div>
+                    <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
+                  </div>
+                </div>
+              </article> 
+              <article class="product-card">
+                <button class="fav-btn">♡</button>
+          
+                <div class="product-image">
+                  <img src="assets/products/home/lavarropas.jpg" alt="Producto">
+                </div> 
+                <h3 class="product-title">Lavarropas Automático Drean 8kg EcoSilent</h3>
+                <div class="product-rating">
+                  <span>$899.999</span>
+                  <span class="star">★ 4.5</span>
+                </div>
+                <div class="product-price">
+                  <span>$539.999</span>
+                  <span>40% OFF</span>
+                </div>
+                <span>12 cuotas de $89.999</span>
+                <div class="product-actions">
+                  <div>
+                    <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
+                  </div>
+                </div>
+              </article> 
+              <article class="product-card">
+                <button class="fav-btn">♡</button>
+          
+                <div class="product-image">
+                  <img src="assets/products/clothes/sports/Zapatilla Nike.png" alt="Producto">
+                </div> 
+                <h3 class="product-title">Zapatillas Nike Air Max 270 Hombre Originales</h3>
+                <div class="product-rating">
+                  <span>$899.999</span>
+                  <span class="star">★ 4.5</span>
+                </div>
+                <div class="product-price">
+                  <span>$539.999</span>
+                  <span>40% OFF</span>
+                </div>
+                <span>12 cuotas de $89.999</span>
+                <div class="product-actions">
+                  <div>
+                    <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
+                  </div>
+                </div>
+              </article> 
+              <article class="product-card">
+                <button class="fav-btn">♡</button>
+          
+                <div class="product-image">
+                  <img src="assets/products/electronics/adiculares.png" alt="Producto">
+                </div> 
+                <h3 class="product-title">Auricular Bluetooth inalámbrico</h3>
+                <div class="product-rating">
+                  <span>$899.999</span>
+                  <span class="star">★ 4.5</span>
+                </div>
+                <div class="product-price">
+                  <span>$539.999</span>
+                  <span>FREE <i class="fa-regular fa-truck"></i></span>
+                </div>
+                <span>12 cuotas de $89.999</span>
+                <div class="product-actions">
+                  <div>
+                    <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
+                  </div>
+                </div>
+              </article> 
+            </div>
+          </div>
+        </section>
+
+        <section class="promo-banners">
+          <div class="banner">
+            <img src="assets/ads/Anuncio 1.webp" alt="Promo Higienol">
+          </div>
+        
+          <div class="banner">
+            <img src="assets/ads/Anuncio 2.webp" alt="Promo Comfort">
+          </div>
+        
+        </section>
+        <!--<section class="bannerPublicitario3">
+            <a href=""><img src="assets/ads/anuncio horizontal.png" alt=""></a>
+        </section>-->
   </main>
 
   <!-- Footer -->
@@ -258,6 +542,8 @@
   </footer>
   <!-- JS -->
   <script src="js/paginaProducto/script.js"></script>
+  <script src="Javascript/home/product-slider.js"></script>
+  <script src="Javascript/producto/script.js"></script>
 </body>
 </html>
 

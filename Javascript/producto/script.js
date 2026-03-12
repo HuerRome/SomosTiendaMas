@@ -59,3 +59,35 @@ zoomArea.classList.remove("zoomed");
 mainImage.style.transformOrigin = "center";
 
 });
+
+
+/*----------------------- Controles de cantidad ------------------------------*/
+const minus = document.querySelector(".minus");
+const plus = document.querySelector(".plus");
+const input = document.querySelector(".qty-input");
+
+minus.addEventListener("click", () => {
+  let value = parseInt(input.value);
+  if(value > 1){
+    input.value = value - 1;
+  }
+});
+
+plus.addEventListener("click", () => {
+  let value = parseInt(input.value);
+  input.value = value + 1;
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
