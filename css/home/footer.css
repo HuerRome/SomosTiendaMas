@@ -180,40 +180,42 @@
 /* margin-top. 48px; */
 
 /*----------------------- brands we work with -----------------------*/
+
 .brands {
   padding: 60px 0;
+  padding: 48px 0 48px;
 }
 
 .container {
   width: 90%;
-  
-  margin: auto;
+  margin: 0 auto;
 }
 
 /* GRID DESKTOP */
 .brands-wrapper {
   display: grid;
   grid-template-columns: repeat(8, 1fr);
+  justify-items: center;
   gap: 30px;
 }
 
 /* CIRCULOS */
+
 .brand-item {
   background: #fff;
   border-radius: 50%;
   width: 120px;
   height: 120px;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: auto;
+
   box-shadow: 0 2px 6px rgba(0,0,0,0.05);
   transition: transform 0.3s ease;
 }
 
 .brand-item img {
-  max-width: 70%;
-  max-height: 60%;
   max-width: 80%;
   max-height: 70%;
   object-fit: contain;
@@ -224,6 +226,7 @@
 }
 
 /* TABLET */
+
 @media (max-width: 1024px) {
   .brands-wrapper {
     grid-template-columns: repeat(4, 1fr);
@@ -231,7 +234,11 @@
 }
 
 /* MOBILE → SLIDER */
+
 @media (max-width: 768px) {
+  .brands {
+    padding: 48px 0 24px;
+  }
 
   .brands-wrapper {
     display: flex;
@@ -248,7 +255,8 @@
     scroll-snap-align: start;
   }
 
-  /* Oculta scrollbar en mobile */
+  /* Ocultar scrollbar */
+
   .brands-wrapper::-webkit-scrollbar {
     display: none;
   }
@@ -257,8 +265,8 @@
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
-}
 
+}
 
 /*------------------ Vender en TiendaMas ------------------*/
 #vender{
