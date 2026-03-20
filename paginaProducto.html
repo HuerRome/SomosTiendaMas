@@ -125,22 +125,22 @@
         <!-- GALERIA -->
         <div class="product-gallery">
           <div class="thumbnails">
-            <img src="assets/secciones de la página - producto/(4)Moda(ropa y calzado)/1.jpg" data-img="img/p1.jpg" class="thumb active">
-            <img src="assets/secciones de la página - producto/(4)Moda(ropa y calzado)/2.jpg" data-img="img/p2.jpg" class="thumb">
-            <img src="assets/secciones de la página - producto/(4)Moda(ropa y calzado)/3.jpg" data-img="img/p3.jpg" class="thumb">
-            <img src="assets/secciones de la página - producto/(4)Moda(ropa y calzado)/4.jpg" data-img="img/p4.jpg" class="thumb">
-            <img src="assets/secciones de la página - producto/(4)Moda(ropa y calzado)/5.jpg" data-img="img/p5.jpg" class="thumb">
+            <img src="assets/secciones de la página - producto/(4)Moda(ropa y calzado)/1.jpg" data-image="assets/secciones de la página - producto/(4)Moda(ropa y calzado)/1.jpg" class="thumb active" alt="Miniatura 1">
+            <img src="assets/secciones de la página - producto/(4)Moda(ropa y calzado)/2.jpg" data-image="assets/secciones de la página - producto/(4)Moda(ropa y calzado)/2.jpg" class="thumb" alt="Miniatura 2">
+            <img src="assets/secciones de la página - producto/(4)Moda(ropa y calzado)/3.jpg" data-image="assets/secciones de la página - producto/(4)Moda(ropa y calzado)/3.jpg" class="thumb" alt="Miniatura 3">
+            <img src="assets/secciones de la página - producto/(4)Moda(ropa y calzado)/4.jpg" data-image="assets/secciones de la página - producto/(4)Moda(ropa y calzado)/4.jpg" class="thumb" alt="Miniatura 4">
+            <img src="assets/secciones de la página - producto/(4)Moda(ropa y calzado)/5.jpg" data-image="assets/secciones de la página - producto/(4)Moda(ropa y calzado)/5.jpg" class="thumb" alt="Miniatura 5">
           </div>
-          <div class="main-image">
+        
+          <div class="main-image zoom-area">
             <button class="share-btn">
               <i class="fa-solid fa-share-nodes"></i>
             </button>
-      
-            <img id="mainImage" src="assets/secciones de la página - producto/(4)Moda(ropa y calzado)/1.jpg">
-      
+        
+            <img id="mainImage" src="assets/secciones de la página - producto/(4)Moda(ropa y calzado)/1.jpg" alt="Producto principal">
           </div>
-        </div>
-      
+        </div>        
+
         <!-- INFO PRODUCTO -->
         <div class="product-info">
           <a class="brand-link">Ver más productos marca Narkis</a>
@@ -189,28 +189,13 @@
             <span>Devolución gratis</span>
             <p>Tenés 30 días desde que lo recibís.</p>
           </div>
-          <div class="color-selector">
-            <label>Color: Negro</label>
-            <select>
-              <option>Negro</option>
-              <option>Gris</option>
-              <option>Blanco</option>
-            </select>
-          </div> 
-          <div class="quantity-selector">
-            <label>Cantidad</label>
-            <div class="quantity-counter">
-              <button class="qty-btn minus">−</button>
-              <input type="number" value="1" min="1" class="qty-input">
-              <button class="qty-btn plus">+</button>
-            </div>
-          </div>
+
           <div class="shipping-buy-box">   
             <div class="shipping-option">
               <i class="fa-solid fa-truck"></i>
               <div>
                 <p>
-                  Envío a <a href="#">Capital Federal (1406)</a>
+                  Envío a <a href="#">Catamarca (4700)</a>
                   <strong>$4.499</strong>
                 </p>
                 <span>Entrega estimada 5 días hábiles</span>
@@ -223,263 +208,343 @@
                 <a href="#" class="store-link">Ver sucursales</a>
               </div>
             </div>             
-            <div class="divider"></div>         
+            <div class="divider"></div> 
+            <!--
+            <div class="quantity-selector">
+              <label>Cantidad</label>
+              <div class="quantity-counter">
+                <button class="qty-btn minus">−</button>
+                <input type="number" value="1" min="1" class="qty-input">
+                <button class="qty-btn plus">+</button>
+              </div>
+            </div>   
+            -->
+            <div class="quantity-selector">
+              <label class="quantity-label">
+                Cantidad: <span id="qtyText">1 unidad</span>
+                <span class="stock-info">(+10 disponibles)</span>
+              </label>
+            
+              <div class="quantity-counter">
+                <button class="qty-btn minus">−</button>
+                <input type="number" value="1" min="1" class="qty-input">
+                <button class="qty-btn plus">+</button>
+              </div>
+            </div>
+            
+            <div class="size-selector">
+              <label>Talle: <span id="selectedSize">Elegí</span></label>
+            
+              <div class="size-options">
+                <button class="size-btn" data-size="S">S</button>
+                <button class="size-btn" data-size="M">M</button>
+                <button class="size-btn" data-size="L">L</button>
+                <button class="size-btn" data-size="XL">XL</button>
+                <button class="size-btn" data-size="XXL">XXL<br><small>2XL</small></button>
+              </div>
+            
+              <a href="#" class="size-guide"><i class="fa-solid fa-ruler-horizontal"></i> Guía de talles</a>
+            </div>            
+
+            <div class="color-selector">
+              <label>Color: Negro</label>
+              <select>
+                <option>Negro</option>
+                <option>Marron</option>
+                <option>Gris</option>
+                <option>Blanco</option>
+              </select>
+            </div> 
+            <div class="divider"></div> 
             <div class="buy-buttons">
               <button class="btn-buy">Comprar</button>
               <button class="btn-cart">Agregar al carrito</button>
             </div>
-          
           </div>
         </div>   
-
       </div>
     </section>
-
-        <section class="best-sellers">
-          <div class="section-header">
-            <p class="section-title">Lo mejor en <a href="#">Productos recomendados</a></p>
-            <div>
-              <a href="#" class="view-all">Ver más →</a>
-              <button class="slider-btn prev">&lt;</button> 
-              <button class="slider-btn next">&gt;</button>
+    <section class="product-features">
+      <h2 class="features-title">Características del producto</h2>
+      <div class="features-grid" id="featuresGrid">
+        <div class="feature-item">
+          <div class="feature-icon"><i class="fa-solid fa-tag"></i></div>
+          <div class="feature-text"><span class="feature-label">Marca:</span> Alpina</div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon"><i class="fa-regular fa-circle-check"></i></div>
+          <div class="feature-text"><span class="feature-label">Capucha:</span> Sí</div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon"><i class="fa-solid fa-snowflake"></i></div>
+          <div class="feature-text"><span class="feature-label">Temporada de lanzamiento:</span> Otoño/Invierno</div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon"><i class="fa-solid fa-layer-group"></i></div>
+          <div class="feature-text"><span class="feature-label">Material principal:</span> Frizada / Algodón Rústico / Polar</div>
+        </div>
+    
+        <!-- Características extra (ocultas al inicio) -->
+        <div class="feature-item extra">
+          <div class="feature-icon"><i class="fa-solid fa-hands-bubbles"></i></div>
+          <div class="feature-text"><span class="feature-label">Lavado:</span> A máquina</div>
+        </div>   
+        <div class="feature-item extra">
+          <div class="feature-icon"><i class="fa-solid fa-vest"></i></div>
+          <div class="feature-text"><span class="feature-label">Tipo de calce:</span> Regular</div>
+        </div>
+    
+      </div>
+    
+      <button class="features-toggle" id="toggleFeatures">
+        Ver todas las características
+        <span class="arrow">▼</span>
+      </button>
+    </section>
+    <section class="best-sellers">
+      <div class="section-header">
+        <p class="section-title">Lo mejor en <a href="#">Productos recomendados</a></p>
+        <div>
+          <a href="#" class="view-all">Ver más →</a>
+          <button class="slider-btn prev">&lt;</button> 
+          <button class="slider-btn next">&gt;</button>
+        </div>
+      </div>
+      <div class="slider-wrapper">
+        <div class="best-sellers-container" id="bestSellersSlider">  
+          <article class="product-card">
+            <button class="fav-btn">♡</button>
+      
+            <div class="product-image">
+              <img src="assets/products/clothes/sports/discos olímpicos.png" alt="Producto">
+            </div> 
+            <h3 class="product-title">Silla Ergonómica Gamer Reclinable con Luce...</h3>
+            <div class="product-rating">
+              <span>$899.999</span>
+              <span class="star">★ 4.5</span>
             </div>
-          </div>
-          <div class="slider-wrapper">
-            <div class="best-sellers-container" id="bestSellersSlider">  
-              <article class="product-card">
-                <button class="fav-btn">♡</button>
-          
-                <div class="product-image">
-                  <img src="assets/products/clothes/sports/discos olímpicos.png" alt="Producto">
-                </div> 
-                <h3 class="product-title">Silla Ergonómica Gamer Reclinable con Luce...</h3>
-                <div class="product-rating">
-                  <span>$899.999</span>
-                  <span class="star">★ 4.5</span>
-                </div>
-                <div class="product-price">
-                  <span>$539.999</span>
-                  <span>40% OFF</span>
-                </div>
-                <span>12 cuotas de $89.999</span>
-                <div class="product-actions">
-                  <div>
-                    <a href="paginaProducto.html"><button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button></a>
-                  </div>
-                </div>
-              </article> 
-              <article class="product-card">
-                <button class="fav-btn">♡</button>    
-                <div class="product-image">
-                  <img src="assets/products/home/heladera.png" alt="Producto">
-                </div> 
-                <h3 class="product-title">Heladera No Frost Whirlpool 400L Inverter</h3>
-                <div class="product-rating">
-                  <span>$899.999</span>
-                  <span class="star">★ 4.5</span>
-                </div>
-                <div class="product-price">
-                  <span>$539.999</span>
-                  <span>40% OFF</span>
-                </div>
-                <span>12 cuotas de $89.999</span>
-                <div class="product-actions">
-                  <div>
-                    <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
-                  </div>
-                </div>
-              </article> 
-              <article class="product-card">
-                <button class="fav-btn">♡</button>    
-                <div class="product-image">
-                  <img src="assets/products/home/single sofa.png" alt="Producto">
-                </div> 
-                <h3 class="product-title">Heladera No Frost Whirlpool 400L Inverter</h3>
-                <div class="product-rating">
-                  <span>$899.999</span>
-                  <span class="star">★ 4.5</span>
-                </div>
-                <div class="product-price">
-                  <span>$539.999</span>
-                  <span>40% OFF</span>
-                </div>
-                <span>12 cuotas de $89.999</span>
-                <div class="product-actions">
-                  <div>
-                    <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
-                  </div>
-                </div>
-              </article> 
-              <article class="product-card">
-                <button class="fav-btn">♡</button>
-          
-                <div class="product-image">
-                  <img src="assets/products/home/lavarropas.jpg" alt="Producto">
-                </div> 
-                <h3 class="product-title">Lavarropas Automático Drean 8kg EcoSilent</h3>
-                <div class="product-rating">
-                  <span>$899.999</span>
-                  <span class="star">★ 4.5</span>
-                </div>
-                <div class="product-price">
-                  <span>$539.999</span>
-                  <span>40% OFF</span>
-                </div>
-                <span>12 cuotas de $89.999</span>
-                <div class="product-actions">
-                  <div>
-                    <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
-                  </div>
-                </div>
-              </article> 
-              <article class="product-card">
-                <button class="fav-btn">♡</button>
-          
-                <div class="product-image">
-                  <img src="assets/products/electronics/adiculares.png" alt="Producto">
-                </div> 
-                <h3 class="product-title">Auricular Bluetooth inalámbrico</h3>
-                <div class="product-rating">
-                  <span>$899.999</span>
-                  <span class="star">★ 4.5</span>
-                </div>
-                <div class="product-price">
-                  <span>$539.999</span>
-                  <span>FREE <i class="fa-regular fa-truck"></i></span>
-                </div>
-                <span>12 cuotas de $89.999</span>
-                <div class="product-actions">
-                  <div>
-                    <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
-                  </div>
-                </div>
-              </article>    
-              <article class="product-card">
-                <button class="fav-btn">♡</button>
-          
-                <div class="product-image">
-                  <img src="assets/products/electronics/silla gamer.jpg" alt="Producto">
-                </div> 
-                <h3 class="product-title">Silla Ergonómica Gamer Reclinable con Luce...</h3>
-                <div class="product-rating">
-                  <span>$899.999</span>
-                  <span class="star">★ 4.5</span>
-                </div>
-                <div class="product-price">
-                  <span>$539.999</span>
-                  <span>40% OFF</span>
-                </div>
-                <span>12 cuotas de $89.999</span>
-                <div class="product-actions">
-                  <div>
-                    <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
-                  </div>
-                </div>
-              </article> 
-              <article class="product-card">
-                <button class="fav-btn">♡</button>    
-                <div class="product-image">
-                  <img src="assets/products/home/heladera.png" alt="Producto">
-                </div> 
-                <h3 class="product-title">Heladera No Frost Whirlpool 400L Inverter</h3>
-                <div class="product-rating">
-                  <span>$899.999</span>
-                  <span class="star">★ 4.5</span>
-                </div>
-                <div class="product-price">
-                  <span>$539.999</span>
-                  <span>40% OFF</span>
-                </div>
-                <span>12 cuotas de $89.999</span>
-                <div class="product-actions">
-                  <div>
-                    <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
-                  </div>
-                </div>
-              </article> 
-              <article class="product-card">
-                <button class="fav-btn">♡</button>
-          
-                <div class="product-image">
-                  <img src="assets/products/home/lavarropas.jpg" alt="Producto">
-                </div> 
-                <h3 class="product-title">Lavarropas Automático Drean 8kg EcoSilent</h3>
-                <div class="product-rating">
-                  <span>$899.999</span>
-                  <span class="star">★ 4.5</span>
-                </div>
-                <div class="product-price">
-                  <span>$539.999</span>
-                  <span>40% OFF</span>
-                </div>
-                <span>12 cuotas de $89.999</span>
-                <div class="product-actions">
-                  <div>
-                    <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
-                  </div>
-                </div>
-              </article> 
-              <article class="product-card">
-                <button class="fav-btn">♡</button>
-          
-                <div class="product-image">
-                  <img src="assets/products/clothes/sports/Zapatilla Nike.png" alt="Producto">
-                </div> 
-                <h3 class="product-title">Zapatillas Nike Air Max 270 Hombre Originales</h3>
-                <div class="product-rating">
-                  <span>$899.999</span>
-                  <span class="star">★ 4.5</span>
-                </div>
-                <div class="product-price">
-                  <span>$539.999</span>
-                  <span>40% OFF</span>
-                </div>
-                <span>12 cuotas de $89.999</span>
-                <div class="product-actions">
-                  <div>
-                    <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
-                  </div>
-                </div>
-              </article> 
-              <article class="product-card">
-                <button class="fav-btn">♡</button>
-          
-                <div class="product-image">
-                  <img src="assets/products/electronics/adiculares.png" alt="Producto">
-                </div> 
-                <h3 class="product-title">Auricular Bluetooth inalámbrico</h3>
-                <div class="product-rating">
-                  <span>$899.999</span>
-                  <span class="star">★ 4.5</span>
-                </div>
-                <div class="product-price">
-                  <span>$539.999</span>
-                  <span>FREE <i class="fa-regular fa-truck"></i></span>
-                </div>
-                <span>12 cuotas de $89.999</span>
-                <div class="product-actions">
-                  <div>
-                    <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
-                  </div>
-                </div>
-              </article> 
+            <div class="product-price">
+              <span>$539.999</span>
+              <span>40% OFF</span>
             </div>
-          </div>
-        </section>
-
-        <section class="promo-banners">
-          <div class="banner">
-            <img src="assets/ads/Anuncio 1.webp" alt="Promo Higienol">
-          </div>
-        
-          <div class="banner">
-            <img src="assets/ads/Anuncio 2.webp" alt="Promo Comfort">
-          </div>
-        
-        </section>
-        <!--<section class="bannerPublicitario3">
-            <a href=""><img src="assets/ads/anuncio horizontal.png" alt=""></a>
-        </section>-->
+            <span>12 cuotas de $89.999</span>
+            <div class="product-actions">
+              <div>
+                <a href="paginaProducto.html"><button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button></a>
+              </div>
+            </div>
+          </article> 
+          <article class="product-card">
+            <button class="fav-btn">♡</button>    
+            <div class="product-image">
+              <img src="assets/products/home/heladera.png" alt="Producto">
+            </div> 
+            <h3 class="product-title">Heladera No Frost Whirlpool 400L Inverter</h3>
+            <div class="product-rating">
+              <span>$899.999</span>
+              <span class="star">★ 4.5</span>
+            </div>
+            <div class="product-price">
+              <span>$539.999</span>
+              <span>40% OFF</span>
+            </div>
+            <span>12 cuotas de $89.999</span>
+            <div class="product-actions">
+              <div>
+                <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
+              </div>
+            </div>
+          </article> 
+          <article class="product-card">
+            <button class="fav-btn">♡</button>    
+            <div class="product-image">
+              <img src="assets/products/home/single sofa.png" alt="Producto">
+            </div> 
+            <h3 class="product-title">Heladera No Frost Whirlpool 400L Inverter</h3>
+            <div class="product-rating">
+              <span>$899.999</span>
+              <span class="star">★ 4.5</span>
+            </div>
+            <div class="product-price">
+              <span>$539.999</span>
+              <span>40% OFF</span>
+            </div>
+            <span>12 cuotas de $89.999</span>
+            <div class="product-actions">
+              <div>
+                <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
+              </div>
+            </div>
+          </article> 
+          <article class="product-card">
+            <button class="fav-btn">♡</button>
+      
+            <div class="product-image">
+              <img src="assets/products/home/lavarropas.jpg" alt="Producto">
+            </div> 
+            <h3 class="product-title">Lavarropas Automático Drean 8kg EcoSilent</h3>
+            <div class="product-rating">
+              <span>$899.999</span>
+              <span class="star">★ 4.5</span>
+            </div>
+            <div class="product-price">
+              <span>$539.999</span>
+              <span>40% OFF</span>
+            </div>
+            <span>12 cuotas de $89.999</span>
+            <div class="product-actions">
+              <div>
+                <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
+              </div>
+            </div>
+          </article> 
+          <article class="product-card">
+            <button class="fav-btn">♡</button>
+      
+            <div class="product-image">
+              <img src="assets/products/electronics/adiculares.png" alt="Producto">
+            </div> 
+            <h3 class="product-title">Auricular Bluetooth inalámbrico</h3>
+            <div class="product-rating">
+              <span>$899.999</span>
+              <span class="star">★ 4.5</span>
+            </div>
+            <div class="product-price">
+              <span>$539.999</span>
+              <span>FREE <i class="fa-regular fa-truck"></i></span>
+            </div>
+            <span>12 cuotas de $89.999</span>
+            <div class="product-actions">
+              <div>
+                <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
+              </div>
+            </div>
+          </article>    
+          <article class="product-card">
+            <button class="fav-btn">♡</button>
+      
+            <div class="product-image">
+              <img src="assets/products/electronics/silla gamer.jpg" alt="Producto">
+            </div> 
+            <h3 class="product-title">Silla Ergonómica Gamer Reclinable con Luce...</h3>
+            <div class="product-rating">
+              <span>$899.999</span>
+              <span class="star">★ 4.5</span>
+            </div>
+            <div class="product-price">
+              <span>$539.999</span>
+              <span>40% OFF</span>
+            </div>
+            <span>12 cuotas de $89.999</span>
+            <div class="product-actions">
+              <div>
+                <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
+              </div>
+            </div>
+          </article> 
+          <article class="product-card">
+            <button class="fav-btn">♡</button>    
+            <div class="product-image">
+              <img src="assets/products/home/heladera.png" alt="Producto">
+            </div> 
+            <h3 class="product-title">Heladera No Frost Whirlpool 400L Inverter</h3>
+            <div class="product-rating">
+              <span>$899.999</span>
+              <span class="star">★ 4.5</span>
+            </div>
+            <div class="product-price">
+              <span>$539.999</span>
+              <span>40% OFF</span>
+            </div>
+            <span>12 cuotas de $89.999</span>
+            <div class="product-actions">
+              <div>
+                <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
+              </div>
+            </div>
+          </article> 
+          <article class="product-card">
+            <button class="fav-btn">♡</button>
+      
+            <div class="product-image">
+              <img src="assets/products/home/lavarropas.jpg" alt="Producto">
+            </div> 
+            <h3 class="product-title">Lavarropas Automático Drean 8kg EcoSilent</h3>
+            <div class="product-rating">
+              <span>$899.999</span>
+              <span class="star">★ 4.5</span>
+            </div>
+            <div class="product-price">
+              <span>$539.999</span>
+              <span>40% OFF</span>
+            </div>
+            <span>12 cuotas de $89.999</span>
+            <div class="product-actions">
+              <div>
+                <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
+              </div>
+            </div>
+          </article> 
+          <article class="product-card">
+            <button class="fav-btn">♡</button>
+      
+            <div class="product-image">
+              <img src="assets/products/clothes/sports/Zapatilla Nike.png" alt="Producto">
+            </div> 
+            <h3 class="product-title">Zapatillas Nike Air Max 270 Hombre Originales</h3>
+            <div class="product-rating">
+              <span>$899.999</span>
+              <span class="star">★ 4.5</span>
+            </div>
+            <div class="product-price">
+              <span>$539.999</span>
+              <span>40% OFF</span>
+            </div>
+            <span>12 cuotas de $89.999</span>
+            <div class="product-actions">
+              <div>
+                <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
+              </div>
+            </div>
+          </article> 
+          <article class="product-card">
+            <button class="fav-btn">♡</button>
+      
+            <div class="product-image">
+              <img src="assets/products/electronics/adiculares.png" alt="Producto">
+            </div> 
+            <h3 class="product-title">Auricular Bluetooth inalámbrico</h3>
+            <div class="product-rating">
+              <span>$899.999</span>
+              <span class="star">★ 4.5</span>
+            </div>
+            <div class="product-price">
+              <span>$539.999</span>
+              <span>FREE <i class="fa-regular fa-truck"></i></span>
+            </div>
+            <span>12 cuotas de $89.999</span>
+            <div class="product-actions">
+              <div>
+                <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
+              </div>
+            </div>
+          </article> 
+        </div>
+      </div>
+    </section>
+    <section class="promo-banners">
+      <div class="banner">
+        <img src="assets/ads/Anuncio 1.webp" alt="Promo Higienol">
+      </div>
+    
+      <div class="banner">
+        <img src="assets/ads/Anuncio 2.webp" alt="Promo Comfort">
+      </div>
+    
+    </section>
+    <!--<section class="bannerPublicitario3">
+        <a href=""><img src="assets/ads/anuncio horizontal.png" alt=""></a>
+    </section>-->
   </main>
 
   <!-- Footer -->

@@ -77,99 +77,91 @@
 }
 
 /*--------------------------------------- Imagen del producto -----------------------------------*/
-.product-page{
-padding:20px;
-padding: 20px 0;
-margin: 0 4rem;
+.product-page {
+  padding: 20px 0;
+  margin: 0 4rem;
 }
 
-.product-container{
-display:grid;
-grid-template-columns: 1.2fr 1fr;
-gap:40px;
+.product-container {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 40px;
 }
 
 /* GALERIA */
-.product-gallery{
-display:flex;
-gap:15px;
-}
-
-/* Aqui esta el cambio del position sticky*/
-.product-gallery{
-display:flex;
-gap:15px;
-top: 20px;
-align-self: start;
+.product-gallery {
+  display: flex;
+  gap: 15px;
+  top: 20px;
+  align-self: start;
 }
 
 /* SOLO desktop */
-@media (min-width: 1025px){
-  .product-gallery{
+@media (min-width: 1025px) {
+  .product-gallery {
     position: sticky;
   }
-
 }
 
-/*-------------------------------------------*/
-.thumbnails{
-display:flex;
-flex-direction:column;
-gap:10px;
+.thumbnails {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-.thumb{
-width:70px;
-height:70px;
-object-fit:cover;
-border:1px solid #ddd;
-border-radius:6px;
-cursor:pointer;
+.thumb {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: border 0.2s ease, transform 0.2s ease;
 }
 
-.thumb.active{
-border:2px solid #3483fa;
+.thumb:hover {
+  transform: scale(1.03);
 }
 
-.main-image{
-position:relative;
-background:#f5f5f5;
-border-radius:10px;
-padding:20px;
-display:flex;
-justify-content:center;
-align-items:center;
+.thumb.active {
+  border: 2px solid #3483fa;
 }
 
-.main-image img{
-
-max-width:100%;
-max-height:500px;
-object-fit:contain;
-
+.main-image {
+  position: relative;
+  background: #f5f5f5;
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
 }
 
-.share-btn{
-
-position:absolute;
-
-top:10px;
-right:10px;
-
-background:white;
-border:none;
-
-width:40px;
-height:40px;
-
-border-radius:8px;
-
-cursor:pointer;
-
-box-shadow:0 2px 6px rgba(0,0,0,0.15);
-
+.main-image img {
+  max-width: 100%;
+  max-height: 500px;
+  object-fit: contain;
+  transition: transform 0.2s ease;
 }
 
+.main-image.zoomed img {
+  transform: scale(1.6);
+}
+
+.share-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: white;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  z-index: 2;
+}
 
 /* INFO */
 
@@ -364,6 +356,82 @@ font-size:30px;
 }
 
 /*--------------------------------------------------- Detalles del producto -----------------------------------------------*/
+
+/*--------------------- Selector de talla ----------------------*/
+.size-selector {
+  margin-top: 18px;
+}
+
+.size-selector label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+#selectedSize {
+  font-weight: 500;
+}
+
+.size-options {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.size-btn {
+  width: 56px;
+  height: 56px;
+  border: 1px solid #ccc;
+  background: #fff;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.size-btn small {
+  font-size: 10px;
+  margin-top: 2px;
+}
+
+.size-btn:hover {
+  border-color: #7b2cff;
+}
+
+.size-btn.active {
+  border: 2px solid #7b2cff;
+  background: #f3edff;
+  font-weight: 600;
+  
+}
+
+.size-guide {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 13px;
+  color: #3483fa;
+  text-decoration: none;
+}
+
+@media (max-width: 480px) {
+  .size-options {
+    gap: 8px;
+  }
+
+  .size-btn {
+    flex: 1;
+    height: 50px;
+    width: auto; 
+  }
+}
+
+
+/*--------------------- Datos de la compra antes de dar click en carrito ---------------------*/
 .best-sellers{
   margin: 0 4rem;
   margin-bottom: 20px;
@@ -609,3 +677,74 @@ background:#cfc5ea;
     scrollbar-width: none;
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*----------------------- Stock disponible ---------------------*/
+/* LABEL CON STOCK */
+.quantity-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  color: #333;
+  flex-wrap: wrap;
+}
+
+#qtyText {
+  font-weight: 500;
+}
+
+/* TEXTO STOCK */
+.stock-info {
+  color: #777;
+  font-size: 13px;
+}
+
+/* MOBILE AJUSTE */
+@media (max-width: 480px) {
+  .quantity-label {
+    font-size: 13px;
+  }
+
+  .stock-info {
+    font-size: 12px;
+  }
+}
+
+
+
+
+
+

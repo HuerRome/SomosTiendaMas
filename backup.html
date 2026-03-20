@@ -1132,4 +1132,97 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.size-selector {
+  margin-top: 18px;
+}
+
+.size-selector label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+#selectedSize {
+  font-weight: 500;
+}
+
+/* CONTENEDOR */
+.size-options {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* BOTONES */
+.size-btn {
+  min-width: 48px;
+  padding: 10px 14px;
+  border: 1px solid #ccc;
+  background: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s ease;
+  text-align: center;
+}
+
+/* TEXTO CHICO (2XL) */
+.size-btn small {
+  font-size: 10px;
+  display: block;
+  margin-top: 2px;
+}
+
+/* HOVER */
+.size-btn:hover {
+  border-color: #7b2cff;
+}
+
+/* ACTIVO (seleccionado) */
+.size-btn.active {
+  border: 2px solid #7b2cff;
+  background: #f3edff;
+  font-weight: 600;
+}
+
+/* LINK GUÍA */
+.size-guide {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 13px;
+  color: #3483fa;
+  text-decoration: none;
+}
+
+/* MOBILE */
+@media (max-width: 480px) {
+  .size-options {
+    gap: 8px;
+  }
+
+  .size-btn {
+    flex: 1;
+    min-width: 60px;
+    padding: 10px;
+  }
+}
+
+
+
    
