@@ -38,6 +38,9 @@ document.addEventListener("DOMContentLoaded", () => {
     mobileDrawer.setAttribute("aria-hidden", "true");
     mobileMenuBtn.setAttribute("aria-expanded", "false");
     body.style.overflow = "";
+    // 👉 mejora UX
+    
+    mobileMenuBtn.focus();
   }
 
   function closeAllMobileAccordions() {
@@ -139,9 +142,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
-
-
-
 
 
 
