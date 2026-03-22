@@ -3,9 +3,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   const body = document.body;
 
-  /* =========================
-     ELEMENTOS
-  ========================= */
   const mobileMenuBtn = document.getElementById("mobileMenuBtn");
   const mobileDrawer = document.getElementById("mobileDrawer");
   const mobileDrawerClose = document.getElementById("mobileDrawerClose");
@@ -17,9 +14,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const searchForm = document.getElementById("searchForm");
   const searchInput = document.getElementById("searchInput");
 
-  /* =========================
-     UTILIDADES
-  ========================= */
   function isMobileView() {
     return window.innerWidth <= 768;
   }
@@ -52,9 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  /* =========================
-     DESKTOP DROPDOWNS
-  ========================= */
+  /* Dropdowns desktop */
   desktopDropdownButtons.forEach((btn) => {
     btn.addEventListener("click", (e) => {
       if (isMobileView()) return;
@@ -80,17 +72,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  /* =========================
-     MOBILE DRAWER
-  ========================= */
+  /* Drawer mobile */
   if (mobileMenuBtn) {
     mobileMenuBtn.addEventListener("click", () => {
       const isOpen = mobileDrawer.classList.contains("is-open");
-      if (isOpen) {
-        closeMobileDrawer();
-      } else {
-        openMobileDrawer();
-      }
+      isOpen ? closeMobileDrawer() : openMobileDrawer();
     });
   }
 
@@ -109,9 +95,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  /* =========================
-     ACORDEONES MOBILE
-  ========================= */
+  /* Acordeones mobile */
   mobileAccordionButtons.forEach((btn) => {
     btn.addEventListener("click", () => {
       const section = btn.closest(".mobile-nav__section");
@@ -127,9 +111,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  /* =========================
-     BÚSQUEDA
-  ========================= */
+  /* Submit buscador */
   if (searchForm) {
     searchForm.addEventListener("submit", (e) => {
       e.preventDefault();
@@ -141,17 +123,13 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
-      // CAMBIÁ esta URL por la de tu tienda real
-      const searchUrl = `buscar.html?q=${encodeURIComponent(query)}`;
-
-      // Redirección real
-      window.location.href = searchUrl;
+      // Cambiá esta URL por tu buscador real
+      const url = `buscar.html?q=${encodeURIComponent(query)}`;
+      window.location.href = url;
     });
   }
 
-  /* =========================
-     REAJUSTE AL CAMBIAR TAMAÑO
-  ========================= */
+  /* Resize */
   window.addEventListener("resize", () => {
     if (!isMobileView()) {
       closeMobileDrawer();
@@ -161,5 +139,20 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
