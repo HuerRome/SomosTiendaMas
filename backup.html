@@ -1,556 +1,237 @@
-    <section class="slider-bleed">
-      <div class="slider">
-        <!-- Flechas -->
-        <button class="arrow prev" aria-label="Anterior">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
-                   stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="14 4 6 12 14 20"></polyline>
-              </svg>
-        </button>
-        <button class="arrow next" aria-label="Siguiente">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
-                   stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="10 4 18 12 10 20"></polyline>
-              </svg>
-        </button>
-  
-        <!-- Frame -->
-        <div class="slider-frame">
-          <div class="slider-track">
-            
-            <a href="#" class="slide" aria-label="Ver promoción 1">
-              <picture class="banner-rounded">
-                <source media="(min-width: 1024px)" srcset="assets/banners/bannerFormatoDesktop/1.png">
-                <source media="(min-width: 768px)" srcset="assets/banners/bannerFormatoTablet/1.jpg">
-                <source media="(max-width: 767px)" srcset="assets/banners/bannerFormatoMovil/1.jpg">
-                <img src="assets/banners/bannerFormatoDesktop/1.png" alt="Promoción 1">
-              </picture>
-            </a>
-        
-            <a href="#" class="slide" aria-label="Ver promoción 2">
-              <picture class="banner-rounded">
-                <source media="(min-width: 1024px)" srcset="assets/banners/bannerFormatoDesktop/2.png">
-                <source media="(min-width: 768px)" srcset="assets/banners/bannerFormatoTablet/2.jpg">
-                <source media="(max-width: 767px)" srcset="assets/banners/bannerFormatoMovil/2.png">
-                <img src="assets/banners/bannerFormatoDesktop/2.png" alt="Promoción 2">
-              </picture>
-            </a>
-        
-            <a href="#" class="slide" aria-label="Ver promoción 3">
-              <picture class="banner-rounded">
-                <source media="(min-width: 1024px)" srcset="assets/banners/bannerFormatoDesktop/3.png">
-                <source media="(min-width: 768px)" srcset="assets/banners/bannerFormatoTablet/3.jpg">
-                <source media="(max-width: 767px)" srcset="assets/banners/bannerFormatoMovil/3.png">
-                <img src="assets/banners/bannerFormatoDesktop/3.png" alt="Promoción 3">
-              </picture>
-            </a>
-        
-            <a href="#" class="slide" aria-label="Ver promoción 4">
-              <picture class="banner-rounded">
-                <source media="(min-width: 1024px)" srcset="assets/banners/bannerFormatoDesktop/4.png">
-                <source media="(min-width: 768px)" srcset="assets/banners/bannerFormatoTablet/4.jpg">
-                <source media="(max-width: 767px)" srcset="assets/banners/bannerFormatoMovil/4.png">
-                <img src="assets/banners/bannerFormatoDesktop/4.png" alt="Promoción 4">
-              </picture>
-            </a>
-        
-          </div>
-        </div>
-        <!-- Dots -->
-        <div class="dots"></div>
-  
-      </div>
-    </section>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* ===== RESET BÁSICO ===== */
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
-body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  background: #f5f7fb;
+
+:root {
+  --primary: #2563EB;
+  --orange: #FF6B35;
+  --bg: #f5f7fb;
+  --text: #1e293b;
+  --max-width: 1200px;
 }
-/* ===== FULL BLEED ===== */
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+
+/* =====================
+   SLIDER
+===================== */
 .slider-bleed {
   width: 100vw;
-  max-width: 1300px;
-  width: auto;
-  /*width: calc(100vw - 4rem);*/
-  margin-left: calc(50% - 50vw);
-  margin: 0;
-  margin-left: 0;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
 }
-/* ===== SLIDER ===== */
+
 .slider {
   position: relative;
-  margin: 0 4rem;
-  margin: 0;
 }
 
-/* Frame que recorta SOLO la imagen */
 .slider-frame {
   overflow: hidden;
-  border-radius: 16px; 
+  border-radius: 16px;
 }
 
-/* Track */
 .slider-track {
   display: flex;
-  transition: transform 0.45s ease;
-  touch-action: pan-y;
 }
 
-/* Slide */
 .slide {
-  text-decoration: none;
   min-width: 100%;
 }
 
 .slide img {
   width: 100%;
-  height: auto;
-  display: block;
 }
 
-/* ===== FLECHAS ===== */
+/* ARROWS */
 .arrow {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 64px;
-  height: 64px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
-  border: none;
-  background: #eff1ff;
-  border: solid 6px #ffffff;
-  color: #2563eb;
-  font-size: 20px;
+  background: white;
+  border: 1px solid #ddd;
   cursor: pointer;
-  z-index: 10;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
-.prev { left: -32px; }
-.next { right: -32px; }
+.prev { left: -20px; }
+.next { right: -20px; }
 
-/* ===== DOTS ===== */
-.dots {
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-  margin-top: 12px;
+/* =====================
+   FOOTER
+===================== */
+.footer {
+  background: white;
+  margin-top: 40px;
+  padding: 40px 0;
 }
 
-.dots button {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  border: none;
-  background: #cbd5e1;
-  cursor: pointer;
-  transition: transform 0.2s, background 0.2s;
+.footer__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
 }
 
-.dots button.active {
-  background: #2563eb;
-  transform: scale(1.6);
+.footer h3 {
+  margin-bottom: 10px;
 }
 
-
-@media (max-width:1200px) {
-  .slider-bleed {
-    width: 100vw;
-    max-width: 1200px;
-
-  }
-  
-  .slider {
-    width: 92vw;
-    margin: 0 auto;
-  }
-}
-
-
-/*
-@media (min-width: 481px) {
-  .slider-bleed {
-    width: 100vw;
-    max-width: 1200px;
-    width: 100%;
-  }
-  
-  .slider {
-    width: 92vw;
-  }
-
-  .arrow {
-    display: none;
-  }
-  .slider-frame {
-    border-radius: 12px;
-  }
-  .slider{
-    margin: 0 4vw;
-  }
-  .dots {
-    display: flex;
-    justify-content: center;
-    gap: 8px;
-    margin-top: 8px;
-  }
-  .dots button {
-    width: 4px;
-    height: 4px;
-    border-radius: 50%;
-    border: none;
-    background: #cbd5e1;
-    cursor: pointer;
-    transition: transform 0.2s, background 0.2s;
-  }
-  .dots button.active {
-    background: #2563eb;
-    transform: scale(1.6);
-  }
-}
-*/
-/*
-@media (min-width: 768px) {
-  .slider-bleed {
-    width: 100vw;
-    max-width: 1200px;
-  }
-  
-  .slider {
-    width: 92vw;
-  }
-}
-
-@media (min-width: 1024px) {
-  .slider-bleed {
-    width: 100vw;
-    max-width: 1200px;
-  }
-  
-  .slider {
-    width: 92vw;
-  }
-}
-
-@media (min-width: 1200px) {
-  .slider-bleed {
-    width: 100vw;
-    max-width: 1200px;
-  }
-
-  .slider {
-    width: 92vw;
-  }
-}
-
-@media (min-width: 1440px) {
-
-}
-
-*/
- /* ===== MOBILE ===== */
+/* =====================
+   RESPONSIVE
+===================== */
 @media (max-width: 768px) {
-  .arrow {
-    display: none;
-  }
-  .slider-frame {
-    border-radius: 12px;
-  }
-  .slider{
-    margin: 0 4vw;
-  }
-  .dots {
-    display: flex;
-    justify-content: center;
-    gap: 8px;
-    margin-top: 8px;
-  }
-  .dots button {
-    width: 4px;
-    height: 4px;
-    border-radius: 50%;
-    border: none;
-    background: #cbd5e1;
-    cursor: pointer;
-    transition: transform 0.2s, background 0.2s;
-  }
-  .dots button.active {
-    background: #2563eb;
-    transform: scale(1.6);
+  .footer__grid {
+    grid-template-columns: 1fr;
   }
 }
 
-/* ------------ Media query adaptada para el slider en tablets -----------*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    const track = document.querySelector('.slider-track');
-    const slides = document.querySelectorAll('.slide');
-    const dotsContainer = document.querySelector('.dots');
-    const prevBtn = document.querySelector('.prev');
-    const nextBtn = document.querySelector('.next');
-
-    let index = 0;
-
-    /* Crear dots automáticamente */
-    slides.forEach((_, i) => {
-      const dot = document.createElement('button');
-      if (i === 0) dot.classList.add('active');
-      dot.addEventListener('click', () => goToSlide(i));
-      dotsContainer.appendChild(dot);
-    });
-
-    const dots = dotsContainer.querySelectorAll('button');
-
-    function updateSlider() {
-      track.style.transform = `translateX(-${index * 100}%)`;
-      dots.forEach(dot => dot.classList.remove('active'));
-      dots[index].classList.add('active');
-    }
-
-    function goToSlide(i) {
-      index = i;
-      updateSlider();
-    }
-
-    nextBtn.addEventListener('click', () => {
-      index = (index + 1) % slides.length;
-      updateSlider();
-    });
-
-    prevBtn.addEventListener('click', () => {
-      index = (index - 1 + slides.length) % slides.length;
-      updateSlider();
-    });
-
-    /* Swipe mobile */
-    let startX = 0;
-
-    track.addEventListener('touchstart', e => {
-      startX = e.touches[0].clientX;
-    });
-
-    track.addEventListener('touchend', e => {
-      const endX = e.changedTouches[0].clientX;
-      if (startX - endX > 50) nextBtn.click();
-      if (endX - startX > 50) prevBtn.click();
-    });
-
-    let autoplayDelay = 4000; // 4 segundos
-    let autoplay;
-    
-    function startAutoplay() {
-      autoplay = setInterval(() => {
-        index = (index + 1) % slides.length;
-        updateSlider();
-      }, autoplayDelay);
-    }
-    
-    function stopAutoplay() {
-      clearInterval(autoplay);
-    }
-    
-    // iniciar autoplay
-    startAutoplay();
-
-    track.addEventListener('mouseenter', stopAutoplay);
-    track.addEventListener('mouseleave', startAutoplay);
-    track.addEventListener('touchstart', stopAutoplay);
-    track.addEventListener('touchend', startAutoplay);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.slider-bleed {
-  width: auto;
-  width: 100vw;
-  max-width: 1300px;
-  /*width: calc(100vw - 4rem);*/
-  margin-left: calc(50% - 50vw);
-  margin: 0;
-  margin-left: 0;
+/*-------------------------------- Corrigiendo css -----------------------------------*/
+:root{
+  --tm-orange: #FF6B35;
+  --tm-orange-hover: #E55627;
+  --tm-blue: #004E89;
+  --tm-gray-light: #F8F9FA;
+  --max-width: 1200px;
+  --titulo-naranja:#ffff;
+  --titulo-azul: #2563EB;
 }
-/* ===== SLIDER ===== */
-.slider {
-  position: relative;
-  margin: 0 4rem;
+
+/* Reset básico */
+* {
   margin: 0;
-  
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', system-ui, Arial, sans-serif;
+}
+
+/* Estilos base para toda la página */
+html, body {
+  font-family: sans-serif; /* Cambiala por la fuente que quieras */
+  background-color: #ffffff;
+  background: #F9FAFB;
+  background: #f0f0f0;
+  color: #333333;
+  line-height: 1.5rem;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+
+/* Enlaces */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/*------------------------------------------------------------------------------------------------------------------*/
+/* =====================
+   RESET
+===================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+:root {
+  --color-bg: #ffffff;
+  --color-text: #000000;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.5;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* ==========================================
+   DESARROLLO DE LA PÁGINA WEB
+========================================== */
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.focus-ring:focus {
+  outline: 3px solid rgba(0,78,137,0.18);
+  outline-offset: 3px;
+}
+
+.card-lift {
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.card-lift:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 30px rgba(2,6,23,.08);
+}
+
+.snap-x { scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; }
+.snap-child { scroll-snap-align: start; }
+
+.badge {
+  background: linear-gradient(90deg, var(--tm-orange), var(--tm-orange-hover));
+  color: white;
+  font-weight: 600;
 }

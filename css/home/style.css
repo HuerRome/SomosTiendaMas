@@ -365,24 +365,6 @@ img {
   font-weight: 600;
 }
 
-/*------------ main ----------*/
-main {
-  padding: 0 4rem;  /* PC por defecto */
-}
-
-/* Tablet */
-@media (max-width: 1024px) {
-  main {
-    padding: 0 3vw;
-  }
-}
-
-/* Móvil */
-@media (max-width: 768px) {
-  main {
-    padding: 0 4vw;
-  }
-}
 
 
 /* Go To Top Button */
@@ -423,3 +405,37 @@ main {
     display: none;
   }
 }
+
+
+.page-shell {
+  max-width: 1366px; 
+  margin: 0 auto;    
+  padding: 0 4rem;
+  width: 100%;
+  background: #fff;
+}
+
+@media(max-width: 1100px){
+  .page-shell{
+    padding: 0 2rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .page-shell {
+    padding: 0 2rem;
+  }
+}
+@media (max-width: 768px) {
+  .page-shell {
+    padding: 0 2rem;
+  }
+}
+@media (max-width: 480px) {
+  .page-shell {
+    padding: 0 1rem;
+  }
+}
+
+
+
