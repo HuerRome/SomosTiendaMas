@@ -923,9 +923,18 @@ header,
 
 
 
+
+
+
+
+
+
+
+
+
 /* =========================================================
    PANEL CATEGORÍAS ESTILO MARKETPLACE (desktop / tablet)
-   Inspirado en Carrefour: sidebar izquierda + contenido derecha
+   CON DOBLE SCROLL (izquierda + derecha)
 ========================================================= */
 
 .site-header {
@@ -952,7 +961,9 @@ header,
   transition: transform 0.2s ease;
 }
 
-/* Panel general */
+/* =========================
+   PANEL GENERAL
+========================= */
 .categories-panel {
   position: absolute;
   top: 100%;
@@ -961,17 +972,14 @@ header,
   background: #ffffff;
   border-top: 1px solid #dbe4ef;
   box-shadow: 0 18px 42px rgba(15, 23, 42, 0.12);
-
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
   transform: translateY(-8px);
   transition: opacity 0.22s ease, transform 0.22s ease, visibility 0.22s ease;
-
   z-index: 998;
 }
 
-/* Abierto */
 .site-header.categories-panel-open .categories-panel {
   opacity: 1;
   visibility: visible;
@@ -979,28 +987,68 @@ header,
   transform: translateY(0);
 }
 
-/* Contenedor interior */
+/* =========================
+   CONTENEDOR INTERIOR
+========================= */
 .categories-panel__shell {
   width: 100%;
   max-width: var(--header-max-width);
   margin: 0 auto;
+
   display: grid;
   grid-template-columns: 280px 1fr;
-  min-height: 560px;
-  max-height: min(72vh, 680px);
+
+  /* ALTURA DEL PANEL */
+  height: min(72vh, 680px);
+  height: calc(100vh - 112px);
+  padding-inline: 4rem;
   background: #fff;
+
+  /* 🔥 CLAVE para que funcionen los scrolls internos */
+  overflow: hidden;
+  min-height: 0;
 }
 
 /* =========================
-   SIDEBAR IZQUIERDA
+   SIDEBAR IZQUIERDA (SCROLL)
 ========================= */
 .categories-sidebar {
   border-right: 1px solid #dbe4ef;
   background: #ffffff;
+
   padding: 8px 0;
   overflow-y: auto;
+  overflow-x: hidden;
+  /* 🔥 CLAVE */
+  min-height: 0;
+  /* Firefox */
+  scrollbar-width: thin;
+  scrollbar-color: #2563eb #eaf2ff;
 }
 
+/* Scroll azul - Webkit */
+.categories-sidebar::-webkit-scrollbar {
+  width: 10px;
+}
+
+.categories-sidebar::-webkit-scrollbar-track {
+  background: #eaf2ff;
+  border-radius: 999px;
+}
+
+.categories-sidebar::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #3b82f6, #2563eb);
+  border-radius: 999px;
+  border: 2px solid #eaf2ff;
+}
+
+.categories-sidebar::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #2563eb, #1d4ed8);
+}
+
+/* =========================
+   ITEMS IZQUIERDA
+========================= */
 .category-main {
   width: 100%;
   min-height: 52px;
@@ -1010,10 +1058,13 @@ header,
   gap: 12px;
   text-align: left;
   color: #0f172a;
+  color: #fff;
   font-size: 15px;
   font-weight: 500;
+  font-weight: normal;
   border: none;
   background: #fff;
+  background: #2458e6;
   transition: background-color 0.18s ease, color 0.18s ease;
 }
 
@@ -1022,6 +1073,7 @@ header,
   min-width: 18px;
   text-align: center;
   color: #2563eb;
+  color: #fff;
   font-size: 15px;
 }
 
@@ -1032,6 +1084,7 @@ header,
 .category-main > i:last-child {
   font-size: 12px;
   color: #2563eb;
+  color: #fff;
 }
 
 .category-main:hover,
@@ -1041,15 +1094,46 @@ header,
 }
 
 /* =========================
-   PANEL DERECHO
+   PANEL DERECHO (SCROLL)
 ========================= */
 .categories-content {
   background: #ffffff;
-  overflow-y: auto;
   padding: 22px 24px 24px;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  /* 🔥 CLAVE */
+  min-height: 0;
+
+  /* Firefox */
+  scrollbar-width: thin;
+  scrollbar-color: #2563eb #eaf2ff;
 }
 
-/* Cada contenido */
+/* Scroll azul - Webkit */
+.categories-content::-webkit-scrollbar {
+  width: 10px;
+}
+
+.categories-content::-webkit-scrollbar-track {
+  background: #eaf2ff;
+  border-radius: 999px;
+}
+
+.categories-content::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #3b82f6, #2563eb);
+  border-radius: 999px;
+  border: 2px solid #eaf2ff;
+}
+
+.categories-content::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #2563eb, #1d4ed8);
+}
+
+/* =========================
+   CADA CONTENIDO
+========================= */
 .category-content {
   display: none;
 }
@@ -1058,7 +1142,9 @@ header,
   display: block;
 }
 
-/* Header del contenido */
+/* =========================
+   HEADER DERECHO
+========================= */
 .category-content__header {
   display: flex;
   flex-direction: column;
@@ -1152,8 +1238,8 @@ header,
 @media (max-width: 1100px) {
   .categories-panel__shell {
     grid-template-columns: 240px 1fr;
-    min-height: 500px;
-    max-height: min(68vh, 620px);
+    height: min(68vh, 620px);
+    min-height: 480px;
   }
 
   .categories-content {
@@ -1184,12 +1270,3 @@ header,
     display: none !important;
   }
 }
-
-
-
-
-
-
-
-
-

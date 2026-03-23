@@ -309,7 +309,3 @@ document.addEventListener("DOMContentLoaded", () => {
   /* Estado inicial */
   activateCategory("electro");
 });
-
-
-
-
