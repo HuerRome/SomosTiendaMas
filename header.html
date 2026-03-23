@@ -62,19 +62,16 @@
         <!-- NAV IZQUIERDA -->
         <nav class="main-nav" aria-label="Navegación principal">
           <ul class="main-nav__list">
-            <li class="nav-item nav-item--dropdown">
-              <button class="nav-pill nav-pill--primary nav-dropdown-btn" type="button">
+            <li class="nav-item nav-item--categories">
+              <button
+                class="nav-pill nav-pill--primary nav-dropdown-btn nav-categories-btn"
+                type="button"
+                aria-expanded="false"
+                aria-controls="categoriesPanel"
+              >
                 Categorías
                 <i class="fa-solid fa-angle-down"></i>
               </button>
-
-              <div class="dropdown-menu">
-                <a href="#">Alimentos</a>
-                <a href="#">Bebidas</a>
-                <a href="#">Lácteos</a>
-                <a href="#">Limpieza</a>
-                <a href="#">Perfumería</a>
-              </div>
             </li>
 
             <li class="nav-item nav-item--dropdown">
@@ -236,6 +233,379 @@
       </nav>
     </aside>
     <div class="mobile-overlay" id="mobileOverlay"></div>
+    <!-- =========================
+         PANEL MEGA CATEGORÍAS (desktop / tablet)
+    ========================== -->
+    <div class="categories-panel" id="categoriesPanel" aria-hidden="true">
+      <div class="categories-panel__shell">
+        <!-- COLUMNA IZQUIERDA -->
+        <aside class="categories-sidebar" aria-label="Categorías principales">
+          <button class="category-main is-active" type="button" data-category="electro">
+            <i class="fa-solid fa-tv"></i>
+            <span>Electro y tecnología</span>
+            <i class="fa-solid fa-angle-right"></i>
+          </button>
+    
+          <button class="category-main" type="button" data-category="hogar">
+            <i class="fa-solid fa-house"></i>
+            <span>Hogar</span>
+            <i class="fa-solid fa-angle-right"></i>
+          </button>
+    
+          <button class="category-main" type="button" data-category="almacen">
+            <i class="fa-solid fa-boxes-stacked"></i>
+            <span>Almacén</span>
+            <i class="fa-solid fa-angle-right"></i>
+          </button>
+    
+          <button class="category-main" type="button" data-category="desayuno">
+            <i class="fa-solid fa-mug-hot"></i>
+            <span>Desayuno y merienda</span>
+            <i class="fa-solid fa-angle-right"></i>
+          </button>
+    
+          <button class="category-main" type="button" data-category="bebidas">
+            <i class="fa-solid fa-wine-bottle"></i>
+            <span>Bebidas</span>
+            <i class="fa-solid fa-angle-right"></i>
+          </button>
+    
+          <button class="category-main" type="button" data-category="lacteos">
+            <i class="fa-solid fa-cheese"></i>
+            <span>Lácteos y productos frescos</span>
+            <i class="fa-solid fa-angle-right"></i>
+          </button>
+    
+          <button class="category-main" type="button" data-category="limpieza">
+            <i class="fa-solid fa-pump-soap"></i>
+            <span>Limpieza</span>
+            <i class="fa-solid fa-angle-right"></i>
+          </button>
+    
+          <button class="category-main" type="button" data-category="perfumeria">
+            <i class="fa-solid fa-spray-can-sparkles"></i>
+            <span>Perfumería y farmacia</span>
+            <i class="fa-solid fa-angle-right"></i>
+          </button>
+          <button class="category-main is-active" type="button" data-category="electro">
+            <i class="fa-solid fa-tv"></i>
+            <span>Electro y tecnología</span>
+            <i class="fa-solid fa-angle-right"></i>
+          </button>
+    
+          <button class="category-main" type="button" data-category="hogar">
+            <i class="fa-solid fa-house"></i>
+            <span>Hogar</span>
+            <i class="fa-solid fa-angle-right"></i>
+          </button>
+    
+          <button class="category-main" type="button" data-category="almacen">
+            <i class="fa-solid fa-boxes-stacked"></i>
+            <span>Almacén</span>
+            <i class="fa-solid fa-angle-right"></i>
+          </button>
+    
+          <button class="category-main" type="button" data-category="desayuno">
+            <i class="fa-solid fa-mug-hot"></i>
+            <span>Desayuno y merienda</span>
+            <i class="fa-solid fa-angle-right"></i>
+          </button>
+    
+          <button class="category-main" type="button" data-category="bebidas">
+            <i class="fa-solid fa-wine-bottle"></i>
+            <span>Bebidas</span>
+            <i class="fa-solid fa-angle-right"></i>
+          </button>
+    
+          <button class="category-main" type="button" data-category="lacteos">
+            <i class="fa-solid fa-cheese"></i>
+            <span>Lácteos y productos frescos</span>
+            <i class="fa-solid fa-angle-right"></i>
+          </button>
+    
+          <button class="category-main" type="button" data-category="limpieza">
+            <i class="fa-solid fa-pump-soap"></i>
+            <span>Limpieza</span>
+            <i class="fa-solid fa-angle-right"></i>
+          </button>
+    
+          <button class="category-main" type="button" data-category="perfumeria">
+            <i class="fa-solid fa-spray-can-sparkles"></i>
+            <span>Perfumería y farmacia</span>
+            <i class="fa-solid fa-angle-right"></i>
+          </button>
+        </aside>
+    
+        <!-- COLUMNA DERECHA -->
+        <section class="categories-content" aria-label="Subcategorías">
+          <!-- ELECTRO -->
+          <div class="category-content is-active" data-content="electro">
+            <div class="category-content__header">
+              <h3><i class="fa-solid fa-tv"></i> Electro y tecnología</h3>
+              <a href="#" class="category-view-all">VER TODOS LOS PRODUCTOS <i class="fa-solid fa-angle-right"></i></a>
+            </div>
+    
+            <div class="category-columns">
+              <div class="category-group">
+                <h4>TV y soportes</h4>
+                <a href="#">Smart TV</a>
+                <a href="#">Soportes y accesorios</a>
+    
+                <h4>Celulares</h4>
+                <a href="#">Celulares libres</a>
+                <a href="#">Smartwatches y accesorios</a>
+                <a href="#">Accesorios de celulares</a>
+    
+                <h4>Climatización</h4>
+                <a href="#">Aires acondicionados</a>
+                <a href="#">Ventiladores</a>
+                <a href="#">Calefacción eléctrica</a>
+                <a href="#">Calefacción a gas</a>
+              </div>
+    
+              <div class="category-group">
+                <h4>Lavado</h4>
+                <a href="#">Lavarropas</a>
+                <a href="#">Secarropas</a>
+                <a href="#">Lavasecarropas</a>
+    
+                <h4>Termotanques y calefones</h4>
+                <a href="#">Calefones</a>
+                <a href="#">Termotanques a gas</a>
+                <a href="#">Termotanques eléctricos</a>
+    
+                <h4>Cocinas y hornos</h4>
+                <a href="#">Cocinas</a>
+                <a href="#">Anafes</a>
+                <a href="#">Hornos</a>
+                <a href="#">Microondas</a>
+              </div>
+    
+              <div class="category-group">
+                <h4>Cuidado personal y salud</h4>
+                <a href="#">Planchitas de pelo</a>
+                <a href="#">Secadores de pelo</a>
+                <a href="#">Afeitadoras</a>
+                <a href="#">Salud y bienestar</a>
+    
+                <h4>Informática y gaming</h4>
+                <a href="#">Notebooks y PC</a>
+                <a href="#">Consolas y joysticks</a>
+                <a href="#">Impresoras</a>
+                <a href="#">Tablets</a>
+                <a href="#">Monitores</a>
+    
+                <h4>Heladeras y freezers</h4>
+                <a href="#">Heladeras</a>
+                <a href="#">Freezers</a>
+              </div>
+            </div>
+          </div>
+    
+          <!-- HOGAR -->
+          <div class="category-content" data-content="hogar">
+            <div class="category-content__header">
+              <h3><i class="fa-solid fa-house"></i> Hogar</h3>
+              <a href="#" class="category-view-all">VER TODOS LOS PRODUCTOS <i class="fa-solid fa-angle-right"></i></a>
+            </div>
+    
+            <div class="category-columns">
+              <div class="category-group">
+                <h4>Muebles</h4>
+                <a href="#">Mesas</a>
+                <a href="#">Sillas</a>
+                <a href="#">Bibliotecas</a>
+              </div>
+              <div class="category-group">
+                <h4>Decoración</h4>
+                <a href="#">Cuadros</a>
+                <a href="#">Espejos</a>
+                <a href="#">Velas</a>
+              </div>
+              <div class="category-group">
+                <h4>Textil</h4>
+                <a href="#">Sábanas</a>
+                <a href="#">Acolchados</a>
+                <a href="#">Toallas</a>
+              </div>
+            </div>
+          </div>
+    
+          <!-- ALMACÉN -->
+          <div class="category-content" data-content="almacen">
+            <div class="category-content__header">
+              <h3><i class="fa-solid fa-boxes-stacked"></i> Almacén</h3>
+              <a href="#" class="category-view-all">VER TODOS LOS PRODUCTOS <i class="fa-solid fa-angle-right"></i></a>
+            </div>
+    
+            <div class="category-columns">
+              <div class="category-group">
+                <h4>Secos</h4>
+                <a href="#">Arroz</a>
+                <a href="#">Fideos</a>
+                <a href="#">Harinas</a>
+              </div>
+              <div class="category-group">
+                <h4>Conservas</h4>
+                <a href="#">Atún</a>
+                <a href="#">Tomate</a>
+                <a href="#">Legumbres</a>
+              </div>
+              <div class="category-group">
+                <h4>Snacks</h4>
+                <a href="#">Papas fritas</a>
+                <a href="#">Galletitas</a>
+                <a href="#">Mixes</a>
+              </div>
+            </div>
+          </div>
+    
+          <!-- DESAYUNO -->
+          <div class="category-content" data-content="desayuno">
+            <div class="category-content__header">
+              <h3><i class="fa-solid fa-mug-hot"></i> Desayuno y merienda</h3>
+              <a href="#" class="category-view-all">VER TODOS LOS PRODUCTOS <i class="fa-solid fa-angle-right"></i></a>
+            </div>
+    
+            <div class="category-columns">
+              <div class="category-group">
+                <h4>Infusiones</h4>
+                <a href="#">Café</a>
+                <a href="#">Té</a>
+                <a href="#">Mate cocido</a>
+              </div>
+              <div class="category-group">
+                <h4>Dulces</h4>
+                <a href="#">Mermeladas</a>
+                <a href="#">Dulce de leche</a>
+                <a href="#">Miel</a>
+              </div>
+              <div class="category-group">
+                <h4>Panificados</h4>
+                <a href="#">Tostadas</a>
+                <a href="#">Bizcochos</a>
+                <a href="#">Galletitas</a>
+              </div>
+            </div>
+          </div>
+    
+          <!-- BEBIDAS -->
+          <div class="category-content" data-content="bebidas">
+            <div class="category-content__header">
+              <h3><i class="fa-solid fa-wine-bottle"></i> Bebidas</h3>
+              <a href="#" class="category-view-all">VER TODOS LOS PRODUCTOS <i class="fa-solid fa-angle-right"></i></a>
+            </div>
+    
+            <div class="category-columns">
+              <div class="category-group">
+                <h4>Sin alcohol</h4>
+                <a href="#">Gaseosas</a>
+                <a href="#">Jugos</a>
+                <a href="#">Aguas</a>
+              </div>
+              <div class="category-group">
+                <h4>Con alcohol</h4>
+                <a href="#">Cervezas</a>
+                <a href="#">Vinos</a>
+                <a href="#">Aperitivos</a>
+              </div>
+              <div class="category-group">
+                <h4>Energizantes</h4>
+                <a href="#">Latas</a>
+                <a href="#">Packs</a>
+              </div>
+            </div>
+          </div>
+    
+          <!-- LÁCTEOS -->
+          <div class="category-content" data-content="lacteos">
+            <div class="category-content__header">
+              <h3><i class="fa-solid fa-cheese"></i> Lácteos y productos frescos</h3>
+              <a href="#" class="category-view-all">VER TODOS LOS PRODUCTOS <i class="fa-solid fa-angle-right"></i></a>
+            </div>
+    
+            <div class="category-columns">
+              <div class="category-group">
+                <h4>Lácteos</h4>
+                <a href="#">Leche</a>
+                <a href="#">Yogures</a>
+                <a href="#">Quesos</a>
+              </div>
+              <div class="category-group">
+                <h4>Frescos</h4>
+                <a href="#">Fiambres</a>
+                <a href="#">Pastas frescas</a>
+                <a href="#">Mantecas</a>
+              </div>
+              <div class="category-group">
+                <h4>Postres</h4>
+                <a href="#">Flanes</a>
+                <a href="#">Gelatinas</a>
+                <a href="#">Postres refrigerados</a>
+              </div>
+            </div>
+          </div>
+    
+          <!-- LIMPIEZA -->
+          <div class="category-content" data-content="limpieza">
+            <div class="category-content__header">
+              <h3><i class="fa-solid fa-pump-soap"></i> Limpieza</h3>
+              <a href="#" class="category-view-all">VER TODOS LOS PRODUCTOS <i class="fa-solid fa-angle-right"></i></a>
+            </div>
+    
+            <div class="category-columns">
+              <div class="category-group">
+                <h4>Ropa</h4>
+                <a href="#">Detergentes</a>
+                <a href="#">Suavizantes</a>
+                <a href="#">Quitamanchas</a>
+              </div>
+              <div class="category-group">
+                <h4>Hogar</h4>
+                <a href="#">Lavandina</a>
+                <a href="#">Desinfectantes</a>
+                <a href="#">Limpiadores</a>
+              </div>
+              <div class="category-group">
+                <h4>Accesorios</h4>
+                <a href="#">Esponjas</a>
+                <a href="#">Guantes</a>
+                <a href="#">Trapos</a>
+              </div>
+            </div>
+          </div>
+    
+          <!-- PERFUMERÍA -->
+          <div class="category-content" data-content="perfumeria">
+            <div class="category-content__header">
+              <h3><i class="fa-solid fa-spray-can-sparkles"></i> Perfumería y farmacia</h3>
+              <a href="#" class="category-view-all">VER TODOS LOS PRODUCTOS <i class="fa-solid fa-angle-right"></i></a>
+            </div>
+    
+            <div class="category-columns">
+              <div class="category-group">
+                <h4>Cuidado personal</h4>
+                <a href="#">Shampoo</a>
+                <a href="#">Acondicionador</a>
+                <a href="#">Jabones</a>
+              </div>
+              <div class="category-group">
+                <h4>Farmacia</h4>
+                <a href="#">Analgésicos</a>
+                <a href="#">Vitaminas</a>
+                <a href="#">Primeros auxilios</a>
+              </div>
+              <div class="category-group">
+                <h4>Belleza</h4>
+                <a href="#">Maquillaje</a>
+                <a href="#">Cremas</a>
+                <a href="#">Fragancias</a>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
   </header>
 
   <main class="main-content">
