@@ -1,155 +1,289 @@
-    /* ===== RESET BÁSICO ===== */
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
 
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-      background: #f5f7fb;
-    }
+/* =========================
+   BASE = DESKTOP (1024px+)
+========================= */
 
-    /* ===== FULL BLEED ===== */
-    .slider-bleed {
-      width: 100vw;
-      /*width: calc(100vw - 4rem);*/
-      margin-left: calc(50% - 50vw);
-    }
-
-    /* ===== SLIDER ===== */
-    .slider {
-      position: relative;
-      margin: 0 4rem;
-    }
-
-    /* Frame que recorta SOLO la imagen */
-    .slider-frame {
-      overflow: hidden;
-      border-radius: 16px; 
-    }
-
-    /* Track */
-    .slider-track {
-      display: flex;
-      transition: transform 0.45s ease;
-      touch-action: pan-y;
-    }
-
-    /* Slide */
-    .slide {
-      text-decoration: none;
-      min-width: 100%;
-    }
-
-    .slide img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    /* ===== FLECHAS ===== */
-    .arrow {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 64px;
-      height: 64px;
-      border-radius: 50%;
-      border: none;
-      background: #eff1ff;
-      border: solid 6px #ffffff;
-      color: #2563eb;
-      font-size: 20px;
-      cursor: pointer;
-      z-index: 10;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .prev { left: -32px; }
-    .next { right: -32px; }
-
-    /* ===== DOTS ===== */
-    .dots {
-      display: flex;
-      justify-content: center;
-      gap: 8px;
-      margin-top: 12px;
-    }
-
-    .dots button {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      border: none;
-      background: #cbd5e1;
-      cursor: pointer;
-      transition: transform 0.2s, background 0.2s;
-    }
-
-    .dots button.active {
-      background: #2563eb;
-      transform: scale(1.6);
-    }
-
-    /* ===== MOBILE ===== */
-    @media (max-width: 480px) {
-      .arrow {
-        display: none;
-      }
-
-      .slider-frame {
-        border-radius: 12px;
-      }
-
-      .slider{
-        /*width: 100%;      Este estilo hacia que el slider no se centre horizontalmente por eso lo comente*/
-        margin: 0 4vw;
-      }
-
-      .dots {
-        display: flex;
-        justify-content: center;
-        gap: 8px;
-        margin-top: 8px;
-      }
-
-      .dots button {
-        width: 4px;
-        height: 4px;
-        border-radius: 50%;
-        border: none;
-        background: #cbd5e1;
-        cursor: pointer;
-        transition: transform 0.2s, background 0.2s;
-      }
-  
-      .dots button.active {
-        background: #2563eb;
-        transform: scale(1.6);
-      }
-    }
-
-/* ------------ Media query adaptada para el slider en tablets -----------*/
-@media (min-width: 768px) and (max-width: 1024px) {
-
-  .slider {
-    margin: 0 2rem; /* menos aire */
-  }
-
-  .slider-frame {
-    border-radius: 14px;
-  }
-
-  .arrow {
-    width: 52px;
-    height: 52px;
-  }
-
-  .prev { left: -20px; }
-  .next { right: -20px; }
+.slider-bleed {
+  width: auto;
+  margin-top: 0.5rem;
 }
+/* ===== SLIDER ===== */
+.slider {
+  position: relative;
+}
+
+/* Frame que recorta SOLO la imagen */
+.slider-frame {
+  overflow: hidden;
+  border-radius: 16px; 
+}
+
+/* Track */
+.slider-track {
+  display: flex;
+  transition: transform 0.45s ease;
+  touch-action: pan-y;
+}
+
+/* Slide */
+.slide {
+  text-decoration: none;
+  min-width: 100%;
+}
+
+.slide img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ===== FLECHAS ===== */
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: none;
+  background: #eff1ff;
+  border: solid 6px #ffffff;
+  color: #2563eb;
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.prev { left: -32px; }
+.next { right: -32px; }
+
+/* ===== DOTS ===== */
+.dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.dots button {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  border: none;
+  background: #cbd5e1;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.2s;
+}
+
+.dots button.active {
+  background: #2563eb;
+  transform: scale(1.6);
+}
+
+
+/* =========================
+   TABLET / NOTEBOOK (1024px - 1200px)
+========================= */
+@media (max-width: 1200px) {
+  .slider-bleed {
+    width: 100vw;
+  }
+  
+  .slider {
+    margin: 0 auto;
+    margin: 0 3.8rem;
+  }
+
+}
+
+@media (max-width: 1100px) {
+  .slider-bleed {
+    width: 100vw;
+    
+  }
+  
+  .slider {
+    margin: 0 auto;
+    margin: 0 2rem;
+  }
+}
+
+/* =========================
+   TABLET (768px - 1023px)
+========================= */
+@media (max-width: 1023px) {
+  /* ajustes tablet */
+  .slider-bleed {
+    width: 100vw;
+  }
+  
+  .slider {
+    margin: 0 auto;
+    margin: 0 2rem;
+  }
+
+  /* ajustes mobile */
+  .arrow {
+    display: none;
+  }
+  .slider-frame {
+    border-radius: 12px;
+  }
+  .slider{
+    margin: 0 4vw;
+  }
+  .dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 8px;
+  }
+  .dots button {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    border: none;
+    background: #cbd5e1;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.2s;
+  }
+  .dots button.active {
+    background: #2563eb;
+    transform: scale(1.6);
+  }
+}
+
+/* =========================
+   MOBILE (481px - 767px)
+========================= */
+@media (max-width: 767px) {
+  /* ajustes mobile */
+  .arrow {
+    display: none;
+  }
+  .slider-frame {
+    border-radius: 12px;
+  }
+  .slider{
+    margin: 0 4vw;
+  }
+  .dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 8px;
+  }
+  .dots button {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    border: none;
+    background: #cbd5e1;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.2s;
+  }
+  .dots button.active {
+    background: #2563eb;
+    transform: scale(1.6);
+  }
+}
+
+/* =========================
+   MOBILE (0px - 480px)
+========================= */
+@media (max-width: 480px) {
+  /* ajustes mobile */
+  .arrow {
+    display: none;
+  }
+  .slider-frame {
+    border-radius: 12px;
+  }
+  .slider{
+    margin: 0 4vw;
+  }
+  .dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 8px;
+  }
+  .dots button {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    border: none;
+    background: #cbd5e1;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.2s;
+  }
+  .dots button.active {
+    background: #2563eb;
+    transform: scale(1.6);
+  }
+}
+
+/* =========================
+   LARGE DESKTOP (1440px+)
+   opcional
+========================= */
+@media (min-width: 1201px) {
+  /* mejoras para pantallas grandes */
+    .slider-bleed {
+    width: 100vw;
+    width: auto;
+    max-width: 1240px;
+  
+  }
+  /* ===== SLIDER ===== */
+  .slider {
+    position: relative;
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
