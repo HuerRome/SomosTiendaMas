@@ -235,3 +235,436 @@ img {
   color: white;
   font-weight: 600;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* FULL WIDTH */
+.informacion {
+  width: 100%;
+  border-radius: 8px;
+  margin: 6px 0;
+}
+
+/* CONTENEDOR */
+.info-container {
+  width: 100%;
+  overflow: hidden;
+  background: #000;
+  padding: 10px 14px;
+  border-radius: 8px;
+}
+
+/* TRACK */
+.info-slider-track {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+/* ITEM */
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: white;
+  white-space: nowrap; 
+  font-size: 13px;
+  font-weight: 400;
+}
+
+/* ICONO */
+.info-item i {
+  font-size: 14px;
+}
+
+/* TEXTO */
+.info-item span {
+  font-weight: 400; /* aseguramos normal */
+}
+
+/* ANIMACIÓN */
+@keyframes scrollSlider {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .info-slider-track {
+    animation: scrollSlider 18s linear infinite;
+  }
+}
+
+/* DESKTOP */
+@media (min-width: 769px) {
+  .info-slider-track {
+    animation: none;
+    justify-content: space-around;
+    width: 100%;
+  }
+}
+
+/* PAUSA AL HOVER */
+.info-slider-track:hover {
+  animation-play-state: paused;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* FULL WIDTH */
+.informacion {
+  width: 100%;
+  border-radius: 8px;
+  margin: 6px 0;
+}
+
+/* CONTENEDOR */
+.info-container {
+  width: 100%;
+  background: #000;
+  padding: 10px 14px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* SCROLL REAL */
+.info-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* ocultar scrollbar */
+.info-scroll::-webkit-scrollbar {
+  display: none;
+}
+.info-scroll {
+  scrollbar-width: none;
+}
+
+/* TRACK */
+.info-slider-track {
+  display: flex;
+  gap: 30px;
+  width: max-content;
+}
+
+/* ITEM */
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: white;
+  white-space: nowrap;
+  font-size: 13px;
+  font-weight: 400;
+  flex: 0 0 auto;
+}
+
+/* ICONO */
+.info-item i {
+  font-size: 14px;
+}
+
+/* ANIMACIÓN */
+@keyframes autoScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* 📱 MOBILE */
+@media (max-width: 768px) {
+  .info-slider-track {
+    animation: autoScroll 25s linear infinite;
+  }
+
+  /* pausa al tocar */
+  .info-scroll:active .info-slider-track {
+    animation-play-state: paused;
+  }
+}
+
+/* 💻 DESKTOP */
+@media (min-width: 769px) {
+  .info-scroll {
+    overflow: visible;
+  }
+
+  .info-slider-track {
+    animation: none;
+    justify-content: space-between;
+    width: 100%;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <section class="informacion">
+      <div class="info-container">
+    
+        <!-- SCROLL REAL -->
+        <div class="info-scroll">
+    
+          <!-- TRACK (animado) -->
+          <div class="info-slider-track">
+    
+            <!-- ORIGINAL -->
+            <div class="info-item">
+              <i class="fa-solid fa-truck-fast"></i>
+              <span>Envío Gratis en compras mayores a $50,000</span>
+            </div>
+    
+            <div class="info-item">
+              <i class="fa-solid fa-headset"></i>
+              <span>Soporte 24/7 - Estamos para ayudarte</span>
+            </div>
+    
+            <div class="info-item">
+              <i class="fa-solid fa-shield-halved"></i>
+              <span>Compra Segura - Protegemos tus datos</span>
+            </div>
+    
+            <div class="info-item">
+              <i class="fa-solid fa-tags"></i>
+              <span>Mejores ofertas exclusivas</span>
+            </div>
+    
+            <!-- DUPLICADO (loop infinito) -->
+            <div class="info-item">
+              <i class="fa-solid fa-truck-fast"></i>
+              <span>Envío Gratis en compras mayores a $50,000</span>
+            </div>
+    
+            <div class="info-item">
+              <i class="fa-solid fa-headset"></i>
+              <span>Soporte 24/7 - Estamos para ayudarte</span>
+            </div>
+    
+            <div class="info-item">
+              <i class="fa-solid fa-shield-halved"></i>
+              <span>Compra Segura - Protegemos tus datos</span>
+            </div>
+    
+            <div class="info-item">
+              <i class="fa-solid fa-tags"></i>
+              <span>Mejores ofertas exclusivas</span>
+            </div>
+    
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

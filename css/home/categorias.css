@@ -62,6 +62,7 @@
   text-align: center;
   word-wrap: break-word;
   line-height: 1.1;
+  font-weight: normal;
 }
 
 .mas-vendidos .cat-circle img{
@@ -69,11 +70,78 @@
 }
 
 /* ======================================== */
-/*   MOBILE — ACTIVAR SCROLL SNAP SUAVE     */
+/*   MOBILE — ACTIVAR SCROLL SNAP SUAVE  768   */
 /* ======================================== */
+@media (max-width: 1064px) {
+  .categories-slider {
+    flex-wrap: nowrap;  
+    scroll-snap-type: x mandatory;  
+    justify-content: flex-start;
+    padding: 10px 0px;
+    gap: 12px;
+  }
+
+  .cat-item {
+    scroll-snap-align: start;
+  }
+
+  .cat-circle {
+    width: 90px;
+    height: 90px;
+  }
+
+  .cat-item span {
+    font-size: 12px;
+    margin-top: 6px;
+    width: 65px;
+    text-align: center;
+    word-wrap: break-word;
+    line-height: 1.1;
+  }
+
+
+  .mas-vendidos .cat-circle img{
+    width: 50%;
+  }
+  
+}
 
 @media (max-width: 768px) {
+  .categories-slider {
+    flex-wrap: nowrap;  
+    scroll-snap-type: x mandatory;  
+    justify-content: flex-start;
+    padding: 10px 0px;
+    gap: 12px;
+  }
 
+  .cat-item {
+    scroll-snap-align: start;
+  }
+
+  .cat-circle {
+    width: 70px;
+    height: 70px;
+  }
+
+  .cat-item span {
+    font-size: 12px;
+    margin-top: 6px;
+    width: 65px;
+    text-align: center;
+    word-wrap: break-word;
+    line-height: 1.1;
+  }
+
+
+  .mas-vendidos .cat-circle img{
+    width: 50%;
+  }
+  
+}
+
+
+@media (max-width: 480px) {
   .categories-slider {
     flex-wrap: nowrap;  
     scroll-snap-type: x mandatory;  /* slider tipo carrusel */
@@ -100,11 +168,7 @@
     line-height: 1.1;
   }
 
-  .mas-vendidos .cat-circle{
-    border: 1px solid #00FF00; 
-    border: 1px solid #2563eb; 
-    background: white;
-  }
+
   
   .mas-vendidos .cat-circle img{
     width: 50%;
