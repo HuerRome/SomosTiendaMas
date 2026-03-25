@@ -1,653 +1,222 @@
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-:root {
-  --primary: #2563EB;
-  --orange: #FF6B35;
-  --bg: #f5f7fb;
-  --text: #1e293b;
-  --max-width: 1200px;
-}
-
-body {
-  font-family: 'Inter', sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  min-height: 100vh;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-
-/* =====================
-   SLIDER
-===================== */
-.slider-bleed {
-  width: 100vw;
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.slider {
-  position: relative;
-}
-
-.slider-frame {
-  overflow: hidden;
-  border-radius: 16px;
-}
-
-.slider-track {
-  display: flex;
-}
-
-.slide {
-  min-width: 100%;
-}
-
-.slide img {
-  width: 100%;
-}
-
-/* ARROWS */
-.arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background: white;
-  border: 1px solid #ddd;
-  cursor: pointer;
-}
-
-.prev { left: -20px; }
-.next { right: -20px; }
-
-/* =====================
-   FOOTER
-===================== */
-.footer {
-  background: white;
-  margin-top: 40px;
-  padding: 40px 0;
-}
-
-.footer__grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
-}
-
-.footer h3 {
-  margin-bottom: 10px;
-}
-
-/* =====================
-   RESPONSIVE
-===================== */
-@media (max-width: 768px) {
-  .footer__grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-/*-------------------------------- Corrigiendo css -----------------------------------*/
-:root{
-  --tm-orange: #FF6B35;
-  --tm-orange-hover: #E55627;
-  --tm-blue: #004E89;
-  --tm-gray-light: #F8F9FA;
-  --max-width: 1200px;
-  --titulo-naranja:#ffff;
-  --titulo-azul: #2563EB;
-}
-
-/* Reset básico */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Inter', system-ui, Arial, sans-serif;
-}
-
-/* Estilos base para toda la página */
-html, body {
-  font-family: sans-serif; /* Cambiala por la fuente que quieras */
-  background-color: #ffffff;
-  background: #F9FAFB;
-  background: #f0f0f0;
-  color: #333333;
-  line-height: 1.5rem;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-html, body {
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
-}
-
-
-/* Enlaces */
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-/*------------------------------------------------------------------------------------------------------------------*/
-/* =====================
-   RESET
-===================== */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-
-:root {
-  --color-bg: #ffffff;
-  --color-text: #000000;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  min-height: 100vh;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  background-color: var(--color-bg);
-  color: var(--color-text);
-  line-height: 1.5;
-}
-
-img,
-picture,
-video,
-canvas,
-svg {
-  display: block;
-  max-width: 100%;
-}
-
-input,
-button,
-textarea,
-select {
-  font: inherit;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-button {
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-/* ==========================================
-   DESARROLLO DE LA PÁGINA WEB
-========================================== */
-
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-.focus-ring:focus {
-  outline: 3px solid rgba(0,78,137,0.18);
-  outline-offset: 3px;
-}
-
-.card-lift {
-  transition: transform .18s ease, box-shadow .18s ease;
-}
-.card-lift:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 14px 30px rgba(2,6,23,.08);
-}
-
-.snap-x { scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; }
-.snap-child { scroll-snap-align: start; }
-
-.badge {
-  background: linear-gradient(90deg, var(--tm-orange), var(--tm-orange-hover));
-  color: white;
-  font-weight: 600;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* FULL WIDTH */
-.informacion {
-  width: 100%;
-  border-radius: 8px;
-  margin: 6px 0;
-}
-
-/* CONTENEDOR */
-.info-container {
-  width: 100%;
-  overflow: hidden;
-  background: #000;
-  padding: 10px 14px;
-  border-radius: 8px;
-}
-
-/* TRACK */
-.info-slider-track {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 12px;
-}
-
-/* ITEM */
-.info-item {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  color: white;
-  white-space: nowrap; 
-  font-size: 13px;
-  font-weight: 400;
-}
-
-/* ICONO */
-.info-item i {
-  font-size: 14px;
-}
-
-/* TEXTO */
-.info-item span {
-  font-weight: 400; /* aseguramos normal */
-}
-
-/* ANIMACIÓN */
-@keyframes scrollSlider {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-
-/* MOBILE */
-@media (max-width: 768px) {
-  .info-slider-track {
-    animation: scrollSlider 18s linear infinite;
-  }
-}
-
-/* DESKTOP */
-@media (min-width: 769px) {
-  .info-slider-track {
-    animation: none;
-    justify-content: space-around;
-    width: 100%;
-  }
-}
-
-/* PAUSA AL HOVER */
-.info-slider-track:hover {
-  animation-play-state: paused;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* FULL WIDTH */
-.informacion {
-  width: 100%;
-  border-radius: 8px;
-  margin: 6px 0;
-}
-
-/* CONTENEDOR */
-.info-container {
-  width: 100%;
-  background: #000;
-  padding: 10px 14px;
-  border-radius: 8px;
-  overflow: hidden;
-}
-
-/* SCROLL REAL */
-.info-scroll {
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-}
-
-/* ocultar scrollbar */
-.info-scroll::-webkit-scrollbar {
-  display: none;
-}
-.info-scroll {
-  scrollbar-width: none;
-}
-
-/* TRACK */
-.info-slider-track {
-  display: flex;
-  gap: 30px;
-  width: max-content;
-}
-
-/* ITEM */
-.info-item {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  color: white;
-  white-space: nowrap;
-  font-size: 13px;
-  font-weight: 400;
-  flex: 0 0 auto;
-}
-
-/* ICONO */
-.info-item i {
-  font-size: 14px;
-}
-
-/* ANIMACIÓN */
-@keyframes autoScroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-
-/* 📱 MOBILE */
-@media (max-width: 768px) {
-  .info-slider-track {
-    animation: autoScroll 25s linear infinite;
-  }
-
-  /* pausa al tocar */
-  .info-scroll:active .info-slider-track {
-    animation-play-state: paused;
-  }
-}
-
-/* 💻 DESKTOP */
-@media (min-width: 769px) {
-  .info-scroll {
-    overflow: visible;
-  }
-
-  .info-slider-track {
-    animation: none;
-    justify-content: space-between;
-    width: 100%;
-  }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <section class="informacion">
-      <div class="info-container">
-    
-        <!-- SCROLL REAL -->
-        <div class="info-scroll">
-    
-          <!-- TRACK (animado) -->
-          <div class="info-slider-track">
-    
-            <!-- ORIGINAL -->
-            <div class="info-item">
-              <i class="fa-solid fa-truck-fast"></i>
-              <span>Envío Gratis en compras mayores a $50,000</span>
+    <section class="best-sellers">
+      <div class="section-header">
+        <p class="section-title">Lo mejor en <a href="#">Novedades De La Semana</a></p>
+        <div>
+          <a href="#" class="view-all">Ver más →</a>
+          <button class="slider-btn prev">&lt;</button> 
+          <button class="slider-btn next">&gt;</button>
+        </div>
+      </div>
+      <div class="slider-wrapper">
+        <div class="best-sellers-container" id="bestSellersSlider">  
+          <article class="product-card">
+            <button class="fav-btn">♡</button>    
+            <div class="product-image">
+              <img src="assets/products/home/heladera.png" alt="Producto">
+            </div> 
+            <h3 class="product-title">Heladera No Frost Whirlpool 400L Inverter</h3>
+            <div class="product-rating">
+              <span>$899.999</span>
+              <span class="star">★ 4.5</span>
             </div>
-    
-            <div class="info-item">
-              <i class="fa-solid fa-headset"></i>
-              <span>Soporte 24/7 - Estamos para ayudarte</span>
+            <div class="product-price">
+              <span>$539.999</span>
+              <span>40% OFF</span>
             </div>
-    
-            <div class="info-item">
-              <i class="fa-solid fa-shield-halved"></i>
-              <span>Compra Segura - Protegemos tus datos</span>
+            <span>12 cuotas de $89.999</span>
+            <div class="product-actions">
+              <div>
+                <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
+              </div>
             </div>
-    
-            <div class="info-item">
-              <i class="fa-solid fa-tags"></i>
-              <span>Mejores ofertas exclusivas</span>
+          </article> 
+          <article class="product-card">
+            <button class="fav-btn">♡</button>    
+            <div class="product-image">
+              <img src="assets/products/home/single sofa.png" alt="Producto">
+            </div> 
+            <h3 class="product-title">Sillon Blanco Individual Un Cuerpo Chenille</h3>
+            <div class="product-rating">
+              <span>$899.999</span>
+              <span class="star">★ 4.5</span>
             </div>
-    
-            <!-- DUPLICADO (loop infinito) -->
-            <div class="info-item">
-              <i class="fa-solid fa-truck-fast"></i>
-              <span>Envío Gratis en compras mayores a $50,000</span>
+            <div class="product-price">
+              <span>$539.999</span>
+              <span>40% OFF</span>
             </div>
-    
-            <div class="info-item">
-              <i class="fa-solid fa-headset"></i>
-              <span>Soporte 24/7 - Estamos para ayudarte</span>
+            <span>12 cuotas de $89.999</span>
+            <div class="product-actions">
+              <div>
+                <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
+              </div>
             </div>
-    
-            <div class="info-item">
-              <i class="fa-solid fa-shield-halved"></i>
-              <span>Compra Segura - Protegemos tus datos</span>
+          </article> 
+          <article class="product-card">
+            <button class="fav-btn">♡</button>
+      
+            <div class="product-image">
+              <img src="assets/products/home/lavarropas.jpg" alt="Producto">
+            </div> 
+            <h3 class="product-title">Lavarropas Automático Drean 8kg EcoSilent</h3>
+            <div class="product-rating">
+              <span>$899.999</span>
+              <span class="star">★ 4.5</span>
             </div>
-    
-            <div class="info-item">
-              <i class="fa-solid fa-tags"></i>
-              <span>Mejores ofertas exclusivas</span>
+            <div class="product-price">
+              <span>$539.999</span>
+              <span>40% OFF</span>
             </div>
-    
-          </div>
+            <span>12 cuotas de $89.999</span>
+            <div class="product-actions">
+              <div>
+                <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
+              </div>
+            </div>
+          </article> 
+          <article class="product-card">
+            <button class="fav-btn">♡</button>
+      
+            <div class="product-image">
+              <img src="assets/products/electronics/adiculares.png" alt="Producto">
+            </div> 
+            <h3 class="product-title">Auricular Bluetooth inalámbrico</h3>
+            <div class="product-rating">
+              <span>$899.999</span>
+              <span class="star">★ 4.5</span>
+            </div>
+            <div class="product-price">
+              <span>$539.999</span>
+              <span>FREE <i class="fa-solid fa-truck-arrow-right"></i></span>
+            </div>
+            <span>12 cuotas de $89.999</span>
+            <div class="product-actions">
+              <div>
+                <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
+              </div>
+            </div>
+          </article>  
+          <article class="product-card">
+            <button class="fav-btn">♡</button>
+      
+            <div class="product-image">
+              <img src="assets/products/home/aire acondicionado.png" alt="Producto">
+            </div> 
+            <h3 class="product-title">Aire Acondicionado Portátil Frío/Calor</h3>
+            <div class="product-rating">
+              <span>$89.999</span>
+              <span class="star">★ 4.5</span>
+            </div>
+            <div class="product-price">
+              <span>$53.999</span>
+              <span>40% OFF</span>
+            </div>
+            <span>12 cuotas de $89.999</span>
+            <div class="product-actions">
+              <div>
+                <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
+              </div>
+            </div>
+          </article>   
+          <article class="product-card">
+            <button class="fav-btn">♡</button>
+      
+            <div class="product-image">
+              <img src="assets/products/clothes/sports/discos olímpicos.png" alt="Producto">
+            </div> 
+            <h3 class="product-title">Par De Discos 5 Kg 2.5 Kg 1 Kg Fundicion Macizo Pesas Gym</h3>
+            <div class="product-rating">
+              <span>$899.999</span>
+              <span class="star">★ 4.5</span>
+            </div>
+            <div class="product-price">
+              <span>$59.999</span>
+              <span>40% OFF</span>
+            </div>
+            <span>12 cuotas de $89.999</span>
+            <div class="product-actions">
+              <div>
+                <a href="paginaProducto.html"><button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button></a>
+              </div>
+            </div>
+          </article> 
+          <article class="product-card">
+            <button class="fav-btn">♡</button>
+      
+            <div class="product-image">
+              <img src="assets/products/electronics/silla gamer.jpg" alt="Producto">
+            </div> 
+            <h3 class="product-title">Silla Ergonómica Gamer Reclinable con Luce...</h3>
+            <div class="product-rating">
+              <span>$899.999</span>
+              <span class="star">★ 4.5</span>
+            </div>
+            <div class="product-price">
+              <span>$539.999</span>
+              <span>40% OFF</span>
+            </div>
+            <span>12 cuotas de $89.999</span>
+            <div class="product-actions">
+              <div>
+                <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
+              </div>
+            </div>
+          </article> 
+          <article class="product-card">
+            <button class="fav-btn">♡</button>
+      
+            <div class="product-image">
+              <img src="assets/products/clothes/sports/Zapatilla Nike.png" alt="Producto">
+            </div> 
+            <h3 class="product-title">Zapatillas Nike Air Max 270 Hombre Originales</h3>
+            <div class="product-rating">
+              <span>$899.999</span>
+              <span class="star">★ 4.5</span>
+            </div>
+            <div class="product-price">
+              <span>$539.999</span>
+              <span>40% OFF</span>
+            </div>
+            <span>12 cuotas de $89.999</span>
+            <div class="product-actions">
+              <div>
+                <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
+              </div>
+            </div>
+          </article> 
         </div>
       </div>
     </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+     
+    <section class="promo-section">
+      <div class="promo-container">
+    
+        <a href="#" class="picture-container">
+          <picture class="picture-rounded">
+            <source media="(max-width:480px)" 
+            srcset="assets/banners/bannersPublicitarios/anuncio 1.webp">
+    
+            <source media="(min-width:481px)" 
+            srcset="assets/banners/bannersPublicitarios/anuncio 1.webp">
+    
+            <img src="assets/banners/bannersPublicitarios/anuncio 1.webp" 
+            alt="Promoción Mercado Pago">
+          </picture>
+        </a>
+    
+        <a href="#" class="picture-container">
+          <picture class="picture-rounded">
+            <source media="(max-width:480px)" 
+            srcset="assets/banners/bannersPublicitarios/anuncio 2.webp">
+    
+            <source media="(min-width:481px)" 
+            srcset="assets/banners/bannersPublicitarios/anuncio 2.webp">
+    
+            <img src="assets/banners/bannersPublicitarios/anuncio 2.webp" 
+            alt="Vehículos">
+          </picture>
+        </a>      
+      </div>
+    </section>
 
 
 

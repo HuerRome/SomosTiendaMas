@@ -80,6 +80,8 @@
 .product-page {
   padding: 20px 0;
   margin: 0 4rem;
+  margin: 0;
+  
 }
 
 .product-container {
@@ -174,11 +176,9 @@ gap:15px;
 }
 
 .brand-link{
-
 color:#3483fa;
 font-size:14px;
 cursor:pointer;
-
 }
 
 .product-header{
@@ -435,6 +435,7 @@ font-size:30px;
 .best-sellers{
   margin: 0 4rem;
   margin-bottom: 20px;
+  margin: 0;
 }
 
 /* =========================
@@ -588,9 +589,6 @@ background:#cfc5ea;
 
 /*----------------------- seccion ad number second -----------------------*/
 
-
-
-
 /*----------------------- brands we work with -----------------------*/
 .brands {
   background: #f5f5f5;
@@ -611,14 +609,12 @@ background:#cfc5ea;
   color: #222;
 }
 
-/* GRID DESKTOP */
 .brands-wrapper {
   display: grid;
   grid-template-columns: repeat(8, 1fr);
   gap: 30px;
 }
 
-/* CIRCULOS */
 .brand-item {
   background: #fff;
   border-radius: 50%;
