@@ -67,39 +67,12 @@ plus.addEventListener("click", () => {
 
 
 /*-------------------- Sección de especificaciones del producto --------------------*/
-/*
-const toggleBtn = document.getElementById("toggleFeatures");
-const extras = document.querySelectorAll(".extra");
-const arrow = document.querySelector(".arrow");
-
-let open = false;
-
-toggleBtn.addEventListener("click", () => {
-
-  open = !open;
-
-  extras.forEach(el => {
-    el.style.display = open ? "flex" : "none";
-  });
-
-  toggleBtn.childNodes[0].textContent = open
-    ? "Ver menos características "
-    : "Ver todas las características ";
-
-  arrow.style.transform = open ? "rotate(180deg)" : "rotate(0deg");
-
-});
-*/
-
-
-
-
 
 document.addEventListener("DOMContentLoaded", () => {
 
   const toggleBtn = document.getElementById("toggleFeatures");
   const extras = document.querySelectorAll(".extra");
-  const arrow = document.querySelector(".arrow");
+  const arrow = document.querySelector(".features-arrow");
 
   if (!toggleBtn) return;
 
