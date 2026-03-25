@@ -23,10 +23,10 @@
   <link rel="stylesheet" href="css/home/best-sellers.css">
   <link rel="stylesheet" href="css/home/products-section.css">
   <link rel="stylesheet" href="css/home/bannerPublicitarios.css">
+  <link rel="stylesheet" href="css/home/verder.css">
   <link rel="stylesheet" href="css/home/footer.css">
 </head>
 <body>
-
   <!-- =========================
        HEADER
   ========================== -->
@@ -618,77 +618,312 @@
     </div>
   </header>
 
-  <main class="main-content">
-
-    <section class="slider-bleed">
-      <div class="slider">
-        <!-- Flechas -->
-        <button class="arrow prev" aria-label="Anterior">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
-                   stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="14 4 6 12 14 20"></polyline>
-              </svg>
-        </button>
-        <button class="arrow next" aria-label="Siguiente">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
-                   stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="10 4 18 12 10 20"></polyline>
-              </svg>
-        </button>
-  
-        <!-- Frame -->
-        <div class="slider-frame">
-          <div class="slider-track">
-            
-            <a href="#" class="slide" aria-label="Ver promoción 1">
-              <picture class="banner-rounded">
-                <source media="(min-width: 1024px)" srcset="assets/banners/bannerFormatoDesktop/1.png">
-                <source media="(min-width: 768px)" srcset="assets/banners/bannerFormatoTablet/1.jpg">
-                <source media="(max-width: 767px)" srcset="assets/banners/bannerFormatoMovil/1.jpg">
-                <img src="assets/banners/bannerFormatoDesktop/1.png" alt="Promoción 1">
-              </picture>
-            </a>
-        
-            <a href="#" class="slide" aria-label="Ver promoción 2">
-              <picture class="banner-rounded">
-                <source media="(min-width: 1024px)" srcset="assets/banners/bannerFormatoDesktop/2.png">
-                <source media="(min-width: 768px)" srcset="assets/banners/bannerFormatoTablet/2.jpg">
-                <source media="(max-width: 767px)" srcset="assets/banners/bannerFormatoMovil/2.png">
-                <img src="assets/banners/bannerFormatoDesktop/2.png" alt="Promoción 2">
-              </picture>
-            </a>
-        
-            <a href="#" class="slide" aria-label="Ver promoción 3">
-              <picture class="banner-rounded">
-                <source media="(min-width: 1024px)" srcset="assets/banners/bannerFormatoDesktop/3.png">
-                <source media="(min-width: 768px)" srcset="assets/banners/bannerFormatoTablet/3.jpg">
-                <source media="(max-width: 767px)" srcset="assets/banners/bannerFormatoMovil/3.png">
-                <img src="assets/banners/bannerFormatoDesktop/3.png" alt="Promoción 3">
-              </picture>
-            </a>
-        
-            <a href="#" class="slide" aria-label="Ver promoción 4">
-              <picture class="banner-rounded">
-                <source media="(min-width: 1024px)" srcset="assets/banners/bannerFormatoDesktop/4.png">
-                <source media="(min-width: 768px)" srcset="assets/banners/bannerFormatoTablet/4.jpg">
-                <source media="(max-width: 767px)" srcset="assets/banners/bannerFormatoMovil/4.png">
-                <img src="assets/banners/bannerFormatoDesktop/4.png" alt="Promoción 4">
-              </picture>
-            </a>
-        
-          </div>
+  <main class="main-content page-shell">
+    <section class="best-sellers">
+      <div class="section-header">
+        <p class="section-title">Lo mejor en <a href="#">Novedades De La Semana</a></p>
+        <div>
+          <a href="#" class="view-all">Ver más →</a>
+          <button class="slider-btn prev">&lt;</button> 
+          <button class="slider-btn next">&gt;</button>
         </div>
-        <!-- Dots -->
-        <div class="dots"></div>
+      </div>
+      <div class="slider-wrapper">
+        <div class="best-sellers-container" id="bestSellersSlider">  
+          <article class="product-card">
+            <button class="fav-btn">♡</button>    
+            <div class="product-image">
+              <img src="assets/products/home/heladera.png" alt="Producto">
+            </div> 
+            <h3 class="product-title">Heladera No Frost Whirlpool 400L Inverter</h3>
+            <div class="product-rating">
+              <span>$899.999</span>
+              <span class="star">★ 4.5</span>
+            </div>
+            <div class="product-price">
+              <span>$539.999</span>
+              <span>40% OFF</span>
+            </div>
+            <span>12 cuotas de $89.999</span>
+            <div class="product-actions">
+              <div>
+                <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
+              </div>
+            </div>
+          </article> 
+          <article class="product-card">
+            <button class="fav-btn">♡</button>    
+            <div class="product-image">
+              <img src="assets/products/home/single sofa.png" alt="Producto">
+            </div> 
+            <h3 class="product-title">Sillon Blanco Individual Un Cuerpo Chenille</h3>
+            <div class="product-rating">
+              <span>$899.999</span>
+              <span class="star">★ 4.5</span>
+            </div>
+            <div class="product-price">
+              <span>$539.999</span>
+              <span>40% OFF</span>
+            </div>
+            <span>12 cuotas de $89.999</span>
+            <div class="product-actions">
+              <div>
+                <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
+              </div>
+            </div>
+          </article> 
+          <article class="product-card">
+            <button class="fav-btn">♡</button>
+      
+            <div class="product-image">
+              <img src="assets/products/home/lavarropas.jpg" alt="Producto">
+            </div> 
+            <h3 class="product-title">Lavarropas Automático Drean 8kg EcoSilent</h3>
+            <div class="product-rating">
+              <span>$899.999</span>
+              <span class="star">★ 4.5</span>
+            </div>
+            <div class="product-price">
+              <span>$539.999</span>
+              <span>40% OFF</span>
+            </div>
+            <span>12 cuotas de $89.999</span>
+            <div class="product-actions">
+              <div>
+                <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
+              </div>
+            </div>
+          </article> 
+          <article class="product-card">
+            <button class="fav-btn">♡</button>
+      
+            <div class="product-image">
+              <img src="assets/products/electronics/adiculares.png" alt="Producto">
+            </div> 
+            <h3 class="product-title">Auricular Bluetooth inalámbrico</h3>
+            <div class="product-rating">
+              <span>$899.999</span>
+              <span class="star">★ 4.5</span>
+            </div>
+            <div class="product-price">
+              <span>$539.999</span>
+              <span>FREE <i class="fa-solid fa-truck-arrow-right"></i></span>
+            </div>
+            <span>12 cuotas de $89.999</span>
+            <div class="product-actions">
+              <div>
+                <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
+              </div>
+            </div>
+          </article>  
+          <article class="product-card">
+            <button class="fav-btn">♡</button>
+      
+            <div class="product-image">
+              <img src="assets/products/home/aire acondicionado.png" alt="Producto">
+            </div> 
+            <h3 class="product-title">Aire Acondicionado Portátil Frío/Calor</h3>
+            <div class="product-rating">
+              <span>$89.999</span>
+              <span class="star">★ 4.5</span>
+            </div>
+            <div class="product-price">
+              <span>$53.999</span>
+              <span>40% OFF</span>
+            </div>
+            <span>12 cuotas de $89.999</span>
+            <div class="product-actions">
+              <div>
+                <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
+              </div>
+            </div>
+          </article>   
+          <article class="product-card">
+            <button class="fav-btn">♡</button>
+      
+            <div class="product-image">
+              <img src="assets/products/clothes/sports/discos olímpicos.png" alt="Producto">
+            </div> 
+            <h3 class="product-title">Par De Discos 5 Kg 2.5 Kg 1 Kg Fundicion Macizo Pesas Gym</h3>
+            <div class="product-rating">
+              <span>$899.999</span>
+              <span class="star">★ 4.5</span>
+            </div>
+            <div class="product-price">
+              <span>$59.999</span>
+              <span>40% OFF</span>
+            </div>
+            <span>12 cuotas de $89.999</span>
+            <div class="product-actions">
+              <div>
+                <a href="paginaProducto.html"><button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button></a>
+              </div>
+            </div>
+          </article> 
+          <article class="product-card">
+            <button class="fav-btn">♡</button>
+      
+            <div class="product-image">
+              <img src="assets/products/electronics/silla gamer.jpg" alt="Producto">
+            </div> 
+            <h3 class="product-title">Silla Ergonómica Gamer Reclinable con Luce...</h3>
+            <div class="product-rating">
+              <span>$899.999</span>
+              <span class="star">★ 4.5</span>
+            </div>
+            <div class="product-price">
+              <span>$539.999</span>
+              <span>40% OFF</span>
+            </div>
+            <span>12 cuotas de $89.999</span>
+            <div class="product-actions">
+              <div>
+                <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
+              </div>
+            </div>
+          </article> 
+          <article class="product-card">
+            <button class="fav-btn">♡</button>
+      
+            <div class="product-image">
+              <img src="assets/products/clothes/sports/Zapatilla Nike.png" alt="Producto">
+            </div> 
+            <h3 class="product-title">Zapatillas Nike Air Max 270 Hombre Originales</h3>
+            <div class="product-rating">
+              <span>$899.999</span>
+              <span class="star">★ 4.5</span>
+            </div>
+            <div class="product-price">
+              <span>$539.999</span>
+              <span>40% OFF</span>
+            </div>
+            <span>12 cuotas de $89.999</span>
+            <div class="product-actions">
+              <div>
+                <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
+              </div>
+            </div>
+          </article> 
+        </div>
       </div>
     </section>
+     
+    <section class="promo-section">
+      <div class="promo-container">
+    
+        <a href="#" class="picture-container">
+          <picture class="picture-rounded">
+            <source media="(max-width:480px)" 
+            srcset="assets/banners/bannersPublicitarios/anuncio 1.webp">
+    
+            <source media="(min-width:481px)" 
+            srcset="assets/banners/bannersPublicitarios/anuncio 1.webp">
+    
+            <img src="assets/banners/bannersPublicitarios/anuncio 1.webp" 
+            alt="Promoción Mercado Pago">
+          </picture>
+        </a>
+    
+        <a href="#" class="picture-container">
+          <picture class="picture-rounded">
+            <source media="(max-width:480px)" 
+            srcset="assets/banners/bannersPublicitarios/anuncio 2.webp">
+    
+            <source media="(min-width:481px)" 
+            srcset="assets/banners/bannersPublicitarios/anuncio 2.webp">
+    
+            <img src="assets/banners/bannersPublicitarios/anuncio 2.webp" 
+            alt="Vehículos">
+          </picture>
+        </a>      
+      </div>
+    </section>
+
   </main>
 
-  <footer>
+  <!-- Footer -->
+  <footer class="footer ">
+    <div class="footer-container">
+  
+      <!-- Logo + redes -->
+      <div class="footer-brand">
+        <img src="assets/marketplace-data/Logo-text 2.png" alt="Logo" class="footer-logo">
+  
+        <div class="socials">
+          <a href="#"><i class="fa-solid fa-envelope"></i></a>
+          <a href="#"><i class="fa-brands fa-facebook"></i></a>
+          <a href="#"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+      </div>
+
+      <!-- Columna -->
+      <div class="footer-col">
+        <h4>Atención al Cliente</h4>
+        <ul>
+          <li><a href="#">Acerca de</a></li>
+          <li><a href="#">Soporte técnico</a></li>
+          <li><a href="#">Preguntas frecuentes</a></li>
+          <li><a href="#">Terminos y condiciones</a></li>
+          <li><a href="#">Política de privacidad</a></li>
+          <li><a href="#">Información de Envíos</a></li>
+        </ul>
+      </div>
+      <!-- Columna -->
+      <div class="footer-col">
+        <h4>Links Rapidos</h4>
+        <ul>
+          <li><a href="#">Electrónica</a></li>
+          <li><a href="#">Moda y Accesorios</a></li>
+          <li><a href="#">Hogar y Jardín</a></li>
+          <li><a href="#">Salud y Belleza</a></li>
+          <li><a href="#">Alimentos y Bebidas</a></li>
+          <li><a href="#">Deportes y Fitness</a></li>
+        </ul>
+      </div>
+      <!-- Columna -->
+      <div class="footer-col">
+        <h4>Mi cuenta</h4>
+        <ul>
+          <li><a href="#">Iniciar sesión</a></li>
+          <li><a href="#">Registrarse</a></li>
+          <li><a href="#">Mis pedidos</a></li>
+          <li><a href="#">Direcciones</a></li>
+          <li><a href="#">Métodos de pago</a></li>
+          <li><a href="#">Cerrar sesión</a></li>
+        </ul>
+      </div>
+
+      <!-- Newsletter -->
+      <div class="footer-col subscribe">
+        <h4>Suscribite</h4>
+         <p>Suscribite a nuestro newsletter para recibir novedades y ofertas exclusivas.</p>
+  
+        <form class="subscribe-box">
+          <input type="email" placeholder="Correo electrónico">
+          <button type="submit">Suscribirse</button>
+        </form>
+      </div>
+  
+    </div>
+
+    <div class="footer-bottom">
+      © <span id="year"></span> TiendaMas. Todos los derechos reservados
+    </div>
+  
   </footer>
+  
+    <!-- Go to top button -->
+  <button id="goTopBtn" aria-label="Volver arriba">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+  <script src="Javascript/home/script.js"></script>
   <script src="Javascript/home/header.js"></script>
   <script src="Javascript/home/slider.js"></script>
   <script src="Javascript/home/product-slider.js"></script>
+
 </body>
 </html>
+
+
 

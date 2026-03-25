@@ -1,20 +1,20 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Tienda Mas - Marketplace para distribuidores & vendedores</title>
-  <link rel="shortcut icon" href="assets/marketplace-data/Logo.png">
-  <!-- Tipografías -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-  <!-- Font Awesome para iconos (opcional) -->
-  <script src="https://kit.fontawesome.com/your_kit_id.js" crossorigin="anonymous"></script>
-  <!-- Si no tenés kit, podés usar: https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <!-- Paleta y pequeños estilos adicionales -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Header Marketplace Responsive</title>
+  <meta
+    name="description"
+    content="Header responsive estilo marketplace con logo e imagen de envío."
+  />
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  />
   <link rel="stylesheet" href="css/home/style.css">
-  <link rel="stylesheet" href="css/home/header.css">
+  <link rel="stylesheet" href="css/home/header.css"/>
   <link rel="stylesheet" href="css/home/slider.css">
   <link rel="stylesheet" href="css/home/informacion.css">
   <link rel="stylesheet" href="css/home/categorias.css">
@@ -23,153 +23,696 @@
   <link rel="stylesheet" href="css/home/best-sellers.css">
   <link rel="stylesheet" href="css/home/products-section.css">
   <link rel="stylesheet" href="css/home/bannerPublicitarios.css">
+  <link rel="stylesheet" href="css/home/verder.css">
   <link rel="stylesheet" href="css/home/footer.css">
-  <!-- https://100.89.135.67:8443/ manda al index de la aplicación -->
 </head>
 <body>
-  <div class="body-container">
-    <header class="header">
-    
-      <!-- TOP BAR -->
-      <div class="header__top container">
-    
-        <a href="#" class="header__logo">
-          <img src="assets/marketplace-data/Logo-text 2.png" class="logo-desktop">
-          <img src="assets/marketplace-data/Logo.png" class="logo-mobile">
+
+  <!-- =========================
+       HEADER
+  ========================== -->
+  <header class="site-header">
+    <div class="header-shell">
+      <div class="header-top">
+        <a href="#" class="brand" aria-label="Ir al inicio">
+          <img src="assets/marketplace-data/Logo-text 2.png" alt="TiendaMas+ Marketplace mayorista" class="brand__img logo-desktop">
+          <img src="assets/marketplace-data/Logo.png" alt="TiendaMas+ Marketplace mayorista" class="brand__img logo-mobile">
         </a>
-    
-        <!-- SEARCH -->
-        <div class="search">
-          <input type="text" placeholder="Buscar productos...">
-          <i class="fa fa-search"></i>
-        </div>
-    
-        <!-- ACTIONS -->
-        <div class="header__actions">
-          <a href="#"><img src="assets/marketplace-data/envio.png"></a>
-    
-          <button id="btn-mobile" class="menu-btn">
-            <i class="fa fa-bars"></i>
+        <form class="search" id="searchForm" role="search">
+          <label class="sr-only" for="searchInput">Buscar productos</label>
+          <input
+            id="searchInput"
+            class="search__input"
+            type="search"
+            placeholder="Buscar producto, marca o categoría..."
+            aria-label="Buscar productos"
+          />
+          <button class="search__btn" type="submit" aria-label="Buscar">
+            <!--<i class="fa-brands fa-sistrix"></i>-->
+            <i class="fa-solid fa-magnifying-glass"></i>
           </button>
-        </div>
-    
+        </form>
+        <a href="#" class="shipping-banner" aria-label="Ingresando tu ubicación">
+          <img src="assets/marketplace-data/envio.png" alt="Envío ingresando tu ubicación" class="shipping-banner__img"/>
+        </a>
+        <!-- MENÚ HAMBURGUESA MOBILE -->
+        <button
+          class="mobile-menu-btn"
+          id="mobileMenuBtn"
+          aria-label="Abrir menú"
+          aria-expanded="false"
+          aria-controls="mobileDrawer"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </div>
-    
-      <!-- NAV -->
-      <nav class="nav container">
-        <div class="nav__links">
-          <a href="#">Categorías</a>
-          <a href="#">Ofertas</a>
-          <a href="#">Destacados</a>
-          <a href="#">Novedades</a>
-          <a href="#">Contacto</a>
-        </div>
-    
-        <div class="nav__user">
-          <a href="#"><i class="fa fa-user"></i> Cuenta</a>
-          <a href="#"><i class="fa fa-cart-shopping"></i> Carrito</a>
-        </div>
-      </nav>
-    
-    </header>
-    <main>
-        <section class="slider-bleed">
-          <div class="slider">
-            <!-- Flechas -->
-            <button class="arrow prev" aria-label="Anterior">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
-                       stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="14 4 6 12 14 20"></polyline>
-                  </svg>
+
+      <div class="header-bottom">
+        <!-- NAV IZQUIERDA -->
+        <nav class="main-nav" aria-label="Navegación principal">
+          <ul class="main-nav__list">
+            <li class="nav-item nav-item--categories">
+              <button
+                class="nav-pill nav-pill--primary nav-dropdown-btn nav-categories-btn"
+                type="button"
+                aria-expanded="false"
+                aria-controls="categoriesPanel"
+              >
+                Categorías
+                <i class="fa-solid fa-angle-down"></i>
+              </button>
+            </li>
+
+            <li class="nav-item nav-item--dropdown">
+              <button class="nav-pill nav-dropdown-btn" type="button">
+                Ofertas
+                <i class="fa-solid fa-angle-down"></i>
+              </button>
+
+              <div class="dropdown-menu">
+                <a href="#">Ofertas del día</a>
+                <a href="#">Combos</a>
+                <a href="#">Descuentos por mayor</a>
+              </div>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-pill">Destacados</a>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-pill">Novedades</a>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-pill">Contacto / Soporte</a>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-pill">Ayuda</a>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-pill">Vender</a>
+            </li>
+          </ul>
+        </nav>
+
+        <!-- ACCIONES DERECHA -->
+        <div class="header-actions">
+
+          <div class="header-action action-dropdown">
+            <button id="account" class="header-action__btn action-dropdown-btn" type="button">
+              <i class="fa-solid fa-user"></i>
+              <span>Cuenta</span>
+              <i class="fa-solid fa-angle-down header-action__chevron"></i>
             </button>
-            <button class="arrow next" aria-label="Siguiente">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
-                       stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="10 4 18 12 10 20"></polyline>
-                  </svg>
-            </button>
-      
-            <!-- Frame -->
-            <div class="slider-frame">
-              <div class="slider-track">
-                <a href="" class="slide">
-                  <picture class="banner-rounded">
-                    <source media="(max-width: 480px)" srcset="assets/banners/bannerFormatoMovil/1.jpg">
-                    <source media="(min-width: 481px)" srcset="assets/banners/bannerFormatoDesktop/1.png">
-                    <img src="assets/banners/bannerFormatoDesktop/1.png" alt="Promoción 1">
-                  </picture>  
-                </a>
-                <a href="" class="slide">
-                  <picture class="banner-rounded">
-                    <source media="(max-width: 480px)" srcset="assets/banners/bannerFormatoMovil/2.png">
-                    <source media="(min-width: 481px)" srcset="assets/banners/bannerFormatoDesktop/2.png">
-                    <img src="assets/banners/bannerFormatoDesktop/2.png" alt="Promoción 1">
-                  </picture>  
-                </a>
-                <a href="" class="slide">
-                  <picture class="banner-rounded">
-                    <source media="(max-width: 480px)" srcset="assets/banners/bannerFormatoMovil/3.png">
-                    <source media="(min-width: 481px)" srcset="assets/banners/bannerFormatoDesktop/3.png">
-                    <img src="assets/banners/bannerFormatoDesktop/3.png" alt="Promoción 1">
-                  </picture>  
-                </a>
-                <a href="" class="slide">
-                  <picture class="banner-rounded">
-                    <source media="(max-width: 480px)" srcset="assets/banners/bannerFormatoMovil/4.png">
-                    <source media="(min-width: 481px)" srcset="assets/banners/bannerFormatoDesktop/4.png">
-                    <img src="assets/banners/bannerFormatoDesktop/4.png" alt="Promoción 1">
-                  </picture>  
-                </a>                
+            <!--
+            <div class="dropdown-menu dropdown-menu--right">
+              <a href="#">Iniciar sesión</a>
+              <a href="#">Crear cuenta</a>
+              <a href="#">Mis pedidos</a>
+            </div>
+            -->
+            <div class="dropdown-menu dropdown-menu--right account-menu">
+              <div class="account-menu__header">
+                <div class="account-avatar">AR</div>
+                <div>
+                  <p class="account-name">Anita</p>
+                  <span class="account-profile">Mi perfil <i class="fa-solid fa-angle-right"></i></span>
+                </div>
+              </div>
+              <div class="account-divider"></div>
+              <div class="account-section">
+                <a href="#"><i class="fa-solid fa-bag-shopping"></i> Compras</a>
+                <a href="#"><i class="fa-solid fa-clock-rotate-left"></i> Historial</a>
+                <a href="#"><i class="fa-regular fa-circle-question"></i> Preguntas</a>
+                <a href="#"><i class="fa-regular fa-comments"></i> Opiniones</a>
+              </div>
+              <div class="account-divider"></div>
+              <div class="account-section">
+                <a href="#"><i class="fa-regular fa-credit-card"></i>Créditos</a>
+              </div>
+              <div class="account-divider"></div>
+              <div class="account-section">
+                <a href="#"><i class="fa-solid fa-tag"></i> Vender</a>
+              </div>
+              <div class="account-divider"></div>
+              <div class="account-section">
+                <a href="#" class="logout">Salir <i class="fa-solid fa-arrow-right-from-bracket"></i></a>
               </div>
             </div>
-      
-            <!-- Dots -->
-            <div class="dots"></div>
-      
+          </div>
+
+          <a href="#" class="header-action">
+            <span class="header-action__btn">
+              <i class="fa-solid fa-location-dot"></i>
+              <span>Ubicación</span>
+            </span>
+          </a>
+
+          <a href="#" class="header-action">
+            <span class="header-action__btn">
+              <i class="fa-solid fa-cart-shopping"></i>
+              <span id="cart-count">3</span> Carrito
+            </span>
+          </a>
+
+        </div>
+      </div>
+    </div>
+    <!-- =========================
+         DRAWER MOBILE
+    ========================== -->
+    <aside class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
+      <div class="mobile-drawer__header">
+        <span>Menú</span>
+        <button class="mobile-drawer__close" id="mobileDrawerClose" aria-label="Cerrar menú">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <nav class="mobile-nav" aria-label="Menú móvil">
+
+        <div class="mobile-nav__section">
+          <button class="mobile-accordion-btn" type="button">
+            Categorías
+            <i class="fa-solid fa-angle-down"></i>
+          </button>
+          <div class="mobile-accordion-panel">
+            <a href="#">Alimentos</a>
+            <a href="#">Bebidas</a>
+            <a href="#">Lácteos</a>
+            <a href="#">Limpieza</a>
+            <a href="#">Perfumería</a>
+          </div>
+        </div>
+
+        <div class="mobile-nav__section">
+          <button class="mobile-accordion-btn" type="button">
+            Ofertas
+            <i class="fa-solid fa-angle-down"></i>
+          </button>
+          <div class="mobile-accordion-panel">
+            <a href="#">Ofertas del día</a>
+            <a href="#">Combos</a>
+            <a href="#">Descuentos por mayor</a>
+          </div>
+        </div>
+
+        <a href="#" class="mobile-nav__link"><i class="fa-solid fa-fire"></i> Destacados</a>
+        <a href="#" class="mobile-nav__link"><i class="fa-solid fa-bolt"></i> Novedades</a>
+        <a href="#" class="mobile-nav__link"><i class="fa-solid fa-headset"></i> Contacto / Soporte</a>
+        <a href="#" class="mobile-nav__link"><i class="fa-regular fa-circle-question"></i> Ayuda</a>
+        <a href="#" class="mobile-nav__link"><i class="fa-solid fa-store"></i> Vender</a>
+
+        <div class="mobile-nav__divider"></div>
+
+        <a href="#" class="mobile-nav__link mobile-nav__link--icon">
+          <i class="fa-solid fa-user"></i> Cuenta
+        </a>
+
+        <a href="#" class="mobile-nav__link mobile-nav__link--icon">
+          <i class="fa-solid fa-location-dot"></i> Ubicación
+        </a>
+
+        <a href="#" class="mobile-nav__link mobile-nav__link--icon">
+          <i class="fa-solid fa-cart-shopping"></i><span>3</span> Carrito
+        </a>
+      </nav>
+    </aside>
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+    <!-- =========================
+         PANEL MEGA CATEGORÍAS (desktop / tablet)
+    ========================== -->
+    <div class="categories-panel" id="categoriesPanel" aria-hidden="true">
+      <div class="categories-panel__shell">
+        <!-- COLUMNA IZQUIERDA -->
+        <aside class="categories-sidebar" aria-label="Categorías principales">
+          <button class="category-main is-active" type="button" data-category="electro">
+            <i class="fa-solid fa-tv"></i>
+            <span>Electro y tecnología</span>
+            <i class="fa-solid fa-angle-right"></i>
+          </button>
+    
+          <button class="category-main" type="button" data-category="hogar">
+            <i class="fa-solid fa-house"></i>
+            <span>Hogar</span>
+            <i class="fa-solid fa-angle-right"></i>
+          </button>
+    
+          <button class="category-main" type="button" data-category="almacen">
+            <i class="fa-solid fa-boxes-stacked"></i>
+            <span>Almacén</span>
+            <i class="fa-solid fa-angle-right"></i>
+          </button>
+    
+          <button class="category-main" type="button" data-category="desayuno">
+            <i class="fa-solid fa-mug-hot"></i>
+            <span>Desayuno y merienda</span>
+            <i class="fa-solid fa-angle-right"></i>
+          </button>
+    
+          <button class="category-main" type="button" data-category="bebidas">
+            <i class="fa-solid fa-wine-bottle"></i>
+            <span>Bebidas</span>
+            <i class="fa-solid fa-angle-right"></i>
+          </button>
+    
+          <button class="category-main" type="button" data-category="lacteos">
+            <i class="fa-solid fa-cheese"></i>
+            <span>Lácteos y productos frescos</span>
+            <i class="fa-solid fa-angle-right"></i>
+          </button>
+    
+          <button class="category-main" type="button" data-category="limpieza">
+            <i class="fa-solid fa-pump-soap"></i>
+            <span>Limpieza</span>
+            <i class="fa-solid fa-angle-right"></i>
+          </button>
+    
+          <button class="category-main" type="button" data-category="perfumeria">
+            <i class="fa-solid fa-spray-can-sparkles"></i>
+            <span>Perfumería y farmacia</span>
+            <i class="fa-solid fa-angle-right"></i>
+          </button>
+          <button class="category-main is-active" type="button" data-category="electro">
+            <i class="fa-solid fa-tv"></i>
+            <span>Electro y tecnología</span>
+            <i class="fa-solid fa-angle-right"></i>
+          </button>
+    
+          <button class="category-main" type="button" data-category="hogar">
+            <i class="fa-solid fa-house"></i>
+            <span>Hogar</span>
+            <i class="fa-solid fa-angle-right"></i>
+          </button>
+    
+          <button class="category-main" type="button" data-category="almacen">
+            <i class="fa-solid fa-boxes-stacked"></i>
+            <span>Almacén</span>
+            <i class="fa-solid fa-angle-right"></i>
+          </button>
+    
+          <button class="category-main" type="button" data-category="desayuno">
+            <i class="fa-solid fa-mug-hot"></i>
+            <span>Desayuno y merienda</span>
+            <i class="fa-solid fa-angle-right"></i>
+          </button>
+    
+          <button class="category-main" type="button" data-category="bebidas">
+            <i class="fa-solid fa-wine-bottle"></i>
+            <span>Bebidas</span>
+            <i class="fa-solid fa-angle-right"></i>
+          </button>
+    
+          <button class="category-main" type="button" data-category="lacteos">
+            <i class="fa-solid fa-cheese"></i>
+            <span>Lácteos y productos frescos</span>
+            <i class="fa-solid fa-angle-right"></i>
+          </button>
+    
+          <button class="category-main" type="button" data-category="limpieza">
+            <i class="fa-solid fa-pump-soap"></i>
+            <span>Limpieza</span>
+            <i class="fa-solid fa-angle-right"></i>
+          </button>
+    
+          <button class="category-main" type="button" data-category="perfumeria">
+            <i class="fa-solid fa-spray-can-sparkles"></i>
+            <span>Perfumería y farmacia</span>
+            <i class="fa-solid fa-angle-right"></i>
+          </button>
+        </aside>
+    
+        <!-- COLUMNA DERECHA -->
+        <section class="categories-content" aria-label="Subcategorías">
+          <!-- ELECTRO -->
+          <div class="category-content is-active" data-content="electro">
+            <div class="category-content__header">
+              <h3><i class="fa-solid fa-tv"></i> Electro y tecnología</h3>
+              <a href="#" class="category-view-all">VER TODOS LOS PRODUCTOS <i class="fa-solid fa-angle-right"></i></a>
+            </div>
+    
+            <div class="category-columns">
+              <div class="category-group">
+                <h4>TV y soportes</h4>
+                <a href="#">Smart TV</a>
+                <a href="#">Soportes y accesorios</a>
+    
+                <h4>Celulares</h4>
+                <a href="#">Celulares libres</a>
+                <a href="#">Smartwatches y accesorios</a>
+                <a href="#">Accesorios de celulares</a>
+    
+                <h4>Climatización</h4>
+                <a href="#">Aires acondicionados</a>
+                <a href="#">Ventiladores</a>
+                <a href="#">Calefacción eléctrica</a>
+                <a href="#">Calefacción a gas</a>
+              </div>
+    
+              <div class="category-group">
+                <h4>Lavado</h4>
+                <a href="#">Lavarropas</a>
+                <a href="#">Secarropas</a>
+                <a href="#">Lavasecarropas</a>
+    
+                <h4>Termotanques y calefones</h4>
+                <a href="#">Calefones</a>
+                <a href="#">Termotanques a gas</a>
+                <a href="#">Termotanques eléctricos</a>
+    
+                <h4>Cocinas y hornos</h4>
+                <a href="#">Cocinas</a>
+                <a href="#">Anafes</a>
+                <a href="#">Hornos</a>
+                <a href="#">Microondas</a>
+              </div>
+    
+              <div class="category-group">
+                <h4>Cuidado personal y salud</h4>
+                <a href="#">Planchitas de pelo</a>
+                <a href="#">Secadores de pelo</a>
+                <a href="#">Afeitadoras</a>
+                <a href="#">Salud y bienestar</a>
+    
+                <h4>Informática y gaming</h4>
+                <a href="#">Notebooks y PC</a>
+                <a href="#">Consolas y joysticks</a>
+                <a href="#">Impresoras</a>
+                <a href="#">Tablets</a>
+                <a href="#">Monitores</a>
+    
+                <h4>Heladeras y freezers</h4>
+                <a href="#">Heladeras</a>
+                <a href="#">Freezers</a>
+              </div>
+            </div>
+          </div>
+    
+          <!-- HOGAR -->
+          <div class="category-content" data-content="hogar">
+            <div class="category-content__header">
+              <h3><i class="fa-solid fa-house"></i> Hogar</h3>
+              <a href="#" class="category-view-all">VER TODOS LOS PRODUCTOS <i class="fa-solid fa-angle-right"></i></a>
+            </div>
+    
+            <div class="category-columns">
+              <div class="category-group">
+                <h4>Muebles</h4>
+                <a href="#">Mesas</a>
+                <a href="#">Sillas</a>
+                <a href="#">Bibliotecas</a>
+              </div>
+              <div class="category-group">
+                <h4>Decoración</h4>
+                <a href="#">Cuadros</a>
+                <a href="#">Espejos</a>
+                <a href="#">Velas</a>
+              </div>
+              <div class="category-group">
+                <h4>Textil</h4>
+                <a href="#">Sábanas</a>
+                <a href="#">Acolchados</a>
+                <a href="#">Toallas</a>
+              </div>
+            </div>
+          </div>
+    
+          <!-- ALMACÉN -->
+          <div class="category-content" data-content="almacen">
+            <div class="category-content__header">
+              <h3><i class="fa-solid fa-boxes-stacked"></i> Almacén</h3>
+              <a href="#" class="category-view-all">VER TODOS LOS PRODUCTOS <i class="fa-solid fa-angle-right"></i></a>
+            </div>
+    
+            <div class="category-columns">
+              <div class="category-group">
+                <h4>Secos</h4>
+                <a href="#">Arroz</a>
+                <a href="#">Fideos</a>
+                <a href="#">Harinas</a>
+              </div>
+              <div class="category-group">
+                <h4>Conservas</h4>
+                <a href="#">Atún</a>
+                <a href="#">Tomate</a>
+                <a href="#">Legumbres</a>
+              </div>
+              <div class="category-group">
+                <h4>Snacks</h4>
+                <a href="#">Papas fritas</a>
+                <a href="#">Galletitas</a>
+                <a href="#">Mixes</a>
+              </div>
+            </div>
+          </div>
+    
+          <!-- DESAYUNO -->
+          <div class="category-content" data-content="desayuno">
+            <div class="category-content__header">
+              <h3><i class="fa-solid fa-mug-hot"></i> Desayuno y merienda</h3>
+              <a href="#" class="category-view-all">VER TODOS LOS PRODUCTOS <i class="fa-solid fa-angle-right"></i></a>
+            </div>
+    
+            <div class="category-columns">
+              <div class="category-group">
+                <h4>Infusiones</h4>
+                <a href="#">Café</a>
+                <a href="#">Té</a>
+                <a href="#">Mate cocido</a>
+              </div>
+              <div class="category-group">
+                <h4>Dulces</h4>
+                <a href="#">Mermeladas</a>
+                <a href="#">Dulce de leche</a>
+                <a href="#">Miel</a>
+              </div>
+              <div class="category-group">
+                <h4>Panificados</h4>
+                <a href="#">Tostadas</a>
+                <a href="#">Bizcochos</a>
+                <a href="#">Galletitas</a>
+              </div>
+            </div>
+          </div>
+    
+          <!-- BEBIDAS -->
+          <div class="category-content" data-content="bebidas">
+            <div class="category-content__header">
+              <h3><i class="fa-solid fa-wine-bottle"></i> Bebidas</h3>
+              <a href="#" class="category-view-all">VER TODOS LOS PRODUCTOS <i class="fa-solid fa-angle-right"></i></a>
+            </div>
+    
+            <div class="category-columns">
+              <div class="category-group">
+                <h4>Sin alcohol</h4>
+                <a href="#">Gaseosas</a>
+                <a href="#">Jugos</a>
+                <a href="#">Aguas</a>
+              </div>
+              <div class="category-group">
+                <h4>Con alcohol</h4>
+                <a href="#">Cervezas</a>
+                <a href="#">Vinos</a>
+                <a href="#">Aperitivos</a>
+              </div>
+              <div class="category-group">
+                <h4>Energizantes</h4>
+                <a href="#">Latas</a>
+                <a href="#">Packs</a>
+              </div>
+            </div>
+          </div>
+    
+          <!-- LÁCTEOS -->
+          <div class="category-content" data-content="lacteos">
+            <div class="category-content__header">
+              <h3><i class="fa-solid fa-cheese"></i> Lácteos y productos frescos</h3>
+              <a href="#" class="category-view-all">VER TODOS LOS PRODUCTOS <i class="fa-solid fa-angle-right"></i></a>
+            </div>
+    
+            <div class="category-columns">
+              <div class="category-group">
+                <h4>Lácteos</h4>
+                <a href="#">Leche</a>
+                <a href="#">Yogures</a>
+                <a href="#">Quesos</a>
+              </div>
+              <div class="category-group">
+                <h4>Frescos</h4>
+                <a href="#">Fiambres</a>
+                <a href="#">Pastas frescas</a>
+                <a href="#">Mantecas</a>
+              </div>
+              <div class="category-group">
+                <h4>Postres</h4>
+                <a href="#">Flanes</a>
+                <a href="#">Gelatinas</a>
+                <a href="#">Postres refrigerados</a>
+              </div>
+            </div>
+          </div>
+    
+          <!-- LIMPIEZA -->
+          <div class="category-content" data-content="limpieza">
+            <div class="category-content__header">
+              <h3><i class="fa-solid fa-pump-soap"></i> Limpieza</h3>
+              <a href="#" class="category-view-all">VER TODOS LOS PRODUCTOS <i class="fa-solid fa-angle-right"></i></a>
+            </div>
+    
+            <div class="category-columns">
+              <div class="category-group">
+                <h4>Ropa</h4>
+                <a href="#">Detergentes</a>
+                <a href="#">Suavizantes</a>
+                <a href="#">Quitamanchas</a>
+              </div>
+              <div class="category-group">
+                <h4>Hogar</h4>
+                <a href="#">Lavandina</a>
+                <a href="#">Desinfectantes</a>
+                <a href="#">Limpiadores</a>
+              </div>
+              <div class="category-group">
+                <h4>Accesorios</h4>
+                <a href="#">Esponjas</a>
+                <a href="#">Guantes</a>
+                <a href="#">Trapos</a>
+              </div>
+            </div>
+          </div>
+    
+          <!-- PERFUMERÍA -->
+          <div class="category-content" data-content="perfumeria">
+            <div class="category-content__header">
+              <h3><i class="fa-solid fa-spray-can-sparkles"></i> Perfumería y farmacia</h3>
+              <a href="#" class="category-view-all">VER TODOS LOS PRODUCTOS <i class="fa-solid fa-angle-right"></i></a>
+            </div>
+    
+            <div class="category-columns">
+              <div class="category-group">
+                <h4>Cuidado personal</h4>
+                <a href="#">Shampoo</a>
+                <a href="#">Acondicionador</a>
+                <a href="#">Jabones</a>
+              </div>
+              <div class="category-group">
+                <h4>Farmacia</h4>
+                <a href="#">Analgésicos</a>
+                <a href="#">Vitaminas</a>
+                <a href="#">Primeros auxilios</a>
+              </div>
+              <div class="category-group">
+                <h4>Belleza</h4>
+                <a href="#">Maquillaje</a>
+                <a href="#">Cremas</a>
+                <a href="#">Fragancias</a>
+              </div>
+            </div>
           </div>
         </section>
+      </div>
+    </div>
+  </header>
 
-        <section class="informacion"> 
-          <div class="info-container"> 
-            <div class="info-item"> 
-              <i class="fa-solid fa-truck-fast"></i> 
-              <div> 
-                <h3>Envío Gratis</h3> 
-                <p>En compras mayores a $50,000</p> 
-              </div> 
-            </div> 
-            <div class="info-item"> 
-              <i class="fa-solid fa-headset"></i> 
-              <div> 
-                <h3>Soporte 24/7</h3> 
-                <p>Estamos para ayudarte</p> 
-              </div> 
-            </div> 
-            <div class="info-item"> 
-              <i class="fa-solid fa-shield-halved"></i> 
-              <div> 
-                <h3>Compra Segura</h3> 
-                <p>Protegemos tus datos</p> 
-              </div> 
-            </div> 
-            <div class="info-item"> 
-              <i class="fa-solid fa-tags"></i> 
-              <div> 
-                <h3>Mejores</h3> 
-                <p>Ofertas exclusivas</p> 
-              </div> 
-            </div> 
-          </div> 
-        </section> 
+  <main class="main-content page-shell">
+    <section class="slider-bleed">
+      <div class="slider">
+        <!-- Flechas -->
+        <button class="arrow prev" aria-label="Anterior">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                   stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="14 4 6 12 14 20"></polyline>
+              </svg>
+        </button>
+        <button class="arrow next" aria-label="Siguiente">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                   stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="10 4 18 12 10 20"></polyline>
+              </svg>
+        </button>
+  
+        <!-- Frame -->
+        <div class="slider-frame">
+          <div class="slider-track">
+            
+            <a href="#" class="slide" aria-label="Ver promoción 1">
+              <picture class="banner-rounded">
+                <source media="(min-width: 1024px)" srcset="assets/banners/bannerFormatoDesktop/1.png">
+                <source media="(min-width: 768px)" srcset="assets/banners/bannerFormatoTablet/1.jpg">
+                <source media="(max-width: 767px)" srcset="assets/banners/bannerFormatoMovil/1.jpg">
+                <img src="assets/banners/bannerFormatoDesktop/1.png" alt="Promoción 1">
+              </picture>
+            </a>
+        
+            <a href="#" class="slide" aria-label="Ver promoción 2">
+              <picture class="banner-rounded">
+                <source media="(min-width: 1024px)" srcset="assets/banners/bannerFormatoDesktop/2.png">
+                <source media="(min-width: 768px)" srcset="assets/banners/bannerFormatoTablet/2.jpg">
+                <source media="(max-width: 767px)" srcset="assets/banners/bannerFormatoMovil/2.png">
+                <img src="assets/banners/bannerFormatoDesktop/2.png" alt="Promoción 2">
+              </picture>
+            </a>
+        
+            <a href="#" class="slide" aria-label="Ver promoción 3">
+              <picture class="banner-rounded">
+                <source media="(min-width: 1024px)" srcset="assets/banners/bannerFormatoDesktop/3.png">
+                <source media="(min-width: 768px)" srcset="assets/banners/bannerFormatoTablet/3.jpg">
+                <source media="(max-width: 767px)" srcset="assets/banners/bannerFormatoMovil/3.png">
+                <img src="assets/banners/bannerFormatoDesktop/3.png" alt="Promoción 3">
+              </picture>
+            </a>
+        
+            <a href="#" class="slide" aria-label="Ver promoción 4">
+              <picture class="banner-rounded">
+                <source media="(min-width: 1024px)" srcset="assets/banners/bannerFormatoDesktop/4.png">
+                <source media="(min-width: 768px)" srcset="assets/banners/bannerFormatoTablet/4.jpg">
+                <source media="(max-width: 767px)" srcset="assets/banners/bannerFormatoMovil/4.png">
+                <img src="assets/banners/bannerFormatoDesktop/4.png" alt="Promoción 4">
+              </picture>
+            </a>
+        
+          </div>
+        </div>
+        <!-- Dots -->
+        <div class="dots"></div>
+  
+      </div>
+    </section>
+
+    <section class="informacion">
+      <div class="info-container">
+        <div class="info-scroll">
+          <div class="info-slider-track">
+            <div class="info-item">
+              <i class="fa-solid fa-truck-fast"></i>
+              <span>Envío Gratis en compras mayores a $50,000</span>
+            </div>
+            <div class="info-item">
+              <i class="fa-solid fa-headset"></i>
+              <span>Soporte 24/7 - Estamos para ayudarte</span>
+            </div>
+            <div class="info-item">
+              <i class="fa-solid fa-shield-halved"></i>
+              <span>Compra Segura - Protegemos tus datos</span>
+            </div>
+            <div class="info-item">
+              <i class="fa-solid fa-tags"></i>
+              <span>Mejores ofertas exclusivas</span>
+            </div>
+    
+          </div>
+        </div>
+      </div>
+    </section>
 
         <section class="categories">
           <div class="categories-slider">  
-            <a href="#" class="cat-item mas-vendidos" >
-              <div class="cat-circle">
-                <img src="assets/icons/star.png" alt="Mobile">
-              </div>
-              <span>+vendidos</span>
-            </a>
+
             <a href="#" class="cat-item">
               <div class="cat-circle">
                 <img src="assets/products/home/heladera.png" alt="Mobile">
@@ -224,7 +767,12 @@
               </div>
               <span>Viaje</span>
             </a>   
-  
+            <a href="#" class="cat-item mas-vendidos" >
+              <div class="cat-circle">
+                <img src="assets/icons/star.png" alt="Mobile">
+              </div>
+              <span>+vendidos</span>
+            </a>
           </div>
         </section> 
 
@@ -840,7 +1388,8 @@
               </article> 
             </div>
           </div>
-        </section>
+        </section>        
+
         <section class="promo-section">
           <div class="promo-container">
         
@@ -871,6 +1420,7 @@
             </a>      
           </div>
         </section>
+
         <section class="best-sellers">
           <div class="section-header">
             <p class="section-title">Lo mejor en <a href="#">Hogar & Electrodomésticos</a></p>
@@ -1248,7 +1798,8 @@
               </article> 
             </div>
           </div>
-        </section>
+        </section>       
+
         <section class="bannerPublicitario3">
           <a href="#">     
             <picture>
@@ -1267,6 +1818,7 @@
             </picture>
           </a>
         </section>
+
         <section class="best-sellers">
           <div class="section-header">
             <p class="section-title">Lo mejor en <a href="#">Inmuebles</a></p>
@@ -1455,7 +2007,8 @@
               </article> 
             </div>
           </div>
-        </section>
+        </section>       
+
         <section class="registro-steps">
           <div class="section-header">
             <p class="section-title">Barra de <a href="#">Beneficios</a></p>
@@ -1495,167 +2048,123 @@
               </div>
             </div>
           </div>
-        </section>
-        <section class="brands">
-          <div class="container">
+        </section>       
+        <section class="brands"> 
+          <div class="brands-container">
         
             <div class="section-header">
               <p class="section-title">
-                Empresas que confían en <a href="#">Nosotros</a>
+                Empresas Que Confían en <a href="#">Nosotros</a>
               </p>
               <a href="#" class="view-all">Ver más →</a>
             </div>
         
             <div class="brands-wrapper">
         
-              <a href="#"><div class="brand-item"><img src="assets/icons/empresas/1.jpg" alt="Samsung"></div></a>
-              <a href="#"><div class="brand-item"><img src="assets/icons/empresas/2.jpg" alt="Dielfe"></div></a>
-              <a href="#"><div class="brand-item"><img src="assets/icons/empresas/3.jpg" alt="Serta"></div></a>
-              <a href="#"><div class="brand-item"><img src="assets/icons/empresas/4.jpg" alt="Lenovo"></div></a>
-              <a href="#"><div class="brand-item"><img src="assets/icons/empresas/5.jpg" alt="Drean"></div></a>
-              <a href="#"><div class="brand-item"><img src="assets/icons/empresas/6.jpg" alt="ZTE"></div></a>
-              <a href="#"><div class="brand-item"><img src="assets/icons/empresas/7.jpg" alt="PlayStation"></div></a>
-              <a href="#"><div class="brand-item"><img src="assets/icons/empresas/8.jpg" alt="Realme"></div></a>
-              <a href="#"><div class="brand-item"><img src="assets/icons/empresas/9.jpg" alt="Nestlé"></div></a>
-              <a href="#"><div class="brand-item"><img src="assets/icons/empresas/10.jpg" alt="Yogurísimo"></div></a>
-              <a href="#"><div class="brand-item"><img src="assets/icons/empresas/11.jpg" alt="Ayudín"></div></a>
-              <a href="#"><div class="brand-item"><img src="assets/icons/empresas/12.jpg" alt="Skip"></div></a>
-              <a href="#"><div class="brand-item"><img src="assets/icons/empresas/13.jpg" alt="Hellmann's"></div></a>
-              <a href="#"><div class="brand-item"><img src="assets/icons/empresas/14.jpg" alt="Dove"></div></a>
-              <a href="#"><div class="brand-item"><img src="assets/icons/empresas/15.jpg" alt="Babysec"></div></a>
-              <a href="#"><div class="brand-item"><img src="assets/icons/empresas/16.jpg" alt="Croppers"></div></a>
+              <a href="#" class="brand-item"><img src="assets/icons/empresas/1.jpg" alt="Samsung"></a>
+              <a href="#" class="brand-item"><img src="assets/icons/empresas/2.jpg" alt="Dielfe"></a>
+              <a href="#" class="brand-item"><img src="assets/icons/empresas/3.jpg" alt="Serta"></a>
+              <a href="#" class="brand-item"><img src="assets/icons/empresas/4.jpg" alt="Lenovo"></a>
+              <a href="#" class="brand-item"><img src="assets/icons/empresas/5.jpg" alt="Drean"></a>
+              <a href="#" class="brand-item"><img src="assets/icons/empresas/6.jpg" alt="ZTE"></a>
+              <a href="#" class="brand-item"><img src="assets/icons/empresas/7.jpg" alt="PlayStation"></a>
+              <a href="#" class="brand-item"><img src="assets/icons/empresas/8.jpg" alt="Realme"></a>
+              <a href="#" class="brand-item"><img src="assets/icons/empresas/9.jpg" alt="Nestlé"></a>
+              <a href="#" class="brand-item"><img src="assets/icons/empresas/10.jpg" alt="Yogurísimo"></a>
+              <a href="#" class="brand-item"><img src="assets/icons/empresas/11.jpg" alt="Ayudín"></a>
+              <a href="#" class="brand-item"><img src="assets/icons/empresas/12.jpg" alt="Skip"></a>
+              <a href="#" class="brand-item"><img src="assets/icons/empresas/13.jpg" alt="Hellmann's"></a>
+              <a href="#" class="brand-item"><img src="assets/icons/empresas/14.jpg" alt="Dove"></a>
+              <a href="#" class="brand-item"><img src="assets/icons/empresas/15.jpg" alt="Babysec"></a>
+              <a href="#" class="brand-item"><img src="assets/icons/empresas/16.jpg" alt="Croppers"></a>
         
             </div>
         
           </div>
         </section>
-      
-        <section id="vender" class="py-12 bg-[var(--tm-blue)] text-white">
-        
-          <div class="mx-auto max-w-[var(--max-width)] px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
-        
-            <div class="text-center md:text-left">
-              <h3 class="text-xl font-semibold">
-                ¿Tenés un negocio? Empieza a vender en Tienda Mas
-              </h3>
-        
-              <p class="text-sm text-slate-100 mt-2">
-                Regístrate, subí tu catálogo y accedé a ventas mayoristas desde el primer día.
-              </p>
-            </div>
-        
-            <div class="flex flex-col md:flex-row gap-3 w-full md:w-auto">
-        
-              <a href="#registrarse"
-              class="px-5 py-3 w-full md:w-auto bg-white text-[var(--tm-blue)] rounded-md font-semibold text-center">
-              Crear cuenta vendedor
-              </a>
-        
-              <a href="#contacto"
-              class="px-5 py-3 w-full md:w-auto rounded-md text-white font-semibold bg-[#25D366] text-center">
-              <i class="fa-brands fa-whatsapp"></i> Contactar soporte
-              </a>
-        
-            </div>
-        
-          </div>
-        
-        </section>
-    </main>
+  </main>
 
-    <footer class="footer">
-      <div class="footer-container"> 
-        <div>
-          <div>
-            <img src="assets/marketplace-data/Logo-text 2.png" alt="">
-            <div>
-              <a href=""><img src="assets/icons/whatsapp.png" alt=""></a>
-              <a href=""><img src="assets/icons/facebook.png" alt=""></a>
-              <a href=""><img src="assets/icons/instagram.png" alt=""></a>
-              <a href=""><img src="assets/icons/linkedin.png" alt=""></a>              
-            </div>
-          </div>
-          <div>
-            <h3 class="footer-title">Empresa</h3>
-            <a href="">Acerca</a>
-            <a href="">Prensa</a>
-            <a href="">Contacto</a>
-            <a href="">Condiciones</a>
-            <a href="">Terminos y servicios</a>
-            <a href="">Preguntas frecuentes</a>
-          </div>
-          <div>
-            <h3 class="footer-title">Categorias</h3>
-            <a href="">Electrónica</a>
-            <a href="">Moda y Accesorios</a>
-            <a href="">Hogar y Jardín</a>
-            <a href="">Salud y Belleza</a>
-            <a href="">Alimentos y Bebidas</a>
-            <a href="">Deportes y Fitness</a>
-          </div>
-          <div>
-            <h3 class="footer-title">Mi cuenta</h3>
-            <a href="">Iniciar sesión</a>
-            <a href="">Registrarse</a>
-            <a href="">Mis pedidos</a>
-            <a href="">Direcciones</a>
-            <a href="">Métodos de pago</a>
-            <a href="">Cerrar sesión</a>
-          </div>
-          <div>
-            <h3 class="footer-title">Contacto</h3>
-            <a href=""><i class="fa-solid fa-location-dot"></i> Catamarca, Argentina.</a>
-            <a href=""><i class="fa-brands fa-whatsapp"></i> +54 9 383 451-6154</a>
-            <a href=""><i class="fa-regular fa-envelope"></i> anroo475@gmail.com</a>
-            <a href=""><i class="fa-solid fa-headset"></i> Soporte tecnico</a>
-          </div>
-        </div>  
-        <div>
-          <img src="assets/marketplace-data/payment.png" alt="">
-          <p>© 2024 SomosTiendaMas. Todos los derechos reservados.</p>
-        </div>    
+  <!-- Footer -->
+  <footer class="footer ">
+    <div class="footer-container">
+  
+      <!-- Logo + redes -->
+      <div class="footer-brand">
+        <img src="assets/marketplace-data/Logo-text 2.png" alt="Logo" class="footer-logo">
+  
+        <div class="socials">
+          <a href="#"><i class="fa-solid fa-envelope"></i></a>
+          <a href="#"><i class="fa-brands fa-facebook"></i></a>
+          <a href="#"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
       </div>
-    </footer>
 
-  </div>
-  <!-- Go to top button -->
+      <!-- Columna -->
+      <div class="footer-col">
+        <h4>Atención al Cliente</h4>
+        <ul>
+          <li><a href="#">Acerca de</a></li>
+          <li><a href="#">Soporte técnico</a></li>
+          <li><a href="#">Preguntas frecuentes</a></li>
+          <li><a href="#">Terminos y condiciones</a></li>
+          <li><a href="#">Política de privacidad</a></li>
+          <li><a href="#">Información de Envíos</a></li>
+        </ul>
+      </div>
+      <!-- Columna -->
+      <div class="footer-col">
+        <h4>Links Rapidos</h4>
+        <ul>
+          <li><a href="#">Electrónica</a></li>
+          <li><a href="#">Moda y Accesorios</a></li>
+          <li><a href="#">Hogar y Jardín</a></li>
+          <li><a href="#">Salud y Belleza</a></li>
+          <li><a href="#">Alimentos y Bebidas</a></li>
+          <li><a href="#">Deportes y Fitness</a></li>
+        </ul>
+      </div>
+      <!-- Columna -->
+      <div class="footer-col">
+        <h4>Mi cuenta</h4>
+        <ul>
+          <li><a href="#">Iniciar sesión</a></li>
+          <li><a href="#">Registrarse</a></li>
+          <li><a href="#">Mis pedidos</a></li>
+          <li><a href="#">Direcciones</a></li>
+          <li><a href="#">Métodos de pago</a></li>
+          <li><a href="#">Cerrar sesión</a></li>
+        </ul>
+      </div>
+
+      <!-- Newsletter -->
+      <div class="footer-col subscribe">
+        <h4>Suscribite</h4>
+         <p>Suscribite a nuestro newsletter para recibir novedades y ofertas exclusivas.</p>
+  
+        <form class="subscribe-box">
+          <input type="email" placeholder="Correo electrónico">
+          <button type="submit">Suscribirse</button>
+        </form>
+      </div>
+  
+    </div>
+
+    <div class="footer-bottom">
+      © <span id="year"></span> TiendaMas. Todos los derechos reservados
+    </div>
+  
+  </footer>
+  
+    <!-- Go to top button -->
   <button id="goTopBtn" aria-label="Volver arriba">
     <i class="fa-solid fa-arrow-up"></i>
   </button>
-  
-  <!-- Script Swiper -->
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
-  <!-- ===========================
-       Notas / sugerencias de producción
-       ===========================
-       1) Para producción: compilar Tailwind (no Play CDN) y definir colores en tailwind.config.js.
-       2) Separar componentes (Header, Footer, Cards) en componentes reutilizables (React/Vue/Svelte).
-       3) Reemplazar imágenes por assets optimizados (webp, size-specified) y usar lazy-loading.
-       4) Implementar carga de productos mediante API (render SSR/SSG para SEO).
-       5) Añadir tests de accesibilidad (axe) y performance audits (Lighthouse).
-  -->
   <script src="Javascript/home/script.js"></script>
+  <script src="Javascript/home/header.js"></script>
   <script src="Javascript/home/slider.js"></script>
   <script src="Javascript/home/product-slider.js"></script>
-  <script>
-    const goTopBtn = document.getElementById("goTopBtn");
-  
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 400) {
-        goTopBtn.classList.add("show");
-      } else {
-        goTopBtn.classList.remove("show");
-      }
-    });
-  
-    goTopBtn.addEventListener("click", () => {
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-      });
-    });
-  </script>
+
 </body>
 </html>
 
