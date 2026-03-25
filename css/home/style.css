@@ -343,6 +343,35 @@ img {
   font-weight: 600;
 }
 
+.page-shell {
+  max-width: 1366px; 
+  margin: 0 auto;    
+  padding: 0 4rem;
+  width: 100%;
+  background: #fff;
+}
+
+@media(max-width: 1100px){
+  .page-shell{
+    padding: 0 2rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .page-shell {
+    padding: 0 2rem;
+  }
+}
+@media (max-width: 768px) {
+  .page-shell {
+    padding: 0 2rem;
+  }
+}
+@media (max-width: 480px) {
+  .page-shell {
+    padding: 0 1rem;
+  }
+}
 
 
 /* Go To Top Button */
@@ -383,37 +412,5 @@ img {
     display: none;
   }
 }
-
-
-.page-shell {
-  max-width: 1366px; 
-  margin: 0 auto;    
-  padding: 0 4rem;
-  width: 100%;
-  background: #fff;
-}
-
-@media(max-width: 1100px){
-  .page-shell{
-    padding: 0 2rem;
-  }
-}
-
-@media (max-width: 1024px) {
-  .page-shell {
-    padding: 0 2rem;
-  }
-}
-@media (max-width: 768px) {
-  .page-shell {
-    padding: 0 2rem;
-  }
-}
-@media (max-width: 480px) {
-  .page-shell {
-    padding: 0 1rem;
-  }
-}
-
 
 

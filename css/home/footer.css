@@ -131,10 +131,14 @@
 
 /* ================= RESPONSIVE ================= */
 
-@media(max-width:1024px){
-  .footer-container{
-    grid-template-columns:1fr 1fr;
-    gap:30px;
+@media (max-width: 1024px) {
+  .footer-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+
+  .footer-brand {
+    grid-column: 1 / -1;
   }
 }
 
