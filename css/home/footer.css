@@ -1,13 +1,11 @@
-
 /*------------------------------------ Footer -----------------------------------*/
 .footer{
-  background:#efefef;
-  background: #fff;
   background: #1695da;
   padding-top:50px;
   font-family:Montserrat, sans-serif;
 }
 
+/* layout */
 .footer-container{
   max-width:1400px;
   margin:auto;
@@ -23,39 +21,49 @@
   margin-bottom:20px;
 }
 
-/* redes */
+/* ================= REDES SOCIALES ================= */
 .socials{
   display:flex;
-  gap:10px;
+  gap:12px;
 }
 
 .socials a{
-  width:32px;
-  height:32px;
-  background:#fff;
-  border-radius:4px;
+  width:40px;
+  height:40px;
+  border-radius:50%;
   display:flex;
   align-items:center;
   justify-content:center;
-  text-decoration:none;
-  color:#555;
-  color: #fff;
-  font-size:14px;
-  box-shadow:0 2px 6px rgba(0,0,0,.1);
+  font-size:18px;
+  color:#fff;
   transition:.3s;
 }
 
+/* colores */
+.socials a:nth-child(1){ background:#EA4335; } /* email */
+.socials a:nth-child(2){ background:#1877F2; } /* facebook */
+.socials a:nth-child(3){ background:#E4405F; } /* instagram */
+.socials a:nth-child(4){ background:#25D366; } /* whatsapp */
+
 .socials a:hover{
-  background:#000;
-  color:#fff;
+  transform:translateY(-3px);
+  opacity:.9;
 }
 
-/* columnas */
+/* ================= COLUMNAS ================= */
+
+/* TITULOS con línea del mismo ancho */
 .footer-col h4{
   font-size:16px;
   margin-bottom:15px;
+  color:#fff;
+  font-weight:600;
+  display:inline-block;
+  border-bottom:2px solid #fff;
+  padding-bottom:5px;
 }
 
+/* listas */
 .footer-col ul{
   list-style:none;
   padding:0;
@@ -63,26 +71,26 @@
 }
 
 .footer-col ul li{
-  margin-bottom:10px;
+  margin-bottom:10px; /* 👈 espaciado original */
 }
 
 .footer-col ul li a{
   text-decoration:none;
-  color:#666;
-  color: #fff;
+  color:#fff;
   font-size:14px;
   transition:.2s;
 }
 
+/* hover limpio (sin romper spacing) */
 .footer-col ul li a:hover{
-  color:#000;
+  opacity:.7;
 }
 
-/* subscribe */
+/* ================= SUBSCRIBE ================= */
+
 .subscribe p{
   font-size:14px;
-  color:#666;
-  color: #fff;
+  color:#fff;
   margin-bottom:15px;
 }
 
@@ -108,16 +116,18 @@
   font-size:14px;
 }
 
-/* bottom */
+/* ================= FOOTER BOTTOM ================= */
+
 .footer-bottom{
   text-align:center;
   padding:20px;
   margin-top:40px;
-  border-top:1px solid #ddd;
+  border-top:1px solid rgba(255,255,255,0.3);
   font-size:14px;
-  color:#666;
-  color: #fff;
+  color:#fff;
 }
+
+/* ================= RESPONSIVE ================= */
 
 @media(max-width:1024px){
   .footer-container{
@@ -141,19 +151,6 @@
     width:100%;
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
