@@ -3,13 +3,15 @@
   background: #1695da;
   padding-top:50px;
   font-family:Montserrat, sans-serif;
+  max-width: 1366px;
+  margin: 0 auto;
 }
 
 /* layout */
 .footer-container{
-  max-width:1400px;
+  max-width:1366px;
   margin:auto;
-  padding:0 20px;
+  padding:0 2rem;
   display:grid;
   grid-template-columns:1.2fr 1fr 1fr 1fr 1.2fr;
   gap:40px;
@@ -151,6 +153,24 @@
     width:100%;
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
