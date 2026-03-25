@@ -139,7 +139,6 @@
 }
 
 @media(max-width:600px){
-
   .footer-container{
     grid-template-columns:1fr;
   }
@@ -156,27 +155,7 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*------------------------------------------------ BRAND DIRECTORY FOOTER ---------------------------------------*/
-
 .brands {
   padding: 48px 0;
   width: 100%;
@@ -273,62 +252,4 @@
     scrollbar-width: none;
   }
 }
-
-/*------------------ Vender en TiendaMas ------------------*/
-#vender {
-  margin-bottom: 24px;
-  border-radius: 4px;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
