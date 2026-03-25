@@ -143,6 +143,39 @@
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+html, body {
+  height: 100%;
+}
+body {
+  display: flex;
+  flex-direction: column;
+}
+main {
+  flex: 1;
+}
+.footer {
+  background: #1695da;
+  margin-top: auto;
+  padding-top: 50px;
+}
+
 /*------------------------------------------------ BRAND DIRECTORY FOOTER ---------------------------------------*/
 
 .brands {
