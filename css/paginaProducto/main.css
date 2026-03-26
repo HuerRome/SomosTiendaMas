@@ -81,22 +81,28 @@
   padding: 20px 0;
   margin: 0 4rem;
   margin: 0;
-  
+  overflow: visible; /* 🔥 IMPORTANTE */
 }
 
 .product-container {
   display: grid;
   grid-template-columns: 1.2fr 1fr;
   gap: 40px;
+  align-items: start; /* 🔥 FIX CLAVE */
 }
 
 /* GALERIA */
 .product-gallery {
+  position: sticky;
+  position: relative;
+  top: 90px; /* 🔥 ajustalo a tu header */
   display: flex;
   gap: 15px;
-  top: 20px;
-  align-self: start;
+  height: fit-content; /* 🔥 CLAVE */
 }
+
+
+
 
 /* SOLO desktop */
 @media (min-width: 1025px) {
@@ -166,7 +172,6 @@
 }
 
 /* INFO */
-
 .product-info{
 
 display:flex;
@@ -255,7 +260,6 @@ font-size:14px;
 color:green;
 font-weight:500;
 }
-
 
 .color-selector select{
   margin-top:5px;
@@ -441,7 +445,6 @@ font-size:30px;
 /* =========================
    SMALL DEVICES (telefonos)
    ========================= */
-
 @media (max-width: 480px) {
   .best-sellers{
     margin: 0 1rem;
