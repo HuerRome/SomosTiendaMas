@@ -9,7 +9,8 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   background-color: #f5f5f5;
   color: #333;
-  overflow-x: hidden; /* Evita scroll horizontal global */
+  overflow-x: hidden;
+  min-height: 100vh; /* ← NUEVO: garantiza altura mínima para scroll */
 }
 
 /* MAIN CONTENT */
@@ -18,7 +19,7 @@ body {
   width: 100%;
   margin: 0 auto;
   padding: 20px 24px;
-  overflow-x: hidden; /* Previene desbordes horizontales */
+  /*overflow-x: hidden;*/ /* Previene desbordes horizontales */
 }
 
 /* BREADCRUMB */
@@ -63,6 +64,7 @@ body {
   white-space: nowrap;
 }
 
+/* PRODUCT PAGE - ELIMINAR overflow: hidden que bloquea sticky */
 /* PRODUCT PAGE */
 .product-page {
   background: #fff;
@@ -70,7 +72,7 @@ body {
   box-shadow: 0 1px 4px rgba(0,0,0,0.1);
   padding: 32px;
   width: 100%;
-  overflow: hidden; /* Contiene todos los elementos internos */
+  /* overflow: hidden; ← YA ELIMINADO */
 }
 
 .product-container {
@@ -78,7 +80,7 @@ body {
   grid-template-columns: 1fr 1fr;
   gap: 48px;
   align-items: start;
-  min-height: 100vh;
+  /* min-height: 100vh; ← ELIMINADO */
   width: 100%;
 }
 
@@ -94,8 +96,9 @@ body {
 @media (min-width: 1025px) {
   .product-gallery {
     position: sticky;
-    top: 0px;
-    height: auto;
+    top: 24px;
+    height: fit-content;
+    align-self: start;
   }
 }
 
@@ -209,11 +212,12 @@ body {
 .product-info {
   display: flex;
   flex-direction: column;
-  gap: 12px; /*Aquí esta el espaciado de los elementos de la info de producto*/
+  gap: 12px;
   width: 100%;
   max-width: 100%;
   overflow-wrap: break-word;
   word-wrap: break-word;
+  min-height: 600px; /* ← NUEVO: garantiza altura suficiente para scroll */
 }
 
 .brand-link {
@@ -789,3 +793,5 @@ body {
 .thumb, .size-btn, .qty-btn, .btn-buy, .btn-cart {
   cursor: pointer;
 }
+
+
