@@ -1,160 +1,683 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TiendaMas</title>
-  <meta name="description" content="Fiambrissima, supermercado con varios locales. Calidad, variedad y precios para familias y comercios." />
-  <!-- Tailwind Play CDN (rápido para prototipo) -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Tipografías -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-  <!-- Font Awesome para iconos (opcional) -->
-  <script src="https://kit.fontawesome.com/your_kit_id.js" crossorigin="anonymous"></script>
-  <!-- Si no tenés kit, podés usar: https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <!-- Paleta y pequeños estilos adicionales -->
-  <!-- CSS -->
-  <link rel="stylesheet" href="css/paginaProducto/producto.css" />
-  <link rel="stylesheet" href="css/paginaProducto/main.css">
-  <link rel="stylesheet" href="css/home/best-sellers.css">
-  <link rel="stylesheet" href="css/paginaProducto/footer.css">
-  <!-- Fuentes (ejemplo) -->
-  <!--
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Buzo Unisex Canguro - TiendaMas</title>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <style>
+    /* CSS incluido aquí para facilidad, pero puede estar en archivo separado */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background-color: #f5f5f5;
+      color: #333;
+    }
+
+    /* MAIN CONTENT */
+    .main-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 20px 24px;
+    }
+
+    /* BREADCRUMB */
+    .breadcrumb {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: #666;
+      margin-bottom: 24px;
+      background: #fff;
+      padding: 12px 16px;
+      border-radius: 8px;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    }
+
+    .breadcrumb a {
+      color: #3483fa;
+      text-decoration: none;
+    }
+
+    .breadcrumb a:hover {
+      text-decoration: underline;
+    }
+
+    .breadcrumb span {
+      color: #999;
+    }
+
+    .breadcrumb .active {
+      color: #666;
+      font-weight: 500;
+    }
+
+    /* PRODUCT PAGE */
+    .product-page {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+      padding: 32px;
+    }
+
+    .product-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+      min-height: 100vh;
+    }
+
+    /* GALLERY - STICKY */
+    .product-gallery {
+      display: flex;
+      gap: 16px;
+      align-self: start;
+    }
+
+    @media (min-width: 1025px) {
+      .product-gallery {
+        position: sticky;
+        top: 24px;
+        height: auto;
+      }
+    }
+
+    /* THUMBNAILS */
+    .thumbnails {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .thumb {
+      width: 70px;
+      height: 70px;
+      object-fit: cover;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .thumb:hover {
+      transform: scale(1.05);
+      border-color: #3483fa;
+    }
+
+    .thumb.active {
+      border: 2px solid #3483fa;
+      box-shadow: 0 0 0 2px rgba(52,131,250,0.2);
+    }
+
+    /* MAIN IMAGE */
+    .main-image {
+      flex: 1;
+      background: #fafafa;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 500px;
+      position: relative;
+      overflow: hidden;
+      cursor: zoom-in;
+    }
+
+    .main-image img {
+      max-width: 100%;
+      max-height: 500px;
+      object-fit: contain;
+      transition: transform 0.3s ease;
+    }
+
+    .main-image.zoomed img {
+      transform: scale(1.5);
+      cursor: zoom-out;
+    }
+
+    .share-btn {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: white;
+      border: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      transition: all 0.2s;
+      z-index: 2;
+    }
+
+    .share-btn:hover {
+      background: #f0f0f0;
+      transform: scale(1.05);
+    }
+
+    /* PRODUCT INFO */
+    .product-info {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .brand-link {
+      color: #3483fa;
+      font-size: 14px;
+      text-decoration: none;
+      font-weight: 500;
+      cursor: pointer;
+    }
+
+    .brand-link:hover {
+      text-decoration: underline;
+    }
+
+    .product-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .status {
+      font-size: 14px;
+      color: #00a650;
+      background: #e9f7ef;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-weight: 500;
+    }
+
+    .favorite {
+      background: none;
+      border: none;
+      font-size: 22px;
+      cursor: pointer;
+      color: #666;
+      transition: color 0.2s;
+    }
+
+    .favorite:hover {
+      color: #e74c3c;
+    }
+
+    .product-title {
+      font-size: 26px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    .rating {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .rating-score {
+      font-weight: 600;
+      font-size: 18px;
+      color: #333;
+    }
+
+    .stars {
+      color: #ffb800;
+      letter-spacing: 2px;
+    }
+
+    .reviews {
+      color: #3483fa;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    .price {
+      margin-top: 8px;
+    }
+
+    .main-price {
+      font-size: 42px;
+      font-weight: 600;
+      color: #333;
+    }
+
+    .installments {
+      font-size: 16px;
+      color: #00a650;
+      margin-top: 4px;
+      font-weight: 500;
+    }
+
+    .tax-info {
+      font-size: 12px;
+      color: #999;
+      margin-top: 4px;
+    }
+
+    .discount-box {
+      background: #eef2ff;
+      padding: 12px;
+      border-radius: 8px;
+      color: #3483fa;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .payments-link {
+      color: #3483fa;
+      font-size: 14px;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .shipping, .returns {
+      padding: 12px 0;
+      border-top: 1px solid #eee;
+    }
+
+    .shipping p, .returns p {
+      margin: 0;
+    }
+
+    .shipping a {
+      color: #3483fa;
+      font-size: 13px;
+      text-decoration: none;
+    }
+
+    .returns span {
+      color: #00a650;
+      font-weight: 600;
+    }
+
+    .shipping-buy-box {
+      margin-top: 8px;
+      padding-top: 8px;
+    }
+
+    .shipping-option {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 16px;
+      font-size: 14px;
+    }
+
+    .shipping-option i {
+      font-size: 20px;
+      color: #666;
+      margin-top: 2px;
+    }
+
+    .shipping-option p {
+      margin: 0;
+    }
+
+    .shipping-option strong {
+      color: #333;
+    }
+
+    .store-link {
+      font-size: 13px;
+      color: #3483fa;
+      text-decoration: none;
+    }
+
+    .divider {
+      height: 1px;
+      background: #e0e0e0;
+      margin: 16px 0;
+    }
+
+    /* QUANTITY SELECTOR */
+    .quantity-selector {
+      margin: 16px 0;
+    }
+
+    .quantity-label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      color: #333;
+      margin-bottom: 8px;
+    }
+
+    .quantity-counter {
+      display: flex;
+      align-items: center;
+      width: 120px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .qty-btn {
+      width: 36px;
+      height: 36px;
+      border: none;
+      background: #f5f5f5;
+      font-size: 18px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .qty-btn:hover {
+      background: #e0e0e0;
+    }
+
+    .qty-input {
+      width: 48px;
+      text-align: center;
+      border: none;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .qty-input:focus {
+      outline: none;
+    }
+
+    /* SIZE SELECTOR */
+    .size-selector {
+      margin: 16px 0;
+    }
+
+    .size-selector label {
+      display: block;
+      font-size: 14px;
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+
+    .size-options {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+
+    .size-btn {
+      min-width: 56px;
+      height: 56px;
+      padding: 0 8px;
+      border: 1px solid #ddd;
+      background: white;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+
+    .size-btn:hover {
+      border-color: #7b2cff;
+    }
+
+    .size-btn.active {
+      border: 2px solid #7b2cff;
+      background: #f3edff;
+      color: #7b2cff;
+    }
+
+    .size-guide {
+      font-size: 13px;
+      color: #3483fa;
+      text-decoration: none;
+    }
+
+    /* COLOR SELECTOR */
+    .color-selector {
+      margin: 16px 0;
+      position: relative;
+    }
+
+    .color-selector label {
+      display: block;
+      font-size: 14px;
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+
+    .color-selector select {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 14px;
+      background: white;
+      cursor: pointer;
+      appearance: none;
+    }
+
+    .color-selector::after {
+      content: "▼";
+      position: absolute;
+      right: 12px;
+      top: 45px;
+      font-size: 12px;
+      color: #999;
+      pointer-events: none;
+    }
+
+    /* BUY BUTTONS */
+    .buy-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .btn-buy, .btn-cart {
+      padding: 14px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-buy {
+      background: linear-gradient(90deg, #7b2cff, #9338ff);
+      color: white;
+    }
+
+    .btn-buy:hover {
+      opacity: 0.95;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(123,44,255,0.3);
+    }
+
+    .btn-cart {
+      background: #e6f0ff;
+      color: #3483fa;
+    }
+
+    .btn-cart:hover {
+      background: #d9e8ff;
+      transform: translateY(-1px);
+    }
+
+    /* FEATURES SECTION */
+    .product-features {
+      background: white;
+      border-radius: 12px;
+      margin-top: 32px;
+      padding: 32px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    }
+
+    .features-title {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 24px;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px;
+      background: #f9f9f9;
+      border-radius: 8px;
+    }
+
+    .feature-icon {
+      font-size: 24px;
+      color: #3483fa;
+    }
+
+    .feature-label {
+      font-weight: 600;
+      margin-right: 8px;
+    }
+
+    .features-toggle {
+      margin-top: 24px;
+      background: none;
+      border: none;
+      color: #3483fa;
+      font-weight: 500;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 1024px) {
+      .product-container {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        min-height: auto;
+      }
+
+      .product-gallery {
+        position: static;
+        flex-direction: column;
+      }
+
+      .thumbnails {
+        flex-direction: row;
+        justify-content: center;
+      }
+
+      .main-image {
+        min-height: 400px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .main-content {
+        padding: 12px;
+      }
+
+      .product-page {
+        padding: 20px;
+      }
+
+      .product-title {
+        font-size: 22px;
+      }
+
+      .main-price {
+        font-size: 32px;
+      }
+
+      .thumb {
+        width: 60px;
+        height: 60px;
+      }
+
+      .size-btn {
+        min-width: 48px;
+        height: 48px;
+        font-size: 13px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .breadcrumb {
+        font-size: 11px;
+        padding: 8px 12px;
+      }
+
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* HOVER EFFECTS */
+    .thumb, .size-btn, .qty-btn, .btn-buy, .btn-cart {
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
-  <!-- Header -->
-  <header class="header">
-    <div class="primeraFila">  
-      <div class="flex items-center justify-between h-16 gap-4 ">
-        <a href="index.html" class="flex items-center gap-3 shrink-0">
-          <img src="assets/marketplace-data/Logo-text 2.png" alt="Logo" class="logo-desktop w-full h-full object-cover"> 
-          <img src="assets/marketplace-data/Logo.png" alt="Logo" class="logo-movil w-full h-full object-cover"> 
-        </a>
-
-        <!-- Buscador -->
-        <div id="buscador">
-          <div class="buscador-container">
-            <input 
-              type="text" 
-              id="search-input" 
-              placeholder="Buscar productos..."
-            >
-            <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" fill="none" 
-                 viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
-                    d="M21 21l-4.35-4.35M11 19a8 8 0 100-16 8 8 0 000 16z"/>
-            </svg>
-          </div>
-        </div>
-
-        <!-- Acciones -->
-        <div class="header-links flex items-center gap-3">
-          <a href="" class="header-anuncio"><img src="assets/marketplace-data/envio.png" alt=""></a>
-          <!-- Botón menú mobile -->
-          <button id="btn-mobile" aria-expanded="false" aria-controls="mobile-menu" class="lg:hidden p-0 rounded-lg focus:outline-none focus:ring-0 active:outline-none active:ring-0">
-            <svg id="icon-open" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 8h16M4 16h16"/></svg>
-            <svg id="icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
-          </button>
-        </div>
-      </div>
-  
-      <!-- Fila 2: Navegación -->
-      <nav id="nav" class="hidden md:flex justify-between w-full items-center border-t border-slate-200" aria-label="Main navigation">
-        <div class="flex items-center gap-6 gap-6 py-2">
-          <a href="#categorias" class="text-sm hover:text-[#2563EB] transition">Categorías <i class="fa-solid fa-chevron-down"></i></a>
-          <a href="#ofertas" class="text-sm hover:text-[#2563EB] transition">Ofertas <i class="fa-solid fa-chevron-down"></i></a>
-          <a href="#destacados" class="text-sm hover:text-[#2563EB] transition">Destacados</a>
-          <a href="#novedades" class="text-sm hover:text-[#2563EB] transition">Novedades</a>
-          <a href="#contacto" class="text-sm hover:text-[#2563EB] transition">Contacto / Soporte</a>
-          <a href="#ayuda" class="text-sm hover:text-[#2563EB] transition">Ayuda</a>
-          <a href="#vender" class="text-sm hover:text-[#2563EB] transition">Vender</a>
-        </div>
-        <div class="nav-links">
-          <a href=""><i class="fa-solid fa-user"></i> <span>Cuenta</span> <i class="fa-solid fa-chevron-down"></i></a>
-          <a href=""><i class="fa-solid fa-location-dot"></i> <span>Ubicación</span></a>
-          <a href="carrito.html"><i class="fa-solid fa-cart-arrow-down"></i> <span style="color: #2563EB; font-weight:bolder;">3</span> <span>Carrito</span></a>
-        </div>
-      </nav>
-    </div>
-  
-    <!-- Mobile menu -->
-    <div id="mobile-menu" class="lg:hidden" hidden>
-      <div class="px-4 pb-6 pt-2 border-t border-slate-200 bg-white">
-        <a href="#carrito" class="block py-2 text-base">Carrito</a>
-        <a href="#categorias" class="block py-2 text-base">Categorías</a>
-        <a href="#destacados" class="block py-2 text-base">Destacados</a>
-        <a href="#novedades" class="block py-2 text-base">Novedades</a>
-        <a href="#contacto" class="block py-2 text-base">Contacto / Soporte</a>
-        <a href="#vender" class="block py-2 text-base">Vender</a>
-        <a href="#ayuda" class="block py-2 text-base">Ayuda</a>
-        <div class="flex gap-2 mt-3">
-          <a href="#vender" class="flex-1 text-center py-2 rounded-full border border-blue-600 text-blue-600">Ingresá</a>
-          <a href="#registrarse" class="flex-1 text-center py-2 rounded-full bg-[var(--tm-orange)] text-white">Registrarse</a>
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <main class="pt-16 md:pt-0">
-    <nav class="breadcrumb-container" aria-label="Breadcrumb">
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item">
-          <a href="/">Página principal</a>
-        </li>
-  
-        <li class="breadcrumb-item">
-          <a href="/electrodomesticos">Moda y ropa</a>
-        </li>
-  
-        <li class="breadcrumb-item">
-          <a href="/hogar">Invierno</a>
-        </li>
-  
-        <li class="breadcrumb-item active" aria-current="page">
-          pullovers
-        </li>
-      </ol>
+  <main class="main-content">
+    <!-- BREADCRUMB -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Página principal</a>
+      <span>&gt;</span>
+      <a href="#">Moda y ropa</a>
+      <span>&gt;</span>
+      <a href="#">Invierno</a>
+      <span>&gt;</span>
+      <span class="active">pullovers</span>
     </nav>
-    <section class="product-page">
+
+    <!-- PRODUCT PAGE -->
+    <div class="product-page">
       <div class="product-container">
-        <!-- GALERIA -->
+        <!-- LEFT COLUMN - GALLERY (STICKY) -->
         <div class="product-gallery">
           <div class="thumbnails">
-            <img src="assets/secciones de la página - producto/(4)Moda(ropa y calzado)/1.jpg" data-image="assets/secciones de la página - producto/(4)Moda(ropa y calzado)/1.jpg" class="thumb active" alt="Miniatura 1">
-            <img src="assets/secciones de la página - producto/(4)Moda(ropa y calzado)/2.jpg" data-image="assets/secciones de la página - producto/(4)Moda(ropa y calzado)/2.jpg" class="thumb" alt="Miniatura 2">
-            <img src="assets/secciones de la página - producto/(4)Moda(ropa y calzado)/3.jpg" data-image="assets/secciones de la página - producto/(4)Moda(ropa y calzado)/3.jpg" class="thumb" alt="Miniatura 3">
-            <img src="assets/secciones de la página - producto/(4)Moda(ropa y calzado)/4.jpg" data-image="assets/secciones de la página - producto/(4)Moda(ropa y calzado)/4.jpg" class="thumb" alt="Miniatura 4">
-            <img src="assets/secciones de la página - producto/(4)Moda(ropa y calzado)/5.jpg" data-image="assets/secciones de la página - producto/(4)Moda(ropa y calzado)/5.jpg" class="thumb" alt="Miniatura 5">
+            <img src="https://picsum.photos/id/20/200/200" data-image="https://picsum.photos/id/20/600/600" class="thumb active" alt="Vista frontal del buzo">
+            <img src="https://picsum.photos/id/21/200/200" data-image="https://picsum.photos/id/21/600/600" class="thumb" alt="Vista trasera del buzo">
+            <img src="https://picsum.photos/id/22/200/200" data-image="https://picsum.photos/id/22/600/600" class="thumb" alt="Detalle del tejido">
+            <img src="https://picsum.photos/id/23/200/200" data-image="https://picsum.photos/id/23/600/600" class="thumb" alt="Modelo usando el buzo">
+            <img src="https://picsum.photos/id/24/200/200" data-image="https://picsum.photos/id/24/600/600" class="thumb" alt="Color alternativo">
           </div>
-        
-          <div class="main-image zoom-area">
-            <button class="share-btn">
+
+          <div class="main-image" id="mainImageContainer">
+            <button class="share-btn" aria-label="Compartir">
               <i class="fa-solid fa-share-nodes"></i>
             </button>
-        
-            <img id="mainImage" src="assets/secciones de la página - producto/(4)Moda(ropa y calzado)/1.jpg" alt="Producto principal">
+            <img id="mainImage" src="https://picsum.photos/id/20/600/600" alt="Buzo Unisex Canguro">
           </div>
-        </div>        
+        </div>
 
-        <!-- INFO PRODUCTO -->
+        <!-- RIGHT COLUMN - PRODUCT INFO -->
         <div class="product-info">
-          <a class="brand-link">Ver más productos marca Narkis</a>
+          <a href="#" class="brand-link">Ver más productos marca Narkis</a>
+
           <div class="product-header">
             <span class="status">Nuevo | +50 vendidos</span>
-            <button class="favorite">
+            <button class="favorite" aria-label="Agregar a favoritos">
               <i class="fa-regular fa-heart"></i>
             </button>
           </div>
-          <h1 class="product-title">
-          Buzos Unisex Canguro 100% Algodon Excelente Calidad
-          </h1>   
+
+          <h1 class="product-title">Buzos Unisex Canguro 100% Algodón Excelente Calidad</h1>
+
           <div class="rating">
-            <span>4.8</span>
+            <span class="rating-score">4.8</span>
             <div class="stars">
               <i class="fa-solid fa-star"></i>
               <i class="fa-solid fa-star"></i>
@@ -162,452 +685,274 @@
               <i class="fa-solid fa-star"></i>
               <i class="fa-solid fa-star-half-stroke"></i>
             </div>
-            <span class="reviews">(6)</span>
+            <span class="reviews">(6 opiniones)</span>
           </div>
+
           <div class="price">
             <span class="main-price">$38.000</span>
-            
-            <div class="installments">
-            3 cuotas de $ 16.188
-            </div>
-            
-            <p class="tax-info">
-            Precio sin impuestos nacionales: $ 31.405
-            </p>
+            <div class="installments">3 cuotas de $16.188</div>
+            <p class="tax-info">Precio incluye impuestos selectivos a 31.01%</p>
           </div>
+
           <div class="discount-box">
-          $15000 OFF Dinero disponible en Mercado Pago
+            <i class="fa-solid fa-tag"></i> $15000 OFF disponible en Mercado Pago
           </div>
-          <a class="payments-link">
-          Ver medios de pago y promociones
-          </a>        
+
+          <a href="#" class="payments-link">Ver medios de pago y promociones</a>
+
           <div class="shipping">
-            <p>Llega el miércoles</p>
-            <a>Más detalles y formas de entrega</a>
+            <p><strong>Llega el miércoles</strong></p>
+            <a href="#">Más detalles y formas de entrega</a>
           </div>
+
           <div class="returns">
             <span>Devolución gratis</span>
             <p>Tenés 30 días desde que lo recibís.</p>
           </div>
 
-          <div class="shipping-buy-box">   
+          <div class="shipping-buy-box">
             <div class="shipping-option">
               <i class="fa-solid fa-truck"></i>
               <div>
-                <p>
-                  Envío a <a href="#">Catamarca (4700)</a>
-                  <strong>$4.499</strong>
-                </p>
+                <p>Envío a <a href="#">Catamarca (4700)</a> <strong>$4.499</strong></p>
                 <span>Entrega estimada 5 días hábiles</span>
               </div>
-            </div>       
+            </div>
+
             <div class="shipping-option">
               <i class="fa-solid fa-store"></i>
               <div>
                 <p>Retiro <strong>GRATIS</strong> en sucursal</p>
                 <a href="#" class="store-link">Ver sucursales</a>
               </div>
-            </div>             
-            <div class="divider"></div> 
-            <!--
-            <div class="quantity-selector">
-              <label>Cantidad</label>
-              <div class="quantity-counter">
-                <button class="qty-btn minus">−</button>
-                <input type="number" value="1" min="1" class="qty-input">
-                <button class="qty-btn plus">+</button>
-              </div>
-            </div>   
-            -->
+            </div>
+
+            <div class="divider"></div>
+
+            <!-- QUANTITY SELECTOR -->
             <div class="quantity-selector">
               <label class="quantity-label">
                 Cantidad: <span id="qtyText">1 unidad</span>
                 <span class="stock-info">(+10 disponibles)</span>
               </label>
-            
               <div class="quantity-counter">
-                <button class="qty-btn minus">−</button>
-                <input type="number" value="1" min="1" class="qty-input">
-                <button class="qty-btn plus">+</button>
+                <button class="qty-btn minus" id="decrementQty">−</button>
+                <input type="number" id="qtyInput" value="1" min="1" max="10" class="qty-input">
+                <button class="qty-btn plus" id="incrementQty">+</button>
               </div>
             </div>
-            
+
+            <!-- SIZE SELECTOR -->
             <div class="size-selector">
               <label>Talle: <span id="selectedSize">Elegí</span></label>
-            
-              <div class="size-options">
+              <div class="size-options" id="sizeOptions">
                 <button class="size-btn" data-size="S">S</button>
                 <button class="size-btn" data-size="M">M</button>
                 <button class="size-btn" data-size="L">L</button>
                 <button class="size-btn" data-size="XL">XL</button>
-                <button class="size-btn" data-size="XXL">XXL<br><small>2XL</small></button>
+                <button class="size-btn" data-size="XXL">XXL</button>
               </div>
-            
-              <a href="#" class="size-guide"><i class="fa-solid fa-ruler-horizontal"></i> Guía de talles</a>
-            </div>            
+              <a href="#" class="size-guide"><i class="fa-solid fa-ruler"></i> Guía de talles</a>
+            </div>
 
+            <!-- COLOR SELECTOR -->
             <div class="color-selector">
-              <label>Color: Negro</label>
-              <select>
-                <option>Negro</option>
-                <option>Marron</option>
-                <option>Gris</option>
-                <option>Blanco</option>
+              <label>Color: <span id="selectedColor">Negro</span></label>
+              <select id="colorSelect">
+                <option value="Negro">Negro</option>
+                <option value="Gris">Gris</option>
+                <option value="Marron">Marrón</option>
+                <option value="Blanco">Blanco</option>
               </select>
-            </div> 
-            <div class="divider"></div> 
+            </div>
+
+            <div class="divider"></div>
+
+            <!-- BUY BUTTONS -->
             <div class="buy-buttons">
-              <button class="btn-buy">Comprar</button>
-              <button class="btn-cart">Agregar al carrito</button>
+              <button class="btn-buy" id="buyBtn">Comprar ahora</button>
+              <button class="btn-cart" id="addToCartBtn">Agregar al carrito</button>
             </div>
           </div>
-        </div>   
+        </div>
       </div>
-    </section>
-    <section class="product-features">
+    </div>
+
+    <!-- FEATURES SECTION -->
+    <div class="product-features">
       <h2 class="features-title">Características del producto</h2>
-      <div class="features-grid" id="featuresGrid">
+      <div class="features-grid">
         <div class="feature-item">
           <div class="feature-icon"><i class="fa-solid fa-tag"></i></div>
-          <div class="feature-text"><span class="feature-label">Marca:</span> Alpina</div>
+          <div class="feature-text"><span class="feature-label">Marca:</span> Narkis</div>
         </div>
         <div class="feature-item">
-          <div class="feature-icon"><i class="fa-regular fa-circle-check"></i></div>
-          <div class="feature-text"><span class="feature-label">Capucha:</span> Sí</div>
+          <div class="feature-icon"><i class="fa-solid fa-shirt"></i></div>
+          <div class="feature-text"><span class="feature-label">Material:</span> 100% Algodón</div>
         </div>
         <div class="feature-item">
-          <div class="feature-icon"><i class="fa-solid fa-snowflake"></i></div>
-          <div class="feature-text"><span class="feature-label">Temporada de lanzamiento:</span> Otoño/Invierno</div>
+          <div class="feature-icon"><i class="fa-regular fa-snowflake"></i></div>
+          <div class="feature-text"><span class="feature-label">Temporada:</span> Otoño/Invierno</div>
         </div>
         <div class="feature-item">
-          <div class="feature-icon"><i class="fa-solid fa-layer-group"></i></div>
-          <div class="feature-text"><span class="feature-label">Material principal:</span> Frizada / Algodón Rústico / Polar</div>
-        </div>
-    
-        <!-- Características extra (ocultas al inicio) -->
-        <div class="feature-item extra">
           <div class="feature-icon"><i class="fa-solid fa-hands-bubbles"></i></div>
           <div class="feature-text"><span class="feature-label">Lavado:</span> A máquina</div>
-        </div>   
-        <div class="feature-item extra">
+        </div>
+        <div class="feature-item">
           <div class="feature-icon"><i class="fa-solid fa-vest"></i></div>
           <div class="feature-text"><span class="feature-label">Tipo de calce:</span> Regular</div>
         </div>
-    
+        <div class="feature-item">
+          <div class="feature-icon"><i class="fa-solid fa-layer-group"></i></div>
+          <div class="feature-text"><span class="feature-label">Capucha:</span> Sí, con cordones</div>
+        </div>
+
       </div>
-    
       <button class="features-toggle" id="toggleFeatures">
-        Ver todas las características
-        <span class="arrow">▼</span>
+        Ver todas las características <span class="features-arrow">▼</span>
       </button>
-    </section>
-    <section class="best-sellers">
-      <div class="section-header">
-        <p class="section-title">Lo mejor en <a href="#">Productos recomendados</a></p>
-        <div>
-          <a href="#" class="view-all">Ver más →</a>
-          <button class="slider-btn prev">&lt;</button> 
-          <button class="slider-btn next">&gt;</button>
-        </div>
-      </div>
-      <div class="slider-wrapper">
-        <div class="best-sellers-container" id="bestSellersSlider">  
-          <article class="product-card">
-            <button class="fav-btn">♡</button>
-      
-            <div class="product-image">
-              <img src="assets/products/clothes/sports/discos olímpicos.png" alt="Producto">
-            </div> 
-            <h3 class="product-title">Silla Ergonómica Gamer Reclinable con Luce...</h3>
-            <div class="product-rating">
-              <span>$899.999</span>
-              <span class="star">★ 4.5</span>
-            </div>
-            <div class="product-price">
-              <span>$539.999</span>
-              <span>40% OFF</span>
-            </div>
-            <span>12 cuotas de $89.999</span>
-            <div class="product-actions">
-              <div>
-                <a href="paginaProducto.html"><button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button></a>
-              </div>
-            </div>
-          </article> 
-          <article class="product-card">
-            <button class="fav-btn">♡</button>    
-            <div class="product-image">
-              <img src="assets/products/home/heladera.png" alt="Producto">
-            </div> 
-            <h3 class="product-title">Heladera No Frost Whirlpool 400L Inverter</h3>
-            <div class="product-rating">
-              <span>$899.999</span>
-              <span class="star">★ 4.5</span>
-            </div>
-            <div class="product-price">
-              <span>$539.999</span>
-              <span>40% OFF</span>
-            </div>
-            <span>12 cuotas de $89.999</span>
-            <div class="product-actions">
-              <div>
-                <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
-              </div>
-            </div>
-          </article> 
-          <article class="product-card">
-            <button class="fav-btn">♡</button>    
-            <div class="product-image">
-              <img src="assets/products/home/single sofa.png" alt="Producto">
-            </div> 
-            <h3 class="product-title">Heladera No Frost Whirlpool 400L Inverter</h3>
-            <div class="product-rating">
-              <span>$899.999</span>
-              <span class="star">★ 4.5</span>
-            </div>
-            <div class="product-price">
-              <span>$539.999</span>
-              <span>40% OFF</span>
-            </div>
-            <span>12 cuotas de $89.999</span>
-            <div class="product-actions">
-              <div>
-                <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
-              </div>
-            </div>
-          </article> 
-          <article class="product-card">
-            <button class="fav-btn">♡</button>
-      
-            <div class="product-image">
-              <img src="assets/products/home/lavarropas.jpg" alt="Producto">
-            </div> 
-            <h3 class="product-title">Lavarropas Automático Drean 8kg EcoSilent</h3>
-            <div class="product-rating">
-              <span>$899.999</span>
-              <span class="star">★ 4.5</span>
-            </div>
-            <div class="product-price">
-              <span>$539.999</span>
-              <span>40% OFF</span>
-            </div>
-            <span>12 cuotas de $89.999</span>
-            <div class="product-actions">
-              <div>
-                <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
-              </div>
-            </div>
-          </article> 
-          <article class="product-card">
-            <button class="fav-btn">♡</button>
-      
-            <div class="product-image">
-              <img src="assets/products/electronics/adiculares.png" alt="Producto">
-            </div> 
-            <h3 class="product-title">Auricular Bluetooth inalámbrico</h3>
-            <div class="product-rating">
-              <span>$899.999</span>
-              <span class="star">★ 4.5</span>
-            </div>
-            <div class="product-price">
-              <span>$539.999</span>
-              <span>FREE <i class="fa-regular fa-truck"></i></span>
-            </div>
-            <span>12 cuotas de $89.999</span>
-            <div class="product-actions">
-              <div>
-                <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
-              </div>
-            </div>
-          </article>    
-          <article class="product-card">
-            <button class="fav-btn">♡</button>
-      
-            <div class="product-image">
-              <img src="assets/products/electronics/silla gamer.jpg" alt="Producto">
-            </div> 
-            <h3 class="product-title">Silla Ergonómica Gamer Reclinable con Luce...</h3>
-            <div class="product-rating">
-              <span>$899.999</span>
-              <span class="star">★ 4.5</span>
-            </div>
-            <div class="product-price">
-              <span>$539.999</span>
-              <span>40% OFF</span>
-            </div>
-            <span>12 cuotas de $89.999</span>
-            <div class="product-actions">
-              <div>
-                <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
-              </div>
-            </div>
-          </article> 
-          <article class="product-card">
-            <button class="fav-btn">♡</button>    
-            <div class="product-image">
-              <img src="assets/products/home/heladera.png" alt="Producto">
-            </div> 
-            <h3 class="product-title">Heladera No Frost Whirlpool 400L Inverter</h3>
-            <div class="product-rating">
-              <span>$899.999</span>
-              <span class="star">★ 4.5</span>
-            </div>
-            <div class="product-price">
-              <span>$539.999</span>
-              <span>40% OFF</span>
-            </div>
-            <span>12 cuotas de $89.999</span>
-            <div class="product-actions">
-              <div>
-                <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
-              </div>
-            </div>
-          </article> 
-          <article class="product-card">
-            <button class="fav-btn">♡</button>
-      
-            <div class="product-image">
-              <img src="assets/products/home/lavarropas.jpg" alt="Producto">
-            </div> 
-            <h3 class="product-title">Lavarropas Automático Drean 8kg EcoSilent</h3>
-            <div class="product-rating">
-              <span>$899.999</span>
-              <span class="star">★ 4.5</span>
-            </div>
-            <div class="product-price">
-              <span>$539.999</span>
-              <span>40% OFF</span>
-            </div>
-            <span>12 cuotas de $89.999</span>
-            <div class="product-actions">
-              <div>
-                <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
-              </div>
-            </div>
-          </article> 
-          <article class="product-card">
-            <button class="fav-btn">♡</button>
-      
-            <div class="product-image">
-              <img src="assets/products/clothes/sports/Zapatilla Nike.png" alt="Producto">
-            </div> 
-            <h3 class="product-title">Zapatillas Nike Air Max 270 Hombre Originales</h3>
-            <div class="product-rating">
-              <span>$899.999</span>
-              <span class="star">★ 4.5</span>
-            </div>
-            <div class="product-price">
-              <span>$539.999</span>
-              <span>40% OFF</span>
-            </div>
-            <span>12 cuotas de $89.999</span>
-            <div class="product-actions">
-              <div>
-                <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
-              </div>
-            </div>
-          </article> 
-          <article class="product-card">
-            <button class="fav-btn">♡</button>
-      
-            <div class="product-image">
-              <img src="assets/products/electronics/adiculares.png" alt="Producto">
-            </div> 
-            <h3 class="product-title">Auricular Bluetooth inalámbrico</h3>
-            <div class="product-rating">
-              <span>$899.999</span>
-              <span class="star">★ 4.5</span>
-            </div>
-            <div class="product-price">
-              <span>$539.999</span>
-              <span>FREE <i class="fa-regular fa-truck"></i></span>
-            </div>
-            <span>12 cuotas de $89.999</span>
-            <div class="product-actions">
-              <div>
-                <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
-              </div>
-            </div>
-          </article> 
-        </div>
-      </div>
-    </section>
-    <section class="promo-banners">
-      <div class="banner">
-        <img src="assets/ads/Anuncio 1.webp" alt="Promo Higienol">
-      </div>
-    
-      <div class="banner">
-        <img src="assets/ads/Anuncio 2.webp" alt="Promo Comfort">
-      </div>
-    
-    </section>
-    <!--<section class="bannerPublicitario3">
-        <a href=""><img src="assets/ads/anuncio horizontal.png" alt=""></a>
-    </section>-->
+    </div>
   </main>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="footer-container"> 
-      <div>
-        <div>
-          <img src="assets/marketplace-data/Logo-text 2.png" alt="">
-          <div>
-            <a href=""><img src="assets/icons/whatsapp.png" alt=""></a>
-            <a href=""><img src="assets/icons/facebook.png" alt=""></a>
-            <a href=""><img src="assets/icons/instagram.png" alt=""></a>
-            <a href=""><img src="assets/icons/linkedin.png" alt=""></a>              
-          </div>
-        </div>
-        <div>
-          <h3 class="footer-title">Empresa</h3>
-          <a href="">Acerca</a>
-          <a href="">Prensa</a>
-          <a href="">Contacto</a>
-          <a href="">Condiciones</a>
-          <a href="">Terminos y servicios</a>
-          <a href="">Preguntas frecuentes</a>
-        </div>
-        <div>
-          <h3 class="footer-title">Categorias</h3>
-          <a href="">Electrónica</a>
-          <a href="">Moda y Accesorios</a>
-          <a href="">Hogar y Jardín</a>
-          <a href="">Salud y Belleza</a>
-          <a href="">Alimentos y Bebidas</a>
-          <a href="">Deportes y Fitness</a>
-        </div>
-        <div>
-          <h3 class="footer-title">Mi cuenta</h3>
-          <a href="">Iniciar sesión</a>
-          <a href="">Registrarse</a>
-          <a href="">Mis pedidos</a>
-          <a href="">Direcciones</a>
-          <a href="">Métodos de pago</a>
-          <a href="">Cerrar sesión</a>
-        </div>
-        <div>
-          <h3 class="footer-title">Contacto</h3>
-          <a href=""><i class="fa-solid fa-location-dot"></i> Catamarca, Argentina.</a>
-          <a href=""><i class="fa-brands fa-whatsapp"></i> +54 9 383 451-6154</a>
-          <a href=""><i class="fa-regular fa-envelope"></i> anroo475@gmail.com</a>
-          <a href=""><i class="fa-solid fa-headset"></i> Soporte tecnico</a>
-        </div>
-      </div>  
-      <div>
-        <img src="assets/marketplace-data/payment.png" alt="">
-        <p>© 2024 SomosTiendaMas. Todos los derechos reservados.</p>
-      </div>    
-    </div>
-  </footer>
-  <!-- JS -->
-  
-  <script src="Javascript/home/product-slider.js"></script>
-  <script src="Javascript/producto/script.js"></script>
+  <script>
+    // ==================== JAVASCRIPT COMPLETO ====================
+    
+    // 1. GALERÍA DE IMÁGENES
+    const thumbs = document.querySelectorAll('.thumb');
+    const mainImage = document.getElementById('mainImage');
+    const mainImageContainer = document.getElementById('mainImageContainer');
+    
+    thumbs.forEach(thumb => {
+      thumb.addEventListener('click', function() {
+        // Cambiar imagen principal
+        const newImageSrc = this.getAttribute('data-image');
+        mainImage.src = newImageSrc;
+        
+        // Actualizar clase active en miniaturas
+        thumbs.forEach(t => t.classList.remove('active'));
+        this.classList.add('active');
+      });
+    });
+    
+    // Zoom al hacer click en imagen principal
+    let isZoomed = false;
+    mainImageContainer.addEventListener('click', function(e) {
+      if (e.target === mainImage || e.target === mainImageContainer) {
+        isZoomed = !isZoomed;
+        if (isZoomed) {
+          mainImageContainer.classList.add('zoomed');
+        } else {
+          mainImageContainer.classList.remove('zoomed');
+        }
+      }
+    });
+    
+    // 2. SELECTOR DE CANTIDAD
+    const qtyInput = document.getElementById('qtyInput');
+    const qtyText = document.getElementById('qtyText');
+    const decrementBtn = document.getElementById('decrementQty');
+    const incrementBtn = document.getElementById('incrementQty');
+    
+    function updateQuantity() {
+      let value = parseInt(qtyInput.value);
+      if (isNaN(value)) value = 1;
+      value = Math.min(Math.max(value, 1), 10);
+      qtyInput.value = value;
+      qtyText.textContent = value + (value === 1 ? ' unidad' : ' unidades');
+    }
+    
+    decrementBtn.addEventListener('click', () => {
+      let current = parseInt(qtyInput.value);
+      if (current > 1) {
+        qtyInput.value = current - 1;
+        updateQuantity();
+      }
+    });
+    
+    incrementBtn.addEventListener('click', () => {
+      let current = parseInt(qtyInput.value);
+      if (current < 10) {
+        qtyInput.value = current + 1;
+        updateQuantity();
+      }
+    });
+    
+    qtyInput.addEventListener('change', updateQuantity);
+    
+    // 3. SELECTOR DE TALLE
+    const sizeBtns = document.querySelectorAll('.size-btn');
+    const selectedSizeSpan = document.getElementById('selectedSize');
+    
+    sizeBtns.forEach(btn => {
+      btn.addEventListener('click', function() {
+        sizeBtns.forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        const size = this.getAttribute('data-size');
+        selectedSizeSpan.textContent = size;
+      });
+    });
+    
+    // 4. SELECTOR DE COLOR
+    const colorSelect = document.getElementById('colorSelect');
+    const selectedColorSpan = document.getElementById('selectedColor');
+    
+    colorSelect.addEventListener('change', function() {
+      selectedColorSpan.textContent = this.value;
+    });
+    
+    // 5. BOTONES DE COMPRA
+    const buyBtn = document.getElementById('buyBtn');
+    const addToCartBtn = document.getElementById('addToCartBtn');
+    
+    buyBtn.addEventListener('click', () => {
+      const quantity = qtyInput.value;
+      const size = selectedSizeSpan.textContent !== 'Elegí' ? selectedSizeSpan.textContent : 'No seleccionado';
+      const color = selectedColorSpan.textContent;
+      alert(`✅ Compra iniciada\n\nProducto: Buzo Unisex Canguro\nCantidad: ${quantity}\nTalle: ${size}\nColor: ${color}\n\nTotal: $${(38000 * quantity).toLocaleString()}`);
+    });
+    
+    addToCartBtn.addEventListener('click', () => {
+      const quantity = qtyInput.value;
+      const size = selectedSizeSpan.textContent !== 'Elegí' ? selectedSizeSpan.textContent : 'No seleccionado';
+      const color = selectedColorSpan.textContent;
+      alert(`🛒 Agregado al carrito\n\n${quantity} x Buzo Unisex Canguro\nTalle: ${size}\nColor: ${color}\n\nSubtotal: $${(38000 * quantity).toLocaleString()}`);
+    });
+    
+    // 6. FAVORITOS (corazón)
+    const favoriteBtn = document.querySelector('.favorite');
+    let isFavorite = false;
+    favoriteBtn.addEventListener('click', function() {
+      isFavorite = !isFavorite;
+      if (isFavorite) {
+        this.innerHTML = '<i class="fa-solid fa-heart" style="color: #e74c3c;"></i>';
+      } else {
+        this.innerHTML = '<i class="fa-regular fa-heart"></i>';
+      }
+    });
+    
+    // 7. MOSTRAR MÁS CARACTERÍSTICAS (si hubiera más ocultas)
+    const toggleFeaturesBtn = document.getElementById('toggleFeatures');
+    let featuresExpanded = false;
+    // En este caso todas están visibles, pero simulamos toggle para expansión
+    toggleFeaturesBtn.addEventListener('click', function() {
+      featuresExpanded = !featuresExpanded;
+      if (featuresExpanded) {
+        // Simular expansión (si tuvieras más características ocultas)
+        this.innerHTML = 'Mostrar menos características <span class="features-arrow">▲</span>';
+      } else {
+        this.innerHTML = 'Ver todas las características <span class="features-arrow">▼</span>';
+      }
+    });
+    
+    // 8. BOTÓN COMPARTIR (simulación)
+    const shareButton = document.querySelector('.share-btn');
+    shareButton.addEventListener('click', () => {
+      alert('Compartir producto: https://tiendamas.com/producto/buzo-unisex');
+    });
+    
+    // Inicialización
+    updateQuantity();
+  </script>
 </body>
 </html>
-
-
-
 
