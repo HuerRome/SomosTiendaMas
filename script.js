@@ -231,3 +231,4 @@ shareButton.addEventListener('click', () => {
 
 // Inicialización
 updateQuantity();
+
