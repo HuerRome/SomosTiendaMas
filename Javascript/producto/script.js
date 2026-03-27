@@ -1,205 +1,234 @@
-"use strict";
 
-// Punto de entrada
-document.addEventListener("DOMContentLoaded", () => {
-  // JS listo para usar
+// ==================== JAVASCRIPT COMPLETO MEJORADO ====================
+
+// 1. GALERÍA DE IMÁGENES
+const thumbs = document.querySelectorAll('.thumb');
+const mainImage = document.getElementById('mainImage');
+const mainImageContainer = document.getElementById('mainImageContainer');
+
+thumbs.forEach(thumb => {
+  thumb.addEventListener('click', function() {
+    const newImageSrc = this.getAttribute('data-image');
+    mainImage.src = newImageSrc;
+    
+    thumbs.forEach(t => t.classList.remove('active'));
+    this.classList.add('active');
+    
+    // Resetear zoom al cambiar imagen
+    if (mainImageContainer.classList.contains('zoomed')) {
+      mainImageContainer.classList.remove('zoomed');
+      isZoomed = false;
+    }
+  });
 });
 
-"use strict";
+// 2. ZOOM PROFESIONAL TIPO ECOMMERCE
+let isZoomed = false;
+let mouseX = 0, mouseY = 0;
+let imgX = 0, imgY = 0;
 
-document.addEventListener("DOMContentLoaded", () => {
-  const mainImage = document.getElementById("mainImage");
-  const thumbnails = document.querySelectorAll(".thumb");
-  const zoomArea = document.querySelector(".zoom-area");
+// Crear lente de zoom
+const zoomLens = document.createElement('div');
+zoomLens.className = 'zoom-lens';
+mainImageContainer.appendChild(zoomLens);
 
-  // CAMBIO DE IMAGEN
-  thumbnails.forEach((thumb) => {
-    thumb.addEventListener("click", () => {
-      const newImage = thumb.dataset.image;
+// Función para actualizar posición del zoom
+function updateZoomPosition(e) {
+  if (!isZoomed) return;
+  
+  const rect = mainImageContainer.getBoundingClientRect();
+  let clientX, clientY;
+  
+  // Detectar si es evento táctil o mouse
+  if (e.touches) {
+    clientX = e.touches[0].clientX;
+    clientY = e.touches[0].clientY;
+  } else {
+    clientX = e.clientX;
+    clientY = e.clientY;
+  }
+  
+  // Calcular posición relativa dentro del contenedor
+  let x = clientX - rect.left;
+  let y = clientY - rect.top;
+  
+  // Limitar dentro del contenedor
+  x = Math.min(Math.max(x, 0), rect.width);
+  y = Math.min(Math.max(y, 0), rect.height);
+  
+  // Calcular porcentaje para el desplazamiento de la imagen
+  const percentX = x / rect.width;
+  const percentY = y / rect.height;
+  
+  // Calcular desplazamiento de la imagen (zoom 2x)
+  const imgRect = mainImage.getBoundingClientRect();
+  const moveX = (percentX - 0.5) * 100;
+  const moveY = (percentY - 0.5) * 100;
+  
+  mainImage.style.transform = `scale(2) translate(${-moveX}%, ${-moveY}%)`;
+  
+  // Posicionar lente de zoom
+  const lensSize = 150;
+  zoomLens.style.left = `${x - lensSize/2}px`;
+  zoomLens.style.top = `${y - lensSize/2}px`;
+  zoomLens.style.width = `${lensSize}px`;
+  zoomLens.style.height = `${lensSize}px`;
+}
 
-      if (!newImage || !mainImage) return;
-
-      mainImage.src = newImage;
-
-      thumbnails.forEach((t) => t.classList.remove("active"));
-      thumb.classList.add("active");
-    });
-  });
-
-  // ZOOM DINÁMICO (solo si existe .zoom-area)
-  if (zoomArea && mainImage) {
-    zoomArea.addEventListener("mousemove", (e) => {
-      const rect = zoomArea.getBoundingClientRect();
-
-      const x = ((e.clientX - rect.left) / rect.width) * 100;
-      const y = ((e.clientY - rect.top) / rect.height) * 100;
-
-      mainImage.style.transformOrigin = `${x}% ${y}%`;
-      zoomArea.classList.add("zoomed");
-    });
-
-    zoomArea.addEventListener("mouseleave", () => {
-      zoomArea.classList.remove("zoomed");
-      mainImage.style.transformOrigin = "center";
-    });
+// Activar zoom en desktop (hover)
+mainImageContainer.addEventListener('mouseenter', function(e) {
+  if (window.innerWidth >= 1025) {
+    isZoomed = true;
+    mainImageContainer.classList.add('zoomed');
+    mainImage.style.transform = 'scale(2)';
+    updateZoomPosition(e);
   }
 });
 
-
-
-
-/*----------------------- Controles de cantidad ------------------------------*/
-const minus = document.querySelector(".minus");
-const plus = document.querySelector(".plus");
-const input = document.querySelector(".qty-input");
-
-minus.addEventListener("click", () => {
-  let value = parseInt(input.value);
-  if(value > 1){
-    input.value = value - 1;
+mainImageContainer.addEventListener('mousemove', function(e) {
+  if (isZoomed) {
+    updateZoomPosition(e);
   }
 });
 
-plus.addEventListener("click", () => {
-  let value = parseInt(input.value);
-  input.value = value + 1;
-});
-
-
-/*-------------------- Sección de especificaciones del producto --------------------*/
-
-document.addEventListener("DOMContentLoaded", () => {
-
-  const toggleBtn = document.getElementById("toggleFeatures");
-  const extras = document.querySelectorAll(".extra");
-  const arrow = document.querySelector(".features-arrow");
-
-  if (!toggleBtn) return;
-
-  let open = false;
-
-  toggleBtn.addEventListener("click", () => {
-
-    open = !open;
-
-    extras.forEach(el => {
-      el.style.display = open ? "flex" : "none";
-    });
-
-    toggleBtn.firstChild.textContent = open
-      ? "Ver menos características "
-      : "Ver todas las características ";
-
-    arrow.style.transform = open ? "rotate(180deg)" : "rotate(0deg)";
-
-  });
-
-});
-
-
-
-
-
-/*------------------------ Selector de talles ------------------------*/
-document.addEventListener("DOMContentLoaded", () => {
-  const sizeButtons = document.querySelectorAll(".size-btn");
-  const selectedSizeText = document.getElementById("selectedSize");
-
-  let selectedSize = null;
-
-  sizeButtons.forEach(btn => {
-    btn.addEventListener("click", () => {
-
-      // Limpiar selección previa
-      sizeButtons.forEach(b => b.classList.remove("active"));
-
-      // Activar actual
-      btn.classList.add("active");
-
-      selectedSize = btn.dataset.size;
-      selectedSizeText.textContent = selectedSize;
-
-      console.log("Talle seleccionado:", selectedSize);
-    });
-  });
-
-  // VALIDACIÓN antes de comprar
-  const buyBtn = document.querySelector(".btn-buy");
-  const cartBtn = document.querySelector(".btn-cart");
-
-  function validateSize(e) {
-    if (!selectedSize) {
-      e.preventDefault();
-      alert("Por favor seleccioná un talle");
-    }
+mainImageContainer.addEventListener('mouseleave', function() {
+  if (window.innerWidth >= 1025) {
+    isZoomed = false;
+    mainImageContainer.classList.remove('zoomed');
+    mainImage.style.transform = '';
   }
-
-  buyBtn.addEventListener("click", validateSize);
-  cartBtn.addEventListener("click", validateSize);
 });
 
-
-/*----------------------- Controles de cantidad con stock ------------------------------*/
-document.addEventListener("DOMContentLoaded", () => {
-
-  const minus = document.querySelector(".minus");
-  const plus = document.querySelector(".plus");
-  const input = document.querySelector(".qty-input");
-  const qtyText = document.getElementById("qtyText");
-  const stockInfo = document.querySelector(".stock-info");
-
-  const stockDisponible = 10; // 🔥 dinámico en futuro (API)
-
-  function updateUI(value) {
-    // texto "1 unidad / 2 unidades"
-    qtyText.textContent = value === 1 ? "1 unidad" : `${value} unidades`;
-
-    // bloquear botón +
-    if (value >= stockDisponible) {
-      plus.disabled = true;
-      plus.style.opacity = "0.5";
-      plus.style.cursor = "not-allowed";
-    } else {
-      plus.disabled = false;
-      plus.style.opacity = "1";
-      plus.style.cursor = "pointer";
-    }
+// Activar zoom en mobile (tap y mantener)
+let zoomTimeout;
+mainImageContainer.addEventListener('touchstart', function(e) {
+  if (window.innerWidth < 1025) {
+    e.preventDefault();
+    zoomTimeout = setTimeout(() => {
+      isZoomed = true;
+      mainImageContainer.classList.add('zoomed');
+      updateZoomPosition(e);
+    }, 500);
   }
-
-  minus.addEventListener("click", () => {
-    let value = parseInt(input.value);
-    if (value > 1) {
-      value--;
-      input.value = value;
-      updateUI(value);
-    }
-  });
-
-  plus.addEventListener("click", () => {
-    let value = parseInt(input.value);
-
-    if (value < stockDisponible) {
-      value++;
-      input.value = value;
-      updateUI(value);
-    }
-  });
-
-  input.addEventListener("input", () => {
-    let value = parseInt(input.value) || 1;
-
-    if (value > stockDisponible) {
-      value = stockDisponible;
-    }
-
-    if (value < 1) {
-      value = 1;
-    }
-
-    input.value = value;
-    updateUI(value);
-  });
-
-  // INIT
-  updateUI(parseInt(input.value));
 });
+
+mainImageContainer.addEventListener('touchmove', function(e) {
+  if (isZoomed) {
+    e.preventDefault();
+    updateZoomPosition(e);
+  }
+});
+
+mainImageContainer.addEventListener('touchend', function() {
+  clearTimeout(zoomTimeout);
+  if (isZoomed) {
+    isZoomed = false;
+    mainImageContainer.classList.remove('zoomed');
+    mainImage.style.transform = '';
+  }
+});
+
+// 3. SELECTOR DE CANTIDAD
+const qtyInput = document.getElementById('qtyInput');
+const qtyText = document.getElementById('qtyText');
+const decrementBtn = document.getElementById('decrementQty');
+const incrementBtn = document.getElementById('incrementQty');
+
+function updateQuantity() {
+  let value = parseInt(qtyInput.value);
+  if (isNaN(value)) value = 1;
+  value = Math.min(Math.max(value, 1), 10);
+  qtyInput.value = value;
+  qtyText.textContent = value + (value === 1 ? ' unidad' : ' unidades');
+}
+
+decrementBtn.addEventListener('click', () => {
+  let current = parseInt(qtyInput.value);
+  if (current > 1) {
+    qtyInput.value = current - 1;
+    updateQuantity();
+  }
+});
+
+incrementBtn.addEventListener('click', () => {
+  let current = parseInt(qtyInput.value);
+  if (current < 10) {
+    qtyInput.value = current + 1;
+    updateQuantity();
+  }
+});
+
+qtyInput.addEventListener('change', updateQuantity);
+
+// 4. SELECTOR DE TALLE
+const sizeBtns = document.querySelectorAll('.size-btn');
+const selectedSizeSpan = document.getElementById('selectedSize');
+
+sizeBtns.forEach(btn => {
+  btn.addEventListener('click', function() {
+    sizeBtns.forEach(b => b.classList.remove('active'));
+    this.classList.add('active');
+    const size = this.getAttribute('data-size');
+    selectedSizeSpan.textContent = size;
+  });
+});
+
+// 5. SELECTOR DE COLOR
+const colorSelect = document.getElementById('colorSelect');
+const selectedColorSpan = document.getElementById('selectedColor');
+
+colorSelect.addEventListener('change', function() {
+  selectedColorSpan.textContent = this.value;
+});
+
+// 6. BOTONES DE COMPRA
+const buyBtn = document.getElementById('buyBtn');
+const addToCartBtn = document.getElementById('addToCartBtn');
+
+buyBtn.addEventListener('click', () => {
+  const quantity = qtyInput.value;
+  const size = selectedSizeSpan.textContent !== 'Elegí' ? selectedSizeSpan.textContent : 'No seleccionado';
+  const color = selectedColorSpan.textContent;
+  alert(`✅ Compra iniciada\n\nProducto: Buzo Unisex Canguro\nCantidad: ${quantity}\nTalle: ${size}\nColor: ${color}\n\nTotal: $${(38000 * quantity).toLocaleString()}`);
+});
+
+addToCartBtn.addEventListener('click', () => {
+  const quantity = qtyInput.value;
+  const size = selectedSizeSpan.textContent !== 'Elegí' ? selectedSizeSpan.textContent : 'No seleccionado';
+  const color = selectedColorSpan.textContent;
+  alert(`🛒 Agregado al carrito\n\n${quantity} x Buzo Unisex Canguro\nTalle: ${size}\nColor: ${color}\n\nSubtotal: $${(38000 * quantity).toLocaleString()}`);
+});
+
+// 7. FAVORITOS
+const favoriteBtn = document.querySelector('.favorite');
+let isFavorite = false;
+favoriteBtn.addEventListener('click', function() {
+  isFavorite = !isFavorite;
+  if (isFavorite) {
+    this.innerHTML = '<i class="fa-solid fa-heart" style="color: #e74c3c;"></i>';
+  } else {
+    this.innerHTML = '<i class="fa-regular fa-heart"></i>';
+  }
+});
+
+// 8. MOSTRAR MÁS CARACTERÍSTICAS
+const toggleFeaturesBtn = document.getElementById('toggleFeatures');
+let featuresExpanded = false;
+toggleFeaturesBtn.addEventListener('click', function() {
+  featuresExpanded = !featuresExpanded;
+  if (featuresExpanded) {
+    this.innerHTML = 'Mostrar menos características <span class="features-arrow">▲</span>';
+  } else {
+    this.innerHTML = 'Ver todas las características <span class="features-arrow">▼</span>';
+  }
+});
+
+// 9. BOTÓN COMPARTIR
+const shareButton = document.querySelector('.share-btn');
+shareButton.addEventListener('click', () => {
+  alert('Compartir producto: https://tiendamas.com/producto/buzo-unisex');
+});
+
+// Inicialización
+updateQuantity();
+

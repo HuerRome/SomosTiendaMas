@@ -20,7 +20,7 @@
   <link rel="stylesheet" href="css/home/footer.css">
 
   <link rel="stylesheet" href="css/paginaProducto/producto.css" />
-  <link rel="stylesheet" href="css/paginaProducto/main.css">
+  
 </head>
 <body>
   <!-- =========================
@@ -614,61 +614,54 @@
     </div>
   </header>
 
-  <main class="main-content page-shell">
-    <nav class="breadcrumb-container" aria-label="Breadcrumb">
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item">
-          <a href="/">Página principal</a>
-        </li>
-  
-        <li class="breadcrumb-item">
-          <a href="/electrodomesticos">Moda y ropa</a>
-        </li>
-  
-        <li class="breadcrumb-item">
-          <a href="/hogar">Invierno</a>
-        </li>
-  
-        <li class="breadcrumb-item active" aria-current="page">
-          pullovers
-        </li>
-      </ol>
+  <main class="main-content">
+    <!-- BREADCRUMB -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Página principal</a>
+      <span>&gt;</span>
+      <a href="#">Moda y ropa</a>
+      <span>&gt;</span>
+      <a href="#">Invierno</a>
+      <span>&gt;</span>
+      <span class="active">pullovers</span>
     </nav>
-    <section class="product-page">
+
+    <!-- PRODUCT PAGE -->
+    <div class="product-page">
       <div class="product-container">
-        <!-- GALERIA -->
+        <!-- LEFT COLUMN - GALLERY (STICKY) -->
         <div class="product-gallery">
           <div class="thumbnails">
-            <img src="assets/secciones de la página - producto/(4)Moda(ropa y calzado)/1.jpg" data-image="assets/secciones de la página - producto/(4)Moda(ropa y calzado)/1.jpg" class="thumb active" alt="Miniatura 1">
-            <img src="assets/secciones de la página - producto/(4)Moda(ropa y calzado)/2.jpg" data-image="assets/secciones de la página - producto/(4)Moda(ropa y calzado)/2.jpg" class="thumb" alt="Miniatura 2">
-            <img src="assets/secciones de la página - producto/(4)Moda(ropa y calzado)/3.jpg" data-image="assets/secciones de la página - producto/(4)Moda(ropa y calzado)/3.jpg" class="thumb" alt="Miniatura 3">
-            <img src="assets/secciones de la página - producto/(4)Moda(ropa y calzado)/4.jpg" data-image="assets/secciones de la página - producto/(4)Moda(ropa y calzado)/4.jpg" class="thumb" alt="Miniatura 4">
-            <img src="assets/secciones de la página - producto/(4)Moda(ropa y calzado)/5.jpg" data-image="assets/secciones de la página - producto/(4)Moda(ropa y calzado)/5.jpg" class="thumb" alt="Miniatura 5">
+            <img src="assets/secciones de la página - producto/(4)Moda(ropa y calzado)/1.jpg" data-image="assets/secciones de la página - producto/(4)Moda(ropa y calzado)/1.jpg" class="thumb active" alt="Vista frontal del buzo">
+            <img src="assets/secciones de la página - producto/(4)Moda(ropa y calzado)/2.jpg" data-image="assets/secciones de la página - producto/(4)Moda(ropa y calzado)/2.jpg" class="thumb" alt="Vista trasera del buzo">
+            <img src="assets/secciones de la página - producto/(4)Moda(ropa y calzado)/3.jpg" data-image="assets/secciones de la página - producto/(4)Moda(ropa y calzado)/3.jpg" class="thumb" alt="Detalle del tejido">
+            <img src="assets/secciones de la página - producto/(4)Moda(ropa y calzado)/4.jpg" data-image="assets/secciones de la página - producto/(4)Moda(ropa y calzado)/4.jpg" class="thumb" alt="Modelo usando el buzo">
+            <img src="assets/secciones de la página - producto/(4)Moda(ropa y calzado)/5.jpg" data-image="assets/secciones de la página - producto/(4)Moda(ropa y calzado)/5.jpg" class="thumb" alt="Color alternativo">
           </div>
-        
-          <div class="main-image zoom-area">
-            <button class="share-btn">
+
+          <div class="main-image" id="mainImageContainer">
+            <button class="share-btn" aria-label="Compartir">
               <i class="fa-solid fa-share-nodes"></i>
             </button>
-        
-            <img id="mainImage" src="assets/secciones de la página - producto/(4)Moda(ropa y calzado)/1.jpg" alt="Producto principal">
+            <img id="mainImage" src="assets/secciones de la página - producto/(4)Moda(ropa y calzado)/1.jpg" alt="Buzo Unisex Canguro">
           </div>
-        </div>        
+        </div>
 
-        <!-- INFO PRODUCTO -->
+        <!-- RIGHT COLUMN - PRODUCT INFO -->
         <div class="product-info">
-          <a class="brand-link">Ver más productos marca Narkis</a>
+          <a href="#" class="brand-link">Ver más productos marca Narkis</a>
+
           <div class="product-header">
             <span class="status">Nuevo | +50 vendidos</span>
-            <button class="favorite">
+            <button class="favorite" aria-label="Agregar a favoritos">
               <i class="fa-regular fa-heart"></i>
             </button>
           </div>
-          <h1 class="product-title">
-          Buzos Unisex Canguro 100% Algodon Excelente Calidad
-          </h1>   
+
+          <h1 class="product-title">Buzos Unisex Canguro 100% Algodón Excelente Calidad</h1>
+
           <div class="rating">
-            <span>4.8</span>
+            <span class="rating-score">4.8</span>
             <div class="stars">
               <i class="fa-solid fa-star"></i>
               <i class="fa-solid fa-star"></i>
@@ -676,146 +669,133 @@
               <i class="fa-solid fa-star"></i>
               <i class="fa-solid fa-star-half-stroke"></i>
             </div>
-            <span class="reviews">(6)</span>
+            <span class="reviews">(6 opiniones)</span>
           </div>
+
           <div class="price">
             <span class="main-price">$38.000</span>
-            
-            <div class="installments">
-            3 cuotas de $ 16.188
-            </div>
-            
-            <p class="tax-info">
-            Precio sin impuestos nacionales: $ 31.405
-            </p>
+            <div class="installments">3 cuotas de $16.188</div>
+            <p class="tax-info">Precio incluye impuestos selectivos a 31.01%</p>
           </div>
+
           <div class="discount-box">
-          $15000 OFF Dinero disponible en Mercado Pago
+            <i class="fa-solid fa-tag"></i> $15000 OFF disponible en Mercado Pago
           </div>
-          <a class="payments-link">
-          Ver medios de pago y promociones
-          </a>        
+
+          <a href="#" class="payments-link">Ver medios de pago y promociones</a>
+
           <div class="shipping">
-            <p>Llega el miércoles</p>
-            <a>Más detalles y formas de entrega</a>
+            <p><strong>Llega el miércoles</strong></p>
+            <a href="#">Más detalles y formas de entrega</a>
           </div>
+
           <div class="returns">
             <span>Devolución gratis</span>
             <p>Tenés 30 días desde que lo recibís.</p>
           </div>
 
-          <div class="shipping-buy-box">   
+          <div class="shipping-buy-box">
             <div class="shipping-option">
               <i class="fa-solid fa-truck"></i>
               <div>
-                <p>
-                  Envío a <a href="#">Catamarca (4700)</a>
-                  <strong>$4.499</strong>
-                </p>
+                <p>Envío a <a href="#">Catamarca (4700)</a> <strong>$4.499</strong></p>
                 <span>Entrega estimada 5 días hábiles</span>
               </div>
-            </div>       
+            </div>
+
             <div class="shipping-option">
               <i class="fa-solid fa-store"></i>
               <div>
                 <p>Retiro <strong>GRATIS</strong> en sucursal</p>
                 <a href="#" class="store-link">Ver sucursales</a>
               </div>
-            </div>             
-            <div class="divider"></div> 
-            <!--
-            <div class="quantity-selector">
-              <label>Cantidad</label>
-              <div class="quantity-counter">
-                <button class="qty-btn minus">−</button>
-                <input type="number" value="1" min="1" class="qty-input">
-                <button class="qty-btn plus">+</button>
-              </div>
-            </div>   
-            -->
+            </div>
+
+            <div class="divider"></div>
+
+            <!-- QUANTITY SELECTOR -->
             <div class="quantity-selector">
               <label class="quantity-label">
                 Cantidad: <span id="qtyText">1 unidad</span>
                 <span class="stock-info">(+10 disponibles)</span>
               </label>
-            
               <div class="quantity-counter">
-                <button class="qty-btn minus">−</button>
-                <input type="number" value="1" min="1" class="qty-input">
-                <button class="qty-btn plus">+</button>
+                <button class="qty-btn minus" id="decrementQty">−</button>
+                <input type="number" id="qtyInput" value="1" min="1" max="10" class="qty-input">
+                <button class="qty-btn plus" id="incrementQty">+</button>
               </div>
             </div>
-            
+
+            <!-- SIZE SELECTOR -->
             <div class="size-selector">
               <label>Talle: <span id="selectedSize">Elegí</span></label>
-            
-              <div class="size-options">
+              <div class="size-options" id="sizeOptions">
                 <button class="size-btn" data-size="S">S</button>
                 <button class="size-btn" data-size="M">M</button>
                 <button class="size-btn" data-size="L">L</button>
                 <button class="size-btn" data-size="XL">XL</button>
-                <button class="size-btn" data-size="XXL">XXL<br><small>2XL</small></button>
+                <button class="size-btn" data-size="XXL">XXL</button>
               </div>
-            
-              <a href="#" class="size-guide"><i class="fa-solid fa-ruler-horizontal"></i> Guía de talles</a>
-            </div>            
+              <a href="#" class="size-guide"><i class="fa-solid fa-ruler"></i> Guía de talles</a>
+            </div>
 
+            <!-- COLOR SELECTOR -->
             <div class="color-selector">
-              <label>Color: Negro</label>
-              <select>
-                <option>Negro</option>
-                <option>Marron</option>
-                <option>Gris</option>
-                <option>Blanco</option>
+              <label>Color: <span id="selectedColor">Negro</span></label>
+              <select id="colorSelect">
+                <option value="Negro">Negro</option>
+                <option value="Gris">Gris</option>
+                <option value="Marron">Marrón</option>
+                <option value="Blanco">Blanco</option>
               </select>
-            </div> 
-            <div class="divider"></div> 
+            </div>
+
+            <div class="divider"></div>
+
+            <!-- BUY BUTTONS -->
             <div class="buy-buttons">
-              <button class="btn-buy">Comprar</button>
-              <button class="btn-cart">Agregar al carrito</button>
+              <button class="btn-buy" id="buyBtn">Comprar ahora</button>
+              <button class="btn-cart" id="addToCartBtn">Agregar al carrito</button>
             </div>
           </div>
-        </div>   
+        </div>
       </div>
-    </section>
-    <section class="product-features">
+    </div>
+
+    <!-- FEATURES SECTION -->
+    <div class="product-features">
       <h2 class="features-title">Características del producto</h2>
-      <div class="features-grid" id="featuresGrid">
+      <div class="features-grid">
         <div class="feature-item">
           <div class="feature-icon"><i class="fa-solid fa-tag"></i></div>
-          <div class="feature-text"><span class="feature-label">Marca:</span> Alpina</div>
+          <div class="feature-text"><span class="feature-label">Marca:</span> Narkis</div>
         </div>
         <div class="feature-item">
-          <div class="feature-icon"><i class="fa-regular fa-circle-check"></i></div>
-          <div class="feature-text"><span class="feature-label">Capucha:</span> Sí</div>
+          <div class="feature-icon"><i class="fa-solid fa-shirt"></i></div>
+          <div class="feature-text"><span class="feature-label">Material:</span> 100% Algodón</div>
         </div>
         <div class="feature-item">
-          <div class="feature-icon"><i class="fa-solid fa-snowflake"></i></div>
-          <div class="feature-text"><span class="feature-label">Temporada de lanzamiento:</span> Otoño/Invierno</div>
+          <div class="feature-icon"><i class="fa-regular fa-snowflake"></i></div>
+          <div class="feature-text"><span class="feature-label">Temporada:</span> Otoño/Invierno</div>
         </div>
         <div class="feature-item">
-          <div class="feature-icon"><i class="fa-solid fa-layer-group"></i></div>
-          <div class="feature-text"><span class="feature-label">Material principal:</span> Frizada / Algodón Rústico / Polar</div>
-        </div>
-    
-        <!-- Características extra (ocultas al inicio) -->
-        <div class="feature-item extra">
           <div class="feature-icon"><i class="fa-solid fa-hands-bubbles"></i></div>
           <div class="feature-text"><span class="feature-label">Lavado:</span> A máquina</div>
-        </div>   
-        <div class="feature-item extra">
+        </div>
+        <div class="feature-item">
           <div class="feature-icon"><i class="fa-solid fa-vest"></i></div>
           <div class="feature-text"><span class="feature-label">Tipo de calce:</span> Regular</div>
         </div>
-    
-      </div>
-    
-      <button class="features-toggle" id="toggleFeatures">
-        Ver todas las características
-        <span class="features-arrow">▼</span>
-      </button>
-    </section>
+        <div class="feature-item">
+          <div class="feature-icon"><i class="fa-solid fa-layer-group"></i></div>
+          <div class="feature-text"><span class="feature-label">Capucha:</span> Sí, con cordones</div>
+        </div>
 
+      </div>
+      <button class="features-toggle" id="toggleFeatures">
+        Ver todas las características <span class="features-arrow">▼</span>
+      </button>
+    </div>
   </main>
 
   <!-- Footer -->
