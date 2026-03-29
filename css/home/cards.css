@@ -84,6 +84,9 @@
 }
 
 @media (max-width: 640px) {
+  .registro-steps{
+      margin-top: 32px;
+  }
   .registro-steps .registro-steps-container{
     gap: 12px;
     padding-left: 12px;

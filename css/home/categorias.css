@@ -146,7 +146,8 @@
     flex-wrap: nowrap;  
     scroll-snap-type: x mandatory;  /* slider tipo carrusel */
     justify-content: flex-start;
-    padding: 10px 0px;
+    /*padding: 10px 0px;*/
+    padding-top: 10px;
     gap: 12px;
   }
 

@@ -227,7 +227,8 @@
 /* MOBILE → SLIDER */
 @media (max-width: 768px) {
   .brands {
-    padding: 48px 0 24px;
+    /*padding: 48px 0;*/
+    padding: 32px 0;
   }
 
   .brands-wrapper {
