@@ -101,61 +101,12 @@
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/*------------------- Sección de ofertas -------------------*/
 .offers-section {
   width: 100%;
   margin: 0 auto;
   margin-top: 48px;
 }
-
 
 .offers-section-container {
   display: grid;
@@ -278,6 +229,10 @@
 }
 
 @media (max-width: 768px) {
+  .offers-section {
+    margin-top: 32px;
+  }
+  
   .offers-section-container {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: auto;
@@ -320,28 +275,11 @@
   .offer-btn {
     margin-top: .75rem;
     padding: 0.2rem 0.8rem;
-
     border-radius: 6px;
     font-size: .65rem;
   }
 
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 .promo-section{
   width:100%;

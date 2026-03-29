@@ -310,8 +310,8 @@
 
   /*------------------------------------------*/
   .best-sellers {
-    margin-top: 24px; /* o incluso 12px */
-    margin-top: 16px;
+    margin-top: 160px;
+    margin-top: 32px; /* o incluso 12px */
   }
 
   .section-title {
