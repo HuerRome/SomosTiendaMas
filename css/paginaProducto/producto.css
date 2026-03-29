@@ -21,7 +21,6 @@ body {
   overflow: visible;
 }
 
-
 /* BREADCRUMB */
 .breadcrumb {
   display: flex;
@@ -91,13 +90,13 @@ body {
   width: 100%;
   max-width: 100%;
 }
+
 @media (min-width: 1025px) {
   .product-gallery {
     position: sticky;
     top: 0px;
     height: auto;
   }
-
 }
 
 /* THUMBNAILS */
@@ -271,7 +270,7 @@ body {
   color: #e74c3c;
 }
 
-.product-title {
+.product-page-title {
   font-size: 26px;
   font-weight: 600;
   line-height: 1.3;
@@ -720,7 +719,7 @@ body {
     padding: 20px;
   }
 
-  .product-title {
+  .product-page-title {
     font-size: 22px;
   }
 
@@ -791,6 +790,38 @@ body {
 .thumb, .size-btn, .qty-btn, .btn-buy, .btn-cart {
   cursor: pointer;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
