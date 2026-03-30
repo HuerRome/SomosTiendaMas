@@ -35,7 +35,7 @@ body {
   padding: 12px 16px;
   border-radius: 8px;
   box-shadow: 0 1px 2px rgba(0,0,0,0.05);
-  overflow-x: auto; /* Permite scroll horizontal si es necesario pero con control */
+  overflow-x: auto; 
   -webkit-overflow-scrolling: touch;
 }
 
@@ -714,6 +714,25 @@ body {
 }
 
 @media (max-width: 768px) {
+  /*---- Convirtiendo en slider al breadcrumb ----*/
+  .breadcrumb {
+    overflow-x: auto;        
+    white-space: nowrap;     
+    flex-wrap: nowrap;      
+    -webkit-overflow-scrolling: touch; 
+    scrollbar-width: none; 
+  }
+  
+  .breadcrumb::-webkit-scrollbar {
+    display: none; 
+  }
+  
+  .breadcrumb a,
+  .breadcrumb span {
+    flex: 0 0 auto;
+  }
+  /*----------------------------------------------*/
+
   .main-content {
     padding: 12px;
     padding: 16px 2rem;
@@ -745,6 +764,7 @@ body {
   .features-grid {
     grid-template-columns: 1fr;
   }
+
   .product-gallery {
     gap: 6px;
   }
@@ -760,6 +780,7 @@ body {
     font-size: 11px;
     padding: 8px 12px;
     margin-bottom: 6px;
+    gap: 6px;
   }
   
   .product-page {
@@ -797,49 +818,13 @@ body {
   .qty-input {
     width: 42px;
   }
+
 }
 
 /* HOVER EFFECTS */
 .thumb, .size-btn, .qty-btn, .btn-buy, .btn-cart {
   cursor: pointer;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
