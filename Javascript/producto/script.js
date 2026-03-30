@@ -232,3 +232,52 @@ shareButton.addEventListener('click', () => {
 // Inicialización
 updateQuantity();
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const btn = document.getElementById("pdToggle");
+const text = document.getElementById("pdText");
+
+btn.addEventListener("click", () => {
+  text.classList.toggle("pd-text--collapsed");
+  text.classList.toggle("pd-text--expanded");
+
+  if (text.classList.contains("pd-text--expanded")) {
+    btn.textContent = "Ver menos ▲";
+  } else {
+    btn.textContent = "Ver descripción completa ▼";
+  }
+});
+

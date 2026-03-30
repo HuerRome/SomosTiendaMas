@@ -102,6 +102,7 @@ body {
   .product-container {
     grid-template-columns: 60% 40%;
     grid-template-columns: 3fr 2fr; 
+    grid-template-columns: 4fr 2fr; 
   }
 
   .product-info {
@@ -170,6 +171,7 @@ body {
   align-items: center;
   justify-content: center;
   min-height: 500px;
+  min-height: auto;
   position: relative;
   overflow: hidden;
   cursor: crosshair;
@@ -180,6 +182,7 @@ body {
 .main-image img {
   max-width: 100%;
   max-height: 500px;
+  max-height: auto;
   width: auto;
   height: auto;
   object-fit: contain;
@@ -648,68 +651,6 @@ body {
   transform: translateY(-1px);
 }
 
-/* FEATURES SECTION */
-.product-features {
-  background: white;
-  border-radius: 12px;
-  margin-top: 32px;
-  padding: 32px;
-  padding: 32px 1rem;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
-  width: 100%;
-  overflow-x: hidden;
-}
-
-.features-title {
-  font-size: 24px;
-  font-weight: 600;
-  margin-bottom: 24px;
-}
-
-.features-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
-}
-
-.feature-item {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 12px;
-  background: #f9f9f9;
-  border-radius: 8px;
-  word-break: break-word;
-}
-
-.feature-icon {
-  font-size: 24px;
-  color: #3483fa;
-  flex-shrink: 0;
-}
-
-.feature-text {
-  flex: 1;
-}
-
-.feature-label {
-  font-weight: 600;
-  margin-right: 8px;
-}
-
-.features-toggle {
-  margin-top: 24px;
-  background: none;
-  border: none;
-  color: #3483fa;
-  font-weight: 500;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 0;
-}
-
 /* RESPONSIVE */
 @media (max-width: 1024px) {
   .main-content {
@@ -792,10 +733,6 @@ body {
     height: 48px;
     font-size: 13px;
   }
-  
-  .features-grid {
-    grid-template-columns: 1fr;
-  }
 
   .product-gallery {
     gap: 6px;
@@ -850,7 +787,6 @@ body {
   .qty-input {
     width: 42px;
   }
-
 }
 
 /* HOVER EFFECTS */
@@ -859,4 +795,119 @@ body {
 }
 
 
+/*--------------------------------- Product features ---------------------------------*/
+.pd-section {
+  background: #f5f5f5;
+  padding-top: 32px;
+  border-radius: 12px;
+  font-family: Arial, sans-serif;
+}
 
+.pd-container {
+  background: #fff;
+  border-radius: 10px;
+  padding: 24px;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  grid-template-columns: 4fr 2fr;
+  gap: 32px;
+}
+
+/* TITLES */
+.pd-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: #333;
+}
+
+/* LEFT */
+.pd-subtitle {
+  font-weight: 500;
+  margin-bottom: 12px;
+  color: #555;
+}
+
+.pd-text {
+  color: #666;
+  font-size: 14px;
+  line-height: 1.6;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+
+.pd-text--collapsed {
+  max-height: 130px;
+}
+
+.pd-text--expanded {
+  max-height: 500px;
+}
+
+.pd-extra {
+  margin-top: 12px;
+  color: #aaa;
+}
+
+.pd-toggle {
+  margin-top: 12px;
+  background: none;
+  border: none;
+  color: #3483fa;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+/* RIGHT */
+.pd-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.pd-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #f2f2f2;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 13px;
+  color: #333;
+}
+
+.pd-item i {
+  color: #3483fa;
+  width: 18px;
+  text-align: center;
+}
+
+.pd-more {
+  margin-top: 12px;
+  background: none;
+  border: none;
+  color: #3483fa;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .pd-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .pd-container {
+    grid-template-columns: 1fr;
+  }
+
+  .pd-section {
+    padding: 16px;
+  }
+
+  .pd-container {
+    padding: 16px;
+  }
+}

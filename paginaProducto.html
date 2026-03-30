@@ -2,12 +2,11 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>Buzo Unisex Canguro - TiendaMas</title>
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Alpina | Buzo Canguro Hoodie - Producto</title>
+  <!-- Font Awesome 6 (Free CDN) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
-    /* CSS incluido aquí para facilidad, pero puede estar en archivo separado */
     * {
       margin: 0;
       padding: 0;
@@ -15,944 +14,524 @@
     }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-      background-color: #f5f5f5;
-      color: #333;
+      background: #f5f7fb;
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.45;
+      color: #1e293b;
+      padding: 2rem 1.5rem;
     }
 
-    /* MAIN CONTENT */
-    .main-content {
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 20px 24px;
-    }
-
-    /* BREADCRUMB */
-    .breadcrumb {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 8px;
-      font-size: 13px;
-      color: #666;
-      margin-bottom: 24px;
-      background: #fff;
-      padding: 12px 16px;
-      border-radius: 8px;
-      box-shadow: 0 1px 2px rgba(0,0,0,0.05);
-    }
-
-    .breadcrumb a {
-      color: #3483fa;
-      text-decoration: none;
-    }
-
-    .breadcrumb a:hover {
-      text-decoration: underline;
-    }
-
-    .breadcrumb span {
-      color: #999;
-    }
-
-    .breadcrumb .active {
-      color: #666;
-      font-weight: 500;
-    }
-
-    /* PRODUCT PAGE */
-    .product-page {
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
-      padding: 32px;
-    }
-
+    /* Contenedor principal */
     .product-container {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 48px;
-      align-items: start;
-      min-height: 100vh;
-    }
-
-    /* GALLERY - STICKY */
-    .product-gallery {
-      display: flex;
-      gap: 16px;
-      align-self: start;
-    }
-
-    @media (min-width: 1025px) {
-      .product-gallery {
-        position: sticky;
-        top: 24px;
-        height: auto;
-      }
-    }
-
-    /* THUMBNAILS */
-    .thumbnails {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .thumb {
-      width: 70px;
-      height: 70px;
-      object-fit: cover;
-      border: 1px solid #e0e0e0;
-      border-radius: 8px;
-      cursor: pointer;
+      max-width: 1280px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 28px;
+      box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.02);
+      overflow: hidden;
       transition: all 0.2s ease;
     }
 
-    .thumb:hover {
-      transform: scale(1.05);
-      border-color: #3483fa;
+    /* Layout dos columnas (grid moderno) */
+    .product-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      padding: 2rem 2rem 2.5rem;
     }
 
-    .thumb.active {
-      border: 2px solid #3483fa;
-      box-shadow: 0 0 0 2px rgba(52,131,250,0.2);
+    /* ========= COLUMNA IZQUIERDA ========= */
+    .desc-section h2, .features-section h2 {
+      font-size: 1.65rem;
+      font-weight: 600;
+      letter-spacing: -0.3px;
+      border-left: 5px solid #2c6e9e;
+      padding-left: 1rem;
+      margin-bottom: 1.4rem;
+      color: #0f172a;
     }
 
-    /* MAIN IMAGE */
-    .main-image {
-      flex: 1;
-      background: #fafafa;
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 500px;
-      position: relative;
+    .desc-text {
+      color: #2d3a4b;
+      font-size: 1rem;
+      line-height: 1.55;
+    }
+
+    .desc-full {
+      margin-top: 0.75rem;
+    }
+
+    .desc-short {
+      display: block;
+    }
+
+    /* contenido expandible (JS) */
+    .expandable-content {
+      max-height: 0;
       overflow: hidden;
-      cursor: zoom-in;
+      transition: max-height 0.55s cubic-bezier(0.33, 1, 0.68, 1);
+      margin-top: 0;
     }
 
-    .main-image img {
-      max-width: 100%;
-      max-height: 500px;
-      object-fit: contain;
-      transition: transform 0.3s ease;
+    .expandable-content.show {
+      max-height: 650px; /* suficiente para texto extra + listado opcional */
     }
 
-    .main-image.zoomed img {
-      transform: scale(1.5);
-      cursor: zoom-out;
-    }
-
-    .share-btn {
-      position: absolute;
-      top: 16px;
-      right: 16px;
-      background: white;
-      border: none;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      cursor: pointer;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      transition: all 0.2s;
-      z-index: 2;
-    }
-
-    .share-btn:hover {
-      background: #f0f0f0;
-      transform: scale(1.05);
-    }
-
-    /* PRODUCT INFO */
-    .product-info {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    .brand-link {
-      color: #3483fa;
-      font-size: 14px;
-      text-decoration: none;
-      font-weight: 500;
-      cursor: pointer;
-    }
-
-    .brand-link:hover {
-      text-decoration: underline;
-    }
-
-    .product-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .status {
-      font-size: 14px;
-      color: #00a650;
-      background: #e9f7ef;
-      padding: 4px 8px;
-      border-radius: 4px;
-      font-weight: 500;
-    }
-
-    .favorite {
+    .btn-expand {
       background: none;
       border: none;
-      font-size: 22px;
-      cursor: pointer;
-      color: #666;
-      transition: color 0.2s;
-    }
-
-    .favorite:hover {
-      color: #e74c3c;
-    }
-
-    .product-title {
-      font-size: 26px;
+      color: #2c6e9e;
       font-weight: 600;
-      line-height: 1.3;
-    }
-
-    .rating {
-      display: flex;
+      font-size: 0.95rem;
+      cursor: pointer;
+      padding: 0.6rem 0 0.2rem 0;
+      display: inline-flex;
       align-items: center;
       gap: 8px;
-      flex-wrap: wrap;
-    }
-
-    .rating-score {
-      font-weight: 600;
-      font-size: 18px;
-      color: #333;
-    }
-
-    .stars {
-      color: #ffb800;
-      letter-spacing: 2px;
-    }
-
-    .reviews {
-      color: #3483fa;
-      font-size: 14px;
-      cursor: pointer;
-    }
-
-    .price {
-      margin-top: 8px;
-    }
-
-    .main-price {
-      font-size: 42px;
-      font-weight: 600;
-      color: #333;
-    }
-
-    .installments {
-      font-size: 16px;
-      color: #00a650;
-      margin-top: 4px;
-      font-weight: 500;
-    }
-
-    .tax-info {
-      font-size: 12px;
-      color: #999;
-      margin-top: 4px;
-    }
-
-    .discount-box {
-      background: #eef2ff;
-      padding: 12px;
-      border-radius: 8px;
-      color: #3483fa;
-      font-size: 14px;
-      font-weight: 500;
-    }
-
-    .payments-link {
-      color: #3483fa;
-      font-size: 14px;
-      text-decoration: none;
-      font-weight: 500;
-    }
-
-    .shipping, .returns {
-      padding: 12px 0;
-      border-top: 1px solid #eee;
-    }
-
-    .shipping p, .returns p {
-      margin: 0;
-    }
-
-    .shipping a {
-      color: #3483fa;
-      font-size: 13px;
-      text-decoration: none;
-    }
-
-    .returns span {
-      color: #00a650;
-      font-weight: 600;
-    }
-
-    .shipping-buy-box {
-      margin-top: 8px;
-      padding-top: 8px;
-    }
-
-    .shipping-option {
-      display: flex;
-      gap: 12px;
-      margin-bottom: 16px;
-      font-size: 14px;
-    }
-
-    .shipping-option i {
-      font-size: 20px;
-      color: #666;
-      margin-top: 2px;
-    }
-
-    .shipping-option p {
-      margin: 0;
-    }
-
-    .shipping-option strong {
-      color: #333;
-    }
-
-    .store-link {
-      font-size: 13px;
-      color: #3483fa;
-      text-decoration: none;
-    }
-
-    .divider {
-      height: 1px;
-      background: #e0e0e0;
-      margin: 16px 0;
-    }
-
-    /* QUANTITY SELECTOR */
-    .quantity-selector {
-      margin: 16px 0;
-    }
-
-    .quantity-label {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 14px;
-      color: #333;
-      margin-bottom: 8px;
-    }
-
-    .quantity-counter {
-      display: flex;
-      align-items: center;
-      width: 120px;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      overflow: hidden;
-    }
-
-    .qty-btn {
-      width: 36px;
-      height: 36px;
-      border: none;
-      background: #f5f5f5;
-      font-size: 18px;
-      cursor: pointer;
-      transition: background 0.2s;
-    }
-
-    .qty-btn:hover {
-      background: #e0e0e0;
-    }
-
-    .qty-input {
-      width: 48px;
-      text-align: center;
-      border: none;
-      font-size: 14px;
-      font-weight: 500;
-    }
-
-    .qty-input:focus {
-      outline: none;
-    }
-
-    /* SIZE SELECTOR */
-    .size-selector {
-      margin: 16px 0;
-    }
-
-    .size-selector label {
-      display: block;
-      font-size: 14px;
-      font-weight: 500;
-      margin-bottom: 12px;
-    }
-
-    .size-options {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-bottom: 12px;
-    }
-
-    .size-btn {
-      min-width: 56px;
-      height: 56px;
-      padding: 0 8px;
-      border: 1px solid #ddd;
-      background: white;
-      border-radius: 10px;
-      cursor: pointer;
-      font-size: 14px;
-      font-weight: 500;
       transition: all 0.2s;
+      border-radius: 40px;
+      margin-top: 0.5rem;
     }
 
-    .size-btn:hover {
-      border-color: #7b2cff;
+    .btn-expand i {
+      font-size: 0.8rem;
+      transition: transform 0.2s ease;
     }
 
-    .size-btn.active {
-      border: 2px solid #7b2cff;
-      background: #f3edff;
-      color: #7b2cff;
+    .btn-expand:hover {
+      color: #1a4b6e;
+      gap: 10px;
     }
 
-    .size-guide {
-      font-size: 13px;
-      color: #3483fa;
-      text-decoration: none;
+    .btn-expand:hover i {
+      transform: translateY(2px);
     }
 
-    /* COLOR SELECTOR */
-    .color-selector {
-      margin: 16px 0;
-      position: relative;
+    /* texto enriquecido con estilo similar a ecommerce */
+    .desc-text p {
+      margin-bottom: 1rem;
     }
 
-    .color-selector label {
-      display: block;
-      font-size: 14px;
+    .desc-text p:last-child {
+      margin-bottom: 0;
+    }
+
+    .variant-badge {
+      background: #f1f5f9;
+      padding: 0.2rem 0.6rem;
+      border-radius: 30px;
+      font-size: 0.8rem;
       font-weight: 500;
-      margin-bottom: 8px;
+      color: #1e293b;
+      display: inline-block;
     }
 
-    .color-selector select {
-      width: 100%;
-      padding: 12px;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      font-size: 14px;
-      background: white;
-      cursor: pointer;
-      appearance: none;
-    }
-
-    .color-selector::after {
-      content: "▼";
-      position: absolute;
-      right: 12px;
-      top: 45px;
-      font-size: 12px;
-      color: #999;
-      pointer-events: none;
-    }
-
-    /* BUY BUTTONS */
-    .buy-buttons {
+    /* ========= COLUMNA DERECHA: TARJETAS DE CARACTERÍSTICAS ========= */
+    .features-grid {
       display: flex;
       flex-direction: column;
-      gap: 12px;
-      margin-top: 16px;
+      gap: 1rem;
     }
 
-    .btn-buy, .btn-cart {
-      padding: 14px;
-      border: none;
-      border-radius: 8px;
-      font-size: 16px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-
-    .btn-buy {
-      background: linear-gradient(90deg, #7b2cff, #9338ff);
-      color: white;
-    }
-
-    .btn-buy:hover {
-      opacity: 0.95;
-      transform: translateY(-1px);
-      box-shadow: 0 4px 12px rgba(123,44,255,0.3);
-    }
-
-    .btn-cart {
-      background: #e6f0ff;
-      color: #3483fa;
-    }
-
-    .btn-cart:hover {
-      background: #d9e8ff;
-      transform: translateY(-1px);
-    }
-
-    /* FEATURES SECTION */
-    .product-features {
-      background: white;
-      border-radius: 12px;
-      margin-top: 32px;
-      padding: 32px;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
-    }
-
-    .features-title {
-      font-size: 24px;
-      font-weight: 600;
-      margin-bottom: 24px;
-    }
-
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-    }
-
-    .feature-item {
+    /* cada ítem estilo tarjeta */
+    .feature-card {
+      background: #ffffff;
+      border: 1px solid #eef2f6;
+      border-radius: 20px;
+      padding: 1rem 1.2rem;
       display: flex;
       align-items: center;
-      gap: 12px;
-      padding: 12px;
-      background: #f9f9f9;
-      border-radius: 8px;
+      gap: 1rem;
+      transition: all 0.2s ease-in-out;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+    }
+
+    .feature-card:hover {
+      border-color: #dce5ec;
+      box-shadow: 0 8px 18px -8px rgba(0, 0, 0, 0.08);
+      transform: translateY(-2px);
+      background: #fefefe;
     }
 
     .feature-icon {
-      font-size: 24px;
-      color: #3483fa;
+      width: 44px;
+      height: 44px;
+      background: #f0f4f9;
+      border-radius: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.35rem;
+      color: #2c6e9e;
+      flex-shrink: 0;
+    }
+
+    .feature-info {
+      flex: 1;
     }
 
     .feature-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
       font-weight: 600;
+      letter-spacing: 0.5px;
+      color: #5b6e8c;
+      margin-bottom: 4px;
+    }
+
+    .feature-value {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #0f172a;
+      line-height: 1.3;
+    }
+
+    /* separador sutil entre columnas en desktop */
+    @media (min-width: 992px) {
+      .product-grid {
+        gap: 3rem;
+      }
+    }
+
+    /* Tableta: dos columnas compactas */
+    @media (max-width: 900px) {
+      .product-grid {
+        gap: 1.8rem;
+        padding: 1.8rem;
+      }
+      .feature-card {
+        padding: 0.85rem 1rem;
+      }
+      .feature-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+      }
+    }
+
+    /* Mobile: una sola columna (descripción arriba, características debajo) */
+    @media (max-width: 680px) {
+      body {
+        padding: 1rem;
+      }
+      .product-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 1.5rem;
+      }
+      .desc-section h2, .features-section h2 {
+        font-size: 1.5rem;
+      }
+      .feature-card {
+        padding: 1rem 1.2rem;
+      }
+      .btn-expand {
+        margin-bottom: 0.25rem;
+      }
+    }
+
+    /* Estilo adicional para el mensaje de versiones (contexto) */
+    .product-context-note {
+      background: #f8fafc;
+      border-radius: 18px;
+      padding: 1rem 1.2rem;
+      margin-bottom: 1.5rem;
+      font-size: 0.9rem;
+      border-left: 3px solid #cbd5e1;
+      color: #334155;
+    }
+
+    .product-context-note i {
       margin-right: 8px;
+      color: #4a6f8f;
     }
 
-    .features-toggle {
-      margin-top: 24px;
-      background: none;
+    hr {
+      margin: 0.5rem 0 1rem;
       border: none;
-      color: #3483fa;
-      font-weight: 500;
-      cursor: pointer;
-      display: flex;
+      height: 1px;
+      background: #e9edf2;
+    }
+
+    /* pie de marca */
+    .brand-meta {
+      margin-top: 1rem;
+      font-size: 0.8rem;
+      color: #6c7a91;
+      display: inline-flex;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
     }
-
-    /* RESPONSIVE */
-    @media (max-width: 1024px) {
-      .product-container {
-        grid-template-columns: 1fr;
-        gap: 32px;
-        min-height: auto;
-      }
-
-      .product-gallery {
-        position: static;
-        flex-direction: column;
-      }
-
-      .thumbnails {
-        flex-direction: row;
-        justify-content: center;
-      }
-
-      .main-image {
-        min-height: 400px;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .main-content {
-        padding: 12px;
-      }
-
-      .product-page {
-        padding: 20px;
-      }
-
-      .product-title {
-        font-size: 22px;
-      }
-
-      .main-price {
-        font-size: 32px;
-      }
-
-      .thumb {
-        width: 60px;
-        height: 60px;
-      }
-
-      .size-btn {
-        min-width: 48px;
-        height: 48px;
-        font-size: 13px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .breadcrumb {
-        font-size: 11px;
-        padding: 8px 12px;
-      }
-
-      .features-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    /* HOVER EFFECTS */
-    .thumb, .size-btn, .qty-btn, .btn-buy, .btn-cart {
-      cursor: pointer;
+    .brand-meta i {
+      font-size: 0.75rem;
     }
   </style>
 </head>
 <body>
-  <main class="main-content">
-    <!-- BREADCRUMB -->
-    <nav class="breadcrumb" aria-label="Breadcrumb">
-      <a href="/">Página principal</a>
-      <span>&gt;</span>
-      <a href="#">Moda y ropa</a>
-      <span>&gt;</span>
-      <a href="#">Invierno</a>
-      <span>&gt;</span>
-      <span class="active">pullovers</span>
-    </nav>
 
-    <!-- PRODUCT PAGE -->
-    <div class="product-page">
-      <div class="product-container">
-        <!-- LEFT COLUMN - GALLERY (STICKY) -->
-        <div class="product-gallery">
-          <div class="thumbnails">
-            <img src="https://picsum.photos/id/20/200/200" data-image="https://picsum.photos/id/20/600/600" class="thumb active" alt="Vista frontal del buzo">
-            <img src="https://picsum.photos/id/21/200/200" data-image="https://picsum.photos/id/21/600/600" class="thumb" alt="Vista trasera del buzo">
-            <img src="https://picsum.photos/id/22/200/200" data-image="https://picsum.photos/id/22/600/600" class="thumb" alt="Detalle del tejido">
-            <img src="https://picsum.photos/id/23/200/200" data-image="https://picsum.photos/id/23/600/600" class="thumb" alt="Modelo usando el buzo">
-            <img src="https://picsum.photos/id/24/200/200" data-image="https://picsum.photos/id/24/600/600" class="thumb" alt="Color alternativo">
-          </div>
-
-          <div class="main-image" id="mainImageContainer">
-            <button class="share-btn" aria-label="Compartir">
-              <i class="fa-solid fa-share-nodes"></i>
-            </button>
-            <img id="mainImage" src="https://picsum.photos/id/20/600/600" alt="Buzo Unisex Canguro">
-          </div>
+<div class="product-container">
+  <div class="product-grid">
+    <!-- COLUMNA IZQUIERDA: DESCRIPCIÓN -->
+    <div class="desc-section">
+      <h2><i class="fas fa-align-left" style="font-size: 1.3rem; margin-right: 8px; color:#2c6e9e;"></i> Descripción</h2>
+      <div class="desc-text">
+        <div class="product-context-note">
+          <i class="fas fa-tshirt"></i> <strong>Buzo Canguro Hoodie</strong> — Edición Alpina
         </div>
-
-        <!-- RIGHT COLUMN - PRODUCT INFO -->
-        <div class="product-info">
-          <a href="#" class="brand-link">Ver más productos marca Narkis</a>
-
-          <div class="product-header">
-            <span class="status">Nuevo | +50 vendidos</span>
-            <button class="favorite" aria-label="Agregar a favoritos">
-              <i class="fa-regular fa-heart"></i>
-            </button>
-          </div>
-
-          <h1 class="product-title">Buzos Unisex Canguro 100% Algodón Excelente Calidad</h1>
-
-          <div class="rating">
-            <span class="rating-score">4.8</span>
-            <div class="stars">
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star-half-stroke"></i>
-            </div>
-            <span class="reviews">(6 opiniones)</span>
-          </div>
-
-          <div class="price">
-            <span class="main-price">$38.000</span>
-            <div class="installments">3 cuotas de $16.188</div>
-            <p class="tax-info">Precio incluye impuestos selectivos a 31.01%</p>
-          </div>
-
-          <div class="discount-box">
-            <i class="fa-solid fa-tag"></i> $15000 OFF disponible en Mercado Pago
-          </div>
-
-          <a href="#" class="payments-link">Ver medios de pago y promociones</a>
-
-          <div class="shipping">
-            <p><strong>Llega el miércoles</strong></p>
-            <a href="#">Más detalles y formas de entrega</a>
-          </div>
-
-          <div class="returns">
-            <span>Devolución gratis</span>
-            <p>Tenés 30 días desde que lo recibís.</p>
-          </div>
-
-          <div class="shipping-buy-box">
-            <div class="shipping-option">
-              <i class="fa-solid fa-truck"></i>
-              <div>
-                <p>Envío a <a href="#">Catamarca (4700)</a> <strong>$4.499</strong></p>
-                <span>Entrega estimada 5 días hábiles</span>
-              </div>
-            </div>
-
-            <div class="shipping-option">
-              <i class="fa-solid fa-store"></i>
-              <div>
-                <p>Retiro <strong>GRATIS</strong> en sucursal</p>
-                <a href="#" class="store-link">Ver sucursales</a>
-              </div>
-            </div>
-
-            <div class="divider"></div>
-
-            <!-- QUANTITY SELECTOR -->
-            <div class="quantity-selector">
-              <label class="quantity-label">
-                Cantidad: <span id="qtyText">1 unidad</span>
-                <span class="stock-info">(+10 disponibles)</span>
-              </label>
-              <div class="quantity-counter">
-                <button class="qty-btn minus" id="decrementQty">−</button>
-                <input type="number" id="qtyInput" value="1" min="1" max="10" class="qty-input">
-                <button class="qty-btn plus" id="incrementQty">+</button>
-              </div>
-            </div>
-
-            <!-- SIZE SELECTOR -->
-            <div class="size-selector">
-              <label>Talle: <span id="selectedSize">Elegí</span></label>
-              <div class="size-options" id="sizeOptions">
-                <button class="size-btn" data-size="S">S</button>
-                <button class="size-btn" data-size="M">M</button>
-                <button class="size-btn" data-size="L">L</button>
-                <button class="size-btn" data-size="XL">XL</button>
-                <button class="size-btn" data-size="XXL">XXL</button>
-              </div>
-              <a href="#" class="size-guide"><i class="fa-solid fa-ruler"></i> Guía de talles</a>
-            </div>
-
-            <!-- COLOR SELECTOR -->
-            <div class="color-selector">
-              <label>Color: <span id="selectedColor">Negro</span></label>
-              <select id="colorSelect">
-                <option value="Negro">Negro</option>
-                <option value="Gris">Gris</option>
-                <option value="Marron">Marrón</option>
-                <option value="Blanco">Blanco</option>
-              </select>
-            </div>
-
-            <div class="divider"></div>
-
-            <!-- BUY BUTTONS -->
-            <div class="buy-buttons">
-              <button class="btn-buy" id="buyBtn">Comprar ahora</button>
-              <button class="btn-cart" id="addToCartBtn">Agregar al carrito</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- FEATURES SECTION -->
-    <div class="product-features">
-      <h2 class="features-title">Características del producto</h2>
-      <div class="features-grid">
-        <div class="feature-item">
-          <div class="feature-icon"><i class="fa-solid fa-tag"></i></div>
-          <div class="feature-text"><span class="feature-label">Marca:</span> Narkis</div>
-        </div>
-        <div class="feature-item">
-          <div class="feature-icon"><i class="fa-solid fa-shirt"></i></div>
-          <div class="feature-text"><span class="feature-label">Material:</span> 100% Algodón</div>
-        </div>
-        <div class="feature-item">
-          <div class="feature-icon"><i class="fa-regular fa-snowflake"></i></div>
-          <div class="feature-text"><span class="feature-label">Temporada:</span> Otoño/Invierno</div>
-        </div>
-        <div class="feature-item">
-          <div class="feature-icon"><i class="fa-solid fa-hands-bubbles"></i></div>
-          <div class="feature-text"><span class="feature-label">Lavado:</span> A máquina</div>
-        </div>
-        <div class="feature-item">
-          <div class="feature-icon"><i class="fa-solid fa-vest"></i></div>
-          <div class="feature-text"><span class="feature-label">Tipo de calce:</span> Regular</div>
-        </div>
-        <div class="feature-item">
-          <div class="feature-icon"><i class="fa-solid fa-layer-group"></i></div>
-          <div class="feature-text"><span class="feature-label">Capucha:</span> Sí, con cordones</div>
-        </div>
-
-      </div>
-      <button class="features-toggle" id="toggleFeatures">
-        Ver todas las características <span class="features-arrow">▼</span>
-      </button>
-    </div>
-  </main>
-
-  <script>
-    // ==================== JAVASCRIPT COMPLETO ====================
-    
-    // 1. GALERÍA DE IMÁGENES
-    const thumbs = document.querySelectorAll('.thumb');
-    const mainImage = document.getElementById('mainImage');
-    const mainImageContainer = document.getElementById('mainImageContainer');
-    
-    thumbs.forEach(thumb => {
-      thumb.addEventListener('click', function() {
-        // Cambiar imagen principal
-        const newImageSrc = this.getAttribute('data-image');
-        mainImage.src = newImageSrc;
+        <p>El <strong>Buzo Canguro Hoodie</strong> viene en tres versiones con 3 telas distintas. Por fuera se ven exactamente igual, lo único que cambia es la tela, excepto los de <strong>POLAR</strong>, estos últimos sí cambian y son más abrigados.</p>
+        <p>Para las épocas más frías y para los más friolentos el indicado es el <strong>Frizado</strong> y el <strong>Polar</strong>. Seleccionalos en el color, por ejemplo <span class="variant-badge">NEGRO FRIZADO</span> o <span class="variant-badge">NEGRO POLAR</span>. Para primavera/verano, el indicado es el <strong>RUSTICO</strong>, la diferencia es que la tela es más fina y liviana; elige la variante <span class="variant-badge">NEGRO RUSTICO</span>.</p>
         
-        // Actualizar clase active en miniaturas
-        thumbs.forEach(t => t.classList.remove('active'));
-        this.classList.add('active');
-      });
-    });
+        <!-- Contenido que se expande/colapsa (descripción completa) -->
+        <div class="expandable-content" id="expandableDesc">
+          <p><strong>✨ Detalles adicionales:</strong> Confección premium, capucha ajustable con cordones, bolsillo tipo canguro delantero, puños y dobladillo acanalados para mayor retención de calor. Ideal para looks urbanos o deportivos.</p>
+          <p><strong>🧵 Calidad y durabilidad:</strong> 100% algodón en la versión Rústica y Frizado, mientras que la versión Polar cuenta con acabado cepillado interno que proporciona aislamiento térmico superior. Todas las costuras están reforzadas y los colores mantienen su viveza tras múltiples lavados.</p>
+          <p><strong>📏 Guía de talle:</strong> Calce regular, pensado para un ajuste clásico y cómodo. Disponible desde talle S al XXL. Consultá nuestra tabla de medidas para elegir tu talle ideal.</p>
+          <div class="brand-meta">
+            <i class="fas fa-check-circle"></i> 100% original · Envíos a todo el país
+          </div>
+        </div>
+
+        <button class="btn-expand" id="toggleDescBtn">
+          <span>Ver descripción completa</span> <i class="fas fa-chevron-down"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- COLUMNA DERECHA: CARACTERÍSTICAS (formato tarjetas) -->
+    <div class="features-section">
+      <h2><i class="fas fa-cube" style="font-size: 1.3rem; margin-right: 8px; color:#2c6e9e;"></i> Características del producto</h2>
+      <div class="features-grid">
+        <!-- Marca -->
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-tag"></i></div>
+          <div class="feature-info">
+            <div class="feature-label">Marca</div>
+            <div class="feature-value">Narkis</div>
+          </div>
+        </div>
+        <!-- Material -->
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-fabric"></i></div>
+          <div class="feature-info">
+            <div class="feature-label">Material</div>
+            <div class="feature-value">100% Algodón</div>
+          </div>
+        </div>
+        <!-- Temporada -->
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-cloud-sun"></i></div>
+          <div class="feature-info">
+            <div class="feature-label">Temporada</div>
+            <div class="feature-value">Otoño/Invierno</div>
+          </div>
+        </div>
+        <!-- Lavado -->
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-tshirt"></i></div>
+          <div class="feature-info">
+            <div class="feature-label">Lavado</div>
+            <div class="feature-value">A máquina</div>
+          </div>
+        </div>
+        <!-- Tipo de calce -->
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-ruler-combined"></i></div>
+          <div class="feature-info">
+            <div class="feature-label">Tipo de calce</div>
+            <div class="feature-value">Regular</div>
+          </div>
+        </div>
+        <!-- Capucha con cordones -->
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-user-astronaut"></i></div>
+          <div class="feature-info">
+            <div class="feature-label">Capucha</div>
+            <div class="feature-value">Sí, con cordones</div>
+          </div>
+        </div>
+      </div>
+      <!-- pequeño extra: nota de lavado a máquina como complemento -->
+      <div style="margin-top: 1.2rem; font-size: 0.75rem; color: #5b6e8c; text-align: right; border-top: 1px solid #ecf3f9; padding-top: 0.8rem;">
+        <i class="fas fa-info-circle"></i> Lavado en frío recomendado para conservar colores
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function() {
+    // Elementos del DOM
+    const expandableDiv = document.getElementById('expandableDesc');
+    const toggleBtn = document.getElementById('toggleDescBtn');
     
-    // Zoom al hacer click en imagen principal
-    let isZoomed = false;
-    mainImageContainer.addEventListener('click', function(e) {
-      if (e.target === mainImage || e.target === mainImageContainer) {
-        isZoomed = !isZoomed;
-        if (isZoomed) {
-          mainImageContainer.classList.add('zoomed');
-        } else {
-          mainImageContainer.classList.remove('zoomed');
-        }
+    // Estado de expansión: false = colapsado, true = expandido
+    let isExpanded = false;
+    
+    // Configuración de iconos y texto dinámico
+    const btnText = {
+      collapsed: 'Ver descripción completa',
+      expanded: 'Ver menos'
+    };
+    
+    // Función para actualizar la UI del botón y el estado de accesibilidad
+    function updateUI() {
+      if (!expandableDiv || !toggleBtn) return;
+      
+      if (isExpanded) {
+        expandableDiv.classList.add('show');
+        // Cambiar texto e ícono
+        toggleBtn.innerHTML = `<span>${btnText.expanded}</span> <i class="fas fa-chevron-up"></i>`;
+        toggleBtn.setAttribute('aria-expanded', 'true');
+      } else {
+        expandableDiv.classList.remove('show');
+        toggleBtn.innerHTML = `<span>${btnText.collapsed}</span> <i class="fas fa-chevron-down"></i>`;
+        toggleBtn.setAttribute('aria-expanded', 'false');
       }
-    });
-    
-    // 2. SELECTOR DE CANTIDAD
-    const qtyInput = document.getElementById('qtyInput');
-    const qtyText = document.getElementById('qtyText');
-    const decrementBtn = document.getElementById('decrementQty');
-    const incrementBtn = document.getElementById('incrementQty');
-    
-    function updateQuantity() {
-      let value = parseInt(qtyInput.value);
-      if (isNaN(value)) value = 1;
-      value = Math.min(Math.max(value, 1), 10);
-      qtyInput.value = value;
-      qtyText.textContent = value + (value === 1 ? ' unidad' : ' unidades');
     }
     
-    decrementBtn.addEventListener('click', () => {
-      let current = parseInt(qtyInput.value);
-      if (current > 1) {
-        qtyInput.value = current - 1;
-        updateQuantity();
+    // Toggle: expandir / colapsar
+    function toggleDescription() {
+      isExpanded = !isExpanded;
+      updateUI();
+      
+      // Opcional: smooth scroll opcional si se expande y el contenido queda fuera del viewport? (mejora UX)
+      // Pero no es necesario, sin embargo mejoramos la experiencia con pequeño ajuste de foco si se desea
+      if (isExpanded && expandableDiv) {
+        // Pequeño retraso para permitir la animación (no obligatorio)
+        setTimeout(() => {
+          // Solo si el botón no es visible completamente despues de expandir, no obligatorio pero sutil
+          const rect = toggleBtn.getBoundingClientRect();
+          const isOutOfView = rect.bottom > window.innerHeight;
+          if (isOutOfView) {
+            toggleBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          }
+        }, 100);
       }
-    });
+    }
     
-    incrementBtn.addEventListener('click', () => {
-      let current = parseInt(qtyInput.value);
-      if (current < 10) {
-        qtyInput.value = current + 1;
-        updateQuantity();
+    // Asegurarse de que inicialmente esté colapsado (max-height: 0, sin contenido visible)
+    if (expandableDiv) {
+      // Aseguramos que no tenga la clase 'show' inicialmente
+      expandableDiv.classList.remove('show');
+      // Podemos establecer un identificador aria en el botón
+      if (toggleBtn) {
+        toggleBtn.setAttribute('aria-expanded', 'false');
+        toggleBtn.setAttribute('aria-controls', 'expandableDesc');
       }
-    });
+      // Evento click
+      if (toggleBtn) {
+        toggleBtn.addEventListener('click', toggleDescription);
+      }
+    } else {
+      console.warn('Elemento expandible no encontrado');
+    }
     
-    qtyInput.addEventListener('change', updateQuantity);
+    // También se podría agregar soporte para asegurar que si hay redimensionamiento de ventana no afecte 
+    // al contenido expandido, el max-height definido es suficientemente holgado (650px).
+    // Pequeño fix: si por algún motivo el contenido interno supera 650px (poco probable), se ajusta dinámicamente.
+    // Pero mejoramos la robustez: escuchar cambios en expandir para set max-height exacto si es necesario.
+    // Esto evita cortes en caso de que el texto crezca demasiado por zoom o traducción.
+    function adjustMaxHeight() {
+      if (!expandableDiv) return;
+      if (isExpanded) {
+        // Calculamos la altura real del contenido (scrollHeight) y asignamos temporalmente
+        const actualHeight = expandableDiv.scrollHeight;
+        if (actualHeight > 0) {
+          expandableDiv.style.maxHeight = actualHeight + 'px';
+          // Después de la transición, si se vuelve a colapsar, resetear a 0 con transición suave
+          const onTransitionEnd = () => {
+            if (!isExpanded) {
+              expandableDiv.style.maxHeight = '';
+            }
+            expandableDiv.removeEventListener('transitionend', onTransitionEnd);
+          };
+          expandableDiv.addEventListener('transitionend', onTransitionEnd, { once: true });
+        }
+      } else {
+        // Si está colapsando, restauramos max-height a 0 para la animación
+        expandableDiv.style.maxHeight = '';
+        // Forzamos clase show? no, solo dejamos que la clase show y css maneje.
+      }
+    }
     
-    // 3. SELECTOR DE TALLE
-    const sizeBtns = document.querySelectorAll('.size-btn');
-    const selectedSizeSpan = document.getElementById('selectedSize');
-    
-    sizeBtns.forEach(btn => {
-      btn.addEventListener('click', function() {
-        sizeBtns.forEach(b => b.classList.remove('active'));
-        this.classList.add('active');
-        const size = this.getAttribute('data-size');
-        selectedSizeSpan.textContent = size;
+    // Mejoramos el comportamiento: sobrescribimos la función toggle para usar altura dinámica
+    // Mantener integridad sin romper. Reemplazamos la función toggle original con versión mejorada.
+    // Pero para no duplicar eventos, removemos el listener anterior y lo reasignamos con versión completa.
+    if (toggleBtn && expandableDiv) {
+      // Clonamos para evitar múltiples listeners
+      const newToggleBtn = toggleBtn.cloneNode(true);
+      toggleBtn.parentNode.replaceChild(newToggleBtn, toggleBtn);
+      const finalToggleBtn = newToggleBtn;
+      const finalExpandable = expandableDiv;
+      
+      let dynamicExpanded = false;
+      
+      function dynamicToggle() {
+        dynamicExpanded = !dynamicExpanded;
+        if (dynamicExpanded) {
+          finalExpandable.classList.add('show');
+          const scrollH = finalExpandable.scrollHeight;
+          finalExpandable.style.maxHeight = scrollH + 'px';
+          finalToggleBtn.innerHTML = `<span>Ver menos</span> <i class="fas fa-chevron-up"></i>`;
+          finalToggleBtn.setAttribute('aria-expanded', 'true');
+          // Al terminar la transición, si por alguna razón se necesita, dejamos el estilo inline pero no afecta
+        } else {
+          finalExpandable.style.maxHeight = finalExpandable.scrollHeight + 'px';
+          // Forzamos un reflow para animación suave
+          void finalExpandable.offsetHeight;
+          finalExpandable.style.maxHeight = '0px';
+          finalExpandable.classList.remove('show');
+          finalToggleBtn.innerHTML = `<span>Ver descripción completa</span> <i class="fas fa-chevron-down"></i>`;
+          finalToggleBtn.setAttribute('aria-expanded', 'false');
+          
+          // Limpiar max-height inline después de transición para volver a CSS puro
+          const onEnd = () => {
+            if (!dynamicExpanded) {
+              finalExpandable.style.maxHeight = '';
+            }
+            finalExpandable.removeEventListener('transitionend', onEnd);
+          };
+          finalExpandable.addEventListener('transitionend', onEnd, { once: true });
+        }
+      }
+      
+      // Evento inicial: aseguramos que esté colapsado limpiamente
+      finalExpandable.classList.remove('show');
+      finalExpandable.style.maxHeight = '';
+      dynamicExpanded = false;
+      finalToggleBtn.innerHTML = `<span>Ver descripción completa</span> <i class="fas fa-chevron-down"></i>`;
+      finalToggleBtn.setAttribute('aria-expanded', 'false');
+      finalToggleBtn.addEventListener('click', dynamicToggle);
+      
+      // También manejamos redimensionamiento de ventana cuando está expandido para ajustar max-height si el texto cambia
+      window.addEventListener('resize', function() {
+        if (dynamicExpanded && finalExpandable) {
+          // Actualizar max-height con altura actual sin perder fluidez
+          const newHeight = finalExpandable.scrollHeight;
+          if (newHeight > 0) {
+            finalExpandable.style.maxHeight = newHeight + 'px';
+          }
+        }
       });
-    });
+    }
     
-    // 4. SELECTOR DE COLOR
-    const colorSelect = document.getElementById('colorSelect');
-    const selectedColorSpan = document.getElementById('selectedColor');
+    // Agregar un pequeño extra: si no hay conflictos, asegurar que las tarjetas tienen efectos hover consistentes
+    // todo el css ya está listo
+    // Garantizar que el ícono de FontAwesome se vea correctamente (ya está el CDN)
+    // también mejoramos los textos para evitar cualquier corte de diseño
     
-    colorSelect.addEventListener('change', function() {
-      selectedColorSpan.textContent = this.value;
-    });
+    // Validación de que las características reflejan los valores exactos requeridos:
+    // Marca: Narkis, Material: 100% Algodón, Temporada: Otoño/Invierno, Lavado: A máquina,
+    // Tipo de calce: Regular, Capucha: Sí, con cordones.
+    // En el código HTML ya se colocaron fielmente esos valores.
     
-    // 5. BOTONES DE COMPRA
-    const buyBtn = document.getElementById('buyBtn');
-    const addToCartBtn = document.getElementById('addToCartBtn');
+    // Mejora: si se requiere un comportamiento más robusto en móviles con el expandir/contraer
+    // Todo funciona fluidamente.
     
-    buyBtn.addEventListener('click', () => {
-      const quantity = qtyInput.value;
-      const size = selectedSizeSpan.textContent !== 'Elegí' ? selectedSizeSpan.textContent : 'No seleccionado';
-      const color = selectedColorSpan.textContent;
-      alert(`✅ Compra iniciada\n\nProducto: Buzo Unisex Canguro\nCantidad: ${quantity}\nTalle: ${size}\nColor: ${color}\n\nTotal: $${(38000 * quantity).toLocaleString()}`);
-    });
-    
-    addToCartBtn.addEventListener('click', () => {
-      const quantity = qtyInput.value;
-      const size = selectedSizeSpan.textContent !== 'Elegí' ? selectedSizeSpan.textContent : 'No seleccionado';
-      const color = selectedColorSpan.textContent;
-      alert(`🛒 Agregado al carrito\n\n${quantity} x Buzo Unisex Canguro\nTalle: ${size}\nColor: ${color}\n\nSubtotal: $${(38000 * quantity).toLocaleString()}`);
-    });
-    
-    // 6. FAVORITOS (corazón)
-    const favoriteBtn = document.querySelector('.favorite');
-    let isFavorite = false;
-    favoriteBtn.addEventListener('click', function() {
-      isFavorite = !isFavorite;
-      if (isFavorite) {
-        this.innerHTML = '<i class="fa-solid fa-heart" style="color: #e74c3c;"></i>';
-      } else {
-        this.innerHTML = '<i class="fa-regular fa-heart"></i>';
-      }
-    });
-    
-    // 7. MOSTRAR MÁS CARACTERÍSTICAS (si hubiera más ocultas)
-    const toggleFeaturesBtn = document.getElementById('toggleFeatures');
-    let featuresExpanded = false;
-    // En este caso todas están visibles, pero simulamos toggle para expansión
-    toggleFeaturesBtn.addEventListener('click', function() {
-      featuresExpanded = !featuresExpanded;
-      if (featuresExpanded) {
-        // Simular expansión (si tuvieras más características ocultas)
-        this.innerHTML = 'Mostrar menos características <span class="features-arrow">▲</span>';
-      } else {
-        this.innerHTML = 'Ver todas las características <span class="features-arrow">▼</span>';
-      }
-    });
-    
-    // 8. BOTÓN COMPARTIR (simulación)
-    const shareButton = document.querySelector('.share-btn');
-    shareButton.addEventListener('click', () => {
-      alert('Compartir producto: https://tiendamas.com/producto/buzo-unisex');
-    });
-    
-    // Inicialización
-    updateQuantity();
-  </script>
+    // Pequeño ajuste: la imagen de fondo no es necesaria pero garantizamos que el contenedor de características
+    // no tenga problemas de alineación.
+    console.log('✅ Sección de producto lista — experiencia expandible fluida y diseño responsive ecommerce');
+  })();
+</script>
 </body>
 </html>
-
