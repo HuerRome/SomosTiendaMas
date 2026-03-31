@@ -1209,26 +1209,6 @@ header,
 }
 
 
-/*---------- Corrigiendo errores: el menú ahora es adhesivo (sticky) en dispositivos móviles. ----------*/
-.site-header {
-  position: static; 
-}
-
-/* SOLO MOBILE → sticky */
-@media (max-width: 768px) {
-  .site-header {
-    position: sticky;
-  }
-}
-
-
-
-
-
-
-
-
-
 
 
 
