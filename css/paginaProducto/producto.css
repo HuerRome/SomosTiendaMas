@@ -12,6 +12,19 @@ body {
   overflow: visible;
 }
 
+.site-header {
+  position: relative;
+  z-index: 999;
+  overflow: visible !important;
+}
+
+@media (max-width: 768px) {
+  .site-header {
+    position: sticky;
+    top: 0;
+  }
+}
+
 /* MAIN CONTENT */
 .main-content {
   max-width: 1400px;

@@ -43,6 +43,7 @@ body {
   background: #f8fafc;
   color: var(--text);
   line-height: 1.4;
+  overflow: visible;
 }
 
 img,
@@ -873,12 +874,19 @@ header,
    PANEL CATEGORÍAS ESTILO MARKETPLACE (desktop / tablet)
    CON DOBLE SCROLL (izquierda + derecha)
 ========================================================= */
-
 .site-header {
   position: sticky;
+  position: relative;
   top: 0;
   z-index: 999;
   overflow: visible !important;
+}
+
+@media (max-width: 768px) {
+  .site-header {
+    position: sticky;
+    top: 0;
+  }
 }
 
 .header-shell {
@@ -1207,33 +1215,6 @@ header,
     display: none !important;
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
