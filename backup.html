@@ -1,208 +1,129 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>Buzo Unisex Canguro - TiendaMas</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Descripción y características</title>
+
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-  <link rel="stylesheet" href="style.css">
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkR4j4A9GqV1cQX4T0C4X1pG8R+X3w2g=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <main class="main-content">
-    <!-- BREADCRUMB -->
-    <nav class="breadcrumb" aria-label="Breadcrumb">
-      <a href="/">Página principal</a>
-      <span>&gt;</span>
-      <a href="#">Moda y ropa</a>
-      <span>&gt;</span>
-      <a href="#">Invierno</a>
-      <span>&gt;</span>
-      <span class="active">pullovers</span>
-    </nav>
 
-    <!-- PRODUCT PAGE -->
-    <div class="product-page">
-      <div class="product-container">
-        <!-- LEFT COLUMN - GALLERY (STICKY) -->
-        <div class="product-gallery">
-          <div class="thumbnails">
-            <img src="assets/secciones de la página - producto/(4)Moda(ropa y calzado)/1.jpg" data-image="assets/secciones de la página - producto/(4)Moda(ropa y calzado)/1.jpg" class="thumb active" alt="Vista frontal del buzo">
-            <img src="assets/secciones de la página - producto/(4)Moda(ropa y calzado)/2.jpg" data-image="assets/secciones de la página - producto/(4)Moda(ropa y calzado)/2.jpg" class="thumb" alt="Vista trasera del buzo">
-            <img src="assets/secciones de la página - producto/(4)Moda(ropa y calzado)/3.jpg" data-image="assets/secciones de la página - producto/(4)Moda(ropa y calzado)/3.jpg" class="thumb" alt="Detalle del tejido">
-            <img src="assets/secciones de la página - producto/(4)Moda(ropa y calzado)/4.jpg" data-image="assets/secciones de la página - producto/(4)Moda(ropa y calzado)/4.jpg" class="thumb" alt="Modelo usando el buzo">
-            <img src="assets/secciones de la página - producto/(4)Moda(ropa y calzado)/5.jpg" data-image="assets/secciones de la página - producto/(4)Moda(ropa y calzado)/5.jpg" class="thumb" alt="Color alternativo">
+  <main class="product-main">
+    <section class="product-detail-info" aria-label="Información del producto">
+      <div class="product-detail-info__grid">
+
+        <!-- COLUMNA IZQUIERDA -->
+        <article class="product-detail-card product-detail-description">
+          <h2 class="product-detail-title">Descripción</h2>
+
+          <div class="product-detail-description__content">
+            <p class="product-detail-description__lead">Buzo Canguro Hoodie</p>
+
+            <p>
+              Viene en tres versiones con 3 telas distintas, por fuera se ven exactamente igual, lo
+              único que cambia es la tela, excepto los de POLAR, estos últimos sí cambian y son
+              más abrigados.
+            </p>
+
+            <p>
+              Para las épocas más frías y para los más friolentos el indicado es el Frizado y el Polar,
+              lo seleccionan en el color, por ejemplo "NEGRO FRIZADO" o "NEGRO POLAR" y para
+              primavera/verano el indicado es el RUSTICO, la diferencia es que la tela es más fina y
+              liviana, para eso elijen el que dice "NEGRO RUSTICO"
+            </p>
+
+            <p>Marca: Alpina</p>
+
+            <p>
+              Fabricado en tela frizada, tela de algodón rústico Premium o en Polar.
+            </p>
           </div>
+        </article>
 
-          <div class="main-image" id="mainImageContainer">
-            <button class="share-btn" aria-label="Compartir">
-              <i class="fa-solid fa-share-nodes"></i>
-            </button>
-            <img id="mainImage" src="assets/secciones de la página - producto/(4)Moda(ropa y calzado)/1.jpg" alt="Buzo Unisex Canguro">
-          </div>
-        </div>
+        <!-- COLUMNA DERECHA -->
+        <aside class="product-detail-card product-detail-features">
+          <h2 class="product-detail-title">Características del producto</h2>
 
-        <!-- RIGHT COLUMN - PRODUCT INFO -->
-        <div class="product-info">
-          <a href="#" class="brand-link">Ver más productos marca Narkis</a>
+          <ul class="product-features-list">
+            <li class="product-feature-item">
+              <span class="product-feature-item__icon">
+                <i class="fa-solid fa-tag"></i>
+              </span>
+              <span class="product-feature-item__text">
+                <span class="product-feature-item__label">Marca:</span>
+                <span class="product-feature-item__value">Narkis</span>
+              </span>
+            </li>
 
-          <div class="product-header">
-            <span class="status">Nuevo | +50 vendidos</span>
-            <button class="favorite" aria-label="Agregar a favoritos">
-              <i class="fa-regular fa-heart"></i>
-            </button>
-          </div>
+            <li class="product-feature-item">
+              <span class="product-feature-item__icon">
+                <i class="fa-solid fa-shirt"></i>
+              </span>
+              <span class="product-feature-item__text">
+                <span class="product-feature-item__label">Material:</span>
+                <span class="product-feature-item__value">100% Algodón</span>
+              </span>
+            </li>
 
-          <h1 class="product-title">Buzos Unisex Canguro 100% Algodón Excelente Calidad</h1>
+            <li class="product-feature-item">
+              <span class="product-feature-item__icon">
+                <i class="fa-regular fa-snowflake"></i>
+              </span>
+              <span class="product-feature-item__text">
+                <span class="product-feature-item__label">Temporada:</span>
+                <span class="product-feature-item__value">Otoño/Invierno</span>
+              </span>
+            </li>
 
-          <div class="rating">
-            <span class="rating-score">4.8</span>
-            <div class="stars">
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star-half-stroke"></i>
-            </div>
-            <span class="reviews">(6 opiniones)</span>
-          </div>
+            <li class="product-feature-item">
+              <span class="product-feature-item__icon">
+                <i class="fa-solid fa-hand-sparkles"></i>
+              </span>
+              <span class="product-feature-item__text">
+                <span class="product-feature-item__label">Lavado:</span>
+                <span class="product-feature-item__value">A máquina</span>
+              </span>
+            </li>
 
-          <div class="price">
-            <span class="main-price">$38.000</span>
-            <div class="installments">3 cuotas de $16.188</div>
-            <p class="tax-info">Precio incluye impuestos selectivos a 31.01%</p>
-          </div>
+            <li class="product-feature-item">
+              <span class="product-feature-item__icon">
+                <i class="fa-solid fa-ruler-combined"></i>
+              </span>
+              <span class="product-feature-item__text">
+                <span class="product-feature-item__label">Tipo de calce:</span>
+                <span class="product-feature-item__value">Regular</span>
+              </span>
+            </li>
 
-          <div class="discount-box">
-            <i class="fa-solid fa-tag"></i> $15000 OFF disponible en Mercado Pago
-          </div>
-
-          <a href="#" class="payments-link">Ver medios de pago y promociones</a>
-
-          <div class="shipping">
-            <p><strong>Llega el miércoles</strong></p>
-            <a href="#">Más detalles y formas de entrega</a>
-          </div>
-
-          <div class="returns">
-            <span>Devolución gratis</span>
-            <p>Tenés 30 días desde que lo recibís.</p>
-          </div>
-
-          <div class="shipping-buy-box">
-            <div class="shipping-option">
-              <i class="fa-solid fa-truck"></i>
-              <div>
-                <p>Envío a <a href="#">Catamarca (4700)</a> <strong>$4.499</strong></p>
-                <span>Entrega estimada 5 días hábiles</span>
-              </div>
-            </div>
-
-            <div class="shipping-option">
-              <i class="fa-solid fa-store"></i>
-              <div>
-                <p>Retiro <strong>GRATIS</strong> en sucursal</p>
-                <a href="#" class="store-link">Ver sucursales</a>
-              </div>
-            </div>
-
-            <div class="divider"></div>
-
-            <!-- QUANTITY SELECTOR -->
-            <div class="quantity-selector">
-              <label class="quantity-label">
-                Cantidad: <span id="qtyText">1 unidad</span>
-                <span class="stock-info">(+10 disponibles)</span>
-              </label>
-              <div class="quantity-counter">
-                <button class="qty-btn minus" id="decrementQty">−</button>
-                <input type="number" id="qtyInput" value="1" min="1" max="10" class="qty-input">
-                <button class="qty-btn plus" id="incrementQty">+</button>
-              </div>
-            </div>
-
-            <!-- SIZE SELECTOR -->
-            <div class="size-selector">
-              <label>Talle: <span id="selectedSize">Elegí</span></label>
-              <div class="size-options" id="sizeOptions">
-                <button class="size-btn" data-size="S">S</button>
-                <button class="size-btn" data-size="M">M</button>
-                <button class="size-btn" data-size="L">L</button>
-                <button class="size-btn" data-size="XL">XL</button>
-                <button class="size-btn" data-size="XXL">XXL</button>
-              </div>
-              <a href="#" class="size-guide"><i class="fa-solid fa-ruler"></i> Guía de talles</a>
-            </div>
-
-            <!-- COLOR SELECTOR -->
-            <div class="color-selector">
-              <label>Color: <span id="selectedColor">Negro</span></label>
-              <select id="colorSelect">
-                <option value="Negro">Negro</option>
-                <option value="Gris">Gris</option>
-                <option value="Marron">Marrón</option>
-                <option value="Blanco">Blanco</option>
-              </select>
-            </div>
-
-            <div class="divider"></div>
-
-            <!-- BUY BUTTONS -->
-            <div class="buy-buttons">
-              <button class="btn-buy" id="buyBtn">Comprar ahora</button>
-              <button class="btn-cart" id="addToCartBtn">Agregar al carrito</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- FEATURES SECTION -->
-    <div class="product-features">
-      <h2 class="features-title">Características del producto</h2>
-      <div class="features-grid">
-        <div class="feature-item">
-          <div class="feature-icon"><i class="fa-solid fa-tag"></i></div>
-          <div class="feature-text"><span class="feature-label">Marca:</span> Narkis</div>
-        </div>
-        <div class="feature-item">
-          <div class="feature-icon"><i class="fa-solid fa-shirt"></i></div>
-          <div class="feature-text"><span class="feature-label">Material:</span> 100% Algodón</div>
-        </div>
-        <div class="feature-item">
-          <div class="feature-icon"><i class="fa-regular fa-snowflake"></i></div>
-          <div class="feature-text"><span class="feature-label">Temporada:</span> Otoño/Invierno</div>
-        </div>
-        <div class="feature-item">
-          <div class="feature-icon"><i class="fa-solid fa-hands-bubbles"></i></div>
-          <div class="feature-text"><span class="feature-label">Lavado:</span> A máquina</div>
-        </div>
-        <div class="feature-item">
-          <div class="feature-icon"><i class="fa-solid fa-vest"></i></div>
-          <div class="feature-text"><span class="feature-label">Tipo de calce:</span> Regular</div>
-        </div>
-        <div class="feature-item">
-          <div class="feature-icon"><i class="fa-solid fa-layer-group"></i></div>
-          <div class="feature-text"><span class="feature-label">Capucha:</span> Sí, con cordones</div>
-        </div>
+            <li class="product-feature-item">
+              <span class="product-feature-item__icon">
+                <i class="fa-solid fa-layer-group"></i>
+              </span>
+              <span class="product-feature-item__text">
+                <span class="product-feature-item__label">Capucha:</span>
+                <span class="product-feature-item__value">Sí, con cordones</span>
+              </span>
+            </li>
+          </ul>
+        </aside>
 
       </div>
-      <button class="features-toggle" id="toggleFeatures">
-        Ver todas las características <span class="features-arrow">▼</span>
-      </button>
-    </div>
+    </section>
   </main>
+
   <script src="script.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
 
 
 

@@ -265,8 +265,6 @@ updateQuantity();
 
 
 
-
-
 const btn = document.getElementById("pdToggle");
 const text = document.getElementById("pdText");
 
@@ -280,4 +278,3 @@ btn.addEventListener("click", () => {
     btn.textContent = "Ver descripción completa ▼";
   }
 });
-
