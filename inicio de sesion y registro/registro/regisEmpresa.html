@@ -1,0 +1,636 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>TiendaMas+ | Registro Empresarial</title>
+  <!-- Google Fonts: Inter + tipografía moderna -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 (íconos consistentes) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+      background: #f4f6fa;  /* fondo gris claro, similar al login */
+      color: #1e2a3e;
+      line-height: 1.5;
+      padding: 2rem 1.5rem;
+    }
+
+    /* Contenedor principal: card centrada */
+    .register-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    /* Card principal: diseño limpio, sombras, bordes redondeados */
+    .register-card {
+      max-width: 1280px;
+      width: 100%;
+      background: #ffffff;
+      border-radius: 32px;
+      box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.02);
+      padding: 2rem 2rem 2.5rem;
+      transition: all 0.2s ease;
+    }
+
+    /* Header de la card: logo + título */
+    .register-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .logo-area {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 1rem;
+    }
+
+    .logo-icon {
+      font-size: 2rem;
+      color: #FF6B35;
+    }
+
+    .brand-name {
+      font-size: 1.9rem;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+      background: linear-gradient(135deg, #FF6B35 0%, #ff8c5a 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .subtitle {
+      color: #5b6e8c;
+      font-size: 0.95rem;
+      font-weight: 500;
+      margin-top: 0.25rem;
+    }
+
+    /* Formulario grid responsive */
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.75rem 2rem;
+    }
+
+    /* Cada sección ocupa ambas columnas en desktop, pero internamente usamos subgrid o bloques */
+    .form-section {
+      grid-column: span 2;
+      background: #fefefe;
+      border-radius: 24px;
+      padding: 0.25rem 0 0.5rem;
+      border-bottom: 1px solid #edf2f7;
+    }
+
+    .section-title {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      color: #0f172a;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-left: 4px solid #FF6B35;
+      padding-left: 1rem;
+    }
+
+    .section-title i {
+      color: #FF6B35;
+      font-size: 1.3rem;
+    }
+
+    /* Inner grid para campos dentro de cada sección (2 columnas automático) */
+    .fields-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem 1.8rem;
+    }
+
+    /* Campo genérico */
+    .field-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .full-width {
+      grid-column: span 2;
+    }
+
+    label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #1e293b;
+      letter-spacing: 0.3px;
+    }
+
+    label .required {
+      color: #FF6B35;
+      margin-left: 2px;
+    }
+
+    input, select, textarea {
+      font-family: 'Inter', sans-serif;
+      padding: 12px 14px;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 16px;
+      font-size: 0.9rem;
+      transition: all 0.2s ease;
+      background-color: #fff;
+      width: 100%;
+      outline: none;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: #FF6B35;
+      box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.15);
+    }
+
+    /* Mensajes de error */
+    .error-msg {
+      font-size: 0.7rem;
+      color: #e53e3e;
+      margin-top: 4px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* password helper */
+    .password-hint {
+      font-size: 0.7rem;
+      color: #5b6e8c;
+      margin-top: 6px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .hint-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .hint-item.valid {
+      color: #2c7a4b;
+    }
+    .hint-item.invalid {
+      color: #a0aec0;
+    }
+
+    /* checkbox row */
+    .checkbox-row {
+      grid-column: span 2;
+      margin: 0.75rem 0 1rem;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .checkbox-row input {
+      width: 20px;
+      height: 20px;
+      accent-color: #FF6B35;
+    }
+    .checkbox-row label {
+      font-weight: 500;
+      font-size: 0.9rem;
+    }
+    .terms-link {
+      color: #FF6B35;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    /* Botón estilo pill */
+    .btn-create {
+      background: #FF6B35;
+      border: none;
+      width: 100%;
+      padding: 14px;
+      border-radius: 60px;
+      font-weight: 700;
+      font-size: 1rem;
+      color: white;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      margin-top: 1.2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 2px 8px rgba(255,107,53,0.2);
+    }
+    .btn-create:hover:not(:disabled) {
+      background: #e55a2b;
+      transform: scale(1.01);
+      box-shadow: 0 8px 20px rgba(255,107,53,0.3);
+    }
+    .btn-create:disabled {
+      background: #cbd5e1;
+      cursor: not-allowed;
+      box-shadow: none;
+      opacity: 0.7;
+    }
+
+    /* Responsive */
+    @media (max-width: 860px) {
+      body {
+        padding: 1rem;
+      }
+      .register-card {
+        padding: 1.5rem;
+      }
+      .fields-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+      .full-width {
+        grid-column: span 1;
+      }
+      .checkbox-row {
+        grid-column: span 1;
+      }
+      .form-section {
+        grid-column: span 2;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .form-grid {
+        gap: 1.25rem;
+      }
+      .section-title {
+        font-size: 1.2rem;
+      }
+      .btn-create {
+        padding: 12px;
+      }
+    }
+
+    /* elementos inline pequeños */
+    .double-field {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    hr {
+      margin: 0.5rem 0;
+      border-color: #edf2f7;
+    }
+    small {
+      font-size: 0.7rem;
+      color: #5b6e8c;
+    }
+    i.fa, i.far, i.fas {
+      margin-right: 4px;
+    }
+  </style>
+</head>
+<body>
+<div class="register-wrapper">
+  <div class="register-card">
+    <!-- Header -->
+    <div class="register-header">
+      <div class="logo-area">
+        <i class="fas fa-store logo-icon"></i>
+        <span class="brand-name">Tienda Mas+</span>
+      </div>
+      <div class="subtitle">Completa todos los campos para crear tu cuenta empresarial.</div>
+      <div style="font-size: 0.75rem; color: #94a3b8; margin-top: 6px;">Todos los campos marcados con * son obligatorios.</div>
+    </div>
+
+    <form id="registerForm" novalidate>
+      <div class="form-grid">
+        <!-- ================= DATOS DE USUARIO ================= -->
+        <div class="form-section">
+          <div class="section-title"><i class="fas fa-user-circle"></i> Datos de Usuario</div>
+          <div class="fields-grid">
+            <div class="field-group">
+              <label>Usuario <span class="required">*</span></label>
+              <input type="text" id="username" placeholder="Elige un nombre de usuario" autocomplete="username">
+              <div class="error-msg" id="usernameError"></div>
+            </div>
+            <div class="field-group">
+              <label>Correo electrónico <span class="required">*</span></label>
+              <input type="email" id="userEmail" placeholder="empresa@correo.com" autocomplete="email">
+              <div class="error-msg" id="userEmailError"></div>
+            </div>
+            <div class="field-group">
+              <label>Contraseña <span class="required">*</span></label>
+              <input type="password" id="password" placeholder="Crea una contraseña segura">
+              <div class="error-msg" id="passwordError"></div>
+            </div>
+            <div class="field-group">
+              <label>Repetir contraseña <span class="required">*</span></label>
+              <input type="password" id="confirmPassword" placeholder="Repite la contraseña">
+              <div class="error-msg" id="confirmError"></div>
+            </div>
+            <div class="full-width password-hint" id="passwordStrength">
+              <span class="hint-item" id="lengthHint"><i class="fas fa-circle"></i> Mínimo 8 caracteres</span>
+              <span class="hint-item" id="upperHint"><i class="fas fa-circle"></i> 1 mayúscula</span>
+              <span class="hint-item" id="numberHint"><i class="fas fa-circle"></i> 1 número</span>
+              <span class="hint-item" id="specialHint"><i class="fas fa-circle"></i> 1 caracter especial</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ================= DATOS DE LA EMPRESA ================= -->
+        <div class="form-section">
+          <div class="section-title"><i class="fas fa-building"></i> Datos de la Empresa</div>
+          <div class="fields-grid">
+            <div class="field-group"><label>Razón Social <span class="required">*</span></label><input type="text" id="razonSocial" placeholder="Razón Social"></div>
+            <div class="field-group"><label>CUIT <span class="required">*</span></label><input type="text" id="cuit" placeholder="XX-XXXXXXXXX-X o 11 dígitos"></div>
+            <div class="field-group"><label>Condición ante IVA <span class="required">*</span></label>
+              <select id="ivaCond">
+                <option value="">Seleccionar condición</option>
+                <option>Responsable Inscripto</option><option>Monotributista</option><option>Consumidor Final</option><option>Exento</option>
+              </select>
+            </div>
+            <div class="field-group"><label>Email de la Empresa <span class="required">*</span></label><input type="email" id="empresaEmail" placeholder="empresa@correo.com"></div>
+            <div class="field-group full-width" style="flex-direction: row; align-items: center; gap: 12px;">
+              <input type="checkbox" id="requiereFacturacion" style="width: 20px;">
+              <label style="font-weight: 500;">Requiere Facturación</label>
+            </div>
+          </div>
+        </div>
+
+        <!-- ================= DATOS DEL RESPONSABLE ================= -->
+        <div class="form-section">
+          <div class="section-title"><i class="fas fa-id-card"></i> Datos del Responsable</div>
+          <div class="fields-grid">
+            <div class="field-group"><label>Nombre <span class="required">*</span></label><input type="text" id="respNombre" placeholder="Nombre"></div>
+            <div class="field-group"><label>Apellido <span class="required">*</span></label><input type="text" id="respApellido" placeholder="Apellido"></div>
+            <div class="field-group"><label>Género</label><select id="genero"><option value="">Seleccionar</option><option>Masculino</option><option>Femenino</option><option>Otro</option></select></div>
+            <div class="field-group"><label>Documento (DNI/CUIL) <span class="required">*</span></label><input type="text" id="documento" placeholder="Sólo números"></div>
+            <div class="field-group"><label>Fecha de Nacimiento <span class="required">*</span></label><input type="date" id="fechaNac"></div>
+          </div>
+        </div>
+
+        <!-- ================= DIRECCIÓN EMPRESA ================= -->
+        <div class="form-section">
+          <div class="section-title"><i class="fas fa-map-marker-alt"></i> Dirección Empresa</div>
+          <div class="fields-grid">
+            <div class="field-group"><label>Provincia <span class="required">*</span></label><select id="provincia"><option value="">Seleccionar</option><option>Buenos Aires</option><option>CABA</option><option>Córdoba</option><option>Santa Fe</option><option>Mendoza</option></select></div>
+            <div class="field-group"><label>Departamento (jurisdicción)</label><input type="text" id="departamento" placeholder="Departamento"></div>
+            <div class="field-group"><label>Municipio</label><input type="text" id="municipio" placeholder="Municipio"></div>
+            <div class="field-group"><label>Localidad <span class="required">*</span></label><input type="text" id="localidad" placeholder="Localidad"></div>
+            <div class="field-group"><label>Calle <span class="required">*</span></label><input type="text" id="calle" placeholder="Ej: San Martín"></div>
+            <div class="field-group"><label>Número <span class="required">*</span></label><input type="text" id="numero" placeholder="Ej: 1234"></div>
+            <div class="field-group"><label>Piso</label><input type="text" id="piso" placeholder="Ej: 2"></div>
+            <div class="field-group"><label>Departamento (interno)</label><input type="text" id="deptoInterno" placeholder="Ej: A"></div>
+            <div class="field-group"><label>Código Postal <span class="required">*</span></label><input type="text" id="codigoPostal" placeholder="CP"></div>
+            <div class="field-group full-width"><label>Referencia</label><input type="text" id="referencia" placeholder="Ej: Frente a la plaza"></div>
+          </div>
+        </div>
+
+        <!-- ================= TELÉFONO RESPONSABLE + EMPRESA (dos secciones visuales) ================= -->
+        <div class="form-section">
+          <div class="section-title"><i class="fas fa-phone-alt"></i> Teléfono del Responsable</div>
+          <div class="fields-grid">
+            <div class="field-group"><label>Característica</label><input type="text" id="telRespCarac" placeholder="011"></div>
+            <div class="field-group"><label>Número <span class="required">*</span></label><input type="text" id="telRespNum" placeholder="15XXXXYYYY"></div>
+            <div class="field-group"><label>Tipo de Teléfono</label><select id="telRespTipo"><option value="">Seleccionar</option><option>Celular</option><option>Fijo</option><option>Laboral</option></select></div>
+          </div>
+        </div>
+
+        <div class="form-section">
+          <div class="section-title"><i class="fas fa-building"></i> Teléfono de la Empresa</div>
+          <div class="fields-grid">
+            <div class="field-group"><label>Característica</label><input type="text" id="telEmpCarac" placeholder="011"></div>
+            <div class="field-group"><label>Número</label><input type="text" id="telEmpNum" placeholder="15XXXXYYYY"></div>
+            <div class="field-group"><label>Tipo de Teléfono</label><select id="telEmpTipo"><option value="">Seleccionar</option><option>Celular</option><option>Fijo</option><option>Central</option></select></div>
+          </div>
+        </div>
+
+        <!-- Términos y botón -->
+        <div class="checkbox-row">
+          <input type="checkbox" id="termsCheckbox">
+          <label>Acepto los <a href="#" class="terms-link">Términos y Condiciones</a> y la <a href="#" class="terms-link">Política de Privacidad</a> <span class="required">*</span></label>
+        </div>
+
+        <div style="grid-column: span 2;">
+          <button type="submit" class="btn-create" id="submitBtn" disabled><i class="fas fa-user-plus"></i> Crear cuenta</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script>
+  (function() {
+    // DOM elements
+    const form = document.getElementById('registerForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const termsCheck = document.getElementById('termsCheckbox');
+
+    // inputs
+    const username = document.getElementById('username');
+    const userEmail = document.getElementById('userEmail');
+    const password = document.getElementById('password');
+    const confirmPwd = document.getElementById('confirmPassword');
+    const razonSocial = document.getElementById('razonSocial');
+    const cuit = document.getElementById('cuit');
+    const ivaCond = document.getElementById('ivaCond');
+    const empresaEmail = document.getElementById('empresaEmail');
+    const respNombre = document.getElementById('respNombre');
+    const respApellido = document.getElementById('respApellido');
+    const documento = document.getElementById('documento');
+    const fechaNac = document.getElementById('fechaNac');
+    const provincia = document.getElementById('provincia');
+    const localidad = document.getElementById('localidad');
+    const calle = document.getElementById('calle');
+    const numero = document.getElementById('numero');
+    const codigoPostal = document.getElementById('codigoPostal');
+    const telRespNum = document.getElementById('telRespNum');
+
+    // optional pero requerido validamos algunos
+    const allRequired = [username, userEmail, password, confirmPwd, razonSocial, cuit, ivaCond, empresaEmail, respNombre, respApellido, documento, fechaNac, provincia, localidad, calle, numero, codigoPostal, telRespNum];
+    
+    // helpers mensajes error
+    function setError(el, msg) {
+      const errDiv = document.getElementById(el.id + 'Error');
+      if (errDiv) {
+        errDiv.innerText = msg || '';
+        errDiv.style.color = '#e53e3e';
+      }
+    }
+    function clearError(el) {
+      const errDiv = document.getElementById(el.id + 'Error');
+      if (errDiv) errDiv.innerText = '';
+    }
+
+    // validaciones específicas
+    function validateEmail(email) {
+      return /^[^\s@]+@([^\s@]+\.)+[^\s@]+$/.test(email);
+    }
+    function validateCUIT(cuitStr) {
+      const clean = cuitStr.replace(/-/g, '');
+      if (clean.length === 11 && /^\d+$/.test(clean)) return true;
+      if (/^\d{2}-\d{8}-\d$/.test(cuitStr)) return true;
+      return false;
+    }
+    function validatePasswordStrength(pwd) {
+      const hasMinLen = pwd.length >= 8;
+      const hasUpper = /[A-Z]/.test(pwd);
+      const hasNumber = /[0-9]/.test(pwd);
+      const hasSpecial = /[!@#$%^&*(),.?":{}|<>]/.test(pwd);
+      return { hasMinLen, hasUpper, hasNumber, hasSpecial, isValid: hasMinLen && hasUpper && hasNumber && hasSpecial };
+    }
+    function updatePasswordHints(pwd) {
+      const strength = validatePasswordStrength(pwd);
+      document.getElementById('lengthHint').className = `hint-item ${strength.hasMinLen ? 'valid' : 'invalid'}`;
+      document.getElementById('upperHint').className = `hint-item ${strength.hasUpper ? 'valid' : 'invalid'}`;
+      document.getElementById('numberHint').className = `hint-item ${strength.hasNumber ? 'valid' : 'invalid'}`;
+      document.getElementById('specialHint').className = `hint-item ${strength.hasSpecial ? 'valid' : 'invalid'}`;
+      if(strength.hasMinLen) document.getElementById('lengthHint').innerHTML = '<i class="fas fa-check-circle"></i> Mínimo 8 caracteres';
+      else document.getElementById('lengthHint').innerHTML = '<i class="fas fa-circle"></i> Mínimo 8 caracteres';
+      if(strength.hasUpper) document.getElementById('upperHint').innerHTML = '<i class="fas fa-check-circle"></i> 1 mayúscula';
+      else document.getElementById('upperHint').innerHTML = '<i class="fas fa-circle"></i> 1 mayúscula';
+      if(strength.hasNumber) document.getElementById('numberHint').innerHTML = '<i class="fas fa-check-circle"></i> 1 número';
+      else document.getElementById('numberHint').innerHTML = '<i class="fas fa-circle"></i> 1 número';
+      if(strength.hasSpecial) document.getElementById('specialHint').innerHTML = '<i class="fas fa-check-circle"></i> 1 caracter especial';
+      else document.getElementById('specialHint').innerHTML = '<i class="fas fa-circle"></i> 1 caracter especial';
+      return strength.isValid;
+    }
+
+    // validacion en tiempo real global
+    function validateForm() {
+      let isValid = true;
+
+      // username
+      if(!username.value.trim()) { setError(username, 'Usuario es obligatorio'); isValid=false; } else clearError(username);
+      // email usuario
+      if(!userEmail.value.trim()) { setError(userEmail, 'Email obligatorio'); isValid=false; } 
+      else if(!validateEmail(userEmail.value)) { setError(userEmail, 'Email inválido'); isValid=false; } 
+      else clearError(userEmail);
+      // password y confirm
+      const pwd = password.value;
+      const pwdValid = validatePasswordStrength(pwd);
+      if(!pwd) { setError(password, 'Contraseña requerida'); isValid=false; } 
+      else if(!pwdValid.isValid) { setError(password, 'La contraseña no cumple los requisitos'); isValid=false; } 
+      else clearError(password);
+      
+      if(confirmPwd.value !== pwd) { setError(confirmPwd, 'Las contraseñas no coinciden'); isValid=false; } 
+      else if(pwd && pwdValid.isValid) clearError(confirmPwd);
+
+      // Razón social
+      if(!razonSocial.value.trim()) { setError(razonSocial, 'Razón social obligatoria'); isValid=false; } else clearError(razonSocial);
+      // CUIT
+      if(!cuit.value.trim()) { setError(cuit, 'CUIT requerido'); isValid=false; } 
+      else if(!validateCUIT(cuit.value)) { setError(cuit, 'Formato inválido: XX-XXXXXXXXX-X o 11 dígitos'); isValid=false; } 
+      else clearError(cuit);
+      // IVA cond
+      if(!ivaCond.value) { setError(ivaCond, 'Seleccione condición'); isValid=false; } else clearError(ivaCond);
+      // email empresa
+      if(!empresaEmail.value.trim()) { setError(empresaEmail, 'Email empresa requerido'); isValid=false; } 
+      else if(!validateEmail(empresaEmail.value)) { setError(empresaEmail, 'Email inválido'); isValid=false; } 
+      else clearError(empresaEmail);
+      // responsable nombre/apellido/doc/fecha
+      if(!respNombre.value.trim()) { setError(respNombre, 'Nombre requerido'); isValid=false; } else clearError(respNombre);
+      if(!respApellido.value.trim()) { setError(respApellido, 'Apellido requerido'); isValid=false; } else clearError(respApellido);
+      if(!documento.value.trim()) { setError(documento, 'Documento requerido'); isValid=false; } 
+      else if(!/^\d+$/.test(documento.value.trim())) { setError(documento, 'Solo números'); isValid=false; } 
+      else clearError(documento);
+      if(!fechaNac.value) { setError(fechaNac, 'Fecha nacimiento requerida'); isValid=false; } else clearError(fechaNac);
+      // dirección
+      if(!provincia.value) { setError(provincia, 'Seleccione provincia'); isValid=false; } else clearError(provincia);
+      if(!localidad.value.trim()) { setError(localidad, 'Localidad requerida'); isValid=false; } else clearError(localidad);
+      if(!calle.value.trim()) { setError(calle, 'Calle requerida'); isValid=false; } else clearError(calle);
+      if(!numero.value.trim()) { setError(numero, 'Número requerido'); isValid=false; } else clearError(numero);
+      if(!codigoPostal.value.trim()) { setError(codigoPostal, 'CP requerido'); isValid=false; } else clearError(codigoPostal);
+      // teléfono responsable al menos número
+      if(!telRespNum.value.trim()) { setError(telRespNum, 'Número teléfono responsable requerido'); isValid=false; } else clearError(telRespNum);
+      // checkbox terminos
+      if(!termsCheck.checked) isValid = false;
+
+      // habilitar/deshabilitar botón
+      submitBtn.disabled = !isValid;
+      return isValid;
+    }
+
+    // Listeners para validación en tiempo real
+    function attachValidationEvents() {
+      const inputs = [username, userEmail, password, confirmPwd, razonSocial, cuit, ivaCond, empresaEmail, respNombre, respApellido, documento, fechaNac, provincia, localidad, calle, numero, codigoPostal, telRespNum];
+      inputs.forEach(inp => {
+        inp.addEventListener('input', () => validateForm());
+        inp.addEventListener('blur', () => validateForm());
+      });
+      // validacion específica password hints
+      password.addEventListener('input', () => {
+        updatePasswordHints(password.value);
+        validateForm();
+      });
+      confirmPwd.addEventListener('input', validateForm);
+      termsCheck.addEventListener('change', validateForm);
+      // selectores extra
+      ivaCond.addEventListener('change', validateForm);
+      provincia.addEventListener('change', validateForm);
+    }
+
+    // actualización hints inicial
+    function initHints() {
+      updatePasswordHints('');
+    }
+
+    // submit simulado
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      if(!validateForm()) return;
+      // Recopilar datos
+      const formData = {
+        usuario: username.value,
+        correoUsuario: userEmail.value,
+        password: password.value,
+        razonSocial: razonSocial.value,
+        cuit: cuit.value,
+        condicionIVA: ivaCond.value,
+        emailEmpresa: empresaEmail.value,
+        requiereFacturacion: document.getElementById('requiereFacturacion').checked,
+        responsable: { nombre: respNombre.value, apellido: respApellido.value, genero: document.getElementById('genero').value, documento: documento.value, fechaNac: fechaNac.value },
+        direccion: {
+          provincia: provincia.value, departamento: document.getElementById('departamento').value, municipio: document.getElementById('municipio').value,
+          localidad: localidad.value, calle: calle.value, numero: numero.value, piso: document.getElementById('piso').value,
+          deptoInterno: document.getElementById('deptoInterno').value, codigoPostal: codigoPostal.value, referencia: document.getElementById('referencia').value
+        },
+        telefonoResponsable: { caracteristica: document.getElementById('telRespCarac').value, numero: telRespNum.value, tipo: document.getElementById('telRespTipo').value },
+        telefonoEmpresa: { caracteristica: document.getElementById('telEmpCarac').value, numero: document.getElementById('telEmpNum').value, tipo: document.getElementById('telEmpTipo').value },
+        aceptaTerminos: termsCheck.checked
+      };
+      console.log('✅ Registro empresarial enviado (simulación):', formData);
+      alert('¡Cuenta empresarial creada exitosamente! (Demo - revisa consola)');
+      // opcional reset? no lo pide, mantenemos datos.
+    });
+
+    attachValidationEvents();
+    initHints();
+    validateForm(); // inicial
+  })();
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,135 @@
+
+
+/*-------------------------------------------- Main --------------------------------------------*/
+    :root {
+      --rojo: #FF7630;
+      --gris: #f5f5f5;
+      --texto: #333;
+    }
+
+
+    main {
+      width: 100%;
+      max-width: 1000px;
+      padding: 20px;
+      margin: 0 auto;
+    }
+
+    .checkout {
+      margin: 0 auto;
+      background: white;
+      border-radius: 16px;
+      padding: 25px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    .checkout h1 {
+      font-size: 24px;
+      color: var(--texto);
+    }
+
+    .checkout .sub {
+      color: #777;
+      margin-bottom: 20px;
+    }
+
+    .checkout .info {
+      background: #eef2ff;
+      padding: 20px;
+      border-radius: 12px;
+      font-size: 14px;
+    }
+
+    .checkout .info img {
+      width: 50px;
+      margin-right: 10px;
+    }
+
+    .checkout .form-group {
+      margin-bottom: 15px;
+    }
+
+    .checkout label {
+      font-size: 14px;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .checkout input {
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      outline: none;
+      transition: 0.2s;
+    }
+
+    .checkout input:focus {
+      border-color: var(--rojo);
+    }
+
+    .checkout .row {
+      display: flex;
+      gap: 10px;
+    }
+
+    .checkout .row div {
+      flex: 1;
+    }
+
+    .checkout button {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 10px;
+      background: var(--rojo);
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .checkout button:hover {
+      background: #f86820;
+    }
+
+    .checkout .back {
+      display: block;
+      margin-top: 10px;
+      text-align: center;
+      color: #555;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    /* 📱 RESPONSIVE */
+    @media (max-width: 768px) {
+      .checkout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
