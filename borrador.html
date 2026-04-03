@@ -1,290 +1,2174 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Registro de Empresa | Tienda Mas</title>
-    <meta name="description" content="Registro de empresa - Tienda Mas. Completa los datos de la empresa y del representante legal." />
-    <!-- Font Awesome (mantenido para iconos) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    <!-- CSS Puro -->
-    <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Header Marketplace Responsive</title>
+  <meta
+    name="description"
+    content="Header responsive estilo marketplace con logo e imagen de envío."
+  />
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  />
+  <link rel="stylesheet" href="css/home/style.css">
+  <link rel="stylesheet" href="css/home/header.css"/>
+  <link rel="stylesheet" href="css/home/slider.css">
+  <link rel="stylesheet" href="css/home/informacion.css">
+  <link rel="stylesheet" href="css/home/categorias.css">
+  <link rel="stylesheet" href="css/home/cards.css">
+  <link rel="stylesheet" href="css/home/ofertas.css">
+  <link rel="stylesheet" href="css/home/best-sellers.css">
+  <link rel="stylesheet" href="css/home/products-section.css">
+  <link rel="stylesheet" href="css/home/bannerPublicitarios.css">
+  <link rel="stylesheet" href="css/home/footer.css">
 </head>
 <body>
-    <main class="register-main">
-        <div class="register-card">
-            <header class="register-header">
-                <img src="assets/logo-tienda-mas.png" alt="Tienda Mas" class="register-logo" />
-                <p class="register-subtitle">Completa todos los campos para crear tu cuenta empresarial.</p>
-            </header>
 
-            <form id="companyForm" novalidate>
-                <p class="form-required-legend">Todos los campos marcados con <span class="required-asterisk">*</span> son obligatorios.</p>
+  <!-- =========================
+       HEADER
+  ========================== -->
+  <header class="site-header">
+    <div class="header-shell">
+      <div class="header-top">
+        <a href="index.html" class="brand" aria-label="Ir al inicio">
+          <img src="assets/marketplace-data/Logo-text 2.png" alt="TiendaMas+ Marketplace mayorista" class="brand__img logo-desktop">
+          <img src="assets/marketplace-data/Logo.png" alt="TiendaMas+ Marketplace mayorista" class="brand__img logo-mobile">
+        </a>
+        <form class="search" id="searchForm" role="search">
+          <label class="sr-only" for="searchInput">Buscar productos</label>
+          <input
+            id="searchInput"
+            class="search__input"
+            type="search"
+            placeholder="Buscar producto, marca o categoría..."
+            aria-label="Buscar productos"
+          />
+          <button class="search__btn" type="submit" aria-label="Buscar">
+            <!--<i class="fa-brands fa-sistrix"></i>-->
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </form>
+        <a href="#" class="shipping-banner" aria-label="Ingresando tu ubicación">
+          <img src="assets/marketplace-data/envio.png" alt="Envío ingresando tu ubicación" class="shipping-banner__img"/>
+        </a>
+        <!-- MENÚ HAMBURGUESA MOBILE -->
+        <button
+          class="mobile-menu-btn"
+          id="mobileMenuBtn"
+          aria-label="Abrir menú"
+          aria-expanded="false"
+          aria-controls="mobileDrawer"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
 
-                <!-- Error Box Global -->
-                <div class="error-box hidden" id="errorBox" role="alert" aria-live="assertive">
-                    <div class="error-box-title">No se pudo completar el registro:</div>
-                    <ul id="errorList" class="error-list"></ul>
+      <div class="header-bottom">
+        <!-- NAV IZQUIERDA -->
+        <nav class="main-nav" aria-label="Navegación principal">
+          <ul class="main-nav__list">
+            <li class="nav-item nav-item--categories">
+              <button
+                class="nav-pill nav-pill--primary nav-dropdown-btn nav-categories-btn"
+                type="button"
+                aria-expanded="false"
+                aria-controls="categoriesPanel"
+              >
+                Categorías
+                <i class="fa-solid fa-angle-down"></i>
+              </button>
+            </li>
+
+            <li class="nav-item nav-item--dropdown">
+              <button class="nav-pill nav-dropdown-btn" type="button">
+                Ofertas
+                <i class="fa-solid fa-angle-down"></i>
+              </button>
+
+              <div class="dropdown-menu">
+                <a href="#">Ofertas del día</a>
+                <a href="#">Combos</a>
+                <a href="#">Descuentos por mayor</a>
+              </div>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-pill">Destacados</a>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-pill">Novedades</a>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-pill">Contacto / Soporte</a>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-pill">Ayuda</a>
+            </li>
+
+            <li class="nav-item">
+              <a href="inicio de sesion y registro/registro/registroVendedor.html" class="nav-pill">Vender</a>
+            </li>
+          </ul>
+        </nav>
+
+        <!-- ACCIONES DERECHA -->
+        <div class="header-actions">
+
+          <div class="header-action action-dropdown">
+            <button id="account" class="header-action__btn action-dropdown-btn" type="button">
+              <i class="fa-solid fa-user"></i>
+              <a href="inicio de sesion y registro/inicio de sesion/inicioSesionUsuario.html">
+                <span>Cuenta</span>
+              </a>
+              <i class="fa-solid fa-angle-down header-action__chevron"></i>
+            </button>
+            <!--
+            <div class="dropdown-menu dropdown-menu--right">
+              <a href="#">Iniciar sesión</a>
+              <a href="#">Crear cuenta</a>
+              <a href="#">Mis pedidos</a>
+            </div>
+            -->
+            <div class="dropdown-menu dropdown-menu--right account-menu">
+              <div class="account-menu__header">
+                <div class="account-avatar">AR</div>
+                <div>
+                  <p class="account-name">Anita</p>
+                  <span class="account-profile">Mi perfil <i class="fa-solid fa-angle-right"></i></span>
                 </div>
+              </div>
+              <div class="account-divider"></div>
+              <div class="account-section">
+                <a href="#"><i class="fa-solid fa-bag-shopping"></i> Compras</a>
+                <a href="#"><i class="fa-solid fa-clock-rotate-left"></i> Historial</a>
+                <a href="#"><i class="fa-regular fa-circle-question"></i> Preguntas</a>
+                <a href="#"><i class="fa-regular fa-comments"></i> Opiniones</a>
+              </div>
+              <div class="account-divider"></div>
+              <div class="account-section">
+                <a href="#"><i class="fa-regular fa-credit-card"></i>Créditos</a>
+              </div>
+              <div class="account-divider"></div>
+              <div class="account-section">
+                <a href="#"><i class="fa-solid fa-tag"></i> Vender</a>
+              </div>
+              <div class="account-divider"></div>
+              <div class="account-section">
+                <a href="#" class="logout">Salir <i class="fa-solid fa-arrow-right-from-bracket"></i></a>
+              </div>
+            </div>
+          </div>
 
-                <div class="two-columns-layout">
-                    <!-- Columna Izquierda -->
-                    <div class="left-column">
-                        <!-- Sección: Datos de Usuario -->
-                        <section class="form-section">
-                            <h2 class="section-title">Datos de Usuario</h2>
-                            <div class="form-group-grid">
-                                <div class="grid-2cols">
-                                    <div class="input-group">
-                                        <label for="username" class="input-label">Usuario <span class="required-asterisk">*</span></label>
-                                        <input type="text" id="username" name="username" required minlength="6" class="input-field" placeholder="Elige un nombre de usuario" autocomplete="username">
-                                        <div id="usernameStatus" class="status-message" aria-live="polite"></div>
-                                    </div>
-                                    <div class="input-group">
-                                        <label for="email" class="input-label">Correo electrónico <span class="required-asterisk">*</span></label>
-                                        <input type="email" id="email" name="email" required class="input-field" placeholder="empresa@correo.com" autocomplete="email">
-                                        <div id="emailStatus" class="status-message" aria-live="polite"></div>
-                                    </div>
-                                </div>
-                                <div class="grid-2cols">
-                                    <div class="input-group">
-                                        <label for="password" class="input-label">Contraseña <span class="required-asterisk">*</span></label>
-                                        <input type="password" id="password" name="password" required minlength="8" class="input-field" placeholder="••••••••" autocomplete="new-password">
-                                    </div>
-                                    <div class="input-group">
-                                        <label for="confirmPassword" class="input-label">Repetir contraseña <span class="required-asterisk">*</span></label>
-                                        <input type="password" id="confirmPassword" name="confirmPassword" required minlength="8" class="input-field" placeholder="Repite la contraseña" autocomplete="new-password">
-                                    </div>
-                                </div>
-                                <div class="grid-2cols">
-                                    <div class="input-group">
-                                        <ul id="passwordChecklist" class="password-checklist" aria-live="polite">
-                                            <li id="title" class="checklist-title"><i class="fa-solid"></i> La contraseña debe contener:</li>
-                                            <li id="pwc-length" class="checklist-item invalid"><i class="fa-solid fa-circle-xmark"></i> Mínimo 8 caracteres</li>
-                                            <li id="pwc-upper" class="checklist-item invalid"><i class="fa-solid fa-circle-xmark"></i> Al menos 1 mayúscula</li>
-                                            <li id="pwc-number" class="checklist-item invalid"><i class="fa-solid fa-circle-xmark"></i> Al menos 1 número</li>
-                                            <li id="pwc-special" class="checklist-item invalid"><i class="fa-solid fa-circle-xmark"></i> Al menos 1 caracter especial</li>
-                                        </ul>
-                                    </div>
-                                    <div class="input-group">
-                                        <div id="passwordMatch" class="status-message" aria-live="polite"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
+          <a href="#" class="header-action">
+            <span class="header-action__btn">
+              <i class="fa-solid fa-location-dot"></i>
+              <span>Ubicación</span>
+            </span>
+          </a>
 
-                        <!-- Sección: Datos del Responsable -->
-                        <section class="form-section">
-                            <h2 class="section-title">Datos del Responsable</h2>
-                            <div class="form-group-grid">
-                                <div class="grid-2cols">
-                                    <div class="input-group">
-                                        <label for="repFirstName" class="input-label">Nombre <span class="required-asterisk">*</span></label>
-                                        <input id="repFirstName" name="repFirstName" type="text" class="input-field">
-                                    </div>
-                                    <div class="input-group">
-                                        <label for="repLastName" class="input-label">Apellido <span class="required-asterisk">*</span></label>
-                                        <input id="repLastName" name="repLastName" type="text" class="input-field">
-                                    </div>
-                                </div>
-                                <div class="grid-2cols">
-                                    <div class="input-group">
-                                        <label for="repGender" class="input-label">Género <span class="required-asterisk">*</span></label>
-                                        <select id="repGender" name="repGender" class="input-field">
-                                            <option value="">Seleccionar</option>
-                                            <option value="FEMENINO">Femenino</option>
-                                            <option value="MASCULINO">Masculino</option>
-                                            <option value="NO_BINARIO">No binario</option>
-                                            <option value="PREFIERO_NO_DECIRLO">Prefiero no decirlo</option>
-                                        </select>
-                                    </div>
-                                    <div class="input-group">
-                                        <label for="repDocument" class="input-label">Documento (DNI/CUIL) <span class="required-asterisk">*</span></label>
-                                        <input id="repDocument" name="repDocument" type="text" inputmode="numeric" class="input-field" placeholder="Sólo números">
-                                    </div>
-                                </div>
-                                <div class="grid-2cols">
-                                    <div class="input-group">
-                                        <label for="repBirthDate" class="input-label">Fecha de Nacimiento <span class="required-asterisk">*</span></label>
-                                        <input id="repBirthDate" name="repBirthDate" type="date" class="input-field">
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
+          <a href="carrito.html" class="header-action">
+            <span class="header-action__btn">
+              <i class="fa-solid fa-cart-shopping"></i>
+              <span id="cart-count">3</span> Carrito
+            </span>
+          </a>
 
-                        <!-- Sección: Teléfono del Responsable -->
-                        <section class="form-section">
-                            <h2 class="section-title">Teléfono del Responsable</h2>
-                            <div class="form-group-grid">
-                                <div class="grid-3cols">
-                                    <div class="input-group">
-                                        <label for="repPhoneArea" class="input-label">Característica <span class="required-asterisk">*</span></label>
-                                        <input id="repPhoneArea" name="repPhoneArea" type="text" inputmode="numeric" class="input-field" placeholder="011">
-                                    </div>
-                                    <div class="input-group col-span-2">
-                                        <label for="repPhoneNumber" class="input-label">Número <span class="required-asterisk">*</span></label>
-                                        <input id="repPhoneNumber" name="repPhoneNumber" type="text" inputmode="numeric" class="input-field" placeholder="15XXXXYYYY">
-                                    </div>
-                                </div>
-                                <div class="input-group">
-                                    <label for="repPhoneType" class="input-label">Tipo de Teléfono <span class="required-asterisk">*</span></label>
-                                    <select id="repPhoneType" name="repPhoneType" class="input-field">
-                                        <option value="">Seleccionar</option>
-                                        <option value="PRINCIPAL">Principal</option>
-                                        <option value="SECUNDARIO">Secundario</option>
-                                        <option value="LABORAL">Laboral</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </section>
-                    </div>
-
-                    <!-- Columna Derecha -->
-                    <div class="right-column">
-                        <!-- Sección: Datos de la Empresa -->
-                        <section class="form-section">
-                            <h2 class="section-title">Datos de la Empresa</h2>
-                            <div class="form-group-grid">
-                                <div class="input-group">
-                                    <label for="businessName" class="input-label">Razón Social <span class="required-asterisk">*</span></label>
-                                    <input id="businessName" name="businessName" type="text" class="input-field">
-                                </div>
-                                <div class="input-group">
-                                    <label for="cuit" class="input-label">CUIT <span class="required-asterisk">*</span></label>
-                                    <input id="cuit" name="cuit" type="text" class="input-field" placeholder="XX-XXXXXXXX-X o 11 dígitos">
-                                </div>
-                                <div class="input-group">
-                                    <label for="ivaCondition" class="input-label">Condición ante IVA <span class="required-asterisk">*</span></label>
-                                    <select id="ivaCondition" name="ivaCondition" class="input-field">
-                                        <option value="">Seleccionar condición</option>
-                                        <option value="RI">Responsable Inscripto</option>
-                                        <option value="MONOTRIBUTO">Monotributo</option>
-                                        <option value="EXENTO">Exento</option>
-                                        <option value="CONSUMIDOR_FINAL">Consumidor Final</option>
-                                        <option value="OTRO">Otro</option>
-                                    </select>
-                                </div>
-                                <div class="input-group">
-                                    <label for="companyEmail" class="input-label">Email de la Empresa <span class="required-asterisk">*</span></label>
-                                    <input id="companyEmail" name="companyEmail" type="email" class="input-field" placeholder="empresa@correo.com">
-                                </div>
-                                <div class="checkbox-group">
-                                    <input id="requiresBilling" name="requiresBilling" type="checkbox" class="checkbox-input" />
-                                    <label for="requiresBilling" class="checkbox-label">Requiere Facturación</label>
-                                </div>
-                            </div>
-                        </section>
-
-                        <!-- Sección: Dirección Empresa (Cascading) -->
-                        <section class="form-section">
-                            <h2 class="section-title">Dirección Empresa</h2>
-                            <div class="form-group-grid">
-                                <div class="grid-2cols">
-                                    <div class="input-group">
-                                        <label for="provinciaSelect" class="input-label">Provincia <span class="required-asterisk">*</span></label>
-                                        <select id="provinciaSelect" required class="input-field"></select>
-                                    </div>
-                                    <div class="input-group">
-                                        <label for="departamentoSelect" class="input-label">Departamento (jurisdicción) <span class="required-asterisk">*</span></label>
-                                        <select id="departamentoSelect" required class="input-field" disabled></select>
-                                    </div>
-                                </div>
-                                <div class="grid-2cols">
-                                    <div class="input-group">
-                                        <label for="municipioSelect" class="input-label">Municipio <span class="required-asterisk">*</span></label>
-                                        <select id="municipioSelect" required class="input-field" disabled></select>
-                                    </div>
-                                    <div class="input-group">
-                                        <label for="localidadSelect" class="input-label">Localidad <span class="required-asterisk">*</span></label>
-                                        <select id="localidadSelect" required class="input-field" disabled></select>
-                                    </div>
-                                </div>
-                                <div class="grid-2cols">
-                                    <div class="input-group">
-                                        <label for="street" class="input-label">Calle <span class="required-asterisk">*</span></label>
-                                        <input type="text" id="street" name="street" required class="input-field" placeholder="Ej: San Martín">
-                                    </div>
-                                    <div class="input-group">
-                                        <label for="number" class="input-label">Número <span class="required-asterisk">*</span></label>
-                                        <input type="text" id="number" name="number" required class="input-field" placeholder="Ej: 1234">
-                                    </div>
-                                </div>
-                                <div class="grid-3cols">
-                                    <div class="input-group">
-                                        <label for="floor" class="input-label">Piso</label>
-                                        <input type="text" id="floor" name="floor" class="input-field" placeholder="Ej: 2">
-                                    </div>
-                                    <div class="input-group">
-                                        <label for="apartment" class="input-label">Departamento (interno)</label>
-                                        <input type="text" id="apartment" name="apartment" class="input-field" placeholder="Ej: A">
-                                    </div>
-                                    <div class="input-group">
-                                        <label for="postalCode" class="input-label">Código Postal <span class="required-asterisk">*</span></label>
-                                        <input type="text" id="postalCode" name="postalCode" required class="input-field" placeholder="Ej: 1000">
-                                    </div>
-                                </div>
-                                <div class="input-group">
-                                    <label for="reference" class="input-label">Referencia</label>
-                                    <textarea id="reference" name="reference" class="input-field" placeholder="Ej: Frente a la plaza"></textarea>
-                                </div>
-                            </div>
-                        </section>
-
-                        <!-- Sección: Teléfono de la Empresa -->
-                        <section class="form-section">
-                            <h2 class="section-title">Teléfono de la Empresa</h2>
-                            <div class="form-group-grid">
-                                <div class="grid-3cols">
-                                    <div class="input-group">
-                                        <label for="companyPhoneArea" class="input-label">Característica <span class="required-asterisk">*</span></label>
-                                        <input id="companyPhoneArea" name="companyPhoneArea" type="text" inputmode="numeric" class="input-field" placeholder="011">
-                                    </div>
-                                    <div class="input-group col-span-2">
-                                        <label for="companyPhoneNumber" class="input-label">Número <span class="required-asterisk">*</span></label>
-                                        <input id="companyPhoneNumber" name="companyPhoneNumber" type="text" inputmode="numeric" class="input-field" placeholder="15XXXXYYYY">
-                                    </div>
-                                </div>
-                                <div class="input-group">
-                                    <label for="companyPhoneType" class="input-label">Tipo de Teléfono <span class="required-asterisk">*</span></label>
-                                    <select id="companyPhoneType" name="companyPhoneType" class="input-field">
-                                        <option value="">Seleccionar</option>
-                                        <option value="PRINCIPAL">Principal</option>
-                                        <option value="SECUNDARIO">Secundario</option>
-                                        <option value="FAX">Fax</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </section>
-                    </div>
-                </div>
-
-                <!-- Términos y Botón -->
-                <div class="form-footer">
-                    <div class="terms-group">
-                        <input id="terms" name="terms" type="checkbox" class="checkbox-input" />
-                        <label for="terms" class="checkbox-label">Acepto los <a href="#" class="terms-link" target="_blank">Términos y Condiciones</a> y la <a href="#" class="terms-link" target="_blank">Política de Privacidad</a> <span class="required-asterisk">*</span></label>
-                    </div>
-                    <p id="termsError" class="error-message hidden" role="alert">Debes aceptar los términos y políticas.</p>
-
-                    <div class="submit-container">
-                        <button id="submitBtn" type="submit" disabled class="submit-button">
-                            <span id="btnText">Crear cuenta</span>
-                            <svg id="spinner" class="spinner hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true">
-                                <circle class="spinner-circle" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                                <path class="spinner-path" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path>
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-            </form>
         </div>
-    </main>
+      </div>
+    </div>
+    <!-- =========================
+         DRAWER MOBILE
+    ========================== -->
+    <aside class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
+      <div class="mobile-drawer__header">
+        <span>Menú</span>
+        <button class="mobile-drawer__close" id="mobileDrawerClose" aria-label="Cerrar menú">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
 
-    <!-- Scripts -->
-    <script src="js.js"></script>
-    <!-- Script de ubicaciones externo (cascading selects) -->
-    <script src="/js/ubicaciones.js"></script>
+      <nav class="mobile-nav" aria-label="Menú móvil">
+
+        <div class="mobile-nav__section">
+          <button class="mobile-accordion-btn" type="button">
+            Categorías
+            <i class="fa-solid fa-angle-down"></i>
+          </button>
+          <div class="mobile-accordion-panel">
+            <a href="#">Alimentos</a>
+            <a href="#">Bebidas</a>
+            <a href="#">Lácteos</a>
+            <a href="#">Limpieza</a>
+            <a href="#">Perfumería</a>
+          </div>
+        </div>
+
+        <div class="mobile-nav__section">
+          <button class="mobile-accordion-btn" type="button">
+            Ofertas
+            <i class="fa-solid fa-angle-down"></i>
+          </button>
+          <div class="mobile-accordion-panel">
+            <a href="#">Ofertas del día</a>
+            <a href="#">Combos</a>
+            <a href="#">Descuentos por mayor</a>
+          </div>
+        </div>
+
+        <a href="#" class="mobile-nav__link"><i class="fa-solid fa-fire"></i> Destacados</a>
+        <a href="#" class="mobile-nav__link"><i class="fa-solid fa-bolt"></i> Novedades</a>
+        <a href="#" class="mobile-nav__link"><i class="fa-solid fa-headset"></i> Contacto / Soporte</a>
+        <a href="#" class="mobile-nav__link"><i class="fa-regular fa-circle-question"></i> Ayuda</a>
+        <a href="#" class="mobile-nav__link"><i class="fa-solid fa-store"></i> Vender</a>
+
+        <div class="mobile-nav__divider"></div>
+
+        <a href="#" class="mobile-nav__link mobile-nav__link--icon">
+          <i class="fa-solid fa-user"></i> Cuenta
+        </a>
+
+        <a href="#" class="mobile-nav__link mobile-nav__link--icon">
+          <i class="fa-solid fa-location-dot"></i> Ubicación
+        </a>
+
+        <a href="#" class="mobile-nav__link mobile-nav__link--icon">
+          <i class="fa-solid fa-cart-shopping"></i><span>3</span> Carrito
+        </a>
+      </nav>
+    </aside>
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+    <!-- =========================
+         PANEL MEGA CATEGORÍAS (desktop / tablet)
+    ========================== -->
+    <div class="categories-panel" id="categoriesPanel" aria-hidden="true">
+      <div class="categories-panel__shell">
+        <!-- COLUMNA IZQUIERDA -->
+        <aside class="categories-sidebar" aria-label="Categorías principales">
+          <button class="category-main is-active" type="button" data-category="electro">
+            <i class="fa-solid fa-tv"></i>
+            <span>Electro y tecnología</span>
+            <i class="fa-solid fa-angle-right"></i>
+          </button>
+    
+          <button class="category-main" type="button" data-category="hogar">
+            <i class="fa-solid fa-house"></i>
+            <span>Hogar</span>
+            <i class="fa-solid fa-angle-right"></i>
+          </button>
+    
+          <button class="category-main" type="button" data-category="almacen">
+            <i class="fa-solid fa-boxes-stacked"></i>
+            <span>Almacén</span>
+            <i class="fa-solid fa-angle-right"></i>
+          </button>
+    
+          <button class="category-main" type="button" data-category="desayuno">
+            <i class="fa-solid fa-mug-hot"></i>
+            <span>Desayuno y merienda</span>
+            <i class="fa-solid fa-angle-right"></i>
+          </button>
+    
+          <button class="category-main" type="button" data-category="bebidas">
+            <i class="fa-solid fa-wine-bottle"></i>
+            <span>Bebidas</span>
+            <i class="fa-solid fa-angle-right"></i>
+          </button>
+    
+          <button class="category-main" type="button" data-category="lacteos">
+            <i class="fa-solid fa-cheese"></i>
+            <span>Lácteos y productos frescos</span>
+            <i class="fa-solid fa-angle-right"></i>
+          </button>
+    
+          <button class="category-main" type="button" data-category="limpieza">
+            <i class="fa-solid fa-pump-soap"></i>
+            <span>Limpieza</span>
+            <i class="fa-solid fa-angle-right"></i>
+          </button>
+    
+          <button class="category-main" type="button" data-category="perfumeria">
+            <i class="fa-solid fa-spray-can-sparkles"></i>
+            <span>Perfumería y farmacia</span>
+            <i class="fa-solid fa-angle-right"></i>
+          </button>
+          <button class="category-main is-active" type="button" data-category="electro">
+            <i class="fa-solid fa-tv"></i>
+            <span>Electro y tecnología</span>
+            <i class="fa-solid fa-angle-right"></i>
+          </button>
+    
+          <button class="category-main" type="button" data-category="hogar">
+            <i class="fa-solid fa-house"></i>
+            <span>Hogar</span>
+            <i class="fa-solid fa-angle-right"></i>
+          </button>
+    
+          <button class="category-main" type="button" data-category="almacen">
+            <i class="fa-solid fa-boxes-stacked"></i>
+            <span>Almacén</span>
+            <i class="fa-solid fa-angle-right"></i>
+          </button>
+    
+          <button class="category-main" type="button" data-category="desayuno">
+            <i class="fa-solid fa-mug-hot"></i>
+            <span>Desayuno y merienda</span>
+            <i class="fa-solid fa-angle-right"></i>
+          </button>
+    
+          <button class="category-main" type="button" data-category="bebidas">
+            <i class="fa-solid fa-wine-bottle"></i>
+            <span>Bebidas</span>
+            <i class="fa-solid fa-angle-right"></i>
+          </button>
+    
+          <button class="category-main" type="button" data-category="lacteos">
+            <i class="fa-solid fa-cheese"></i>
+            <span>Lácteos y productos frescos</span>
+            <i class="fa-solid fa-angle-right"></i>
+          </button>
+    
+          <button class="category-main" type="button" data-category="limpieza">
+            <i class="fa-solid fa-pump-soap"></i>
+            <span>Limpieza</span>
+            <i class="fa-solid fa-angle-right"></i>
+          </button>
+    
+          <button class="category-main" type="button" data-category="perfumeria">
+            <i class="fa-solid fa-spray-can-sparkles"></i>
+            <span>Perfumería y farmacia</span>
+            <i class="fa-solid fa-angle-right"></i>
+          </button>
+        </aside>
+    
+        <!-- COLUMNA DERECHA -->
+        <section class="categories-content" aria-label="Subcategorías">
+          <!-- ELECTRO -->
+          <div class="category-content is-active" data-content="electro">
+            <div class="category-content__header">
+              <h3><i class="fa-solid fa-tv"></i> Electro y tecnología</h3>
+              <a href="#" class="category-view-all">VER TODOS LOS PRODUCTOS <i class="fa-solid fa-angle-right"></i></a>
+            </div>
+    
+            <div class="category-columns">
+              <div class="category-group">
+                <h4>TV y soportes</h4>
+                <a href="#">Smart TV</a>
+                <a href="#">Soportes y accesorios</a>
+    
+                <h4>Celulares</h4>
+                <a href="#">Celulares libres</a>
+                <a href="#">Smartwatches y accesorios</a>
+                <a href="#">Accesorios de celulares</a>
+    
+                <h4>Climatización</h4>
+                <a href="#">Aires acondicionados</a>
+                <a href="#">Ventiladores</a>
+                <a href="#">Calefacción eléctrica</a>
+                <a href="#">Calefacción a gas</a>
+              </div>
+    
+              <div class="category-group">
+                <h4>Lavado</h4>
+                <a href="#">Lavarropas</a>
+                <a href="#">Secarropas</a>
+                <a href="#">Lavasecarropas</a>
+    
+                <h4>Termotanques y calefones</h4>
+                <a href="#">Calefones</a>
+                <a href="#">Termotanques a gas</a>
+                <a href="#">Termotanques eléctricos</a>
+    
+                <h4>Cocinas y hornos</h4>
+                <a href="#">Cocinas</a>
+                <a href="#">Anafes</a>
+                <a href="#">Hornos</a>
+                <a href="#">Microondas</a>
+              </div>
+    
+              <div class="category-group">
+                <h4>Cuidado personal y salud</h4>
+                <a href="#">Planchitas de pelo</a>
+                <a href="#">Secadores de pelo</a>
+                <a href="#">Afeitadoras</a>
+                <a href="#">Salud y bienestar</a>
+    
+                <h4>Informática y gaming</h4>
+                <a href="#">Notebooks y PC</a>
+                <a href="#">Consolas y joysticks</a>
+                <a href="#">Impresoras</a>
+                <a href="#">Tablets</a>
+                <a href="#">Monitores</a>
+    
+                <h4>Heladeras y freezers</h4>
+                <a href="#">Heladeras</a>
+                <a href="#">Freezers</a>
+              </div>
+            </div>
+          </div>
+    
+          <!-- HOGAR -->
+          <div class="category-content" data-content="hogar">
+            <div class="category-content__header">
+              <h3><i class="fa-solid fa-house"></i> Hogar</h3>
+              <a href="#" class="category-view-all">VER TODOS LOS PRODUCTOS <i class="fa-solid fa-angle-right"></i></a>
+            </div>
+    
+            <div class="category-columns">
+              <div class="category-group">
+                <h4>Muebles</h4>
+                <a href="#">Mesas</a>
+                <a href="#">Sillas</a>
+                <a href="#">Bibliotecas</a>
+              </div>
+              <div class="category-group">
+                <h4>Decoración</h4>
+                <a href="#">Cuadros</a>
+                <a href="#">Espejos</a>
+                <a href="#">Velas</a>
+              </div>
+              <div class="category-group">
+                <h4>Textil</h4>
+                <a href="#">Sábanas</a>
+                <a href="#">Acolchados</a>
+                <a href="#">Toallas</a>
+              </div>
+            </div>
+          </div>
+    
+          <!-- ALMACÉN -->
+          <div class="category-content" data-content="almacen">
+            <div class="category-content__header">
+              <h3><i class="fa-solid fa-boxes-stacked"></i> Almacén</h3>
+              <a href="#" class="category-view-all">VER TODOS LOS PRODUCTOS <i class="fa-solid fa-angle-right"></i></a>
+            </div>
+    
+            <div class="category-columns">
+              <div class="category-group">
+                <h4>Secos</h4>
+                <a href="#">Arroz</a>
+                <a href="#">Fideos</a>
+                <a href="#">Harinas</a>
+              </div>
+              <div class="category-group">
+                <h4>Conservas</h4>
+                <a href="#">Atún</a>
+                <a href="#">Tomate</a>
+                <a href="#">Legumbres</a>
+              </div>
+              <div class="category-group">
+                <h4>Snacks</h4>
+                <a href="#">Papas fritas</a>
+                <a href="#">Galletitas</a>
+                <a href="#">Mixes</a>
+              </div>
+            </div>
+          </div>
+    
+          <!-- DESAYUNO -->
+          <div class="category-content" data-content="desayuno">
+            <div class="category-content__header">
+              <h3><i class="fa-solid fa-mug-hot"></i> Desayuno y merienda</h3>
+              <a href="#" class="category-view-all">VER TODOS LOS PRODUCTOS <i class="fa-solid fa-angle-right"></i></a>
+            </div>
+    
+            <div class="category-columns">
+              <div class="category-group">
+                <h4>Infusiones</h4>
+                <a href="#">Café</a>
+                <a href="#">Té</a>
+                <a href="#">Mate cocido</a>
+              </div>
+              <div class="category-group">
+                <h4>Dulces</h4>
+                <a href="#">Mermeladas</a>
+                <a href="#">Dulce de leche</a>
+                <a href="#">Miel</a>
+              </div>
+              <div class="category-group">
+                <h4>Panificados</h4>
+                <a href="#">Tostadas</a>
+                <a href="#">Bizcochos</a>
+                <a href="#">Galletitas</a>
+              </div>
+            </div>
+          </div>
+    
+          <!-- BEBIDAS -->
+          <div class="category-content" data-content="bebidas">
+            <div class="category-content__header">
+              <h3><i class="fa-solid fa-wine-bottle"></i> Bebidas</h3>
+              <a href="#" class="category-view-all">VER TODOS LOS PRODUCTOS <i class="fa-solid fa-angle-right"></i></a>
+            </div>
+    
+            <div class="category-columns">
+              <div class="category-group">
+                <h4>Sin alcohol</h4>
+                <a href="#">Gaseosas</a>
+                <a href="#">Jugos</a>
+                <a href="#">Aguas</a>
+              </div>
+              <div class="category-group">
+                <h4>Con alcohol</h4>
+                <a href="#">Cervezas</a>
+                <a href="#">Vinos</a>
+                <a href="#">Aperitivos</a>
+              </div>
+              <div class="category-group">
+                <h4>Energizantes</h4>
+                <a href="#">Latas</a>
+                <a href="#">Packs</a>
+              </div>
+            </div>
+          </div>
+    
+          <!-- LÁCTEOS -->
+          <div class="category-content" data-content="lacteos">
+            <div class="category-content__header">
+              <h3><i class="fa-solid fa-cheese"></i> Lácteos y productos frescos</h3>
+              <a href="#" class="category-view-all">VER TODOS LOS PRODUCTOS <i class="fa-solid fa-angle-right"></i></a>
+            </div>
+    
+            <div class="category-columns">
+              <div class="category-group">
+                <h4>Lácteos</h4>
+                <a href="#">Leche</a>
+                <a href="#">Yogures</a>
+                <a href="#">Quesos</a>
+              </div>
+              <div class="category-group">
+                <h4>Frescos</h4>
+                <a href="#">Fiambres</a>
+                <a href="#">Pastas frescas</a>
+                <a href="#">Mantecas</a>
+              </div>
+              <div class="category-group">
+                <h4>Postres</h4>
+                <a href="#">Flanes</a>
+                <a href="#">Gelatinas</a>
+                <a href="#">Postres refrigerados</a>
+              </div>
+            </div>
+          </div>
+    
+          <!-- LIMPIEZA -->
+          <div class="category-content" data-content="limpieza">
+            <div class="category-content__header">
+              <h3><i class="fa-solid fa-pump-soap"></i> Limpieza</h3>
+              <a href="#" class="category-view-all">VER TODOS LOS PRODUCTOS <i class="fa-solid fa-angle-right"></i></a>
+            </div>
+    
+            <div class="category-columns">
+              <div class="category-group">
+                <h4>Ropa</h4>
+                <a href="#">Detergentes</a>
+                <a href="#">Suavizantes</a>
+                <a href="#">Quitamanchas</a>
+              </div>
+              <div class="category-group">
+                <h4>Hogar</h4>
+                <a href="#">Lavandina</a>
+                <a href="#">Desinfectantes</a>
+                <a href="#">Limpiadores</a>
+              </div>
+              <div class="category-group">
+                <h4>Accesorios</h4>
+                <a href="#">Esponjas</a>
+                <a href="#">Guantes</a>
+                <a href="#">Trapos</a>
+              </div>
+            </div>
+          </div>
+    
+          <!-- PERFUMERÍA -->
+          <div class="category-content" data-content="perfumeria">
+            <div class="category-content__header">
+              <h3><i class="fa-solid fa-spray-can-sparkles"></i> Perfumería y farmacia</h3>
+              <a href="#" class="category-view-all">VER TODOS LOS PRODUCTOS <i class="fa-solid fa-angle-right"></i></a>
+            </div>
+    
+            <div class="category-columns">
+              <div class="category-group">
+                <h4>Cuidado personal</h4>
+                <a href="#">Shampoo</a>
+                <a href="#">Acondicionador</a>
+                <a href="#">Jabones</a>
+              </div>
+              <div class="category-group">
+                <h4>Farmacia</h4>
+                <a href="#">Analgésicos</a>
+                <a href="#">Vitaminas</a>
+                <a href="#">Primeros auxilios</a>
+              </div>
+              <div class="category-group">
+                <h4>Belleza</h4>
+                <a href="#">Maquillaje</a>
+                <a href="#">Cremas</a>
+                <a href="#">Fragancias</a>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-content page-shell">
+    <section class="slider-bleed">
+      <div class="slider">
+        <!-- Flechas -->
+        <button class="arrow prev" aria-label="Anterior">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                   stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="14 4 6 12 14 20"></polyline>
+              </svg>
+        </button>
+        <button class="arrow next" aria-label="Siguiente">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                   stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="10 4 18 12 10 20"></polyline>
+              </svg>
+        </button>
+  
+        <!-- Frame -->
+        <div class="slider-frame">
+          <div class="slider-track">
+            
+            <a href="#" class="slide" aria-label="Ver promoción 1">
+              <picture class="banner-rounded">
+                <source media="(min-width: 1024px)" srcset="assets/banners/bannerFormatoDesktop/1.png">
+                <source media="(min-width: 768px)" srcset="assets/banners/bannerFormatoTablet/1.jpg">
+                <source media="(max-width: 767px)" srcset="assets/banners/bannerFormatoMovil/1.jpg">
+                <img src="assets/banners/bannerFormatoDesktop/1.png" alt="Promoción 1">
+              </picture>
+            </a>
+        
+            <a href="#" class="slide" aria-label="Ver promoción 2">
+              <picture class="banner-rounded">
+                <source media="(min-width: 1024px)" srcset="assets/banners/bannerFormatoDesktop/2.png">
+                <source media="(min-width: 768px)" srcset="assets/banners/bannerFormatoTablet/2.jpg">
+                <source media="(max-width: 767px)" srcset="assets/banners/bannerFormatoMovil/2.png">
+                <img src="assets/banners/bannerFormatoDesktop/2.png" alt="Promoción 2">
+              </picture>
+            </a>
+        
+            <a href="#" class="slide" aria-label="Ver promoción 3">
+              <picture class="banner-rounded">
+                <source media="(min-width: 1024px)" srcset="assets/banners/bannerFormatoDesktop/3.png">
+                <source media="(min-width: 768px)" srcset="assets/banners/bannerFormatoTablet/3.jpg">
+                <source media="(max-width: 767px)" srcset="assets/banners/bannerFormatoMovil/3.png">
+                <img src="assets/banners/bannerFormatoDesktop/3.png" alt="Promoción 3">
+              </picture>
+            </a>
+        
+            <a href="#" class="slide" aria-label="Ver promoción 4">
+              <picture class="banner-rounded">
+                <source media="(min-width: 1024px)" srcset="assets/banners/bannerFormatoDesktop/4.png">
+                <source media="(min-width: 768px)" srcset="assets/banners/bannerFormatoTablet/4.jpg">
+                <source media="(max-width: 767px)" srcset="assets/banners/bannerFormatoMovil/4.png">
+                <img src="assets/banners/bannerFormatoDesktop/4.png" alt="Promoción 4">
+              </picture>
+            </a>
+        
+          </div>
+        </div>
+        <!-- Dots -->
+        <div class="dots"></div>
+  
+      </div>
+    </section>
+
+    <section class="informacion">
+      <div class="info-container">
+        <div class="info-scroll">
+          <div class="info-slider-track">
+            <div class="info-item">
+              <i class="fa-solid fa-truck-fast"></i>
+              <span>Envío Gratis en compras mayores a $50,000</span>
+            </div>
+            <div class="info-item">
+              <i class="fa-solid fa-headset"></i>
+              <span>Soporte 24/7 - Estamos para ayudarte</span>
+            </div>
+            <div class="info-item">
+              <i class="fa-solid fa-shield-halved"></i>
+              <span>Compra Segura - Protegemos tus datos</span>
+            </div>
+            <div class="info-item">
+              <i class="fa-solid fa-tags"></i>
+              <span>Mejores ofertas exclusivas</span>
+            </div>
+    
+          </div>
+        </div>
+      </div>
+    </section>
+
+        <section class="categories">
+          <div class="categories-slider">  
+
+            <a href="#" class="cat-item">
+              <div class="cat-circle">
+                <img src="assets/products/home/heladera.png" alt="Mobile">
+              </div>
+              <span>Electro</span>
+            </a>
+            <a href="#" class="cat-item">
+              <div class="cat-circle">
+                <img src="assets/products/electronics/iphone.png" alt="Mobile">
+              </div>
+              <span>Electrónica</span>
+            </a>
+            <a href="#" class="cat-item">
+              <div class="cat-circle">
+                <img src="assets/products/home/lampara de mesa.png" alt="Mobile">
+              </div>
+              <span>Hogar</span>
+            </a>
+            <a href="#" class="cat-item">
+              <div class="cat-circle">
+                <img src="assets/products/home/single sofa.png" alt="Mobile">
+              </div>
+              <span>Muebles</span>
+            </a>
+            <a href="#" class="cat-item">
+              <div class="cat-circle">
+                <img src="assets/products/beauty/frasco Nivea.png" alt="Cosmetics">
+              </div>
+              <span>Belleza</span>
+            </a>
+            <a href="#" class="cat-item">
+              <div class="cat-circle">
+                <img src="assets/products/clothes/normal/remeras.png" alt="Electronics">
+              </div>
+              <span>Moda</span>
+            </a>
+            <a href="#" class="cat-item">
+              <div class="cat-circle">
+                <img src="assets/products/clothes/Carteras y mochilas/mini bag.png" alt="Furniture">
+              </div>
+              <span>Accesorios</span>
+            </a>     
+            <a href="#" class="cat-item">
+              <div class="cat-circle">
+                <img src="assets/products/clothes/sports/zapatillas nike.png" alt="Decor">
+              </div>
+              <span>Deporte</span>
+            </a> 
+            <a href="#" class="cat-item">
+              <div class="cat-circle">
+                <img src="assets/products/clothes/normal/mochila.png" alt="Watches">
+              </div>
+              <span>Viaje</span>
+            </a>   
+            <a href="#" class="cat-item mas-vendidos" >
+              <div class="cat-circle">
+                <img src="assets/icons/star.png" alt="Mobile">
+              </div>
+              <span>+vendidos</span>
+            </a>
+          </div>
+        </section> 
+
+        <section class="best-sellers">
+          <div class="section-header">
+            <p class="section-title">Lo mejor en <a href="#">Novedades De La Semana</a></p>
+            <div>
+              <a href="#" class="view-all">Ver más →</a>
+              <button class="slider-btn prev">&lt;</button> 
+              <button class="slider-btn next">&gt;</button>
+            </div>
+          </div>
+          <div class="slider-wrapper">
+            <div class="best-sellers-container" id="bestSellersSlider">  
+              <article class="product-card">
+                <button class="fav-btn">♡</button>    
+                <div class="product-image">
+                  <img src="assets/products/home/heladera.png" alt="Producto">
+                </div> 
+                <h3 class="product-title">Heladera No Frost Whirlpool 400L Inverter</h3>
+                <div class="product-rating">
+                  <span>$899.999</span>
+                  <span class="star">★ 4.5</span>
+                </div>
+                <div class="product-price">
+                  <span>$539.999</span>
+                  <span>40% OFF</span>
+                </div>
+                <span>12 cuotas de $89.999</span>
+                <div class="product-actions">
+                  <div>
+                    <a href="producto.html"><button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button></a>
+                  </div>
+                </div>
+              </article> 
+              <article class="product-card">
+                <button class="fav-btn">♡</button>    
+                <div class="product-image">
+                  <img src="assets/products/home/single sofa.png" alt="Producto">
+                </div> 
+                <h3 class="product-title">Sillon Blanco Individual Un Cuerpo Chenille</h3>
+                <div class="product-rating">
+                  <span>$899.999</span>
+                  <span class="star">★ 4.5</span>
+                </div>
+                <div class="product-price">
+                  <span>$539.999</span>
+                  <span>40% OFF</span>
+                </div>
+                <span>12 cuotas de $89.999</span>
+                <div class="product-actions">
+                  <div>
+                    <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
+                  </div>
+                </div>
+              </article> 
+              <article class="product-card">
+                <button class="fav-btn">♡</button>
+          
+                <div class="product-image">
+                  <img src="assets/products/home/lavarropas.jpg" alt="Producto">
+                </div> 
+                <h3 class="product-title">Lavarropas Automático Drean 8kg EcoSilent</h3>
+                <div class="product-rating">
+                  <span>$899.999</span>
+                  <span class="star">★ 4.5</span>
+                </div>
+                <div class="product-price">
+                  <span>$539.999</span>
+                  <span>40% OFF</span>
+                </div>
+                <span>12 cuotas de $89.999</span>
+                <div class="product-actions">
+                  <div>
+                    <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
+                  </div>
+                </div>
+              </article> 
+              <article class="product-card">
+                <button class="fav-btn">♡</button>
+          
+                <div class="product-image">
+                  <img src="assets/products/electronics/adiculares.png" alt="Producto">
+                </div> 
+                <h3 class="product-title">Auricular Bluetooth inalámbrico</h3>
+                <div class="product-rating">
+                  <span>$899.999</span>
+                  <span class="star">★ 4.5</span>
+                </div>
+                <div class="product-price">
+                  <span>$539.999</span>
+                  <span>FREE <i class="fa-solid fa-truck-arrow-right"></i></span>
+                </div>
+                <span>12 cuotas de $89.999</span>
+                <div class="product-actions">
+                  <div>
+                    <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
+                  </div>
+                </div>
+              </article>  
+              <article class="product-card">
+                <button class="fav-btn">♡</button>
+          
+                <div class="product-image">
+                  <img src="assets/products/home/aire acondicionado.png" alt="Producto">
+                </div> 
+                <h3 class="product-title">Aire Acondicionado Portátil Frío/Calor</h3>
+                <div class="product-rating">
+                  <span>$89.999</span>
+                  <span class="star">★ 4.5</span>
+                </div>
+                <div class="product-price">
+                  <span>$53.999</span>
+                  <span>40% OFF</span>
+                </div>
+                <span>12 cuotas de $89.999</span>
+                <div class="product-actions">
+                  <div>
+                    <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
+                  </div>
+                </div>
+              </article>   
+              <article class="product-card">
+                <button class="fav-btn">♡</button>
+          
+                <div class="product-image">
+                  <img src="assets/products/clothes/sports/discos olímpicos.png" alt="Producto">
+                </div> 
+                <h3 class="product-title">Par De Discos 5 Kg 2.5 Kg 1 Kg Fundicion Macizo Pesas Gym</h3>
+                <div class="product-rating">
+                  <span>$899.999</span>
+                  <span class="star">★ 4.5</span>
+                </div>
+                <div class="product-price">
+                  <span>$59.999</span>
+                  <span>40% OFF</span>
+                </div>
+                <span>12 cuotas de $89.999</span>
+                <div class="product-actions">
+                  <div>
+                    <a href="paginaProducto.html"><button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button></a>
+                  </div>
+                </div>
+              </article> 
+              <article class="product-card">
+                <button class="fav-btn">♡</button>
+          
+                <div class="product-image">
+                  <img src="assets/products/electronics/silla gamer.jpg" alt="Producto">
+                </div> 
+                <h3 class="product-title">Silla Ergonómica Gamer Reclinable con Luce...</h3>
+                <div class="product-rating">
+                  <span>$899.999</span>
+                  <span class="star">★ 4.5</span>
+                </div>
+                <div class="product-price">
+                  <span>$539.999</span>
+                  <span>40% OFF</span>
+                </div>
+                <span>12 cuotas de $89.999</span>
+                <div class="product-actions">
+                  <div>
+                    <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
+                  </div>
+                </div>
+              </article> 
+              <article class="product-card">
+                <button class="fav-btn">♡</button>
+          
+                <div class="product-image">
+                  <img src="assets/products/clothes/sports/Zapatilla Nike.png" alt="Producto">
+                </div> 
+                <h3 class="product-title">Zapatillas Nike Air Max 270 Hombre Originales</h3>
+                <div class="product-rating">
+                  <span>$899.999</span>
+                  <span class="star">★ 4.5</span>
+                </div>
+                <div class="product-price">
+                  <span>$539.999</span>
+                  <span>40% OFF</span>
+                </div>
+                <span>12 cuotas de $89.999</span>
+                <div class="product-actions">
+                  <div>
+                    <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
+                  </div>
+                </div>
+              </article> 
+            </div>
+          </div>
+        </section>
+
+        <section class="offers-section"> 
+          <div class="section-header">
+            <p class="section-title">Lo mejor en <a href="#">Ofertas De La Semana</a></p>
+            <a href="#" class="view-all">Ver más →</a>
+          </div>
+        
+          <div class="offers-section-container">  
+        
+            <article class="offer-card offer-1">
+              <img src="assets/ads/1.png" alt="Grocery">
+              <div class="offer-content">
+                <span class="offer-tag">LOS MEJORES SNACKS DE TU DÍA</span>
+                <h3>Calidad premium al mejor precio</h3>
+                <a href="#" class="offer-btn">Comprar Ahora</a>
+              </div>
+            </article>  
+        
+            <article class="offer-card offer-2">
+              <img src="assets/ads/2.png" alt="Selling Items">
+              <div class="offer-content">
+                <span class="offer-tag">OFERTA POR TIEMPO LIMITADO</span>
+                <h3>Hasta 40% OFF en suplementos</h3>
+                <a href="#" class="offer-btn">Comprar Ahora</a>
+              </div>
+            </article>      
+        
+            <article class="offer-card offer-3">
+              <img src="assets/ads/3.png" alt="Healthy Lifestyle">
+              <div class="offer-content">
+                <span class="offer-tag">TECNOLOGÍA QUE MEJORA TU DÍA</span>
+                <h3>Rendimiento, diseño y calidad</h3>
+                <a href="#" class="offer-btn">Comprar Ahora</a>
+              </div>
+            </article>   
+        
+            <article class="offer-card offer-4">
+              <img src="assets/ads/4.png" alt="Vegetables">
+              <div class="offer-content">
+                <span class="offer-tag">DIENTES SALUDABLES</span>
+                <h3>Lo mejor para tus mascotas</h3>
+                <a href="#" class="offer-btn">Comprar Ahora</a>
+              </div>
+            </article>  
+        
+          </div>
+        </section>
+
+        <section class="best-sellers">
+          <div class="section-header">
+            <p class="section-title">Lo mejor en <a href="#">Tecnología</a></p>
+            <div>
+              <a href="#" class="view-all">Ver más →</a>
+              <button class="slider-btn prev">&lt;</button> 
+              <button class="slider-btn next">&gt;</button>
+            </div>
+          </div>
+          <div class="slider-wrapper">
+            <div class="best-sellers-container" id="bestSellersSlider">
+              <article class="product-card">
+                <button class="fav-btn">♡</button>
+          
+                <div class="product-image">
+                  <img src="assets/secciones de la página - producto/(3)Tecnología/8.jpg" alt="Producto">
+                </div> 
+                <h3 class="product-title">Celular Samsung Galaxy A16 5G Color Negro</h3>
+                <div class="product-rating">
+                  <span>$89.999</span>
+                  <span class="star">★ 4.5</span>
+                </div>
+                <div class="product-price">
+                  <span>$53.999</span>
+                  <span>40% OFF</span>
+                </div>
+                <span>12 cuotas de $89.999</span>
+                <div class="product-actions">
+                  <div>
+                    <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
+                  </div>
+                </div>
+              </article>   
+              <article class="product-card">
+                <button class="fav-btn">♡</button>
+          
+                <div class="product-image">
+                  <img src="assets/secciones de la página - producto/(3)Tecnología/6.jpg" alt="Producto">
+                </div> 
+                <h3 class="product-title">Notebook Windows 11 Pantalla 15.6"</h3>
+                <div class="product-rating">
+                  <span>$899.999</span>
+                  <span class="star">★ 4.5</span>
+                </div>
+                <div class="product-price">
+                  <span>$539.999</span>
+                  <span>40% OFF</span>
+                </div>
+                <span>12 cuotas de $89.999</span>
+                <div class="product-actions">
+                  <div>
+                    <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
+                  </div>
+                </div>
+              </article> 
+              <article class="product-card">
+                <button class="fav-btn">♡</button>    
+                <div class="product-image">
+                  <img src="assets/secciones de la página - producto/(3)Tecnología/5.jpg" alt="Producto">
+                </div> 
+                <h3 class="product-title">Auriculares Inalámbricos Over-Ear Bluetooth</h3>
+                <div class="product-rating">
+                  <span>$899.999</span>
+                  <span class="star">★ 4.5</span>
+                </div>
+                <div class="product-price">
+                  <span>$539.999</span>
+                  <span>40% OFF</span>
+                </div>
+                <span>12 cuotas de $89.999</span>
+                <div class="product-actions">
+                  <div>
+                    <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
+                  </div>
+                </div>
+              </article> 
+              <article class="product-card">
+                <button class="fav-btn">♡</button>
+          
+                <div class="product-image">
+                  <img src="assets/secciones de la página - producto/(3)Tecnología/7.jpg" alt="Producto">
+                </div> 
+                <h3 class="product-title">Smartwatch Deportivo Pantalla Táctil</h3>
+                <div class="product-rating">
+                  <span>$899.999</span>
+                  <span class="star">★ 4.5</span>
+                </div>
+                <div class="product-price">
+                  <span>$539.999</span>
+                  <span>40% OFF</span>
+                </div>
+                <span>12 cuotas de $89.999</span>
+                <div class="product-actions">
+                  <div>
+                    <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
+                  </div>
+                </div>
+              </article> 
+              <article class="product-card">
+                <button class="fav-btn">♡</button>
+          
+                <div class="product-image">
+                  <img src="assets/secciones de la página - producto/(3)Tecnología/4.jpg" alt="Producto">
+                </div> 
+                <h3 class="product-title">Parlante Portátil JBL Bluetooth</h3>
+                <div class="product-rating">
+                  <span>$899.999</span>
+                  <span class="star">★ 4.5</span>
+                </div>
+                <div class="product-price">
+                  <span>$539.999</span>
+                  <span>40% OFF</span>
+                </div>
+                <span>12 cuotas de $89.999</span>
+                <div class="product-actions">
+                  <div>
+                    <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
+                  </div>
+                </div>
+              </article> 
+              <article class="product-card">
+                <button class="fav-btn">♡</button>    
+                <div class="product-image">
+                  <img src="assets/secciones de la página - producto/(3)Tecnología/1.jpg" alt="Producto">
+                </div> 
+                <h3 class="product-title">Mouse Inalámbrico Óptico</h3>
+                <div class="product-rating">
+                  <span>$899.999</span>
+                  <span class="star">★ 4.5</span>
+                </div>
+                <div class="product-price">
+                  <span>$539.999</span>
+                  <span>40% OFF</span>
+                </div>
+                <span>12 cuotas de $89.999</span>
+                <div class="product-actions">
+                  <div>
+                    <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
+                  </div>
+                </div>
+              </article> 
+              <article class="product-card">
+                <button class="fav-btn">♡</button>
+          
+                <div class="product-image">
+                  <img src="assets/secciones de la página - producto/(3)Tecnología/2.jpg" alt="Producto">
+                </div> 
+                <h3 class="product-title">Teclado Gamer Mecánico Retroiluminado</h3>
+                <div class="product-rating">
+                  <span>$899.999</span>
+                  <span class="star">★ 4.5</span>
+                </div>
+                <div class="product-price">
+                  <span>$539.999</span>
+                  <span>FREE <i class="fa-regular fa-truck"></i></span>
+                </div>
+                <span>12 cuotas de $89.999</span>
+                <div class="product-actions">
+                  <div>
+                    <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
+                  </div>
+                </div>
+              </article>   
+              <article class="product-card">
+                <button class="fav-btn">♡</button>
+          
+                <div class="product-image">
+                  <img src="assets/secciones de la página - producto/(3)Tecnología/3.jpg" alt="Producto">
+                </div> 
+                <h3 class="product-title">Router WiFi Inalámbrico Doble Antena</h3>
+                <div class="product-rating">
+                  <span>$899.999</span>
+                  <span class="star">★ 4.5</span>
+                </div>
+                <div class="product-price">
+                  <span>$539.999</span>
+                  <span>40% OFF</span>
+                </div>
+                <span>12 cuotas de $89.999</span>
+                <div class="product-actions">
+                  <div>
+                    <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
+                  </div>
+                </div>
+              </article> 
+            </div>
+          </div>
+        </section>
+        <section class="best-sellers">
+          <div class="section-header">
+            <p class="section-title">Lo mejor en <a href="#">Moda y Tendencias</a></p>
+            <div>
+              <a href="#" class="view-all">Ver más →</a>
+              <button class="slider-btn prev">&lt;</button> 
+              <button class="slider-btn next">&gt;</button>
+            </div>
+          </div>
+          <div class="slider-wrapper">
+            <div class="best-sellers-container" id="bestSellersSlider">  
+              <article class="product-card">
+                <button class="fav-btn">♡</button>
+          
+                <div class="product-image">
+                  <img src="assets/secciones de la página - producto/(4)Moda(ropa y calzado)/9.jpg" alt="Producto">
+                </div> 
+                <h3 class="product-title">Zapatillas Nike Air Max 270 Hombre Originales</h3>
+                <div class="product-rating">
+                  <span>$89.999</span>
+                  <span class="star">★ 4.5</span>
+                </div>
+                <div class="product-price">
+                  <span>$53.999</span>
+                  <span>40% OFF</span>
+                </div>
+                <span>12 cuotas de $89.999</span>
+                <div class="product-actions">
+                  <div>
+                    <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
+                  </div>
+                </div>
+              </article>   
+              <article class="product-card">
+                <button class="fav-btn">♡</button>
+          
+                <div class="product-image">
+                  <img src="assets/secciones de la página - producto/(4)Moda(ropa y calzado)/11.jpg" alt="Producto">
+                </div> 
+                <h3 class="product-title">Remera Básica Algodón Negra Hombre</h3>
+                <div class="product-rating">
+                  <span>$899.999</span>
+                  <span class="star">★ 4.5</span>
+                </div>
+                <div class="product-price">
+                  <span>$539.999</span>
+                  <span>40% OFF</span>
+                </div>
+                <span>12 cuotas de $89.999</span>
+                <div class="product-actions">
+                  <div>
+                    <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
+                  </div>
+                </div>
+              </article> 
+              <article class="product-card">
+                <button class="fav-btn">♡</button>    
+                <div class="product-image">
+                  <img src="assets/secciones de la página - producto/(4)Moda(ropa y calzado)/12.jpg" alt="Producto">
+                </div> 
+                <h3 class="product-title">Jean Clásico Denim Hombre varios colores</h3>
+                <div class="product-rating">
+                  <span>$899.999</span>
+                  <span class="star">★ 4.5</span>
+                </div>
+                <div class="product-price">
+                  <span>$539.999</span>
+                  <span>40% OFF</span>
+                </div>
+                <span>12 cuotas de $89.999</span>
+                <div class="product-actions">
+                  <div>
+                    <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
+                  </div>
+                </div>
+              </article> 
+              <article class="product-card">
+                <button class="fav-btn">♡</button>
+          
+                <div class="product-image">
+                  <img src="assets/secciones de la página - producto/(4)Moda(ropa y calzado)/13.jpg" alt="Producto">
+                </div> 
+                <h3 class="product-title">Buzo Básico Cuello Redondo Gris</h3>
+                <div class="product-rating">
+                  <span>$899.999</span>
+                  <span class="star">★ 4.5</span>
+                </div>
+                <div class="product-price">
+                  <span>$539.999</span>
+                  <span>40% OFF</span>
+                </div>
+                <span>12 cuotas de $89.999</span>
+                <div class="product-actions">
+                  <div>
+                    <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
+                  </div>
+                </div>
+              </article> 
+              <article class="product-card">
+                <button class="fav-btn">♡</button>
+          
+                <div class="product-image">
+                  <img src="assets/secciones de la página - producto/(4)Moda(ropa y calzado)/18.jpg" alt="Producto">
+                </div> 
+                <h3 class="product-title">Vestido Corto Blanco Sin Mangas</h3>
+                <div class="product-rating">
+                  <span>$899.999</span>
+                  <span class="star">★ 4.5</span>
+                </div>
+                <div class="product-price">
+                  <span>$539.999</span>
+                  <span>40% OFF</span>
+                </div>
+                <span>12 cuotas de $89.999</span>
+                <div class="product-actions">
+                  <div>
+                    <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
+                  </div>
+                </div>
+              </article> 
+              <article class="product-card">
+                <button class="fav-btn">♡</button>
+          
+                <div class="product-image">
+                  <img src="assets/secciones de la página - producto/(4)Moda(ropa y calzado)/19.jpg" alt="Producto">
+                </div> 
+                <h3 class="product-title">Mochila Urbana Porta Notebook Negra</h3>
+                <div class="product-rating">
+                  <span>$899.999</span>
+                  <span class="star">★ 4.5</span>
+                </div>
+                <div class="product-price">
+                  <span>$539.999</span>
+                  <span>40% OFF</span>
+                </div>
+                <span>12 cuotas de $89.999</span>
+                <div class="product-actions">
+                  <div>
+                    <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
+                  </div>
+                </div>
+              </article> 
+              <article class="product-card">
+                <button class="fav-btn">♡</button>
+          
+                <div class="product-image">
+                  <img src="assets/secciones de la página - producto/(4)Moda(ropa y calzado)/20.jpg" alt="Producto">
+                </div> 
+                <h3 class="product-title">Gorra Clásica Ajustable Azul</h3>
+                <div class="product-rating">
+                  <span>$899.999</span>
+                  <span class="star">★ 4.5</span>
+                </div>
+                <div class="product-price">
+                  <span>$539.999</span>
+                  <span>FREE <i class="fa-regular fa-truck"></i></span>
+                </div>
+                <span>12 cuotas de $89.999</span>
+                <div class="product-actions">
+                  <div>
+                    <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
+                  </div>
+                </div>
+              </article> 
+              <article class="product-card">
+                <button class="fav-btn">♡</button>
+          
+                <div class="product-image">
+                  <img src="assets/secciones de la página - producto/(4)Moda(ropa y calzado)/52.jpg" alt="Producto">
+                </div> 
+                <h3 class="product-title">Short Denim Casual Celeste Mujer</h3>
+                <div class="product-rating">
+                  <span>$899.999</span>
+                  <span class="star">★ 4.5</span>
+                </div>
+                <div class="product-price">
+                  <span>$539.999</span>
+                  <span>40% OFF</span>
+                </div>
+                <span>12 cuotas de $89.999</span>
+                <div class="product-actions">
+                  <div>
+                    <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
+                  </div>
+                </div>
+              </article> 
+            </div>
+          </div>
+        </section>        
+
+        <section class="promo-section">
+          <div class="promo-container">
+        
+            <a href="#" class="picture-container">
+              <picture class="picture-rounded">
+                <source media="(max-width:480px)" 
+                srcset="assets/banners/bannersPublicitarios/anuncio 1.webp">
+        
+                <source media="(min-width:481px)" 
+                srcset="assets/banners/bannersPublicitarios/anuncio 1.webp">
+        
+                <img src="assets/banners/bannersPublicitarios/anuncio 1.webp" 
+                alt="Promoción Mercado Pago">
+              </picture>
+            </a>
+        
+            <a href="#" class="picture-container">
+              <picture class="picture-rounded">
+                <source media="(max-width:480px)" 
+                srcset="assets/banners/bannersPublicitarios/anuncio 2.webp">
+        
+                <source media="(min-width:481px)" 
+                srcset="assets/banners/bannersPublicitarios/anuncio 2.webp">
+        
+                <img src="assets/banners/bannersPublicitarios/anuncio 2.webp" 
+                alt="Vehículos">
+              </picture>
+            </a>      
+          </div>
+        </section>
+
+        <section class="best-sellers">
+          <div class="section-header">
+            <p class="section-title">Lo mejor en <a href="#">Hogar & Electrodomésticos</a></p>
+            <div>
+              <a href="#" class="view-all">Ver más →</a>
+              <button class="slider-btn prev">&lt;</button> 
+              <button class="slider-btn next">&gt;</button>
+            </div>
+          </div>
+          <div class="slider-wrapper">
+            <div class="best-sellers-container" id="bestSellersSlider">  
+              <article class="product-card">
+                <button class="fav-btn">♡</button>
+          
+                <div class="product-image">
+                  <img src="assets/secciones de la página - producto/(5)Hogar - Electro/23.jpg" alt="Producto">
+                </div> 
+                <h3 class="product-title">Heladera No Frost con Freezer Superior Acero Inoxidable</h3>
+                <div class="product-rating">
+                  <span>$89.999</span>
+                  <span class="star">★ 4.5</span>
+                </div>
+                <div class="product-price">
+                  <span>$53.999</span>
+                  <span>40% OFF</span>
+                </div>
+                <span>12 cuotas de $89.999</span>
+                <div class="product-actions">
+                  <div>
+                    <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
+                  </div>
+                </div>
+              </article>   
+              <article class="product-card">
+                <button class="fav-btn">♡</button>
+          
+                <div class="product-image">
+                  <img src="assets/secciones de la página - producto/(5)Hogar - Electro/24.jpg" alt="Producto">
+                </div> 
+                <h3 class="product-title">Microondas Digital con Panel Táctil y Múltiples Funciones</h3>
+                <div class="product-rating">
+                  <span>$899.999</span>
+                  <span class="star">★ 4.5</span>
+                </div>
+                <div class="product-price">
+                  <span>$539.999</span>
+                  <span>40% OFF</span>
+                </div>
+                <span>12 cuotas de $89.999</span>
+                <div class="product-actions">
+                  <div>
+                    <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
+                  </div>
+                </div>
+              </article> 
+              <article class="product-card">
+                <button class="fav-btn">♡</button>    
+                <div class="product-image">
+                  <img src="assets/secciones de la página - producto/(5)Hogar - Electro/26.jpg" alt="Producto">
+                </div> 
+                <h3 class="product-title">Pava Eléctrica Digital Acero Inoxidable con Control de Temperatura</h3>
+                <div class="product-rating">
+                  <span>$899.999</span>
+                  <span class="star">★ 4.5</span>
+                </div>
+                <div class="product-price">
+                  <span>$539.999</span>
+                  <span>40% OFF</span>
+                </div>
+                <span>12 cuotas de $89.999</span>
+                <div class="product-actions">
+                  <div>
+                    <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
+                  </div>
+                </div>
+              </article> 
+              <article class="product-card">
+                <button class="fav-btn">♡</button>
+          
+                <div class="product-image">
+                  <img src="assets/secciones de la página - producto/(5)Hogar - Electro/27.jpg" alt="Producto">
+                </div> 
+                <h3 class="product-title">Aspiradora Trineo Potente con Accesorios para Hogar</h3>
+                <div class="product-rating">
+                  <span>$899.999</span>
+                  <span class="star">★ 4.5</span>
+                </div>
+                <div class="product-price">
+                  <span>$539.999</span>
+                  <span>40% OFF</span>
+                </div>
+                <span>12 cuotas de $89.999</span>
+                <div class="product-actions">
+                  <div>
+                    <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
+                  </div>
+                </div>
+              </article> 
+              <article class="product-card">
+                <button class="fav-btn">♡</button>
+          
+                <div class="product-image">
+                  <img src="assets/secciones de la página - producto/(5)Hogar - Electro/28.jpg" alt="Producto">
+                </div> 
+                <h3 class="product-title">Ventilador Turbo de Piso Alta Potencia 3 Velocidades</h3>
+                <div class="product-rating">
+                  <span>$899.999</span>
+                  <span class="star">★ 4.5</span>
+                </div>
+                <div class="product-price">
+                  <span>$539.999</span>
+                  <span>40% OFF</span>
+                </div>
+                <span>12 cuotas de $89.999</span>
+                <div class="product-actions">
+                  <div>
+                    <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
+                  </div>
+                </div>
+              </article> 
+              <article class="product-card">
+                <button class="fav-btn">♡</button>
+          
+                <div class="product-image">
+                  <img src="assets/secciones de la página - producto/(5)Hogar - Electro/29.jpg" alt="Producto">
+                </div> 
+                <h3 class="product-title">Batería de Cocina Antiadherente con Tapas de Vidrio</h3>
+                <div class="product-rating">
+                  <span>$899.999</span>
+                  <span class="star">★ 4.5</span>
+                </div>
+                <div class="product-price">
+                  <span>$539.999</span>
+                  <span>FREE <i class="fa-regular fa-truck"></i></span>
+                </div>
+                <span>12 cuotas de $89.999</span>
+                <div class="product-actions">
+                  <div>
+                    <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
+                  </div>
+                </div>
+              </article> 
+              <article class="product-card">
+                <button class="fav-btn">♡</button>
+          
+                <div class="product-image">
+                  <img src="assets/secciones de la página - producto/(5)Hogar - Electro/53.jpg" alt="Producto">
+                </div> 
+                <h3 class="product-title">Mesa de Comedor Moderna de Madera para 4 Personas</h3>
+                <div class="product-rating">
+                  <span>$899.999</span>
+                  <span class="star">★ 4.5</span>
+                </div>
+                <div class="product-price">
+                  <span>$539.999</span>
+                  <span>40% OFF</span>
+                </div>
+                <span>12 cuotas de $89.999</span>
+                <div class="product-actions">
+                  <div>
+                    <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
+                  </div>
+                </div>
+              </article> 
+              <article class="product-card">
+                <button class="fav-btn">♡</button>
+          
+                <div class="product-image">
+                  <img src="assets/secciones de la página - producto/(5)Hogar - Electro/31.jpg" alt="Producto">
+                </div> 
+                <h3 class="product-title">Colchón con Base Sommier Confort Alta Densidad</h3>
+                <div class="product-rating">
+                  <span>$899.999</span>
+                  <span class="star">★ 4.5</span>
+                </div>
+                <div class="product-price">
+                  <span>$539.999</span>
+                  <span>40% OFF</span>
+                </div>
+                <span>12 cuotas de $89.999</span>
+                <div class="product-actions">
+                  <div>
+                    <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
+                  </div>
+                </div>
+              </article> 
+            </div>
+          </div>
+        </section>
+        <section class="best-sellers">
+          <div class="section-header">
+            <p class="section-title">Lo mejor en <a href="#">Supermercado</a></p>
+            <div>
+              <a href="#" class="view-all">Ver más →</a>
+              <button class="slider-btn prev">&lt;</button> 
+              <button class="slider-btn next">&gt;</button>
+            </div>
+          </div>
+          <div class="slider-wrapper">
+            <div class="best-sellers-container" id="bestSellersSlider">  
+              <article class="product-card">
+                <button class="fav-btn">♡</button>
+          
+                <div class="product-image">
+                  <img src="assets/secciones de la página - producto/(6)Supermercado/1.jpg" alt="Producto">
+                </div> 
+                <h3 class="product-title">Aceite de Girasol Natura 900 ml</h3>
+                <div class="product-rating">
+                  <span>$89.999</span>
+                  <span class="star">★ 4.5</span>
+                </div>
+                <div class="product-price">
+                  <span>$53.999</span>
+                  <span>40% OFF</span>
+                </div>
+                <span>12 cuotas de $89.999</span>
+                <div class="product-actions">
+                  <div>
+                    <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
+                  </div>
+                </div>
+              </article>   
+              <article class="product-card">
+                <button class="fav-btn">♡</button>
+          
+                <div class="product-image">
+                  <img src="assets/secciones de la página - producto/(6)Supermercado/2.jpg" alt="Producto">
+                </div> 
+                <h3 class="product-title">Fideos Tallarín Don Vicente Clásicos 500 g</h3>
+                <div class="product-rating">
+                  <span>$899.999</span>
+                  <span class="star">★ 4.5</span>
+                </div>
+                <div class="product-price">
+                  <span>$539.999</span>
+                  <span>40% OFF</span>
+                </div>
+                <span>12 cuotas de $89.999</span>
+                <div class="product-actions">
+                  <div>
+                    <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
+                  </div>
+                </div>
+              </article> 
+              <article class="product-card">
+                <button class="fav-btn">♡</button>    
+                <div class="product-image">
+                  <img src="assets/secciones de la página - producto/(6)Supermercado/3.jpg" alt="Producto">
+                </div> 
+                <h3 class="product-title">Arroz Integral Arroz Dos Hermanos 1 kg</h3>
+                <div class="product-rating">
+                  <span>$899.999</span>
+                  <span class="star">★ 4.5</span>
+                </div>
+                <div class="product-price">
+                  <span>$539.999</span>
+                  <span>40% OFF</span>
+                </div>
+                <span>12 cuotas de $89.999</span>
+                <div class="product-actions">
+                  <div>
+                    <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
+                  </div>
+                </div>
+              </article> 
+              <article class="product-card">
+                <button class="fav-btn">♡</button>
+          
+                <div class="product-image">
+                  <img src="assets/secciones de la página - producto/(6)Supermercado/4.jpg" alt="Producto">
+                </div> 
+                <h3 class="product-title">Gaseosa Coca-Cola Original 1.5 L</h3>
+                <div class="product-rating">
+                  <span>$899.999</span>
+                  <span class="star">★ 4.5</span>
+                </div>
+                <div class="product-price">
+                  <span>$539.999</span>
+                  <span>40% OFF</span>
+                </div>
+                <span>12 cuotas de $89.999</span>
+                <div class="product-actions">
+                  <div>
+                    <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
+                  </div>
+                </div>
+              </article> 
+              <article class="product-card">
+                <button class="fav-btn">♡</button>
+          
+                <div class="product-image">
+                  <img src="assets/secciones de la página - producto/(6)Supermercado/5.jpg" alt="Producto">
+                </div> 
+                <h3 class="product-title">Yerba Mate Canarias Tradicional 1 kg</h3>
+                <div class="product-rating">
+                  <span>$899.999</span>
+                  <span class="star">★ 4.5</span>
+                </div>
+                <div class="product-price">
+                  <span>$539.999</span>
+                  <span>40% OFF</span>
+                </div>
+                <span>12 cuotas de $89.999</span>
+                <div class="product-actions">
+                  <div>
+                    <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
+                  </div>
+                </div>
+              </article> 
+              <article class="product-card">
+                <button class="fav-btn">♡</button>
+          
+                <div class="product-image">
+                  <img src="assets/secciones de la página - producto/(6)Supermercado/6.jpg" alt="Producto">
+                </div> 
+                <h3 class="product-title">Leche Entera Larga Vida Tregar Pack Caja x12 + Sachet 1 L</h3>
+                <div class="product-rating">
+                  <span>$899.999</span>
+                  <span class="star">★ 4.5</span>
+                </div>
+                <div class="product-price">
+                  <span>$539.999</span>
+                  <span>FREE <i class="fa-regular fa-truck"></i></span>
+                </div>
+                <span>12 cuotas de $89.999</span>
+                <div class="product-actions">
+                  <div>
+                    <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
+                  </div>
+                </div>
+              </article> 
+              <article class="product-card">
+                <button class="fav-btn">♡</button>
+          
+                <div class="product-image">
+                  <img src="assets/secciones de la página - producto/(6)Supermercado/7.jpg" alt="Producto">
+                </div> 
+                <h3 class="product-title">Queso Cremoso La Paulina 500 g</h3>
+                <div class="product-rating">
+                  <span>$899.999</span>
+                  <span class="star">★ 4.5</span>
+                </div>
+                <div class="product-price">
+                  <span>$539.999</span>
+                  <span>40% OFF</span>
+                </div>
+                <span>12 cuotas de $89.999</span>
+                <div class="product-actions">
+                  <div>
+                    <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
+                  </div>
+                </div>
+              </article> 
+              <article class="product-card">
+                <button class="fav-btn">♡</button>
+          
+                <div class="product-image">
+                  <img src="assets/secciones de la página - producto/(6)Supermercado/8.jpg" alt="Producto">
+                </div> 
+                <h3 class="product-title">Detergente para Vajilla Magistral Limón 750 ml</h3>
+                <div class="product-rating">
+                  <span>$899.999</span>
+                  <span class="star">★ 4.5</span>
+                </div>
+                <div class="product-price">
+                  <span>$539.999</span>
+                  <span>40% OFF</span>
+                </div>
+                <span>12 cuotas de $89.999</span>
+                <div class="product-actions">
+                  <div>
+                    <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
+                  </div>
+                </div>
+              </article> 
+            </div>
+          </div>
+        </section>       
+
+        <section class="bannerPublicitario3">
+          <a href="#">     
+            <picture>
+              <!-- MOBILE -->
+              <source 
+                media="(max-width: 768px)" 
+                srcset="assets/ads/anuncio-horizontal(movil).jpg">
+              <!-- TABLET -->
+              <source 
+                media="(max-width: 1024px)" 
+                srcset="assets/ads/anuncio-horizontal(movil).jpg">
+              <!-- DESKTOP (imagen por defecto) -->
+              <img 
+                src="assets/ads/anuncio-horizontal.png" 
+                alt="Anuncio publicitario">
+            </picture>
+          </a>
+        </section>
+
+        <section class="best-sellers">
+          <div class="section-header">
+            <p class="section-title">Lo mejor en <a href="#">Inmuebles</a></p>
+            <div>
+              <a href="#" class="view-all">Ver más →</a>
+              <button class="slider-btn prev">&lt;</button> 
+              <button class="slider-btn next">&gt;</button>
+            </div>
+          </div>
+          <div class="slider-wrapper">
+            <div class="best-sellers-container" id="bestSellersSlider">  
+              <article class="product-card">
+                <button class="fav-btn">♡</button>
+          
+                <div class="product-image">
+                  <img src="assets/secciones de la página - producto/(8)Inmuebles/1.jpg" alt="Producto">
+                </div> 
+                <h3 class="product-title">Casa Familiar con Jardín y Entrada Privada</h3>
+                <div class="product-rating">
+                  <span>$89.999</span>
+                  <span class="star">★ 4.5</span>
+                </div>
+                <div class="product-price">
+                  <span>$53.999</span>
+                  <span>40% OFF</span>
+                </div>
+                <span>12 cuotas de $89.999</span>
+                <div class="product-actions">
+                  <div>
+                    <button class="add-cart">Información</button>
+                  </div>
+                </div>
+              </article>   
+              <article class="product-card">
+                <button class="fav-btn">♡</button>
+          
+                <div class="product-image">
+                  <img src="assets/secciones de la página - producto/(8)Inmuebles/2.jpg" alt="Producto">
+                </div> 
+                <h3 class="product-title">Departamento con Cocina Equipada y Buena Iluminación</h3>
+                <div class="product-rating">
+                  <span>$899.999</span>
+                  <span class="star">★ 4.5</span>
+                </div>
+                <div class="product-price">
+                  <span>$539.999</span>
+                  <span>40% OFF</span>
+                </div>
+                <span>12 cuotas de $89.999</span>
+                <div class="product-actions">
+                  <div>
+                    <button class="add-cart">Información</button>
+                  </div>
+                </div>
+              </article> 
+              <article class="product-card">
+                <button class="fav-btn">♡</button>    
+                <div class="product-image">
+                  <img src="assets/secciones de la página - producto/(8)Inmuebles/3.jpg" alt="Producto">
+                </div> 
+                <h3 class="product-title">Lotes en Cementerio Parque – Espacios Disponibles</h3>
+                <div class="product-rating">
+                  <span>$899.999</span>
+                  <span class="star">★ 4.5</span>
+                </div>
+                <div class="product-price">
+                  <span>$539.999</span>
+                  <span>40% OFF</span>
+                </div>
+                <span>12 cuotas de $89.999</span>
+                <div class="product-actions">
+                  <div>
+                    <button class="add-cart">Información</button>
+                  </div>
+                </div>
+              </article> 
+              <article class="product-card">
+                <button class="fav-btn">♡</button>
+          
+                <div class="product-image">
+                  <img src="assets/secciones de la página - producto/(8)Inmuebles/4.jpg" alt="Producto">
+                </div> 
+                <h3 class="product-title">Cochera Cubierta en Edificio – Acceso Seguro</h3>
+                <div class="product-rating">
+                  <span>$899.999</span>
+                  <span class="star">★ 4.5</span>
+                </div>
+                <div class="product-price">
+                  <span>$539.999</span>
+                  <span>40% OFF</span>
+                </div>
+                <span>12 cuotas de $89.999</span>
+                <div class="product-actions">
+                  <div>
+                    <button class="add-cart">Información</button>
+                  </div>
+                </div>
+              </article> 
+              <article class="product-card">
+                <button class="fav-btn">♡</button>
+          
+                <div class="product-image">
+                  <img src="assets/secciones de la página - producto/(8)Inmuebles/5.jpg" alt="Producto">
+                </div> 
+                <h3 class="product-title">Local Comercial en Galería – Excelente Ubicación</h3>
+                <div class="product-rating">
+                  <span>$899.999</span>
+                  <span class="star">★ 4.5</span>
+                </div>
+                <div class="product-price">
+                  <span>$539.999</span>
+                  <span>40% OFF</span>
+                </div>
+                <span>12 cuotas de $89.999</span>
+                <div class="product-actions">
+                  <div>
+                    <button class="add-cart">Información</button>
+                  </div>
+                </div>
+              </article> 
+              <article class="product-card">
+                <button class="fav-btn">♡</button>
+          
+                <div class="product-image">
+                  <img src="assets/secciones de la página - producto/(8)Inmuebles/6.jpg" alt="Producto">
+                </div> 
+                <h3 class="product-title">Oficina / Local Amplio en Edificio Comercial</h3>
+                <div class="product-rating">
+                  <span>$899.999</span>
+                  <span class="star">★ 4.5</span>
+                </div>
+                <div class="product-price">
+                  <span>$539.999</span>
+                  <span>FREE <i class="fa-regular fa-truck"></i></span>
+                </div>
+                <span>12 cuotas de $89.999</span>
+                <div class="product-actions">
+                  <div>
+                    <button class="add-cart">Información</button>
+                  </div>
+                </div>
+              </article> 
+              <article class="product-card">
+                <button class="fav-btn">♡</button>
+          
+                <div class="product-image">
+                  <img src="assets/secciones de la página - producto/(8)Inmuebles/7.jpg" alt="Producto">
+                </div> 
+                <h3 class="product-title">Casa Quinta con Gran Terreno y Espacio Verde</h3>
+                <div class="product-rating">
+                  <span>$899.999</span>
+                  <span class="star">★ 4.5</span>
+                </div>
+                <div class="product-price">
+                  <span>$539.999</span>
+                  <span>40% OFF</span>
+                </div>
+                <span>12 cuotas de $89.999</span>
+                <div class="product-actions">
+                  <div>
+                    <button class="add-cart">Información</button>
+                  </div>
+                </div>
+              </article> 
+              <article class="product-card">
+                <button class="fav-btn">♡</button>
+          
+                <div class="product-image">
+                  <img src="assets/secciones de la página - producto/(8)Inmuebles/8.jpg" alt="Producto">
+                </div> 
+                <h3 class="product-title">Casa Prefabricada Moderna a Estrenar</h3>
+                <div class="product-rating">
+                  <span>$899.999</span>
+                  <span class="star">★ 4.5</span>
+                </div>
+                <div class="product-price">
+                  <span>$539.999</span>
+                  <span>40% OFF</span>
+                </div>
+                <span>12 cuotas de $89.999</span>
+                <div class="product-actions">
+                  <div>
+                    <button class="add-cart">Información</button>
+                  </div>
+                </div>
+              </article> 
+            </div>
+          </div>
+        </section>       
+
+        <section class="registro-steps">
+          <div class="section-header">
+            <p class="section-title">Barra de <a href="#">Beneficios</a></p>
+            <a href="#" class="view-all">Ver más →</a>
+          </div>
+          <div class="registro-steps-container">
+            <div>
+              <img src="assets/icons/agregar-usuario.png" alt="">
+              <span>Creá tu cuenta y disfrutá de una experiencia más rápida y personalizada.</span>
+              <div>
+                <span>20%</span>
+                <a href="">Ver legales</a>
+              </div>
+            </div>
+            <div>
+              <img src="assets/icons/american-express.png" alt="">
+              <span>Comprá cuando quieras y programá tu entrega los días Jueves.</span>
+              <div>
+                <span>25%</span>
+                <a href="">Ver legales</a>
+              </div>
+            </div>
+            <div>
+              <img src="assets/icons/Banco_galicia_logo.png" alt="">
+              <span>3 cuotas sin interés en toda la compra. Válido de Jueves a domingo.</span>
+              <div>
+                <span></span>
+                <a href="">Ver legales</a>
+              </div>
+            </div>
+            <div>
+              <img src="assets/icons/cencopay.png" alt="">
+              <span>Realizá tu compra los días Miércoles y programá tu entrega para el día que prefieras.</span>
+              <div>
+                <span>20%</span>
+                <a href="">Ver legales</a>
+              </div>
+            </div>
+          </div>
+        </section>       
+        <section class="brands"> 
+          <div class="brands-container">
+        
+            <div class="section-header">
+              <p class="section-title">
+                Empresas Que Confían en <a href="#">Nosotros</a>
+              </p>
+              <a href="#" class="view-all">Ver más →</a>
+            </div>
+        
+            <div class="brands-wrapper">
+        
+              <a href="#" class="brand-item"><img src="assets/icons/empresas/1.jpg" alt="Samsung"></a>
+              <a href="#" class="brand-item"><img src="assets/icons/empresas/2.jpg" alt="Dielfe"></a>
+              <a href="#" class="brand-item"><img src="assets/icons/empresas/3.jpg" alt="Serta"></a>
+              <a href="#" class="brand-item"><img src="assets/icons/empresas/4.jpg" alt="Lenovo"></a>
+              <a href="#" class="brand-item"><img src="assets/icons/empresas/5.jpg" alt="Drean"></a>
+              <a href="#" class="brand-item"><img src="assets/icons/empresas/6.jpg" alt="ZTE"></a>
+              <a href="#" class="brand-item"><img src="assets/icons/empresas/7.jpg" alt="PlayStation"></a>
+              <a href="#" class="brand-item"><img src="assets/icons/empresas/8.jpg" alt="Realme"></a>
+              <a href="#" class="brand-item"><img src="assets/icons/empresas/9.jpg" alt="Nestlé"></a>
+              <a href="#" class="brand-item"><img src="assets/icons/empresas/10.jpg" alt="Yogurísimo"></a>
+              <a href="#" class="brand-item"><img src="assets/icons/empresas/11.jpg" alt="Ayudín"></a>
+              <a href="#" class="brand-item"><img src="assets/icons/empresas/12.jpg" alt="Skip"></a>
+              <a href="#" class="brand-item"><img src="assets/icons/empresas/13.jpg" alt="Hellmann's"></a>
+              <a href="#" class="brand-item"><img src="assets/icons/empresas/14.jpg" alt="Dove"></a>
+              <a href="#" class="brand-item"><img src="assets/icons/empresas/15.jpg" alt="Babysec"></a>
+              <a href="#" class="brand-item"><img src="assets/icons/empresas/16.jpg" alt="Croppers"></a>
+        
+            </div>
+        
+          </div>
+        </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer ">
+    <div class="footer-container">
+  
+      <!-- Logo + redes -->
+      <div class="footer-brand">
+        <img src="assets/marketplace-data/Logo-text 2.png" alt="Logo" class="footer-logo">
+  
+        <div class="socials">
+          <a href="#"><i class="fa-solid fa-envelope"></i></a>
+          <a href="#"><i class="fa-brands fa-facebook"></i></a>
+          <a href="#"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+      </div>
+
+      <!-- Columna -->
+      <div class="footer-col">
+        <h4>Atención al Cliente</h4>
+        <ul>
+          <li><a href="#">Acerca de</a></li>
+          <li><a href="#">Soporte técnico</a></li>
+          <li><a href="#">Preguntas frecuentes</a></li>
+          <li><a href="#">Terminos y condiciones</a></li>
+          <li><a href="#">Política de privacidad</a></li>
+          <li><a href="#">Información de Envíos</a></li>
+        </ul>
+      </div>
+      <!-- Columna -->
+      <div class="footer-col">
+        <h4>Links Rapidos</h4>
+        <ul>
+          <li><a href="#">Electrónica</a></li>
+          <li><a href="#">Moda y Accesorios</a></li>
+          <li><a href="#">Hogar y Jardín</a></li>
+          <li><a href="#">Salud y Belleza</a></li>
+          <li><a href="#">Alimentos y Bebidas</a></li>
+          <li><a href="#">Deportes y Fitness</a></li>
+        </ul>
+      </div>
+      <!-- Columna -->
+      <div class="footer-col">
+        <h4>Mi cuenta</h4>
+        <ul>
+          <li><a href="#">Iniciar sesión</a></li>
+          <li><a href="#">Registrarse</a></li>
+          <li><a href="#">Mis pedidos</a></li>
+          <li><a href="#">Direcciones</a></li>
+          <li><a href="#">Métodos de pago</a></li>
+          <li><a href="#">Cerrar sesión</a></li>
+        </ul>
+      </div>
+
+      <!-- Newsletter -->
+      <div class="footer-col subscribe">
+        <h4>Suscribite</h4>
+         <p>Suscribite a nuestro newsletter para recibir novedades y ofertas exclusivas.</p>
+  
+        <form class="subscribe-box">
+          <input type="email" placeholder="Correo electrónico">
+          <button type="submit">Suscribirse</button>
+        </form>
+      </div>
+  
+    </div>
+
+    <div class="footer-bottom">
+      © <span id="year"></span> TiendaMas. Todos los derechos reservados
+    </div>
+  
+  </footer>
+  
+    <!-- Go to top button -->
+  <button id="goTopBtn" aria-label="Volver arriba">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+  <script src="Javascript/home/script.js"></script>
+  <script src="Javascript/home/header.js"></script>
+  <script src="Javascript/home/slider.js"></script>
+  <script src="Javascript/home/product-slider.js"></script>
+
 </body>
 </html>
+
+
 
 

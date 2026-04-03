@@ -14,7 +14,7 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
   />
   <link rel="stylesheet" href="../../css/home/header.css" />
-  <link rel="stylesheet" href="../../css/inicio de sesion y registro/inicioSesionUsuario.css">
+  <link rel="stylesheet" href="../../css/inicio de sesion y registro/registroVendedor.css">
   <link rel="stylesheet" href="../../css/home/footer.css">
 </head>
 <body>
@@ -610,50 +610,117 @@
   </header>
 
   <main class="main-content">
-    <div class="login-container">
-      
+    <div class="auth-container auth-container--register">
+  
       <!-- LOGO -->
-      <img src="../../assets/marketplace-data/Logo-text 2.png" alt="Logo" class="logo">
-      <div class="login-brand">Inicia Sesión</div>
-    
+      <img src="../../assets/marketplace-data/Logo-text 2.png" alt="Logo TiendaMas+" class="logo">
+      <div class="login-brand">Registro Vendedor</div>
+      <p class="auth-subtitle">Registrate y empezá a vender en TiendaMas+</p>
+  
       <!-- FORM -->
-      <form id="loginForm">
-        
+      <form id="registerSellerForm" novalidate>
+  
+        <!-- Nombre -->
+        <div class="input-group">
+          <input type="text" id="fullName" placeholder="Nombre y apellido">
+          <div class="error" id="fullNameError">Ingresá tu nombre y apellido</div>
+        </div>
+  
+        <!-- Email -->
         <div class="input-group">
           <input type="email" id="email" placeholder="Email">
           <div class="error" id="emailError">Ingresá un email válido</div>
         </div>
-    
+  
+        <!-- Contraseña -->
         <div class="input-group password-wrapper">
           <input type="password" id="password" placeholder="Contraseña">
-          <span class="toggle-password" id="togglePassword">👁</span>
-          <div class="error" id="passwordError">La contraseña es obligatoria</div>
+          <button type="button" class="toggle-password" id="togglePassword" aria-label="Mostrar contraseña">👁</button>
+          <div class="error" id="passwordError">La contraseña debe tener al menos 8 caracteres</div>
         </div>
-    
-        <div class="links">
-          <a href="#">¿Olvidaste tu contraseña?</a>
+  
+        <!-- Checklist contraseña -->
+        <ul class="password-rules" id="passwordRules">
+          <li id="ruleLength">Mínimo 8 caracteres</li>
+          <li id="ruleUpper">Al menos 1 mayúscula</li>
+          <li id="ruleNumber">Al menos 1 número</li>
+        </ul>
+  
+        <!-- Confirmar contraseña -->
+        <div class="input-group password-wrapper">
+          <input type="password" id="confirmPassword" placeholder="Repetir contraseña">
+          <button type="button" class="toggle-password" id="toggleConfirmPassword" aria-label="Mostrar contraseña">👁</button>
+          <div class="error" id="confirmPasswordError">Las contraseñas no coinciden</div>
         </div>
-    
-        <button type="submit" class="btn-primary">Iniciar sesión</button>
-    
+  
+        <!-- Nombre del negocio -->
+        <div class="input-group">
+          <input type="text" id="businessName" placeholder="Nombre de tu negocio o tienda">
+          <div class="error" id="businessNameError">Ingresá el nombre de tu negocio</div>
+        </div>
+  
+        <!-- Tipo de vendedor -->
+        <div class="input-group">
+          <select id="sellerType">
+            <option value="">Tipo de vendedor</option>
+            <option value="empresa">Empresa</option>
+            <option value="monotributista">Monotributista</option>
+            <option value="emprendedor">Emprendedor</option>
+          </select>
+          <div class="error" id="sellerTypeError">Seleccioná un tipo de vendedor</div>
+        </div>
+  
+        <!-- CUIT -->
+        <div class="input-group">
+          <input type="text" id="cuit" placeholder="CUIT (opcional)" maxlength="13">
+          <div class="helper-text">Podés completarlo ahora o después.</div>
+          <div class="error" id="cuitError">Ingresá un CUIT válido (11 dígitos)</div>
+        </div>
+  
+        <!-- Teléfono -->
+        <div class="input-group">
+          <input type="tel" id="phone" placeholder="Teléfono">
+          <div class="error" id="phoneError">Ingresá un teléfono válido</div>
+        </div>
+  
+        <!-- Términos -->
+        <div class="checkbox-group">
+          <input type="checkbox" id="terms">
+          <label for="terms">
+            Acepto los <a href="#">Términos y Condiciones</a> y la <a href="#">Política de Privacidad</a>
+          </label>
+        </div>
+        <div class="error checkbox-error" id="termsError">Debés aceptar los términos para continuar</div>
+  
+        <!-- Submit -->
+        <button type="submit" class="btn-primary" id="submitBtn">
+          <span class="btn-text">Crear cuenta</span>
+          <span class="btn-loader" aria-hidden="true"></span>
+        </button>
+  
         <div class="divider">O</div>
-    
-        <button type="button" class="btn-google">Continuar con Google <span class="google-btn__icon" aria-hidden="true">
-          <svg viewBox="0 0 48 48" width="20" height="20" xmlns="http://www.w3.org/2000/svg">
-            <path fill="#FFC107" d="M43.611 20.083H42V20H24v8h11.303C33.651 32.657 29.215 36 24 36c-6.627 0-12-5.373-12-12S17.373 12 24 12c3.059 0 5.842 1.154 7.955 3.045l5.657-5.657C34.046 6.053 29.27 4 24 4 12.955 4 4 12.955 4 24s8.955 20 20 20 20-8.955 20-20c0-1.341-.138-2.65-.389-3.917z"/>
-            <path fill="#FF3D00" d="M6.306 14.691l6.571 4.819C14.655 16.108 18.961 12 24 12c3.059 0 5.842 1.154 7.955 3.045l5.657-5.657C34.046 6.053 29.27 4 24 4c-7.732 0-14.41 4.388-17.694 10.691z"/>
-            <path fill="#4CAF50" d="M24 44c5.104 0 9.797-1.951 13.356-5.132l-6.166-5.215C29.13 35.091 26.672 36 24 36c-5.194 0-9.617-3.316-11.283-7.946l-6.522 5.025C9.445 39.556 16.227 44 24 44z"/>
-            <path fill="#1976D2" d="M43.611 20.083H42V20H24v8h11.303c-1.073 3.118-3.286 5.581-6.113 7.153l.003-.002 6.166 5.215C34.94 39.899 44 33 44 24c0-1.341-.138-2.65-.389-3.917z"/>
-          </svg></span>
+  
+        <!-- Google -->
+        <button type="button" class="btn-google">
+          Continuar con Google
+          <span class="google-btn__icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" width="20" height="20" xmlns="http://www.w3.org/2000/svg">
+              <path fill="#FFC107" d="M43.611 20.083H42V20H24v8h11.303C33.651 32.657 29.215 36 24 36c-6.627 0-12-5.373-12-12S17.373 12 24 12c3.059 0 5.842 1.154 7.955 3.045l5.657-5.657C34.046 6.053 29.27 4 24 4 12.955 4 4 12.955 4 24s8.955 20 20 20 20-8.955 20-20c0-1.341-.138-2.65-.389-3.917z"/>
+              <path fill="#FF3D00" d="M6.306 14.691l6.571 4.819C14.655 16.108 18.961 12 24 12c3.059 0 5.842 1.154 7.955 3.045l5.657-5.657C34.046 6.053 29.27 4 24 4c-7.732 0-14.41 4.388-17.694 10.691z"/>
+              <path fill="#4CAF50" d="M24 44c5.104 0 9.797-1.951 13.356-5.132l-6.166-5.215C29.13 35.091 26.672 36 24 36c-5.194 0-9.617-3.316-11.283-7.946l-6.522 5.025C9.445 39.556 16.227 44 24 44z"/>
+              <path fill="#1976D2" d="M43.611 20.083H42V20H24v8h11.303c-1.073 3.118-3.286 5.581-6.113 7.153l.003-.002 6.166 5.215C34.94 39.899 44 33 44 24c0-1.341-.138-2.65-.389-3.917z"/>
+            </svg>
+          </span>
         </button>
       </form>
-    
+  
       <div class="footer-login">
-        ¿No tenés cuenta? <a href="../registro/registroUsuario.html">Registrate</a>
+        ¿Ya tenés cuenta? <a href="login.html">Iniciá sesión</a>
       </div>
-    
-    </div>  
+  
+    </div>
   </main>
+
   <!-- Footer -->
   <footer class="footer ">
     <div class="footer-container">
@@ -726,10 +793,12 @@
   
   </footer>
   
-  <script src="../../Javascript/inicio de sesion y registro/inicioSesionUsuario.js"></script>
+  <script src="../../Javascript/inicio de sesion y registro/registroVendedor.js"></script>
   <script src="../../Javascript/home/header.js"></script>
   <script src="../../Javascript/home/script.js"></script>
 </body>
 </html>
+
+
 
 

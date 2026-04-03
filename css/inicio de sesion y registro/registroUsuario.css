@@ -90,6 +90,7 @@ main {
   gap: 8px;
   font-size: 13px;
   margin: 10px 0 15px;
+  color: var(--text);
 }
 
 .checkbox input {

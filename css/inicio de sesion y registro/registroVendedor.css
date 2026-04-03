@@ -1,0 +1,391 @@
+:root {
+  --primary: #FF6B35;
+  --primary-hover: #fc5c22;
+  --bg: #f5f5f5;
+  --text: #111;
+  --muted: #777;
+  --muted-2: #999;
+  --border: #ddd;
+  --white: #fff;
+  --error: #e53935;
+  --success: #2e7d32;
+  --focus: rgba(255, 107, 53, 0.15);
+  --shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+/* RESET */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: var(--text);
+  background: var(--bg);
+}
+
+/* MAIN */
+.main-content {
+  min-height: 100vh;
+  background: var(--bg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 1rem;
+}
+
+/* CARD */
+.auth-container {
+  background: var(--white);
+  padding: 2.25rem 1.75rem;
+  width: 100%;
+  max-width: 400px;
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  text-align: center;
+  animation: fadeIn 0.35s ease;
+}
+
+.auth-container--register {
+  max-width: 430px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* LOGO */
+.auth-container .logo {
+  width: 150px;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto 0.5rem;
+}
+
+.login-brand {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
+
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  margin-top: 1rem;
+}
+
+.auth-subtitle {
+  margin: 0 0 1.5rem;
+  font-size: 0.875rem;
+  color: var(--muted);
+  line-height: 1.4;
+}
+
+/* FORM */
+#registerSellerForm {
+  width: 100%;
+}
+
+/* INPUT GROUP */
+.input-group {
+  margin-bottom: 0.9rem;
+  text-align: left;
+}
+
+.input-group input,
+.input-group select {
+  width: 100%;
+  min-height: 48px;
+  padding: 0.85rem 0.95rem;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  font-size: 0.95rem;
+  background: var(--white);
+  color: var(--text);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  appearance: none;
+}
+
+.input-group select {
+  cursor: pointer;
+}
+
+.input-group input::placeholder {
+  color: var(--muted);
+}
+
+.input-group input:focus,
+.input-group select:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--focus);
+}
+
+/* INVALID STATE */
+.input-group input.is-invalid,
+.input-group select.is-invalid {
+  border-color: var(--error);
+  box-shadow: 0 0 0 3px rgba(229, 57, 53, 0.08);
+}
+
+/* PASSWORD */
+.password-wrapper {
+  position: relative;
+}
+
+.password-wrapper input {
+  padding-right: 3rem;
+}
+
+.toggle-password {
+  position: absolute;
+  top: 24px;
+  right: 0.75rem;
+  transform: translateY(-50%);
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: var(--muted);
+  font-size: 0.95rem;
+  padding: 0;
+  line-height: 1;
+}
+
+.toggle-password:hover {
+  color: var(--text);
+}
+
+/* HELPER */
+.helper-text {
+  margin-top: 0.35rem;
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+/* PASSWORD RULES */
+.password-rules {
+  margin: -0.2rem 0 0.9rem;
+  padding-left: 1rem;
+  text-align: left;
+  list-style: disc;
+}
+
+.password-rules li {
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin-bottom: 0.2rem;
+  transition: color 0.2s ease;
+}
+
+.password-rules li.valid {
+  color: var(--success);
+}
+
+/* CHECKBOX */
+.checkbox-group {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  margin: 0.25rem 0 0.35rem;
+  text-align: left;
+  margin: 10px 0 15px;
+}
+
+.checkbox-group input[type="checkbox"] {
+  margin-top: 0.2rem;
+  
+  flex-shrink: 0;
+}
+
+.checkbox-group label {
+  font-size: 0.8rem;
+  color: var(--muted);
+  color: #111;
+  line-height: 1.45;
+}
+
+.checkbox-group a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.checkbox-group a:hover {
+  text-decoration: underline;
+}
+
+/* ERRORS */
+.error {
+  color: var(--error);
+  font-size: 0.75rem;
+  margin-top: 0.35rem;
+  display: none;
+}
+
+.error.show {
+  display: block;
+}
+
+.checkbox-error {
+  text-align: left;
+  margin-bottom: 0.9rem;
+}
+
+/* BUTTONS */
+.btn-primary {
+  width: 100%;
+  min-height: 48px;
+  padding: 0.85rem 1rem;
+  background: var(--primary);
+  color: var(--white);
+  border: none;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.1s ease, opacity 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+}
+
+.btn-primary:hover {
+  background: var(--primary-hover);
+}
+
+.btn-primary:active {
+  transform: scale(0.995);
+}
+
+.btn-primary:disabled {
+  opacity: 0.8;
+  cursor: not-allowed;
+}
+
+/* LOADER */
+.btn-loader {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255,255,255,0.35);
+  border-top-color: #fff;
+  border-radius: 50%;
+  display: none;
+  animation: spin 0.8s linear infinite;
+}
+
+.btn-primary.is-loading .btn-loader {
+  display: inline-block;
+}
+
+.btn-primary.is-loading .btn-text {
+  opacity: 0.95;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* DIVIDER */
+.divider {
+  margin: 1rem 0;
+  font-size: 0.75rem;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+
+/* GOOGLE */
+.btn-google {
+  width: 100%;
+  min-height: 48px;
+  padding: 0.8rem 1rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--white);
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease;
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.95rem;
+}
+
+.btn-google:hover {
+  background: #f9f9f9;
+}
+
+/* FOOTER */
+.footer-login {
+  margin-top: 1.2rem;
+  font-size: 0.82rem;
+  color: var(--text);
+}
+
+.footer-login a {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.footer-login a:hover {
+  text-decoration: underline;
+}
+
+/* RESPONSIVE */
+@media (max-width: 480px) {
+  .main-content {
+    padding: 1rem;
+    align-items: flex-start;
+  }
+
+  .auth-container {
+    padding: 1.5rem 1rem;
+    border-radius: 18px;
+  }
+
+  .auth-container--register {
+    max-width: 100%;
+  }
+
+  .auth-container .logo {
+    width: 135px;
+  }
+
+  .login-brand {
+    font-size: 1.7rem;
+  }
+
+  .auth-subtitle {
+    font-size: 0.82rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .input-group input,
+  .input-group select,
+  .btn-primary,
+  .btn-google {
+    min-height: 46px;
+    font-size: 0.92rem;
+  }
+}
+
+
+
+
