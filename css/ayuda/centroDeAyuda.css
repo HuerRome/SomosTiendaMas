@@ -1,0 +1,163 @@
+
+
+/* Main container */
+.help-main {
+  padding: 40px 16px;
+}
+
+.help-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  background: #efeff2;
+  border-radius: 16px;
+  padding: 40px 20px;
+}
+
+/* Title */
+.help-title {
+  text-align: center;
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+/* Search */
+.search-box {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.search-box input {
+  width: 100%;
+  max-width: 500px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+/* Categories title */
+.categories-title {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+/* Grid */
+.categories {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+
+/* Item */
+.category-item {
+  background: #fff;
+  border-radius: 10px;
+  padding: 16px 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #e5e5e5;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.category-item:hover {
+  transform: translateY(-1px);
+}
+
+/* Left */
+.cat-left {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+/* Icon */
+.cat-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: #f5f0ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+}
+
+/* Text */
+.category-item h3 {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.category-item p {
+  font-size: 12px;
+  color: #666;
+}
+
+/* Arrow */
+.help-arrow{
+  font-size: 20px;
+  color: #999;
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+  .categories {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .help-title {
+    font-size: 32px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* FIX ICONOS (elimina círculos blancos) */
+.cat-icon i,
+.cat-icon svg {
+  background: transparent !important;
+  border-radius: 0 !important;
+  width: 18px;
+  height: 18px;
+  display: block;
+}

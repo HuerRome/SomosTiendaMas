@@ -3,27 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Header Marketplace Responsive</title>
-  <meta
-    name="description"
-    content="Header responsive estilo marketplace con logo e imagen de envío."
-  />
+  <title>TiendaMas - Marketplace Mayorista y Minorista</title>
+  <meta name="description" content="Comprá y vendé productos al por mayor y menor en TiendaMas. Marketplace con ofertas, envíos, múltiples categorías y oportunidades para negocios y emprendedores."/>
+  <link rel="icon" href="assets/marketplace-data/Logo.png" type="image/jpg">
   <!-- Font Awesome -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-  />
-  <link rel="stylesheet" href="css/home/style.css">
-  <link rel="stylesheet" href="css/home/header.css"/>
-  <link rel="stylesheet" href="css/home/best-sellers.css">
-  <link rel="stylesheet" href="css/home/bannerPublicitarios.css">
-  <link rel="stylesheet" href="css/home/footer.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
 
-  <link rel="stylesheet" href="css/paginaProducto/producto.css" />
-  
+  <link rel="stylesheet" href="../../css/home/style.css">
+  <link rel="stylesheet" href="../../css/home/header.css"/>
+  <link rel="stylesheet" href="../../css/home/best-sellers.css">
+  <link rel="stylesheet" href="../../css/home/products-section.css">
+  <link rel="stylesheet" href="../../css/home/bannerPublicitarios.css">
+  <link rel="stylesheet" href="../../css/home/footer.css">
+  <link rel="stylesheet" href="../../css/inicio de sesion y registro/miCuenta/miCuenta.css">
 </head>
 <body>
-
   <!-- =========================
        HEADER
   ========================== -->
@@ -82,10 +76,7 @@
             </li>
 
             <li class="nav-item nav-item--dropdown">
-              <button class="nav-pill nav-dropdown-btn" type="button">
-                Ofertas
-                <i class="fa-solid fa-angle-down"></i>
-              </button>
+              <button class="nav-pill nav-dropdown-btn" type="button">Ofertas</button>
 
               <div class="dropdown-menu">
                 <a href="#">Ofertas del día</a>
@@ -95,7 +86,7 @@
             </li>
 
             <li class="nav-item">
-              <a href="#" class="nav-pill">Destacados</a>
+              <a href="#" class="nav-pill">Más vendidos</a>
             </li>
 
             <li class="nav-item">
@@ -103,37 +94,30 @@
             </li>
 
             <li class="nav-item">
-              <a href="#" class="nav-pill">Contacto / Soporte</a>
+              <a href="inicio de sesion y registro/registro/registroVendedor.html" class="nav-pill">Vendé en TiendaMas</a>
             </li>
 
             <li class="nav-item">
               <a href="#" class="nav-pill">Ayuda</a>
-            </li>
-
-            <li class="nav-item">
-              <a href="inicio de sesion y registro/registro/registroVendedor.html" class="nav-pill">Vender</a>
             </li>
           </ul>
         </nav>
 
         <!-- ACCIONES DERECHA -->
         <div class="header-actions">
-
+          <a href="#" class="header-action">
+            <span class="header-action__btn">
+              <i class="fa-solid fa-location-dot"></i>
+              <span>Ubicación</span>
+            </span>
+          </a>
           <div class="header-action action-dropdown">
-            <button id="account" class="header-action__btn action-dropdown-btn" type="button">
-              <i class="fa-solid fa-user"></i>
-              <a href="inicio de sesion y registro/inicio de sesion/inicioSesionUsuario.html">
+            <a href="">
+              <button id="account" class="header-action__btn action-dropdown-btn" type="button">
+                <i class="fa-solid fa-user"></i>
                 <span>Cuenta</span>
-              </a>
-              <i class="fa-solid fa-angle-down header-action__chevron"></i>
-            </button>
-            <!--
-            <div class="dropdown-menu dropdown-menu--right">
-              <a href="#">Iniciar sesión</a>
-              <a href="#">Crear cuenta</a>
-              <a href="#">Mis pedidos</a>
-            </div>
-            -->
+              </button>
+            </a>
             <div class="dropdown-menu dropdown-menu--right account-menu">
               <div class="account-menu__header">
                 <div class="account-avatar">AR</div>
@@ -163,13 +147,6 @@
               </div>
             </div>
           </div>
-
-          <a href="#" class="header-action">
-            <span class="header-action__btn">
-              <i class="fa-solid fa-location-dot"></i>
-              <span>Ubicación</span>
-            </span>
-          </a>
 
           <a href="carrito.html" class="header-action">
             <span class="header-action__btn">
@@ -528,430 +505,76 @@
     ========================== -->
   </header>
 
-  <main class="main-content">
-    <!-- BREADCRUMB -->
-    <nav class="breadcrumb" aria-label="Breadcrumb">
-      <a href="/">Página principal</a>
-      <span>&gt;</span>
-      <a href="#">Moda y ropa</a>
-      <span>&gt;</span>
-      <a href="#">Invierno</a>
-      <span>&gt;</span>
-      <span class="active">pullovers</span>
-    </nav>
-
-    <!-- PRODUCT PAGE -->
-    <section class="product-page">
-      <div class="product-container">
-        <!-- LEFT COLUMN - GALLERY (STICKY) -->
-        <div class="product-gallery">
-          <div class="thumbnails">
-            <img src="assets/secciones de la página - producto/(4)Moda(ropa y calzado)/1.jpg" data-image="assets/secciones de la página - producto/(4)Moda(ropa y calzado)/1.jpg" class="thumb active" alt="Vista frontal del buzo">
-            <img src="assets/secciones de la página - producto/(4)Moda(ropa y calzado)/2.jpg" data-image="assets/secciones de la página - producto/(4)Moda(ropa y calzado)/2.jpg" class="thumb" alt="Vista trasera del buzo">
-            <img src="assets/secciones de la página - producto/(4)Moda(ropa y calzado)/3.jpg" data-image="assets/secciones de la página - producto/(4)Moda(ropa y calzado)/3.jpg" class="thumb" alt="Detalle del tejido">
-            <img src="assets/secciones de la página - producto/(4)Moda(ropa y calzado)/4.jpg" data-image="assets/secciones de la página - producto/(4)Moda(ropa y calzado)/4.jpg" class="thumb" alt="Modelo usando el buzo">
-            <img src="assets/secciones de la página - producto/(4)Moda(ropa y calzado)/5.jpg" data-image="assets/secciones de la página - producto/(4)Moda(ropa y calzado)/5.jpg" class="thumb" alt="Color alternativo">
+  <main class="main-content page-shell">
+    <div class="container">
+      <!-- Breadcrumb -->
+      <p class="breadcrumb">
+        <a href="index.html">Página principal</a> 
+        <i class="fa-solid fa-angle-right"></i>
+        <a href="miCuenta.html">Mi cuenta</a>
+      </p>
+  
+      <!-- Title -->
+      <h1 class="title">Mi cuenta</h1>
+  
+      <!-- Cards -->
+      <div class="cards">
+  
+        <!-- Card -->
+        <div class="card">
+          <div class="icon">
+            <!-- USER SVG -->
+            <img src="../../assets/icons/iconos/user.svg" alt="">
           </div>
-
-          <div class="main-image" id="mainImageContainer">
-            <button class="share-btn" aria-label="Compartir">
-              <i class="fa-solid fa-share-nodes"></i>
-            </button>
-            <img id="mainImage" src="assets/secciones de la página - producto/(4)Moda(ropa y calzado)/1.jpg" alt="Buzo Unisex Canguro">
+          <div class="card-content">
+            <h3>Mis datos</h3>
+            <p>Editá tus datos personales, tus direcciones, tus tarjetas y contraseñas.</p>
+            <a href="#">Ir a Mis datos</a>
           </div>
         </div>
-
-        <!-- RIGHT COLUMN - PRODUCT INFO -->
-        <div class="product-info">
-          <a href="#" class="brand-link">Ver más productos marca Narkis</a>
-
-          <h1 class="product-page-title">Buzos Unisex Canguro 100% Algodón Excelente Calidad</h1>
-            
-          
-
-          <div class="price">
-            <span class="main-price">$38.000</span>
-            <div class="installments">3 cuotas de $16.188</div>
-            <p class="tax-info">Precio incluye impuestos selectivos a 31.01%</p>
+  
+        <!-- Card -->
+        <div class="card">
+          <div class="icon">
+            <!-- BAG SVG -->
+            <img src="../../assets/icons/iconos/shopping-bag.svg" alt="">
           </div>
-
-          <div class="discount-box">
-            <i class="fa-solid fa-tag"></i> $15000 OFF disponible en  Naranja X
-          </div>
-
-          <a href="#" class="payments-link">Ver medios de pago y promociones</a>
-
-          <div class="shipping">
-            <p><strong>Llega el miércoles</strong></p>
-            <a href="#">Más detalles y formas de entrega</a>
-          </div>
-
-          <div class="returns">
-            <span>Devolución gratis</span>
-            <p>Tenés 30 días desde que lo recibís.</p>
-          </div>
-
-          <div class="shipping-buy-box">
-            <div class="shipping-option">
-              <i class="fa-solid fa-truck"></i>
-              <div>
-                <p>Envío a <a href="#">Catamarca (4700)</a> <strong>$4.499</strong></p>
-                <span>Entrega estimada 5 días hábiles</span>
-              </div>
-            </div>
-
-            <div class="shipping-option">
-              <i class="fa-solid fa-store"></i>
-              <div>
-                <p>Retiro <strong>GRATIS</strong> en sucursal</p>
-                <a href="#" class="store-link">Ver sucursales</a>
-              </div>
-            </div>
-
-            <div class="divider"></div>
-
-            <!-- QUANTITY SELECTOR -->
-            <div class="quantity-selector">
-              <label class="quantity-label">
-                Cantidad: <span id="qtyText">1 unidad</span>
-                <span class="stock-info">(+10 disponibles)</span>
-              </label>
-              <div class="quantity-counter">
-                <button class="qty-btn minus" id="decrementQty">−</button>
-                <input type="number" id="qtyInput" value="1" min="1" max="10" class="qty-input">
-                <button class="qty-btn plus" id="incrementQty">+</button>
-              </div>
-            </div>
-
-            <!-- SIZE SELECTOR -->
-            <div class="size-selector">
-              <label>Talle: <span id="selectedSize">Elegí</span></label>
-              <div class="size-options" id="sizeOptions">
-                <button class="size-btn" data-size="S">S</button>
-                <button class="size-btn" data-size="M">M</button>
-                <button class="size-btn" data-size="L">L</button>
-                <button class="size-btn" data-size="XL">XL</button>
-                <button class="size-btn" data-size="XXL">XXL</button>
-              </div>
-              <a href="#" class="size-guide"><i class="fa-solid fa-ruler"></i> Guía de talles</a>
-            </div>
-
-            <!-- COLOR SELECTOR -->
-            <div class="color-selector">
-              <label>Color: <span id="selectedColor">Negro</span></label>
-              <select id="colorSelect">
-                <option value="Negro">Negro</option>
-                <option value="Gris">Gris</option>
-                <option value="Marron">Marrón</option>
-                <option value="Blanco">Blanco</option>
-              </select>
-            </div>
-
-            <div class="divider"></div>
-
-            <!-- BUY BUTTONS -->
-            <div class="buy-buttons">
-              <button class="btn-buy" id="buyBtn">Comprar ahora</button>
-              <button class="btn-cart" id="addToCartBtn">Agregar al carrito</button>
-            </div>
+          <div class="card-content">
+            <h3>Mis compras</h3>
+            <p>Seguí el estado de tus compras y consultá tus facturas.</p>
+            <a href="#">Ir a Mis compras</a>
           </div>
         </div>
+  
+        <!-- Card -->
+        <div class="card">
+          <div class="icon">
+            <!-- CREDIT SVG -->
+            <img src="../../assets/icons/iconos/log-out.svg" alt="">
+          </div>
+          <div class="card-content">
+            <h3>Mis créditos</h3>
+            <p>Consultá el detalle de tus créditos y vencimientos de cuotas.</p>
+            <a href="#">Ir a Mis créditos</a>
+          </div>
+        </div>
+  
+        <!-- Card -->
+        <div class="card">
+          <div class="icon">
+            <!-- HELP SVG -->
+            <img src="../../assets/icons/iconos/question-icon.svg" alt="">
+          </div>
+          <div class="card-content">
+            <h3>Centro de ayuda</h3>
+            <p>Realizá consultas y reclamos. Contactanos para poder ayudarte.</p>
+            <a href="#">Ir al Centro de ayuda</a>
+          </div>
+        </div>
+  
       </div>
-    </section>
-
-    <!-- FEATURES SECTION -->
-    <section class="pd-section">
-      <div class="pd-container">
-    
-        <!-- LEFT -->
-        <div class="pd-description">
-          <h2 class="pd-title">Descripción</h2>
-    
-          <div class="pd-text pd-text--collapsed" id="pdText">
-            <p class="pd-subtitle">Buzo Canguro Hoodie</p>
-            <p>
-              Viene en tres versiones con 3 telas distintas, por fuera se ven exactamente igual, lo único que cambia es la tela, excepto los de POLAR, estos últimos si cambian y son más abrigados.
-            </p>
-            <p>
-              Para las épocas más frías y para los más friolentos el indicado es el Frizado y el Polar, lo seleccionan en el color, por ejemplo "NEGRO FRIZADO" o "NEGRO POLAR" y para primavera/verano el indicado es el RUSTICO, la diferencia es que la tela es más fina y liviana, para eso elijen el que dice "NEGRO RUSTICO".
-            </p>
-            <p>
-              Marca: Alpina, Fabricado en tela frizada, tela de algodón rustico Premium o en Polar, Con Capucha, Cordones ajustables, Bolsillos delanteros, Canchero y con excelentes terminaciones.
-            </p>
-          </div>
-    
-          <!--<button class="pd-toggle" id="pdToggle">
-            Ver descripción completa ▼
-          </button>-->
-        </div>
-    
-        <!-- RIGHT -->
-        <div class="pd-features">
-          <h2 class="pd-title">Características del producto</h2>
-    
-          <div class="pd-list">
-    
-            <div class="pd-item">
-              <i class="fa-solid fa-tag"></i>
-              <span><strong>Marca:</strong> Narkis</span>
-            </div>
-    
-            <div class="pd-item">
-              <i class="fa-solid fa-shirt"></i>
-              <span><strong>Material:</strong> 100% Algodón</span>
-            </div>
-    
-            <div class="pd-item">
-              <i class="fa-solid fa-snowflake"></i>
-              <span><strong>Temporada:</strong> Otoño/Invierno</span>
-            </div>
-    
-            <div class="pd-item">
-              <i class="fa-solid fa-pump-soap"></i>
-              <span><strong>Lavado:</strong> A máquina</span>
-            </div>
-    
-            <div class="pd-item">
-              <i class="fa-solid fa-ruler"></i>
-              <span><strong>Tipo de calce:</strong> Regular</span>
-            </div>
-    
-            <div class="pd-item">
-              <i class="fa-solid fa-layer-group"></i>
-              <span><strong>Capucha:</strong> Sí, con cordones</span>
-            </div>
-    
-          </div>
-    
-          <!--<button class="pd-more">
-            Ver todas las características ▼
-          </button>-->
-        </div>
-    
-      </div>
-    </section>
-
-    <section class="best-sellers">
-      <div class="section-header">
-        <p class="section-title">Lo mejor en <a href="#">Novedades De La Semana</a></p>
-        <div>
-          <a href="#" class="view-all">Ver más →</a>
-          <button class="slider-btn prev">&lt;</button> 
-          <button class="slider-btn next">&gt;</button>
-        </div>
-      </div>
-      <div class="slider-wrapper">
-        <div class="best-sellers-container" id="bestSellersSlider">  
-          <article class="product-card">
-            <button class="fav-btn">♡</button>    
-            <div class="product-image">
-              <img src="assets/products/home/heladera.png" alt="Producto">
-            </div> 
-            <h3 class="product-title">Heladera No Frost Whirlpool 400L Inverter</h3>
-            <div class="product-rating">
-              <span>$899.999</span>
-              <span class="star">★ 4.5</span>
-            </div>
-            <div class="product-price">
-              <span>$539.999</span>
-              <span>40% OFF</span>
-            </div>
-            <span>12 cuotas de $89.999</span>
-            <div class="product-actions">
-              <div>
-                <a href="producto.html"><button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button></a>
-              </div>
-            </div>
-          </article> 
-          <article class="product-card">
-            <button class="fav-btn">♡</button>    
-            <div class="product-image">
-              <img src="assets/products/home/single sofa.png" alt="Producto">
-            </div> 
-            <h3 class="product-title">Sillon Blanco Individual Un Cuerpo Chenille</h3>
-            <div class="product-rating">
-              <span>$899.999</span>
-              <span class="star">★ 4.5</span>
-            </div>
-            <div class="product-price">
-              <span>$539.999</span>
-              <span>40% OFF</span>
-            </div>
-            <span>12 cuotas de $89.999</span>
-            <div class="product-actions">
-              <div>
-                <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
-              </div>
-            </div>
-          </article> 
-          <article class="product-card">
-            <button class="fav-btn">♡</button>
-      
-            <div class="product-image">
-              <img src="assets/products/home/lavarropas.jpg" alt="Producto">
-            </div> 
-            <h3 class="product-title">Lavarropas Automático Drean 8kg EcoSilent</h3>
-            <div class="product-rating">
-              <span>$899.999</span>
-              <span class="star">★ 4.5</span>
-            </div>
-            <div class="product-price">
-              <span>$539.999</span>
-              <span>40% OFF</span>
-            </div>
-            <span>12 cuotas de $89.999</span>
-            <div class="product-actions">
-              <div>
-                <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
-              </div>
-            </div>
-          </article> 
-          <article class="product-card">
-            <button class="fav-btn">♡</button>
-      
-            <div class="product-image">
-              <img src="assets/products/electronics/adiculares.png" alt="Producto">
-            </div> 
-            <h3 class="product-title">Auricular Bluetooth inalámbrico</h3>
-            <div class="product-rating">
-              <span>$899.999</span>
-              <span class="star">★ 4.5</span>
-            </div>
-            <div class="product-price">
-              <span>$539.999</span>
-              <span>FREE <i class="fa-solid fa-truck-arrow-right"></i></span>
-            </div>
-            <span>12 cuotas de $89.999</span>
-            <div class="product-actions">
-              <div>
-                <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
-              </div>
-            </div>
-          </article>  
-          <article class="product-card">
-            <button class="fav-btn">♡</button>
-      
-            <div class="product-image">
-              <img src="assets/products/home/aire acondicionado.png" alt="Producto">
-            </div> 
-            <h3 class="product-title">Aire Acondicionado Portátil Frío/Calor</h3>
-            <div class="product-rating">
-              <span>$89.999</span>
-              <span class="star">★ 4.5</span>
-            </div>
-            <div class="product-price">
-              <span>$53.999</span>
-              <span>40% OFF</span>
-            </div>
-            <span>12 cuotas de $89.999</span>
-            <div class="product-actions">
-              <div>
-                <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
-              </div>
-            </div>
-          </article>   
-          <article class="product-card">
-            <button class="fav-btn">♡</button>
-      
-            <div class="product-image">
-              <img src="assets/products/clothes/sports/discos olímpicos.png" alt="Producto">
-            </div> 
-            <h3 class="product-title">Par De Discos 5 Kg 2.5 Kg 1 Kg Fundicion Macizo Pesas Gym</h3>
-            <div class="product-rating">
-              <span>$899.999</span>
-              <span class="star">★ 4.5</span>
-            </div>
-            <div class="product-price">
-              <span>$59.999</span>
-              <span>40% OFF</span>
-            </div>
-            <span>12 cuotas de $89.999</span>
-            <div class="product-actions">
-              <div>
-                <a href="paginaProducto.html"><button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button></a>
-              </div>
-            </div>
-          </article> 
-          <article class="product-card">
-            <button class="fav-btn">♡</button>
-      
-            <div class="product-image">
-              <img src="assets/products/electronics/silla gamer.jpg" alt="Producto">
-            </div> 
-            <h3 class="product-title">Silla Ergonómica Gamer Reclinable con Luce...</h3>
-            <div class="product-rating">
-              <span>$899.999</span>
-              <span class="star">★ 4.5</span>
-            </div>
-            <div class="product-price">
-              <span>$539.999</span>
-              <span>40% OFF</span>
-            </div>
-            <span>12 cuotas de $89.999</span>
-            <div class="product-actions">
-              <div>
-                <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
-              </div>
-            </div>
-          </article> 
-          <article class="product-card">
-            <button class="fav-btn">♡</button>
-      
-            <div class="product-image">
-              <img src="assets/products/clothes/sports/Zapatilla Nike.png" alt="Producto">
-            </div> 
-            <h3 class="product-title">Zapatillas Nike Air Max 270 Hombre Originales</h3>
-            <div class="product-rating">
-              <span>$899.999</span>
-              <span class="star">★ 4.5</span>
-            </div>
-            <div class="product-price">
-              <span>$539.999</span>
-              <span>40% OFF</span>
-            </div>
-            <span>12 cuotas de $89.999</span>
-            <div class="product-actions">
-              <div>
-                <button class="add-cart">Agregar <i class="fa-solid fa-cart-arrow-down"></i></button>
-              </div>
-            </div>
-          </article> 
-        </div>
-      </div>
-    </section>
-
-    <section class="promo-section">
-      <div class="promo-container">
-    
-        <a href="#" class="picture-container">
-          <picture class="picture-rounded">
-            <source media="(max-width:480px)" 
-            srcset="assets/banners/bannersPublicitarios/anuncio 1.webp">
-    
-            <source media="(min-width:481px)" 
-            srcset="assets/banners/bannersPublicitarios/anuncio 1.webp">
-    
-            <img src="assets/banners/bannersPublicitarios/anuncio 1.webp" 
-            alt="Promoción Mercado Pago">
-          </picture>
-        </a>
-    
-        <a href="#" class="picture-container">
-          <picture class="picture-rounded">
-            <source media="(max-width:480px)" 
-            srcset="assets/banners/bannersPublicitarios/anuncio 2.webp">
-    
-            <source media="(min-width:481px)" 
-            srcset="assets/banners/bannersPublicitarios/anuncio 2.webp">
-    
-            <img src="assets/banners/bannersPublicitarios/anuncio 2.webp" 
-            alt="Vehículos">
-          </picture>
-        </a>      
-      </div>
-    </section>    
+    </div>
   </main>
-
   <!-- Footer -->
   <footer class="footer ">
     <div class="footer-container">
@@ -970,14 +593,15 @@
 
       <!-- Columna -->
       <div class="footer-col">
-        <h4>Atención al Cliente</h4>
+        <h4>Ayuda de compra</h4>
         <ul>
-          <li><a href="#">Acerca de</a></li>
-          <li><a href="#">Soporte técnico</a></li>
+          <li><a href="#">Cómo comprar</a></li>
+          <li><a href="#">Medios de pago</a></li>
           <li><a href="#">Preguntas frecuentes</a></li>
+          <li><a href="#">Cambios y devoluciones</a></li>
           <li><a href="#">Terminos y condiciones</a></li>
           <li><a href="#">Política de privacidad</a></li>
-          <li><a href="#">Información de Envíos</a></li>
+          
         </ul>
       </div>
       <!-- Columna -->
@@ -994,21 +618,21 @@
       </div>
       <!-- Columna -->
       <div class="footer-col">
-        <h4>Mi cuenta</h4>
+        <h4>Vendedores</h4>
         <ul>
-          <li><a href="#">Iniciar sesión</a></li>
-          <li><a href="#">Registrarse</a></li>
-          <li><a href="#">Mis pedidos</a></li>
-          <li><a href="#">Direcciones</a></li>
-          <li><a href="#">Métodos de pago</a></li>
-          <li><a href="#">Cerrar sesión</a></li>
+          <li><a href="#">Vendé en TiendaMas</a></li>
+          <li><a href="#">Requisitos para vender</a></li>
+          <li><a href="#">Comisiones</a></li>
+          <li><a href="#">Publicá tus productos</a></li>
+          <li><a href="#">Centro para vendedores</a></li>
+          <li><a href="#">Trabajá con nosotros</a></li>
         </ul>
       </div>
 
       <!-- Newsletter -->
       <div class="footer-col subscribe">
         <h4>Suscribite</h4>
-         <p>Suscribite a nuestro newsletter para recibir novedades y ofertas exclusivas.</p>
+         <p>Recibí ofertas, novedades y lanzamientos exclusivos.</p>
   
         <form class="subscribe-box">
           <input type="email" placeholder="Correo electrónico">
@@ -1028,11 +652,9 @@
   <button id="goTopBtn" aria-label="Volver arriba">
     <i class="fa-solid fa-arrow-up"></i>
   </button>
-  <script src="Javascript/home/script.js"></script>
-  <script src="Javascript/home/header.js"></script>  
-  <script src="Javascript/producto/script.js"></script>
-  <script src="Javascript/home/product-slider.js"></script>
+  <script src="../../Javascript/home/script.js"></script>
+  <script src="../../Javascript/home/header.js"></script>
+  <script src="../../Javascript/inicio de sesion y registro/miCuenta/miCuenta.js"></script>
 </body>
 </html>
-
 

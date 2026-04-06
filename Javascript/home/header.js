@@ -100,105 +100,6 @@ document.addEventListener("DOMContentLoaded", () => {
   /* =========================================================
      PANEL CATEGORÍAS (desktop / tablet)
   ========================================================= */
-  function openCategoriesPanel() {
-    if (!isDesktopOrTablet() || !siteHeader || !categoriesPanel || !categoriesBtn) return;
-
-    clearTimeout(categoriesCloseTimeout);
-    closeAllDesktopDropdowns();
-
-    siteHeader.classList.add("categories-panel-open");
-    categoriesPanel.setAttribute("aria-hidden", "false");
-    categoriesBtn.setAttribute("aria-expanded", "true");
-  }
-
-  function closeCategoriesPanel() {
-    if (!siteHeader || !categoriesPanel || !categoriesBtn) return;
-
-    siteHeader.classList.remove("categories-panel-open");
-    categoriesPanel.setAttribute("aria-hidden", "true");
-    categoriesBtn.setAttribute("aria-expanded", "false");
-  }
-
-  function delayedCloseCategoriesPanel() {
-    clearTimeout(categoriesCloseTimeout);
-    categoriesCloseTimeout = setTimeout(() => {
-      closeCategoriesPanel();
-    }, 140);
-  }
-
-  function activateCategory(categoryId) {
-    categoryMainButtons.forEach((btn) => {
-      btn.classList.toggle("is-active", btn.dataset.category === categoryId);
-    });
-
-    categoryContents.forEach((content) => {
-      content.classList.toggle("is-active", content.dataset.content === categoryId);
-    });
-  }
-
-  if (categoriesItem && categoriesPanel && categoriesBtn) {
-    // Hover en botón/item
-    categoriesItem.addEventListener("mouseenter", () => {
-      if (isDesktopOrTablet()) openCategoriesPanel();
-    });
-
-    categoriesItem.addEventListener("mouseleave", () => {
-      if (isDesktopOrTablet()) delayedCloseCategoriesPanel();
-    });
-
-    // Hover en panel
-    categoriesPanel.addEventListener("mouseenter", () => {
-      if (isDesktopOrTablet()) {
-        clearTimeout(categoriesCloseTimeout);
-        openCategoriesPanel();
-      }
-    });
-
-    categoriesPanel.addEventListener("mouseleave", () => {
-      if (isDesktopOrTablet()) delayedCloseCategoriesPanel();
-    });
-
-    // Click / focus accesible
-    categoriesBtn.addEventListener("click", (e) => {
-      if (!isDesktopOrTablet()) return;
-
-      e.preventDefault();
-      e.stopPropagation();
-
-      const isOpen = siteHeader.classList.contains("categories-panel-open");
-
-      closeAllDesktopDropdowns();
-
-      if (isOpen) {
-        closeCategoriesPanel();
-      } else {
-        openCategoriesPanel();
-      }
-    });
-
-    categoriesBtn.addEventListener("focus", () => {
-      if (isDesktopOrTablet()) openCategoriesPanel();
-    });
-  }
-
-  // Hover y click en categorías principales
-  categoryMainButtons.forEach((btn) => {
-    btn.addEventListener("mouseenter", () => {
-      if (!isDesktopOrTablet()) return;
-      activateCategory(btn.dataset.category);
-    });
-
-    btn.addEventListener("click", () => {
-      if (!isDesktopOrTablet()) return;
-      activateCategory(btn.dataset.category);
-    });
-
-    btn.addEventListener("focus", () => {
-      if (!isDesktopOrTablet()) return;
-      openCategoriesPanel();
-      activateCategory(btn.dataset.category);
-    });
-  });
 
   /* =========================================================
      DRAWER MOBILE
@@ -321,4 +222,94 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+document.addEventListener("DOMContentLoaded", () => {
+  const categoriesBtn = document.querySelector(".nav-categories-btn");
+  const categoriesPanel = document.getElementById("categoriesPanel");
+  const sidebarItems = document.querySelectorAll(".categories-sidebar__item");
+  const views = document.querySelectorAll(".categories-view");
 
+  if (!categoriesBtn || !categoriesPanel) return;
+
+  const DESKTOP_BREAKPOINT = 768;
+  let closeTimeout = null;
+
+  const isDesktopOrTablet = () => window.innerWidth > DESKTOP_BREAKPOINT;
+
+  const openPanel = () => {
+    if (!isDesktopOrTablet()) return;
+
+    clearTimeout(closeTimeout);
+    categoriesPanel.classList.add("is-open");
+    categoriesPanel.setAttribute("aria-hidden", "false");
+    categoriesBtn.setAttribute("aria-expanded", "true");
+    categoriesBtn.classList.add("is-open");
+  };
+
+  const closePanel = () => {
+    categoriesPanel.classList.remove("is-open");
+    categoriesPanel.setAttribute("aria-hidden", "true");
+    categoriesBtn.setAttribute("aria-expanded", "false");
+    categoriesBtn.classList.remove("is-open");
+  };
+
+  const closePanelWithDelay = () => {
+    clearTimeout(closeTimeout);
+    closeTimeout = setTimeout(() => {
+      closePanel();
+    }, 90);
+  };
+
+  const setActiveCategory = (key) => {
+    sidebarItems.forEach((item) => {
+      item.classList.toggle("is-active", item.dataset.category === key);
+    });
+
+    views.forEach((view) => {
+      view.classList.toggle("is-active", view.dataset.view === key);
+    });
+  };
+
+  // Hover en botón
+  categoriesBtn.addEventListener("mouseenter", openPanel);
+  categoriesBtn.addEventListener("mouseleave", closePanelWithDelay);
+
+  // Hover en panel
+  categoriesPanel.addEventListener("mouseenter", () => {
+    clearTimeout(closeTimeout);
+    openPanel();
+  });
+
+  categoriesPanel.addEventListener("mouseleave", closePanelWithDelay);
+
+  // Hover en cada item del sidebar
+  sidebarItems.forEach((item) => {
+    item.addEventListener("mouseenter", () => {
+      setActiveCategory(item.dataset.category);
+    });
+
+    // soporte teclado
+    item.addEventListener("focus", () => {
+      setActiveCategory(item.dataset.category);
+      openPanel();
+    });
+  });
+
+  // Accesibilidad / teclado
+  categoriesBtn.addEventListener("focus", openPanel);
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      closePanel();
+    }
+  });
+
+  // Si resize a mobile, cerrar sí o sí
+  window.addEventListener("resize", () => {
+    if (!isDesktopOrTablet()) {
+      closePanel();
+    }
+  });
+
+  // Estado inicial
+  setActiveCategory("tv-audio");
+});
