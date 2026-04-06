@@ -5,12 +5,15 @@
   gap: 40px;
   max-width: 1200px;
   margin: 0 auto;
+  background: #ededed;
 }
 
 /* ===== SIDEBAR ===== */
 .terms-sidebar {
   border-right: 1px solid #e5e5e5;
   padding-right: 20px;
+  padding-top: 1.5rem;
+  background: #fff;
 }
 
 .terms-sidebar h4 {
@@ -45,7 +48,53 @@
 /* ===== CONTENT ===== */
 .terms-content {
   max-width: 750px;
+  padding-top: 1.5rem;
+  padding-bottom: 4rem;
 }
+
+/*Información legal*/
+/* ========== BARRA SUPERIOR - INFORMACIÓN LEGAL ========== */
+.legal-header {
+  width: 100%;
+  border-bottom: 1px solid #ddd;
+}
+
+.legal-header__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px 20px;
+  padding: 18px 0px;
+}
+
+.legal-header p {
+  font-size: 22px;
+  color: #333;
+  margin: 0;
+  font-weight: 500;
+}
+
+/* TABLET */
+@media (max-width: 1024px) {
+  .legal-header__inner {
+    padding: 16px 18px;
+  }
+
+  .legal-header p {
+    font-size: 20px;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .legal-header__inner {
+    padding: 14px 16px;
+  }
+
+  .legal-header p {
+    font-size: 18px;
+  }
+}
+/* ======================================================== */
 
 .terms-section {
   font-size: 14px;
@@ -88,6 +137,7 @@
 /* MOBILE */
 @media (max-width: 768px) {
   .terms-container {
+    background: #fff;
     grid-template-columns: 1fr;
   }
 
