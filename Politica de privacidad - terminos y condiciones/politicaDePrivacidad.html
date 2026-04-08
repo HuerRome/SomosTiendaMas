@@ -1,326 +1,848 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Política de Privacidad | Tienda Más</title>
-    <style>
-        :root {
-            --color-primary: #FF6B35; /* Naranja institucional */
-            --color-secondary: #004E89; /* Azul oscuro */
-            --color-text: #333333;
-            --color-light: #f8f9fa;
-            --color-white: #ffffff;
-            --max-width: 800px;
-            --border-radius: 8px;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TiendaMas - Marketplace Mayorista y Minorista</title>
+  <meta name="description" content="Comprá y vendé productos al por mayor y menor en TiendaMas. Marketplace con ofertas, envíos, múltiples categorías y oportunidades para negocios y emprendedores."/>
+  <link rel="icon" href="assets/marketplace-data/Logo.png" type="image/jpg">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
-            line-height: 1.6;
-            color: var(--color-text);
-            background-color: var(--color-white);
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-
-        /* Header */
-        header {
-            background-color: var(--color-white);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            padding: 1.5rem 0;
-        }
-
-        .header-container {
-            max-width: var(--max-width);
-            margin: 0 auto;
-            width: 90%;
-            display: flex;
-            align-items: center;
-        }
-
-        .logo {
-            color: var(--color-primary);
-            font-size: 1.8rem;
-            font-weight: 700;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .logo::before {
-            content: "🛍️";
-            font-size: 1.5rem;
-        }
-
-        /* Main content */
-        main {
-            flex: 1;
-            width: 100%;
-            max-width: var(--max-width);
-            margin: 2rem auto;
-            padding: 0 1.5rem;
-        }
-
-        h1 {
-            color: var(--color-primary);
-            margin-bottom: 1.5rem;
-            font-size: 2rem;
-            font-weight: 700;
-        }
-
-        h2 {
-            color: var(--color-primary);
-            margin: 3rem 0 1.5rem;
-            padding-top: 0.5rem;
-            font-size: 1.5rem;
-            font-weight: 600;
-            scroll-margin-top: 100px;
-        }
-
-        h3 {
-            color: var(--color-secondary);
-            margin: 2rem 0 1rem;
-            font-size: 1.2rem;
-            font-weight: 500;
-        }
-
-        p, ul, ol {
-            margin-bottom: 1.5rem;
-            font-size: 1rem;
-        }
-
-        ul, ol {
-            padding-left: 1.5rem;
-        }
-
-        li {
-            margin-bottom: 0.5rem;
-        }
-
-        a {
-            color: var(--color-secondary);
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.2s ease;
-        }
-
-        a:hover {
-            text-decoration: underline;
-            color: #003366;
-        }
-
-        /* Navigation */
-        .nav-container {
-            background-color: var(--color-light);
-            padding: 1.5rem;
-            border-radius: var(--border-radius);
-            margin: 2.5rem 0;
-        }
-
-        .nav-container h3 {
-            margin-top: 0;
-            margin-bottom: 1rem;
-        }
-
-        .nav-list {
-            list-style-type: none;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 0.75rem;
-        }
-
-        .nav-list li {
-            margin-bottom: 0;
-        }
-
-        .nav-list a {
-            display: block;
-            padding: 0.5rem;
-            border-radius: 4px;
-            transition: all 0.2s ease;
-        }
-
-        .nav-list a:hover {
-            background-color: rgba(0, 78, 137, 0.1);
-            text-decoration: none;
-        }
-
-        /* Highlight box */
-        .highlight {
-            background-color: rgba(255, 107, 53, 0.1);
-            border-left: 4px solid var(--color-primary);
-            padding: 1.5rem;
-            margin: 2rem 0;
-            border-radius: 0 var(--border-radius) var(--border-radius) 0;
-        }
-
-        /* Footer */
-        footer {
-            background-color: var(--color-secondary);
-            color: var(--color-white);
-            text-align: center;
-            padding: 2rem;
-            margin-top: 3rem;
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            main {
-                padding: 0 1rem;
-            }
-            
-            h1 {
-                font-size: 1.7rem;
-            }
-            
-            h2 {
-                font-size: 1.3rem;
-                margin: 2.5rem 0 1.25rem;
-            }
-
-            .nav-list {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .header-container {
-                width: 95%;
-            }
-            
-            .logo {
-                font-size: 1.5rem;
-            }
-            
-            .nav-container {
-                padding: 1.25rem;
-            }
-            
-            .highlight {
-                padding: 1.25rem;
-            }
-        }
-    </style>
+  <link rel="stylesheet" href="../../css/home/style.css">
+  <link rel="stylesheet" href="../../css/home/header.css"/>
+  <link rel="stylesheet" href="../../css/home/best-sellers.css">
+  <link rel="stylesheet" href="../../css/home/products-section.css">
+  <link rel="stylesheet" href="../../css/home/bannerPublicitarios.css">
+  <link rel="stylesheet" href="../../css/home/footer.css">
+  <link rel="stylesheet" href="../../css/legales/terminosYCondiciones.css">
 </head>
 <body>
-    <header>
-        <div class="header-container">
-            <a href="#" class="logo">Tienda Más</a>
+  <!-- =========================
+       HEADER
+  ========================== -->
+  <header class="site-header">
+    <div class="header-shell">
+      <div class="header-top">
+        <a href="index.html" class="brand" aria-label="Ir al inicio">
+          <img src="assets/marketplace-data/Logo-text 2.png" alt="TiendaMas+ Marketplace mayorista" class="brand__img logo-desktop">
+          <img src="assets/marketplace-data/Logo.png" alt="TiendaMas+ Marketplace mayorista" class="brand__img logo-mobile">
+        </a>
+        <form class="search" id="searchForm" role="search">
+          <label class="sr-only" for="searchInput">Buscar productos</label>
+          <input
+            id="searchInput"
+            class="search__input"
+            type="search"
+            placeholder="Buscar producto, marca o categoría..."
+            aria-label="Buscar productos"
+          />
+          <button class="search__btn" type="submit" aria-label="Buscar">
+            <!--<i class="fa-brands fa-sistrix"></i>-->
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </form>
+        <a href="#" class="shipping-banner" aria-label="Ingresando tu ubicación">
+          <img src="assets/marketplace-data/envio.png" alt="Envío ingresando tu ubicación" class="shipping-banner__img"/>
+        </a>
+        <!-- MENÚ HAMBURGUESA MOBILE -->
+        <button
+          class="mobile-menu-btn"
+          id="mobileMenuBtn"
+          aria-label="Abrir menú"
+          aria-expanded="false"
+          aria-controls="mobileDrawer"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+
+      <div class="header-bottom">
+        <!-- NAV IZQUIERDA -->
+        <nav class="main-nav" aria-label="Navegación principal">
+          <ul class="main-nav__list">
+            <li class="nav-item nav-item--categories">
+              <button
+                class="nav-pill nav-pill--primary nav-dropdown-btn nav-categories-btn"
+                type="button"
+                aria-expanded="false"
+                aria-controls="categoriesPanel"
+              >
+                Categorías
+                <i class="fa-solid fa-angle-down"></i>
+              </button>
+            </li>
+
+            <li class="nav-item nav-item--dropdown">
+              <button class="nav-pill nav-dropdown-btn" type="button">Ofertas</button>
+
+              <div class="dropdown-menu">
+                <a href="#">Ofertas del día</a>
+                <a href="#">Combos</a>
+                <a href="#">Descuentos por mayor</a>
+              </div>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-pill">Más vendidos</a>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-pill">Novedades</a>
+            </li>
+
+            <li class="nav-item">
+              <a href="inicio de sesion y registro/registro/registroVendedor.html" class="nav-pill">Vendé en TiendaMas</a>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-pill">Ayuda</a>
+            </li>
+          </ul>
+        </nav>
+
+        <!-- ACCIONES DERECHA -->
+        <div class="header-actions">
+          <a href="#" class="header-action">
+            <span class="header-action__btn">
+              <i class="fa-solid fa-location-dot"></i>
+              <span>Ubicación</span>
+            </span>
+          </a>
+          <div class="header-action action-dropdown">
+            <a href="">
+              <button id="account" class="header-action__btn action-dropdown-btn" type="button">
+                <i class="fa-solid fa-user"></i>
+                <span>Cuenta</span>
+              </button>
+            </a>
+            <div class="dropdown-menu dropdown-menu--right account-menu">
+              <div class="account-menu__header">
+                <div class="account-avatar">AR</div>
+                <div>
+                  <p class="account-name">Anita</p>
+                  <span class="account-profile">Mi perfil <i class="fa-solid fa-angle-right"></i></span>
+                </div>
+              </div>
+              <div class="account-divider"></div>
+              <div class="account-section">
+                <a href="#"><i class="fa-solid fa-bag-shopping"></i> Compras</a>
+                <a href="#"><i class="fa-solid fa-clock-rotate-left"></i> Historial</a>
+                <a href="#"><i class="fa-regular fa-circle-question"></i> Preguntas</a>
+                <a href="#"><i class="fa-regular fa-comments"></i> Opiniones</a>
+              </div>
+              <div class="account-divider"></div>
+              <div class="account-section">
+                <a href="#"><i class="fa-regular fa-credit-card"></i>Créditos</a>
+              </div>
+              <div class="account-divider"></div>
+              <div class="account-section">
+                <a href="#"><i class="fa-solid fa-tag"></i> Vender</a>
+              </div>
+              <div class="account-divider"></div>
+              <div class="account-section">
+                <a href="#" class="logout">Salir <i class="fa-solid fa-arrow-right-from-bracket"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <a href="carrito.html" class="header-action">
+            <span class="header-action__btn">
+              <i class="fa-solid fa-cart-shopping"></i>
+              <span id="cart-count">3</span> Carrito
+            </span>
+          </a>
+
         </div>
-    </header>
-    
-    <main>
+      </div>
+      <!-- =========================
+           PANEL DE CATEGORÍAS DESKTOP/TABLET
+      ========================== -->
+      <div class="categories-panel" id="categoriesPanel" aria-hidden="true">
+        <div class="categories-panel__inner">
+      
+          <!-- COLUMNA IZQUIERDA -->
+          <aside class="categories-sidebar" aria-label="Listado de categorías">
+            <button class="categories-sidebar__item is-active" type="button" data-category="tv-audio">
+              <span>TV y Audio</span>
+              <i class="fa-solid fa-angle-right"></i>
+            </button>
+      
+            <button class="categories-sidebar__item" type="button" data-category="tecnologia">
+              <span>Tecnología</span>
+              <i class="fa-solid fa-angle-right"></i>
+            </button>
+      
+            <button class="categories-sidebar__item" type="button" data-category="electrodomesticos">
+              <span>Electrodomésticos</span>
+              <i class="fa-solid fa-angle-right"></i>
+            </button>
+      
+            <button class="categories-sidebar__item" type="button" data-category="hogar">
+              <span>Hogar</span>
+              <i class="fa-solid fa-angle-right"></i>
+            </button>
+      
+            <button class="categories-sidebar__item" type="button" data-category="deportes">
+              <span>Deportes y Fitness</span>
+              <i class="fa-solid fa-angle-right"></i>
+            </button>
+      
+            <button class="categories-sidebar__item" type="button" data-category="juguetes">
+              <span>Juguetes, Bebés y Niños</span>
+              <i class="fa-solid fa-angle-right"></i>
+            </button>
+      
+            <button class="categories-sidebar__item" type="button" data-category="belleza">
+              <span>Belleza y Cuidado Personal</span>
+              <i class="fa-solid fa-angle-right"></i>
+            </button>
+      
+            <button class="categories-sidebar__item" type="button" data-category="herramientas">
+              <span>Herramientas y Construcción</span>
+              <i class="fa-solid fa-angle-right"></i>
+            </button>
+      
+            <button class="categories-sidebar__item" type="button" data-category="otras">
+              <span>Otras Categorías</span>
+              <i class="fa-solid fa-angle-right"></i>
+            </button>
+          </aside>
+      
+          <!-- CONTENIDO DERECHO -->
+          <section class="categories-content">
+      
+            <!-- PANEL 1 -->
+            <div class="categories-view is-active" data-view="tv-audio">
+              <div class="categories-content__header">
+                <h3>TV y Audio</h3>
+                <a href="#">Ver todo</a>
+              </div>
+      
+              <div class="categories-grid">
+                <div class="categories-group">
+                  <h4>TV por marca</h4>
+                  <a href="#">Philips</a>
+                  <a href="#">Samsung TV</a>
+                  <a href="#">LG</a>
+                  <a href="#">TCL</a>
+                </div>
+      
+                <div class="categories-group">
+                  <h4>TV por pulgadas</h4>
+                  <a href="#">Menos de 50”</a>
+                  <a href="#">Más de 50”</a>
+                </div>
+      
+                <div class="categories-group">
+                  <h4>Soportes y accesorios</h4>
+                  <a href="#">Mesas y rack para TV</a>
+                  <a href="#">Soportes</a>
+                  <a href="#">Smart box</a>
+                </div>
+      
+                <div class="categories-group">
+                  <h4>Audio y Sonido</h4>
+                  <a href="#">Auriculares</a>
+                  <a href="#">Soundbar</a>
+                  <a href="#">Estéreos</a>
+                  <a href="#">Parlantes</a>
+                </div>
+      
+                <div class="categories-group">
+                  <h4>Tocadiscos</h4>
+                </div>
+              </div>
+            </div>
+      
+            <!-- PANEL 2 -->
+            <div class="categories-view" data-view="tecnologia">
+              <div class="categories-content__header">
+                <h3>Tecnología</h3>
+                <a href="#">Ver todo</a>
+              </div>
+      
+              <div class="categories-grid">
+                <div class="categories-group">
+                  <h4>Celulares</h4>
+                  <a href="#">Samsung</a>
+                  <a href="#">Motorola</a>
+                  <a href="#">Xiaomi</a>
+                </div>
+                <div class="categories-group">
+                  <h4>Computación</h4>
+                  <a href="#">Notebooks</a>
+                  <a href="#">Monitores</a>
+                  <a href="#">Teclados</a>
+                </div>
+                <div class="categories-group">
+                  <h4>Gaming</h4>
+                  <a href="#">Mouse gamer</a>
+                  <a href="#">Sillas gamer</a>
+                  <a href="#">Consolas</a>
+                </div>
+              </div>
+            </div>
+      
+            <!-- PANEL 3 -->
+            <div class="categories-view" data-view="electrodomesticos">
+              <div class="categories-content__header">
+                <h3>Electrodomésticos</h3>
+                <a href="#">Ver todo</a>
+              </div>
+      
+              <div class="categories-grid">
+                <div class="categories-group">
+                  <h4>Cocina</h4>
+                  <a href="#">Heladeras</a>
+                  <a href="#">Microondas</a>
+                  <a href="#">Hornos eléctricos</a>
+                </div>
+                <div class="categories-group">
+                  <h4>Lavado</h4>
+                  <a href="#">Lavarropas</a>
+                  <a href="#">Secarropas</a>
+                </div>
+                <div class="categories-group">
+                  <h4>Climatización</h4>
+                  <a href="#">Aires acondicionados</a>
+                  <a href="#">Ventiladores</a>
+                </div>
+              </div>
+            </div>
+      
+            <!-- PANEL 4 -->
+            <div class="categories-view" data-view="hogar">
+              <div class="categories-content__header">
+                <h3>Hogar</h3>
+                <a href="#">Ver todo</a>
+              </div>
+      
+              <div class="categories-grid">
+                <div class="categories-group">
+                  <h4>Muebles</h4>
+                  <a href="#">Sillones</a>
+                  <a href="#">Mesas</a>
+                  <a href="#">Sillas</a>
+                </div>
+                <div class="categories-group">
+                  <h4>Decoración</h4>
+                  <a href="#">Lámparas</a>
+                  <a href="#">Cuadros</a>
+                </div>
+              </div>
+            </div>
+      
+            <!-- PANEL 5 -->
+            <div class="categories-view" data-view="deportes">
+              <div class="categories-content__header">
+                <h3>Deportes y Fitness</h3>
+                <a href="#">Ver todo</a>
+              </div>
+      
+              <div class="categories-grid">
+                <div class="categories-group">
+                  <h4>Entrenamiento</h4>
+                  <a href="#">Mancuernas</a>
+                  <a href="#">Colchonetas</a>
+                </div>
+                <div class="categories-group">
+                  <h4>Running</h4>
+                  <a href="#">Zapatillas</a>
+                  <a href="#">Ropa deportiva</a>
+                </div>
+              </div>
+            </div>
+      
+            <!-- PANEL 6 -->
+            <div class="categories-view" data-view="juguetes">
+              <div class="categories-content__header">
+                <h3>Juguetes, Bebés y Niños</h3>
+                <a href="#">Ver todo</a>
+              </div>
+      
+              <div class="categories-grid">
+                <div class="categories-group">
+                  <h4>Bebés</h4>
+                  <a href="#">Cochecitos</a>
+                  <a href="#">Sillas para comer</a>
+                </div>
+                <div class="categories-group">
+                  <h4>Juguetes</h4>
+                  <a href="#">Didácticos</a>
+                  <a href="#">Peluches</a>
+                </div>
+              </div>
+            </div>
+      
+            <!-- PANEL 7 -->
+            <div class="categories-view" data-view="belleza">
+              <div class="categories-content__header">
+                <h3>Belleza y Cuidado Personal</h3>
+                <a href="#">Ver todo</a>
+              </div>
+      
+              <div class="categories-grid">
+                <div class="categories-group">
+                  <h4>Cuidado facial</h4>
+                  <a href="#">Cremas</a>
+                  <a href="#">Serums</a>
+                </div>
+                <div class="categories-group">
+                  <h4>Perfumería</h4>
+                  <a href="#">Perfumes</a>
+                  <a href="#">Sets</a>
+                </div>
+              </div>
+            </div>
+      
+            <!-- PANEL 8 -->
+            <div class="categories-view" data-view="herramientas">
+              <div class="categories-content__header">
+                <h3>Herramientas y Construcción</h3>
+                <a href="#">Ver todo</a>
+              </div>
+      
+              <div class="categories-grid">
+                <div class="categories-group">
+                  <h4>Herramientas</h4>
+                  <a href="#">Taladros</a>
+                  <a href="#">Amoladoras</a>
+                </div>
+                <div class="categories-group">
+                  <h4>Construcción</h4>
+                  <a href="#">Pinturas</a>
+                  <a href="#">Escaleras</a>
+                </div>
+              </div>
+            </div>
+      
+            <!-- PANEL 9 -->
+            <div class="categories-view" data-view="otras">
+              <div class="categories-content__header">
+                <h3>Otras Categorías</h3>
+                <a href="#">Ver todo</a>
+              </div>
+      
+              <div class="categories-grid">
+                <div class="categories-group">
+                  <h4>Explorar</h4>
+                  <a href="#">Ver categorías</a>
+                  <a href="#">Top ventas</a>
+                </div>
+              </div>
+            </div>
+      
+          </section>
+        </div>
+      </div>
+    </div>
+    <!-- =========================
+         DRAWER MOBILE
+    ========================== -->
+    <aside class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
+      <div class="mobile-drawer__header">
+        <span>Menú</span>
+        <button class="mobile-drawer__close" id="mobileDrawerClose" aria-label="Cerrar menú">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <nav class="mobile-nav" aria-label="Menú móvil">
+
+        <div class="mobile-nav__section">
+          <button class="mobile-accordion-btn" type="button">
+            Categorías
+            <i class="fa-solid fa-angle-down"></i>
+          </button>
+          <div class="mobile-accordion-panel">
+            <a href="#">Alimentos</a>
+            <a href="#">Bebidas</a>
+            <a href="#">Lácteos</a>
+            <a href="#">Limpieza</a>
+            <a href="#">Perfumería</a>
+          </div>
+        </div>
+
+        <div class="mobile-nav__section">
+          <button class="mobile-accordion-btn" type="button">
+            Ofertas
+            <i class="fa-solid fa-angle-down"></i>
+          </button>
+          <div class="mobile-accordion-panel">
+            <a href="#">Ofertas del día</a>
+            <a href="#">Combos</a>
+            <a href="#">Descuentos por mayor</a>
+          </div>
+        </div>
+
+        <a href="#" class="mobile-nav__link"><i class="fa-solid fa-fire"></i> Destacados</a>
+        <a href="#" class="mobile-nav__link"><i class="fa-solid fa-bolt"></i> Novedades</a>
+        <a href="#" class="mobile-nav__link"><i class="fa-solid fa-headset"></i> Contacto / Soporte</a>
+        <a href="#" class="mobile-nav__link"><i class="fa-regular fa-circle-question"></i> Ayuda</a>
+        <a href="#" class="mobile-nav__link"><i class="fa-solid fa-store"></i> Vender</a>
+
+        <div class="mobile-nav__divider"></div>
+
+        <a href="#" class="mobile-nav__link mobile-nav__link--icon">
+          <i class="fa-solid fa-user"></i> Cuenta
+        </a>
+
+        <a href="#" class="mobile-nav__link mobile-nav__link--icon">
+          <i class="fa-solid fa-location-dot"></i> Ubicación
+        </a>
+
+        <a href="#" class="mobile-nav__link mobile-nav__link--icon">
+          <i class="fa-solid fa-cart-shopping"></i><span>3</span> Carrito
+        </a>
+      </nav>
+    </aside>
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+    <!-- =========================
+         PANEL MEGA CATEGORÍAS (desktop / tablet)
+    ========================== -->
+  </header>
+  <main class="main-content page-shell terms-page">
+    <!-- BARRA SUPERIOR -->
+    <div class="legal-header">
+      <div class="legal-header__inner">
+        <p>Información legal</p>
+      </div>
+    </div>
+    <div class="terms-container">
+      <!-- SIDEBAR -->
+      <aside class="terms-sidebar">
+        <h4>General</h4>
+        <ul>
+          <li class="active"><a href="#terminos">Política de Privacidad</a></li>
+          <li><a href=""></a></li>
+          <li><a href=""></a></li>
+          <li><a href=""></a></li>
+          <li><a href=""></a></li>
+          <li><a href=""></a></li>
+          <li><a href=""></a></li>
+          <li><a href=""></a></li>
+          <li><a href=""></a></li>
+          <li><a href=""></a></li>
+          <li><a href=""></a></li>
+          <li><a href=""></a></li>
+          <li><a href=""></a></li>
+          <li><a href=""></a></li>
+          <li><a href=""></a></li>
+          <li><a href=""></a></li>
+          <li><a href=""></a></li>
+          <li><a href=""></a></li>
+        </ul>
+      </aside>
+  
+      <!-- CONTENIDO -->
+      <section class="terms-content">
+        <p class="terms-section">General</p>
         <h1>Política de Privacidad</h1>
-        <p class="highlight">En Tienda Más nos comprometemos a proteger tu privacidad. Esta política explica cómo recopilamos, usamos y protegemos tu información personal.</p>
-        
-        <div class="nav-container">
-            <h3>Contenido</h3>
-            <ul class="nav-list">
-                <li><a href="#informacion">1. Información que recopilamos</a></li>
-                <li><a href="#finalidad">2. Finalidad del uso de datos</a></li>
-                <li><a href="#proteccion">3. Protección de datos</a></li>
-                <li><a href="#cookies">4. Uso de cookies</a></li>
-                <li><a href="#terceros">5. Compartir datos con terceros</a></li>
-                <li><a href="#derechos">6. Derechos del usuario</a></li>
-                <li><a href="#cambios">7. Cambios en la política</a></li>
-            </ul>
+        <h2>Objeto</h2>
+        <p>
+          El objeto de esta Política de Privacidad es informar a los Usuarios la forma en que el sitio web 
+          (en adelante el “Sitio”) de titularidad exclusiva de TIENDAMAS S.R.L. (en adelante “TiendaMas”), 
+          lleva a cabo el tratamiento de los datos personales de los Usuarios (en adelante, el “Usuario”) que 
+          se registran en el Sitio o bien que navegan por el mismo. Por favor, lea esta Política de Privacidad 
+          cuidadosamente a fin de entender exactamente las prácticas en relación con los datos personales de los 
+          Usuarios. Si Ud. tiene dudas sobre cualquier aspecto de esta Política de Privacidad, por favor contacte 
+          a ley_25326@tiendamas.com.ar. Asimismo, recuerde que la aceptación de esta Política de Privacidad implica 
+          la aceptación de los Términos y Condiciones de Uso del Sitio Web tiendamas.com y/o tiendamas.com.ar.
+        </p>
+      
+        <h2>Información para el usuario titular de los datos</h2>
+        <p>
+          El Usuario tendrá la posibilidad de proporcionar algunos de sus datos personales a través de los canales 
+          disponibles en ciertas áreas de nuestro Sitio. TiendaMas, con domicilio en la ciudad de 
+          San Fernando del Valle de Catamarca, Catamarca, Argentina; 
+          es el titular de la Base de Datos a las que se incorporarán los datos personales 
+          que se recolecten mediante el Sitio, en adelante el “Titular de la Base de Datos”. La Base de Datos ha 
+          sido debidamente registrada ante el Registro Nacional de Bases de Datos Personales de la Agencia de 
+          Acceso a la Información Pública.
+        </p>
+      
+        <h2>Tipo de datos comprendidos en esta política de privacidad</h2>
+        <p>
+          Esta Política de Privacidad abarca los datos personales de los Usuarios que el Titular de la Base de Datos 
+          recolecta a través del Sitio y que eventualmente utiliza, trata, almacena o transfiere. Esta Política de 
+          Privacidad no se aplica a las prácticas de terceras partes fuera del control del Titular de la Base de 
+          Datos, incluyendo pero sin limitarse a páginas web, aplicaciones, o en general software o servicios en 
+          línea de terceros que el Titular de la Base de Datos no controla o emplea, desde los cuales pueda ser 
+          derivado el Usuario a nuestro Sitio o bien, a los que el Usuario pueda acceder a través del Sitio. Si 
+          bien el Titular de la Base de Datos intenta que terceras partes respeten la privacidad de los Usuarios, 
+          el Titular de la Base de Datos no se hace responsable de sus prácticas. Por favor, asegúrese de leer y 
+          aceptar las políticas de privacidad y las prácticas de cualquier tercera parte a la que acceda utilizando 
+          el Sitio. El Usuario no se encuentra obligado por norma alguna a brindar sus datos personales y no se deriva 
+          ninguna consecuencia legal en el caso que decida no proporcionarlos. Esta Política de Privacidad se rige por 
+          las disposiciones de la ley 25.326 de protección de datos personales de la República Argentina.
+        </p>
+      
+        <h2>Consentimiento para el uso de los datos</h2>
+        <p>
+          Al aceptar esta Política de Privacidad el Usuario presta su consentimiento expreso, libre, informado y sin 
+          limitaciones para la recolección, tratamiento, uso, almacenamiento, divulgación, cesión o transferencia de 
+          sus datos personales de acuerdo con esta Política de Privacidad y con lo establecido en la ley 25.326. SI EL 
+          USUARIO NO ESTÁ DE ACUERDO CON ESTA POLÍTICA DE PRIVACIDAD, ENTONCES POR FAVOR NO PROVEA AL TITULAR DE LA 
+          BASE DE DATOS NINGÚN DATO PERSONAL A TRAVÉS DEL SITIO. Por favor advierta que el Sitio requiere de ciertos 
+          datos personales para poder operar y prestar algunos de los servicios ofrecidos a los Usuarios, por lo cual 
+          si el Usuario no provee esos datos, TiendaMas podría no estar en condiciones de proveer algunos de los 
+          servicios ofrecidos en el Sitio.
+        </p>
+      
+        <h2>Confidencialidad y seguridad de los datos</h2>
+        <p>
+          Con arreglo a lo dispuesto en los arts. 9 y 10 de la Ley 25.326 de Protección de los Datos Personales, 
+          el Titular de la Base de Datos se obliga a cumplir con la obligación de secreto respecto de los datos 
+          contenidos en su Base de Datos, salvo en aquellos casos en que la ley autoriza a revelar la información 
+          personal. El Titular de la Base de Datos ha adoptado los niveles de seguridad de protección de datos 
+          personales exigidos en la legislación vigente, implementando al efecto las medidas técnicas y organizativas 
+          necesarias para evitar la pérdida, mal uso, alteración, acceso no autorizado y demás riesgos posibles. 
+          Habiendo adoptado todas las medidas de seguridad exigidas por la legislación vigente, el Titular de la 
+          Base de Datos no se hace responsable por interceptaciones ilegales o violación de su Base de Datos por 
+          parte de personas no autorizadas. El Titular de la Base de Datos tampoco se hace responsable por la 
+          indebida utilización de la información obtenida por esos medios ilegítimos.
+        </p>
+      
+        <h2>Qué información recolecta TiendaMas</h2>
+        <p>
+          El Titular de la Base de Datos recolecta datos personales y datos no personales a través del Sitio, 
+          cuando el Usuario brinde dicha información voluntariamente al Titular de la Base de Datos a través de 
+          los canales disponibles en el Sitio. Los datos personales que el Titular de la Base de Datos recolecta a 
+          través del Sitio se limitan al nombre, apellido, teléfono, domicilio y correo electrónico. Eventualmente, 
+          el Titular de la Base de Datos podrá solicitar información adicional. El Titular de la Base de Datos podrá 
+          hacer una revisión previa respecto a los datos personales ingresados por los Usuarios. Sin embargo, el 
+          Usuario es responsable de asegurar la autenticidad, corrección y actualidad de los datos brindados al 
+          Titular de la Base de Datos. Si los datos son incorrectos podría obstaculizar el acceso o uso al Sitio o 
+          los servicios brindados a través del mismo, descritos en los Términos y Condiciones de Uso del Sitio de 
+          los cuales es parte integrante la presente Política de Privacidad de Datos Personales. Para el caso que el 
+          Titular de la Base de Datos detecte que el Usuario ha ingresado datos falsos, incompletos o inexactos al 
+          Sitio, podrá eliminarlos sin notificación previa al Usuario. No se recolectan -de forma voluntaria o a 
+          sabiendas- datos personales de personas que no tengan capacidad legal para contratar conforme lo establecido 
+          en la legislación vigente. Para el caso de no respetarse lo establecido en los párrafos anteriores, el 
+          Titular de la Base de Datos procederá, dentro de lo posible, a eliminar los datos que incumplan con la 
+          Política de Privacidad, sin que ello genere ninguna responsabilidad ni derecho a reclamo alguno por 
+          parte del Usuario.
+        </p>
+
+        <h2>Cómo y cuando TiendaMas recolecta datos no personales</h2>
+        <p>
+          El Titular de la Base de Datos recolecta datos electrónicamente y de forma automatizada en el momento en 
+          que el Usuario aporta su información personal en el Sitio, a través de los canales disponibles, como así 
+          también cuando éste actualiza o modifica dicha información. En ciertas ocasiones el Titular de la Base de 
+          Datos puede recolectar datos electrónicamente de forma no automatizada al tomar contacto directo con el 
+          Usuario.
+        </p>
+      
+        <h2>Cómo usa y almacena TiendaMas los datos personales que recolecta</h2>
+        <p>
+          La información del Usuario que pueda contener datos personales, obtenida durante el uso del Sitio es utilizada 
+          por el Titular de la Base de Datos para: - Prestar los servicios accesibles a través del Sitio y llevar 
+          adelante el giro comercial de TiendaMas; - Utilizarlos en futuras comunicaciones con el Usuario; - Enviar 
+          actualizaciones, novedades, acciones de marketing, anuncios o promociones sobre los contenidos, productos 
+          y/o servicios del Sitio, o sobre TiendaMas; - Fines estadísticos, de investigación y de creación y mejora de 
+          procesos y servicios comerciales, incluyendo la mejora y personalización del Sitio; - Verificar la identidad 
+          de un Usuario de acuerdo con esta Política de Privacidad y los Términos y Condiciones de Uso del Sitio. - 
+          Efectuar la facturación correspondiente a los productos adquiridos por el Usuario a través del Sitio. - 
+          Compartirla con terceros y/o socios comerciales para los fines estipulados en los presentes. - Compartirla 
+          con terceros a los cuales el Usuario haya adquirido un producto y/o servicio a través del Sitio.
+        </p>
+        <p>
+            El Titular de la Base de Datos almacena los datos personales y no personales que recolecta a través 
+            del Sitio en un servidor de almacenamiento brindado por Amazon Web Services, VTEX y en servidores 
+            físicos alojados en domicilios de TiendaMas, cumpliendo con las normas de seguridad previstas en la 
+            normativa vigente Si la finalidad de la recolección de los datos fuera otra distinta a las aquí 
+            enunciadas, la misma se notificará en forma expresa al momento de requerirse el ingreso de sus datos.
+        </p>
+
+        <h2>A qué fines TiendaMas divulga o transfiere datos personales y no personales</h2>
+        <p>
+          El Usuario presta consentimiento expreso, informado, manifiesta conocer plenamente y acepta sin 
+          restricción alguna que el Titular de la Base de Datos puede ceder o transferir datos personales 
+          recolectados a través del Sitio con terceras empresas con el fin que el Usuario reciba oferta de 
+          productos y/o servicios y/o ofertas promocionales por parte de estas. TiendaMas también podrá divulgar o 
+          transferir datos personales con socios comerciales que presten servicios técnicos de procesamiento de 
+          datos, de mantenimiento, actualización, almacenamiento o seguridad del Sitio u otros servicios que sean 
+          necesarios para mantener el Sitio activo y en funcionamiento.
+        </p>
+      
+        <h2>Autoridades de gobierno</h2>
+        <p>
+          El Titular de la Base de Datos puede divulgar o transferir datos personales a las autoridades que lo 
+          requieran de acuerdo a la ley vigente que resulte aplicable. El Titular de la Base de Datos puede divulgar 
+          o transferir datos personales en caso que ello resulte apropiado para investigar, prevenir o adoptar 
+          medidas en relación con actividades presuntamente ilegales cometidas en el Sitio o en relación con los 
+          contenidos y/o servicios.
+        </p>
+      
+        <h2>Otros terceros o usuarios</h2>
+        <p>
+          En el Sitio pueden aparecer vínculos a sitios operados por terceros. El Titular de la Base de Datos 
+          desconoce y no se responsabiliza por las prácticas de privacidad de estos terceros. Si el Usuario elige 
+          ingresar a dichos vínculos y por ende, a páginas de terceros, debe leer y aceptar las políticas de 
+          privacidad que indican cómo estos terceros recolectan, usan, divulgan, transfieren y eliminan los datos 
+          personales de sus Usuarios y visitantes. El Titular de la Base de Datos no divulga datos personales de 
+          los Usuarios a otros Usuarios. Es una decisión del Usuario divulgar datos personales directamente a otros 
+          Usuarios.
+        </p>
+      
+        <h2>Acceso, actualización y eliminación de datos personales</h2>
+        <p>
+          El Titular de la Base de Datos garantiza a sus Usuarios el acceso a sus datos personales almacenados por 
+          el Titular de la Base de Datos, así como el derecho a solicitar su actualización, corrección o eliminación, 
+          todo ello en virtud de lo dispuesto en los arts. 14 y 16 de la Ley 25.326 de Protección de los Datos 
+          Personales. Para acceder a sus datos personales o solicitar la actualización, corrección o eliminación 
+          el Usuario deberá comunicarse a ley_25326@tiendamas.com.ar, acreditar personería de manera fehaciente y 
+          completar formulario preestablecido al efecto. Tenga en cuenta que alguna información residual, que puede 
+          o no contener datos personales, puede mantenerse en la base de datos u otros registros que el Titular de 
+          la Base de Datos no puede eliminar por motivos legales o porque son necesarios para seguir prestando los 
+          servicios al Usuario. Será decisión del Usuario determinar si procede a eliminar sus datos personales en 
+          caso que ello imposibilite seguir prestando servicios al Usuario. Asimismo, el Usuario puede modificar en 
+          cualquier momento la información brindada al Titular de la Base de Datos a través de los canales 
+          disponibles en el Sitio. La información se actualizará de forma inmediata.
+        </p>
+      
+        <h2>Trasferencia internacional de datos</h2>
+        <p>
+          Los datos personales están actualmente almacenados en servidores de Amazon Web Services y VTEX ubicados 
+          en Estados Unidos y Brasil. Sin embargo, el Titular de la Base de Datos se encuentra domiciliado y opera 
+          desde la República Argentina, concretamente la ciudad de San Fernando del Valle de Catamarca, Catamarca, 
+          Argentina. Al proveer información 
+          personal a través del Sitio, los residentes y ciudadanos argentinos, así como los residentes y ciudadanos 
+          de otros países que sean capaces de acceder al Sitio, aceptan y consienten la transferencia y el 
+          procesamiento internacional de sus datos personales, en caso que alguno de estos servicios fuera 
+          considerado por la Ley 25.326 de Protección de Datos Personales de la República Argentina como 
+          transferencia internacional de datos.
+        </p>
+      
+        <h2>Modificación de la política de privacidad</h2>
+        <p>
+          Por favor tome en consideración que el Titular de la Base de Datos revisa sus prácticas de privacidad y 
+          modifica su política de privacidad periódicamente, publicando los cambios por este mismo medio. Cualquier 
+          cambio o modificación será efectiva inmediatamente desde la publicación en el Sitio. La continuidad de uso 
+          del Sitio por parte del Usuario implicará el consentimiento expreso con las modificaciones efectuadas.
+        </p>
+      
+        <h2>Consentimiento</h2>
+        <p>
+          Habiendo sido debidamente informado por esta Política de Privacidad de: a) la finalidad para la que serán 
+          tratados y quiénes pueden ser sus destinatarios o clase de destinatarios; b) la existencia del archivo, 
+          registro, banco de datos, electrónico o de cualquier otro tipo, de que se trate y la identidad y 
+          domicilio de su responsable; c) el carácter obligatorio o facultativo de las respuestas al formulario y/o 
+          cuestionario que se le proponga; d) las consecuencias de proporcionar los datos, de la negativa a hacerlo 
+          o de la inexactitud de los mismos; e) la posibilidad del interesado de ejercer los derechos de acceso, 
+          rectificación, actualización y supresión de los datos, cuando accede al Sitio y provee voluntariamente 
+          sus datos personales, el Usuario está prestando su consentimiento expreso al Titular de la Base de 
+          Datos para la incorporación de los mismos la Base de Datos y para su tratamiento con las finalidades 
+          aquí declaradas.
+        </p>
+      
+        <h2>Cookies</h2>
+        <p>
+          Mediante la tecnología Cookie o el rastreo IP, el Sitio puede acceder a cierta información del Usuario 
+          (“Información No Específica”). A la fecha, la Información No Específica que recopilamos consiste en 
+          información sobre intereses, las secciones de nuestro Sitio que el Usuario visita y otra información 
+          similar. La Información No Específica es utilizada sólo el Titular de la Base de Datos, a fin de conocer 
+          cuáles son las áreas preferidas del Sitio, qué tecnología se está utilizando, y tratar de este modo de 
+          mejorar constantemente los servicios ofrecidos. Eventualmente, y en cumplimiento de la Ley de Protección 
+          de Datos Personales, Nº 25.326, Art. 28 y cc. podremos disociar esta información con fines estadísticos, 
+          pero en ningún caso compartiremos con terceros sus Datos Personales para fines distintos a los establecidos 
+          en la presente Política de Privacidad, conforme lo establece la Ley 25.326. Su navegador, al igual que otros, 
+          puede estar programado para aceptar Cookies. En tal caso, si el Usuario no desea brindar Información No 
+          Específica, puede programar su navegador para rechazar Cookies, o para avisar cuando un sitio intenta 
+          enviarle Cookies.
+        </p>
+      
+        <h2>Registro Nacional de Bases de Datos Personales</h2>
+        <p>
+          A continuación se mencionan la información relativa al Registro Nacional de Bases de Datos Personales. Si tiene dudas o necesita orientación puede comunicarte al (54-11) 3988- 3968 o a datospersonales@aaip.gob.ar.Para más información ingresa a: https://www.argentina.gob.ar/aaip/datospersonales
+        </p>
+      
+      </section>
+    </div>
+  </main>
+  <!-- Footer -->
+  <footer class="footer ">
+    <div class="footer-container">
+  
+      <!-- Logo + redes -->
+      <div class="footer-brand">
+        <img src="assets/marketplace-data/Logo-text 2.png" alt="Logo" class="footer-logo">
+  
+        <div class="socials">
+          <a href="#"><i class="fa-solid fa-envelope"></i></a>
+          <a href="#"><i class="fa-brands fa-facebook"></i></a>
+          <a href="#"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
         </div>
-        
-        <section id="informacion">
-            <h2>1. Información que recopilamos</h2>
-            <p>Para brindarte nuestros servicios, recopilamos los siguientes datos personales:</p>
-            <ul>
-                <li><strong>Datos de identificación:</strong> Nombre completo, documento de identidad, fecha de nacimiento</li>
-                <li><strong>Datos de contacto:</strong> Dirección de correo electrónico, número de teléfono, dirección postal</li>
-                <li><strong>Datos de pago:</strong> Información de tarjetas (procesada de forma segura), historial de compras</li>
-                <li><strong>Datos técnicos:</strong> Dirección IP, tipo de dispositivo, datos de navegación</li>
-            </ul>
-        </section>
-        
-        <section id="finalidad">
-            <h2>2. Finalidad del uso de datos</h2>
-            <p>Utilizamos tu información personal para las siguientes finalidades:</p>
-            <ol>
-                <li>Procesar y gestionar tus pedidos y compras</li>
-                <li>Brindarte soporte al cliente y responder a tus consultas</li>
-                <li>Enviar información sobre tu cuenta y nuestros servicios (solo si aceptas comunicaciones)</li>
-                <li>Mejorar nuestros productos, servicios y experiencia de usuario</li>
-                <li>Cumplir con obligaciones legales y regulatorias</li>
-            </ol>
-            <p>Solo usaremos tus datos para fines publicitarios si nos das tu consentimiento explícito.</p>
-        </section>
-        
-        <section id="proteccion">
-            <h2>3. Protección de datos</h2>
-            <p>Implementamos medidas técnicas y organizativas robustas para proteger tu información:</p>
-            <ul>
-                <li>Encriptación de datos sensibles (SSL/TLS)</li>
-                <li>Sistemas de autenticación seguros</li>
-                <li>Acceso restringido al personal autorizado</li>
-                <li>Procedimientos regulares de copias de seguridad</li>
-                <li>Protección contra accesos no autorizados</li>
-            </ul>
-            <p>A pesar de nuestras medidas, ninguna transmisión por Internet es 100% segura. Te recomendamos proteger tus credenciales de acceso y no compartirlas.</p>
-        </section>
-        
-        <section id="cookies">
-            <h2>4. Uso de cookies</h2>
-            <p>Nuestra plataforma utiliza cookies para:</p>
-            <ul>
-                <li>Garantizar el funcionamiento básico del sitio</li>
-                <li>Recordar tus preferencias</li>
-                <li>Analizar el tráfico y uso del sitio (Google Analytics)</li>
-                <li>Personalizar contenido y anuncios (solo con tu consentimiento)</li>
-            </ul>
-            <p>Puedes gestionar o desactivar las cookies desde la configuración de tu navegador. Ten en cuenta que algunas funciones podrían no estar disponibles sin cookies esenciales.</p>
-        </section>
-        
-        <section id="terceros">
-            <h2>5. Compartir datos con terceros</h2>
-            <p>Tu información personal solo se comparte en los siguientes casos:</p>
-            <ul>
-                <li><strong>Procesadores de pago:</strong> Para completar tus transacciones (Mercado Pago, PayPal)</li>
-                <li><strong>Servicios de envío:</strong> Empresas logísticas para entregar tus pedidos</li>
-                <li><strong>Cumplimiento legal:</strong> Cuando sea requerido por autoridades competentes</li>
-            </ul>
-            <p><strong>No vendemos ni compartimos tus datos con fines publicitarios</strong> sin tu consentimiento explícito.</p>
-        </section>
-        
-        <section id="derechos">
-            <h2>6. Derechos del usuario</h2>
-            <p>De acuerdo con la Ley de Protección de Datos Personales (25.326), tienes derecho a:</p>
-            <ul>
-                <li>Acceder a tus datos personales que almacenamos</li>
-                <li>Solicitar la rectificación de información incorrecta</li>
-                <li>Pedir la eliminación de tus datos cuando ya no sean necesarios</li>
-                <li>Oponerte al tratamiento de tus datos en ciertos casos</li>
-                <li>Retirar tu consentimiento cuando el tratamiento se base en él</li>
-            </ul>
-            <p>Para ejercer estos derechos, contáctanos a <a href="mailto:protecciondedatos@tiendamas.com">protecciondedatos@tiendamas.com</a>.</p>
-        </section>
-        
-        <section id="cambios">
-            <h2>7. Cambios en la política</h2>
-            <p>Esta política puede actualizarse periódicamente para reflejar cambios en nuestras prácticas o requisitos legales. Te notificaremos sobre cambios significativos y publicaremos la versión actualizada en nuestro sitio.</p>
-            <p><strong>Fecha de última actualización:</strong> 15 de noviembre de 2023</p>
-            <p>Te recomendamos revisar esta política regularmente para estar informado sobre cómo protegemos tu información.</p>
-        </section>
-    </main>
-    
-    <footer>
-        © Tienda Más - Todos los derechos reservados
-    </footer>
+      </div>
+
+      <!-- Columna -->
+      <div class="footer-col">
+        <h4>Ayuda de compra</h4>
+        <ul>
+          <li><a href="#">Cómo comprar</a></li>
+          <li><a href="#">Medios de pago</a></li>
+          <li><a href="#">Preguntas frecuentes</a></li>
+          <li><a href="#">Cambios y devoluciones</a></li>
+          <li><a href="#">Terminos y condiciones</a></li>
+          <li><a href="#">Política de privacidad</a></li>
+          
+        </ul>
+      </div>
+      <!-- Columna -->
+      <div class="footer-col">
+        <h4>Links Rapidos</h4>
+        <ul>
+          <li><a href="#">Electrónica</a></li>
+          <li><a href="#">Moda y Accesorios</a></li>
+          <li><a href="#">Hogar y Jardín</a></li>
+          <li><a href="#">Salud y Belleza</a></li>
+          <li><a href="#">Alimentos y Bebidas</a></li>
+          <li><a href="#">Deportes y Fitness</a></li>
+        </ul>
+      </div>
+      <!-- Columna -->
+      <div class="footer-col">
+        <h4>Vendedores</h4>
+        <ul>
+          <li><a href="#">Vendé en TiendaMas</a></li>
+          <li><a href="#">Requisitos para vender</a></li>
+          <li><a href="#">Comisiones</a></li>
+          <li><a href="#">Publicá tus productos</a></li>
+          <li><a href="#">Centro para vendedores</a></li>
+          <li><a href="#">Trabajá con nosotros</a></li>
+        </ul>
+      </div>
+
+      <!-- Newsletter -->
+      <div class="footer-col subscribe">
+        <h4>Suscribite</h4>
+         <p>Recibí ofertas, novedades y lanzamientos exclusivos.</p>
+  
+        <form class="subscribe-box">
+          <input type="email" placeholder="Correo electrónico">
+          <button type="submit">Suscribirse</button>
+        </form>
+      </div>
+  
+    </div>
+
+    <div class="footer-bottom">
+      © <span id="year"></span> TiendaMas. Todos los derechos reservados
+    </div>
+  
+  </footer>
+  
+    <!-- Go to top button -->
+  <button id="goTopBtn" aria-label="Volver arriba">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+  <script src="../../Javascript/home/script.js"></script>
+  <script src="../../Javascript/home/header.js"></script>
+  <script src="../../Javascript/inicio de sesion y registro/miCuenta/miCuenta.js"></script>
 </body>
 </html>
+
