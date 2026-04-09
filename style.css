@@ -366,3 +366,40 @@
     font-size: 1.2rem;
   }
 }
+
+/*--------------------------------------------------------------------------------------------*/
+/* Envío */
+.shipping-amount.free {
+  color: #16a34a;
+  font-weight: 700;
+}
+
+.shipping-amount.paid {
+  color: #111827;
+}
+
+/* Impuestos */
+.tax-amount {
+  color: #6b7280;
+}
+
+/* Mensaje envío gratis */
+.free-shipping-msg {
+  font-size: 0.8rem;
+  color: #6b7280;
+  margin-top: -0.5rem;
+  margin-bottom: 0.8rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

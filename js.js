@@ -2,11 +2,12 @@
   "use strict";
 
   // Helper: formatear números a moneda local (ARS)
+
   function formatPrice(value) {
     return value.toLocaleString('es-AR', {
-      minimumFractionDigits: 0,
+      minimumFractionDigits: 2,
       maximumFractionDigits: 2
-    }).replace(/,/g, '.');
+    });
   }
 
   // Actualizar el resumen completo: cantidad de productos, subtotal y total
@@ -14,29 +15,78 @@
     const allProducts = document.querySelectorAll('.cart-product');
     let totalItems = 0;
     let subtotal = 0;
-
+  
     allProducts.forEach(product => {
       const priceRaw = product.getAttribute('data-price');
       const price = parseInt(priceRaw, 10);
+  
       const qtySpan = product.querySelector('.qty-value');
       let quantity = 1;
       if (qtySpan) {
         quantity = parseInt(qtySpan.innerText, 10);
       }
+  
       totalItems += quantity;
       subtotal += price * quantity;
     });
-
-    // Actualizar DOM del resumen
+  
+    // 🔹 ENVÍO
+    let shipping = 0;
+    const FREE_SHIPPING_MIN = 50000;
+  
+    const shippingEl = document.querySelector('.shipping-amount');
+    const freeMsg = document.querySelector('.free-shipping-msg');
+  
+    if (subtotal >= FREE_SHIPPING_MIN) {
+      shipping = 0;
+  
+      if (shippingEl) {
+        shippingEl.innerText = "Gratis";
+        shippingEl.classList.add("free");
+        shippingEl.classList.remove("paid");
+      }
+  
+      if (freeMsg) {
+        freeMsg.innerText = "Tenés envío gratis.";
+      }
+  
+    } else {
+      shipping = 3500;
+  
+      if (shippingEl) {
+        shippingEl.innerText = `$ ${formatPrice(shipping)}`;
+        shippingEl.classList.add("paid");
+        shippingEl.classList.remove("free");
+      }
+  
+      if (freeMsg) {
+        const missing = FREE_SHIPPING_MIN - subtotal;
+        freeMsg.innerText = `Te faltan $ ${formatPrice(missing)} para envío gratis`;
+      }
+    }
+  
+    // 🔹 IMPUESTOS (21%) 
+    const TAX_RATE = 0.05;
+    const taxes = subtotal * TAX_RATE;
+  
+    const taxEl = document.querySelector('.tax-amount');
+    if (taxEl) {
+      taxEl.innerText = `$ ${formatPrice(taxes)}`;
+    }
+  
+    // 🔹 TOTAL
+    const total = subtotal + shipping + taxes;
+  
+    // 🔹 DOM
     const totalItemsSpan = document.querySelector('.total-items-count');
     if (totalItemsSpan) totalItemsSpan.innerText = totalItems;
-
+  
     const subtotalSpan = document.querySelector('.subtotal-amount');
     if (subtotalSpan) subtotalSpan.innerText = `$ ${formatPrice(subtotal)}`;
-
+  
     const totalSpan = document.querySelector('.total-amount');
-    if (totalSpan) totalSpan.innerText = `$ ${formatPrice(subtotal)}`;
-  }
+    if (totalSpan) totalSpan.innerText = `$ ${formatPrice(total)}`;
+  }  
 
   // Actualizar la cantidad visual y el subtotal de un producto específico
   function updateProductQuantity(productElement, newQty) {
