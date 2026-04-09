@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="cart-page">
+      <div class="cart-container">
+        <!-- Header -->
+        <div class="cart-header">
+          <h1 class="cart-title">Mi carrito</h1>
+        </div>
+    
+        <!-- Layout principal: 2 columnas -->
+        <div class="cart-layout">
+          <!-- Columna izquierda: productos por vendedor -->
+          <div class="cart-items">
+            <!-- Vendedor 1: Frávega (2 productos) -->
+            <div class="seller-card" data-seller="Frávega">
+              <div class="seller-header">
+                <span class="seller-label">Vendido por</span>
+                <span class="seller-name">Frávega</span>
+              </div>
+              <div class="seller-products">
+                <!-- Producto 1: Samsung S26 Ultra -->
+                <div class="cart-product" data-product-id="1" data-price="3399999">
+                  <div class="product-image">
+                    <img src="assets/img/product-samsung.png" alt="Samsung S26 Ultra">
+                  </div>
+                  <div class="product-info">
+                    <div class="product-title">
+                      <h3>SAMSUNG S26 ULTRA 256GB CELESTE</h3>
+                      <p class="product-subtitle">Samsung S26 Ultra 12GB 256GB Celeste</p>
+                    </div>
+                    <button class="btn-remove" aria-label="Eliminar producto">Eliminar</button>
+                  </div>
+                  <div class="product-controls">
+                    <div class="quantity-control">
+                      <button class="qty-btn qty-minus" aria-label="Disminuir cantidad">-</button>
+                      <span class="qty-value">1</span>
+                      <button class="qty-btn qty-plus" aria-label="Aumentar cantidad">+</button>
+                    </div>
+                    <div class="product-price">
+                      <span class="current-price">$ 3.399.999</span>
+                    </div>
+                  </div>
+                </div>
+    
+                <!-- Producto 2: Lavarropas Philco -->
+                <div class="cart-product" data-product-id="2" data-price="599999">
+                  <div class="product-image">
+                    <img src="assets/img/product-washer.png" alt="Lavarropas Philco">
+                  </div>
+                  <div class="product-info">
+                    <div class="product-title">
+                      <h3>LAVPHILCO 94PHLF6510P2 6K</h3>
+                      <p class="product-subtitle">Philco 94PHLF6510P2 6,5 Kg 1000 RPM</p>
+                    </div>
+                    <button class="btn-remove" aria-label="Eliminar producto">Eliminar</button>
+                  </div>
+                  <div class="product-controls">
+                    <div class="quantity-control">
+                      <button class="qty-btn qty-minus" aria-label="Disminuir cantidad">-</button>
+                      <span class="qty-value">1</span>
+                      <button class="qty-btn qty-plus" aria-label="Aumentar cantidad">+</button>
+                    </div>
+                    <div class="product-price">
+                      <span class="current-price">$ 599.999</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+    
+            <!-- Vendedor 2: HOMEBRAND (1 producto) -->
+            <div class="seller-card" data-seller="HOMEBRAND">
+              <div class="seller-header">
+                <span class="seller-label">Vendido por</span>
+                <span class="seller-name">HOMEBRAND</span>
+              </div>
+              <div class="seller-products">
+                <div class="cart-product" data-product-id="3" data-price="629998">
+                  <div class="product-image">
+                    <img src="assets/img/product-washer2.png" alt="Lavarropas Philco Homebrand">
+                  </div>
+                  <div class="product-info">
+                    <div class="product-title">
+                      <h3>Lavarropas Automático Philco Phlf6510b 6.5kg</h3>
+                      <p class="product-subtitle">1000rpm Blanco</p>
+                    </div>
+                    <button class="btn-remove" aria-label="Eliminar producto">Eliminar</button>
+                  </div>
+                  <div class="product-controls">
+                    <div class="quantity-control">
+                      <button class="qty-btn qty-minus" aria-label="Disminuir cantidad">-</button>
+                      <span class="qty-value">1</span>
+                      <button class="qty-btn qty-plus" aria-label="Aumentar cantidad">+</button>
+                    </div>
+                    <div class="product-price">
+                      <span class="current-price">$ 629.998</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+    
+            <!-- Vendedor 3: MYM NET SRL / Aguirre Zabala (1 producto) -->
+            <div class="seller-card" data-seller="MYM NET SRL / Aguirre Zabala">
+              <div class="seller-header">
+                <span class="seller-label">Vendido por</span>
+                <span class="seller-name">MYM NET SRL / Aguirre Zabala</span>
+              </div>
+              <div class="seller-products">
+                <div class="cart-product" data-product-id="4" data-price="24999999">
+                  <div class="product-image">
+                    <img src="assets/img/product-microwave.png" alt="Microondas Digital Atma">
+                  </div>
+                  <div class="product-info">
+                    <div class="product-title">
+                      <h3>Microondas Digital Atma Matdgb23uap 23 Litros</h3>
+                      <p class="product-subtitle">Grill 900w</p>
+                    </div>
+                    <button class="btn-remove" aria-label="Eliminar producto">Eliminar</button>
+                  </div>
+                  <div class="product-controls">
+                    <div class="quantity-control">
+                      <button class="qty-btn qty-minus" aria-label="Disminuir cantidad">-</button>
+                      <span class="qty-value">1</span>
+                      <button class="qty-btn qty-plus" aria-label="Aumentar cantidad">+</button>
+                    </div>
+                    <div class="product-price">
+                      <span class="current-price">$ 249.999,99</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+    
+          <!-- Columna derecha: Resumen de compra (sticky) -->
+          <aside class="cart-summary">
+            <div class="summary-card">
+              <h2 class="summary-title">Resumen de compra</h2>
+              <div class="summary-row summary-products">
+                <span class="summary-label">Productos (<span class="total-items-count">4</span>)</span>
+                <span class="summary-value subtotal-amount">$ 4.879.995,99</span>
+              </div>
+              <div class="summary-divider"></div>
+              <div class="summary-row summary-total">
+                <span class="total-label">Total</span>
+                <span class="total-amount">$ 4.879.995,99</span>
+              </div>
+              <button class="btn-checkout" id="checkoutBtn">Finalizar compra</button>
+              <button class="btn-continue" id="continueShoppingBtn">Continuar comprando</button>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </main>
+    <script src="js.js"></script>
+</body>
+</html>

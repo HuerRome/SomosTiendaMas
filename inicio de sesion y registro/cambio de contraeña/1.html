@@ -9,16 +9,15 @@
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
 
-  <link rel="stylesheet" href="css/home/style.css">
-  <link rel="stylesheet" href="css/home/header.css"/>
-  <link rel="stylesheet" href="css/home/best-sellers.css">
-  <link rel="stylesheet" href="css/home/products-section.css">
-  <link rel="stylesheet" href="css/home/bannerPublicitarios.css">
-  <link rel="stylesheet" href="css/home/footer.css">
-  <link rel="stylesheet" href="css/carrito/carrito.css">
+  <link rel="stylesheet" href="../../css/home/style.css">
+  <link rel="stylesheet" href="../../css/home/header.css"/>
+  <link rel="stylesheet" href="../../css/home/best-sellers.css">
+  <link rel="stylesheet" href="../../css/home/products-section.css">
+  <link rel="stylesheet" href="../../css/home/bannerPublicitarios.css">
+  <link rel="stylesheet" href="../../css/home/footer.css">
+  <link rel="stylesheet" href="../../css/inicio de sesion y registro/cambioDeContraseña/cambioDeContraseña.css">
 </head>
 <body>
-
   <!-- =========================
        HEADER
   ========================== -->
@@ -113,7 +112,7 @@
             </span>
           </a>
           <div class="header-action action-dropdown">
-            <a href="inicio de sesion y registro/miCuenta/miCuenta.html">
+            <a href="">
               <button id="account" class="header-action__btn action-dropdown-btn" type="button">
                 <i class="fa-solid fa-user"></i>
                 <span>Cuenta</span>
@@ -506,160 +505,57 @@
     ========================== -->
   </header>
 
-  <main class="main-content page-shell cart-page">
-    <div class="cart-container">
-      <!-- Header -->
-      <div class="cart-header">
-        <h1 class="cart-title">Mi carrito</h1>
-      </div>
+  <main class="main-content page-shell">
+    <div class="login-container">
+      
+      <!-- LOGO -->
+      <img src="../../assets/marketplace-data/Logo-text 2.png" alt="Logo" class="logo">
+      <div class="login-brand">Restablecer contraseña</div>
   
-      <!-- Layout principal: 2 columnas -->
-      <div class="cart-layout">
-        <!-- Columna izquierda: productos por vendedor -->
-        <div class="cart-items">
-          <!-- Vendedor 1: Frávega (2 productos) -->
-          <div class="seller-card" data-seller="Frávega">
-            <div class="seller-header">
-              <span class="seller-label">Vendido por</span>
-              <span class="seller-name">TIENDAMAS / Jeremias Luna</span>
-            </div>
-            <div class="seller-products">
-              <!-- Producto 1: Samsung S26 Ultra -->
-              <div class="cart-product" data-product-id="1" data-price="3399999">
-                <div class="product-image">
-                  <img src="assets/secciones de la página - producto/(3)Tecnología/8.jpg" alt="Samsung galaxy a16">
-                </div>
-                <div class="product-info">
-                  <div class="product-title">
-                    <h3>SAMSUNG GALAXY A16 5G COLOR NEGRO</h3>
-                    <p class="product-subtitle">Celular Samsung Galaxy A16 5G Color Negro</p>
-                  </div>
-                  <button class="btn-remove" aria-label="Eliminar producto">Eliminar</button>
-                </div>
-                <div class="product-controls">
-                  <div class="quantity-control">
-                    <button class="qty-btn qty-minus" aria-label="Disminuir cantidad">-</button>
-                    <span class="qty-value">1</span>
-                    <button class="qty-btn qty-plus" aria-label="Aumentar cantidad">+</button>
-                  </div>
-                  <div class="price-block">
-                    <span class="current-price">$ 1.399.999</span>
-                  </div>
-                </div>
-              </div>
+      <!-- FORM -->
+      <form id="resetForm">
   
-              <!-- Producto 2: Lavarropas Philco -->
-              <div class="cart-product" data-product-id="2" data-price="599999">
-                <div class="product-image">
-                  <img src="assets/secciones de la página - producto/(3)Tecnología/5.jpg" alt="audiculares aiwa inalambrico vincha bluetooth">
-                </div>
-                <div class="product-info">
-                  <div class="product-title">
-                    <h3>AUDICULARES AIWA INALÁMBRICO VINCHA - BLUETOOTH</h3>
-                    <p class="product-subtitle">Auriculares Aiwa inalámbrico Ava-bt701n C/ Estuche Batería 47 hr Bluetooth Cancelación de sonido</p>
-                  </div>
-                  <button class="btn-remove" aria-label="Eliminar producto">Eliminar</button>
-                </div>
-                <div class="product-controls">
-                  <div class="quantity-control">
-                    <button class="qty-btn qty-minus" aria-label="Disminuir cantidad">-</button>
-                    <span class="qty-value">1</span>
-                    <button class="qty-btn qty-plus" aria-label="Aumentar cantidad">+</button>
-                  </div>
-                  <div class="price-block">
-                    <span class="current-price">$ 199.999</span>
-                  </div>
-                </div>
-              </div>
-            </div>
+        <!-- STEP 1 -->
+        <div id="stepEmail">
+          <div class="input-group">
+            <input type="email" id="resetEmail" placeholder="Ingresá tu email">
+            <div class="error" id="resetEmailError">Ingresá un email válido</div>
           </div>
   
-          <!-- Vendedor 2: HOMEBRAND (1 producto) -->
-          <div class="seller-card" data-seller="HOMEBRAND">
-            <div class="seller-header">
-              <span class="seller-label">Vendido por</span>
-              <span class="seller-name">HOMEBRAND</span>
-            </div>
-            <div class="seller-products">
-              <div class="cart-product" data-product-id="3" data-price="629998">
-                <div class="product-image">
-                  <img src="assets/secciones de la página - producto/(4)Moda(ropa y calzado)/19.jpg" alt="Mochila Xtrem Arizona 4xt Black">
-                </div>
-                <div class="product-info">
-                  <div class="product-title">
-                    <h3>MOCHILA XTREM ARIZONA 4XT BLACK</h3>
-                    <p class="product-subtitle">Mochila Xtrem Arizona 4xt Black Color Negro Diseño De La Tela Lisa</p>
-                  </div>
-                  <button class="btn-remove" aria-label="Eliminar producto">Eliminar</button>
-                </div>
-                <div class="product-controls">
-                  <div class="quantity-control">
-                    <button class="qty-btn qty-minus" aria-label="Disminuir cantidad">-</button>
-                    <span class="qty-value">1</span>
-                    <button class="qty-btn qty-plus" aria-label="Aumentar cantidad">+</button>
-                  </div>
-                  <div class="price-block">
-                    <span class="current-price">$ 329.998</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-  
-          <!-- Vendedor 3: MYM NET SRL / Aguirre Zabala (1 producto) -->
-          <div class="seller-card" data-seller="MYM NET SRL / Aguirre Zabala">
-            <div class="seller-header">
-              <span class="seller-label">Vendido por</span>
-              <span class="seller-name">MYM NET SRL / Aguirre Zabala</span>
-            </div>
-            <div class="seller-products">
-              <div class="cart-product" data-product-id="4" data-price="24999999">
-                <div class="product-image">
-                  <img src="assets/secciones de la página - producto/(5)Hogar - Electro/24.jpg" alt="Microondas Digital Atma">
-                </div>
-                <div class="product-info">
-                  <div class="product-title">
-                    <h3>MICROONDAS DIGITAL ATMA</h3>
-                    <p class="product-subtitle">Microondas Digital Atma Matdgb23uap 23 Litros</p>
-                  </div>
-                  <button class="btn-remove" aria-label="Eliminar producto">Eliminar</button>
-                </div>
-                <div class="product-controls">
-                  <div class="quantity-control">
-                    <button class="qty-btn qty-minus" aria-label="Disminuir cantidad">-</button>
-                    <span class="qty-value">1</span>
-                    <button class="qty-btn qty-plus" aria-label="Aumentar cantidad">+</button>
-                  </div>
-                  <div class="price-block">
-                    <span class="current-price">$ 349.999,99</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <button type="submit" class="btn-primary">Enviar código</button>
         </div>
   
-        <!-- Columna derecha: Resumen de compra (sticky) -->
-        <aside class="cart-summary">
-          <div class="summary-card">
-            <h2 class="summary-title">Resumen de compra</h2>
-            <div class="summary-row summary-products">
-              <span class="summary-label">Productos (<span class="total-items-count">4</span>)</span>
-              <span class="summary-value subtotal-amount">$ 4.879.995,99</span>
-            </div>
-            <div class="summary-divider"></div>
-            <div class="summary-row summary-total">
-              <span class="total-label">Total</span>
-              <span class="total-amount">$ 4.879.995,99</span>
-            </div>
-            <button class="btn-checkout" id="checkoutBtn">Finalizar compra</button>
-            <button class="btn-continue" id="continueShoppingBtn">Continuar comprando</button>
+        <!-- STEP 2 -->
+        <div id="stepPassword" style="display:none;">
+          
+          <div class="input-group">
+            <input type="text" id="code" placeholder="Código de verificación">
+            <div class="error" id="codeError">Código incorrecto</div>
           </div>
-        </aside>
+  
+          <div class="input-group password-wrapper">
+            <input type="password" id="newPassword" placeholder="Nueva contraseña">
+            <span class="toggle-password" data-target="newPassword">👁</span>
+            <div class="error" id="newPasswordError">Mínimo 6 caracteres</div>
+          </div>
+  
+          <div class="input-group password-wrapper">
+            <input type="password" id="confirmPassword" placeholder="Confirmar contraseña">
+            <span class="toggle-password" data-target="confirmPassword">👁</span>
+            <div class="error" id="confirmPasswordError">Las contraseñas no coinciden</div>
+          </div>
+  
+          <button type="submit" class="btn-primary">Guardar nueva contraseña</button>
+        </div>
+  
+      </form>
+  
+      <div class="footer-login">
+        <a href="login.html">Volver al inicio de sesión</a>
       </div>
-    </div>
+  
+    </div>  
   </main>
-
   <!-- Footer -->
   <footer class="footer ">
     <div class="footer-container">
@@ -683,9 +579,9 @@
           <li><a href="#">Cómo comprar</a></li>
           <li><a href="#">Medios de pago</a></li>
           <li><a href="#">Preguntas frecuentes</a></li>
-          <li><a href="Politica de privacidad - terminos y condiciones/cambiosYDevoluciones.html">Cambios y devoluciones</a></li>
-          <li><a href="Politica de privacidad - terminos y condiciones/terminosYCondiciones.html">Terminos y condiciones</a></li>
-          <li><a href="Politica de privacidad - terminos y condiciones/politicaDePrivacidad.html">Política de privacidad</a></li>
+          <li><a href="#">Cambios y devoluciones</a></li>
+          <li><a href="#">Terminos y condiciones</a></li>
+          <li><a href="#">Política de privacidad</a></li>
           
         </ul>
       </div>
@@ -737,14 +633,8 @@
   <button id="goTopBtn" aria-label="Volver arriba">
     <i class="fa-solid fa-arrow-up"></i>
   </button>
-  <script src="Javascript/home/script.js"></script>
-  <script src="Javascript/home/header.js"></script>
-  <script src="Javascript/carrito/carrito.js"></script>
+  <script src="../../Javascript/home/script.js"></script>
+  <script src="../../Javascript/home/header.js"></script>
+  <script src="../../Javascript/inicio de sesion y registro/cambioDeContraseña.js/cambioDeContraseña.js"></script>
 </body>
 </html>
-
-
-
-
-
-
