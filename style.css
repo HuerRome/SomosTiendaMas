@@ -403,3 +403,28 @@
 
 
 
+/* Mensaje impuestos incluidos */
+.tax-included-msg {
+  font-size: 0.75rem;
+  color: #6b7280;
+  margin-top: -0.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Mensaje envío */
+.free-shipping-msg {
+  font-size: 0.8rem;
+  color: #6b7280;
+  margin-top: -0.5rem;
+  margin-bottom: 0.8rem;
+}
+
+/* Envío estilos */
+.shipping-amount.free {
+  color: #16a34a;
+  font-weight: 700;
+}
+
+.shipping-amount.paid {
+  color: #111827;
+}
