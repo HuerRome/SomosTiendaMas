@@ -7,18 +7,14 @@
   --border: #ddd;
 }
 
-body {
-  margin: 0;
-  font-family: sans-serif;
-}
-
 main {
   background: var(--bg);
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100vh;
+  height: auto;
   padding: 2rem 0;
-  min-height: 100vh;
 }
 
 /* CARD */
@@ -41,6 +37,8 @@ main {
 /* LOGO */
 .logo {
   width: 150px;
+  height: auto;
+  margin: 0 auto;
   margin-bottom: 10px;
 }
 
@@ -56,44 +54,50 @@ main {
   text-align: left;
 }
 
-.input-group input,
-.input-group select {
+.input-group input {
   width: 100%;
   padding: 12px;
   border-radius: 10px;
   border: 1px solid var(--border);
   font-size: 14px;
   transition: 0.2s;
-  background: #fff;
 }
 
-.input-group input:focus,
-.input-group select:focus {
+.input-group input:focus {
   outline: none;
   border-color: var(--primary);
   box-shadow: 0 0 0 2px rgba(230,0,35,0.15);
 }
 
-.input-label {
-  display: block;
-  font-size: 13px;
-  margin-bottom: 6px;
-  color: var(--text);
-  font-weight: 500;
+/*---------- Terminos y politica de privacidad ----------*/
+.checkbox label a {
+  color: var(--primary);
+  text-decoration: none;
 }
 
-select:invalid {
-  color: var(--muted);
+.checkbox label a:hover {
+  text-decoration: underline;
 }
-
-/* SACAR FLECHA NATIVA */
+/* ----------------------------------------------------------------------------------- */
+/* SELECTS (MISMO ESTILO QUE INPUTS) */
 .input-group select {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  font-size: 14px;
+  background: #fff;
+  transition: 0.2s;
   appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-
-  background-image: none;
+  cursor: pointer;
 }
+
+.input-group select:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(230,0,35,0.15);
+}
+/* ----------------------------------------------------------------------------------- */
 
 /* PASSWORD */
 .password-wrapper {
@@ -112,18 +116,17 @@ select:invalid {
 /* CHECKBOX */
 .checkbox {
   display: flex;
+  align-items: center;
+  justify-content: center;
+  
   gap: 8px;
   font-size: 13px;
   margin: 10px 0 15px;
+  color: var(--text);
 }
 
-.checkbox label a{
-  color: #FF6B35;
-  text-decoration: none;
-}
-
-.checkbox label a:hover {
-  text-decoration: underline;
+.checkbox input {
+  cursor: pointer;
 }
 
 /* BUTTON */
@@ -136,6 +139,7 @@ select:invalid {
   border-radius: 25px;
   font-weight: 600;
   cursor: pointer;
+  transition: 0.2s;
 }
 
 .btn-primary:hover {
@@ -156,6 +160,11 @@ select:invalid {
   border: 1px solid var(--border);
   background: #fff;
   cursor: pointer;
+
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
 }
 
 .btn-google:hover {
@@ -179,6 +188,11 @@ select:invalid {
 .footer-register a {
   color: var(--primary);
   text-decoration: none;
+  font-weight: 500;
+}
+
+.footer-register a:hover {
+  text-decoration: underline;
 }
 
 /* RESPONSIVE */
@@ -188,6 +202,3 @@ select:invalid {
     padding: 30px 20px;
   }
 }
-
-
-
