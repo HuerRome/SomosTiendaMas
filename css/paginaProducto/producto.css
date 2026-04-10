@@ -568,13 +568,13 @@ body {
 }
 
 .size-btn:hover {
-  border-color: #7b2cff;
+  border-color: #2563EB;
 }
 
 .size-btn.active {
-  border: 2px solid #7b2cff;
+  border: 2px solid #2563EB;
   background: #f3edff;
-  color: #7b2cff;
+  color: #2563EB;
 }
 
 .size-guide {
@@ -644,7 +644,7 @@ body {
 }
 
 .btn-buy {
-  background: linear-gradient(90deg, #7b2cff, #9338ff);
+  background: linear-gradient(90deg, #2563EB, #437cf8);
   color: white;
 }
 

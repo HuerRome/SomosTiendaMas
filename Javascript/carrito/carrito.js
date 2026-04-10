@@ -124,13 +124,14 @@
   // Configurar botones principales del resumen
 
   const checkoutBtn = document.getElementById('checkoutBtn');
+  /*
   if (checkoutBtn) {
     checkoutBtn.addEventListener('click', () => {
       alert('Compra finalizada');
       console.log('Compra finalizada - Marketplace');
     });
   }
-
+  */
   const continueBtn = document.getElementById('continueShoppingBtn');
   if (continueBtn) {
     continueBtn.addEventListener('click', () => {

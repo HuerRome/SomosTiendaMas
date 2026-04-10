@@ -66,7 +66,7 @@
 }
 
 .seller-name {
-  color: #7c3aed;
+  color: #2563EB;
   font-weight: 700;
   margin-left: 0.25rem;
 }
@@ -130,7 +130,7 @@
 .btn-remove {
   background: none;
   border: none;
-  color: #7c3aed;
+  color: #2563EB;
   font-size: 0.8rem;
   font-weight: 500;
   padding: 0.25rem 0;
@@ -140,12 +140,12 @@
 }
 
 .btn-remove:hover {
-  color: #6d28d9;
+  color: #2563EB;
   text-decoration: underline;
 }
 
 .btn-remove:focus-visible {
-  outline: 2px solid #7c3aed;
+  outline: 2px solid #2563EB;
   border-radius: 6px;
 }
 
@@ -184,7 +184,7 @@
 }
 
 .qty-btn:hover {
-  background-color: #7c3aed;
+  background-color: #2563EB;
   color: white;
 }
 
@@ -271,7 +271,7 @@
 
 .btn-checkout {
   width: 100%;
-  background-color: #7c3aed;
+  background-color: #2563EB;
   color: white;
   border: none;
   padding: 0.9rem;
@@ -284,7 +284,7 @@
 }
 
 .btn-checkout:hover {
-  background-color: #6d28d9;
+  background-color: #2563EB;
   transform: translateY(-1px);
   box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
 }
