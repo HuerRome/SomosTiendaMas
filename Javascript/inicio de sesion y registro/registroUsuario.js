@@ -14,6 +14,8 @@ document.getElementById("registerForm").addEventListener("submit", function(e) {
 
   const name = document.getElementById("name");
   const email = document.getElementById("email");
+  const userType = document.getElementById("userType");
+  const country = document.getElementById("country");
   const password = document.getElementById("password");
   const confirm = document.getElementById("confirmPassword");
   const terms = document.getElementById("terms");
@@ -33,6 +35,22 @@ document.getElementById("registerForm").addEventListener("submit", function(e) {
     valid = false;
   } else {
     document.getElementById("emailError").style.display = "none";
+  }
+
+  // USER TYPE
+  if (userType.value === "") {
+    document.getElementById("userTypeError").style.display = "block";
+    valid = false;
+  } else {
+    document.getElementById("userTypeError").style.display = "none";
+  }
+
+  // COUNTRY
+  if (country.value === "") {
+    document.getElementById("countryError").style.display = "block";
+    valid = false;
+  } else {
+    document.getElementById("countryError").style.display = "none";
   }
 
   // PASSWORD
@@ -63,11 +81,13 @@ document.getElementById("registerForm").addEventListener("submit", function(e) {
   if (valid) {
     console.log("Cuenta creada:", {
       name: name.value,
-      email: email.value
+      email: email.value,
+      userType: userType.value,
+      country: country.value
     });
 
     alert("Cuenta creada con éxito 🚀");
+
+    document.getElementById("registerForm").reset();
   }
 });
-
-
