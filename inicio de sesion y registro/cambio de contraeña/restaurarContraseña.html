@@ -1,258 +1,630 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Restablecer contraseña | Tienda Mas</title>
-    <meta name="description" content="Reset your Tienda Mas account password">
-    <!----Tailwind CSS---->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!----Font Awesome---->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!----Google Fonts - Inter---->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <style>
-        :root {
-            --primary-orange: #FF6B35;
-            --primary-blue: #004E89;
-            --light-gray: #F8F9FA;
-        }
-        
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--light-gray);
-            -webkit-font-smoothing: antialiased;
-        }
-        
-        .form-container {
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-        }
-        
-        .input-field:focus {
-            border-color: var(--primary-orange);
-            box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.2);
-        }
-        
-        .btn-primary {
-            background-color: var(--primary-orange);
-            transition: all 0.2s ease;
-        }
-        
-        .btn-primary:hover {
-            background-color: #E55627;
-        }
-        
-        .spinner {
-            width: 20px;
-            height: 20px;
-            border: 3px solid rgba(255, 255, 255, 0.3);
-            border-radius: 50%;
-            border-top-color: white;
-            animation: spin 1s ease-in-out infinite;
-            display: none;
-        }
-        
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-        
-        @media (max-width: 640px) {
-            .form-container {
-                width: 100%;
-                border-radius: 0;
-                padding: 2rem 1.5rem;
-            }
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TiendaMas - Marketplace Mayorista y Minorista</title>
+  <meta name="description" content="Comprá y vendé productos al por mayor y menor en TiendaMas. Marketplace con ofertas, envíos, múltiples categorías y oportunidades para negocios y emprendedores."/>
+  <link rel="icon" href="assets/marketplace-data/Logo.png" type="image/jpg">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
 
-        /* Inicio Estado de Sesion */
-        
-        #session-status { position: fixed; top:12px; right:12px; width:260px; background:#fff; border-radius:8px; box-shadow:0 6px 18px rgba(0,0,0,0.12); padding:10px 12px; font-size:13px; z-index:9999; color:#222; }
-        #session-status .row { display:flex; justify-content:space-between; margin:6px 0; align-items:center; }
-        #session-status .label { color:#666; }
-        .status-dot { width:12px; height:12px; border-radius:50%; display:inline-block; margin-left:8px; vertical-align:middle; }
-        .dot-green { background:#28a745; }
-        .dot-red { background:#dc3545; }
-        
-        /* Fin Estado de Sesion */
-    </style>
+  <link rel="stylesheet" href="../../css/home/style.css">
+  <link rel="stylesheet" href="../../css/home/header.css"/>
+  <link rel="stylesheet" href="../../css/home/best-sellers.css">
+  <link rel="stylesheet" href="../../css/home/products-section.css">
+  <link rel="stylesheet" href="../../css/home/bannerPublicitarios.css">
+  <link rel="stylesheet" href="../../css/home/footer.css">
+  <link rel="stylesheet" href="../../css/inicio de sesion y registro/cambioDeContraseña/cambioDeContraseña.css">
 </head>
-<body class="min-h-screen flex items-center justify-center p-4">
-    <main class="form-container bg-white rounded-xl p-8 w-full max-w-md">
-        <!----Logo and Header---->
-        <header class="text-center mb-8">
-            <h1 class="text-3xl font-bold text-gray-800 mb-2 flex items-center justify-center">
-                <span class="text-orange-500">Tienda</span>
-                <span class="text-blue-600 ml-1">Mas</span>
-            </h1>
-            <p class="text-gray-600">Restablecé la contraseña de tu cuenta</p>
-        </header>
-        
-        <!----Formulario de restablecimiento de contraseña---->
-        <form id="resetForm" class="space-y-6" novalidate>
-            <!----Mensaje de estado---->
-            <div id="statusMessage" class="hidden p-4 rounded-lg text-sm mb-4" aria-live="polite"></div>
-            
-            <!----Instrucciones---->
-            <p class="text-gray-600 text-sm">
-                Ingresá tu correo electrónico y te enviaremos un enlace para restablecer tu contraseña.
-            </p>
-            
-            <!----Campo de correo electrónico---->
-            <div class="space-y-2">
-                <label for="email" class="block text-sm font-medium text-gray-700">
-                    Correo electrónico <span class="text-red-500">*</span>
-                </label>
-                <div class="relative">
-                    <input 
-                        type="email" 
-                        id="email" 
-                        name="email" 
-                        required
-                        aria-required="true"
-                        class="input-field w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none transition-all duration-200 pl-10"
-                        placeholder="tu@email.com"
-                        autocomplete="email"
-                    >
-                    <div class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400">
-                        <i class="far fa-envelope"></i>
-                    </div>
-                </div>
-                <p id="emailError" class="text-red-500 text-xs mt-1 hidden">
-                    <i class="fas fa-exclamation-circle mr-1"></i> Por favor ingresá un correo electrónico válido
-                </p>
-            </div>
-            
-            <!----Botón Enviar---->
-            <button 
-                type="submit" 
-                id="submitBtn"
-                class="btn-primary w-full text-white font-medium py-3 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 flex items-center justify-center"
-                aria-label="Send reset instructions"
-            >
-                <span id="btnText">Enviar enlace de restablecimiento</span>
-                <div id="spinner" class="spinner ml-2" aria-hidden="true"></div>
-            </button>
-            
-            <!----Login Link---->
-            <div class="text-center text-sm text-gray-600">
-                <a href="/public/iniciarSesion.html" class="font-medium text-blue-600 hover:underline">
-                    <i class="fas fa-arrow-left mr-1"></i> ¿Recordaste tu contraseña? Iniciar sesión
-                </a>
-            </div>
+<body>
+  <!-- =========================
+       HEADER
+  ========================== -->
+  <header class="site-header">
+    <div class="header-shell">
+      <div class="header-top">
+        <a href="index.html" class="brand" aria-label="Ir al inicio">
+          <img src="assets/marketplace-data/Logo-text 2.png" alt="TiendaMas+ Marketplace mayorista" class="brand__img logo-desktop">
+          <img src="assets/marketplace-data/Logo.png" alt="TiendaMas+ Marketplace mayorista" class="brand__img logo-mobile">
+        </a>
+        <form class="search" id="searchForm" role="search">
+          <label class="sr-only" for="searchInput">Buscar productos</label>
+          <input
+            id="searchInput"
+            class="search__input"
+            type="search"
+            placeholder="Buscar producto, marca o categoría..."
+            aria-label="Buscar productos"
+          />
+          <button class="search__btn" type="submit" aria-label="Buscar">
+            <!--<i class="fa-brands fa-sistrix"></i>-->
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
         </form>
-    </main>
+        <a href="#" class="shipping-banner" aria-label="Ingresando tu ubicación">
+          <img src="assets/marketplace-data/envio.png" alt="Envío ingresando tu ubicación" class="shipping-banner__img"/>
+        </a>
+        <!-- MENÚ HAMBURGUESA MOBILE -->
+        <button
+          class="mobile-menu-btn"
+          id="mobileMenuBtn"
+          aria-label="Abrir menú"
+          aria-expanded="false"
+          aria-controls="mobileDrawer"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
 
-    <script>
-        /*----Funcionalidad del formulario (envío real al backend)----*/
-        
-        const resetForm = document.getElementById('resetForm');
-        const emailInput = document.getElementById('email');
-        const emailError = document.getElementById('emailError');
-        const statusMessage = document.getElementById('statusMessage');
-        const submitBtn = document.getElementById('submitBtn');
-        const btnText = document.getElementById('btnText');
-        const spinner = document.getElementById('spinner');
+      <div class="header-bottom">
+        <!-- NAV IZQUIERDA -->
+        <nav class="main-nav" aria-label="Navegación principal">
+          <ul class="main-nav__list">
+            <li class="nav-item nav-item--categories">
+              <button
+                class="nav-pill nav-pill--primary nav-dropdown-btn nav-categories-btn"
+                type="button"
+                aria-expanded="false"
+                aria-controls="categoriesPanel"
+              >
+                Categorías
+                <i class="fa-solid fa-angle-down"></i>
+              </button>
+            </li>
 
-        function isValidEmail(email) {
-            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            return re.test(email);
-        }
+            <li class="nav-item nav-item--dropdown">
+              <button class="nav-pill nav-dropdown-btn" type="button">Ofertas</button>
 
-        function showError(message) {
-            emailInput.classList.add('border-red-500');
-            emailError.textContent = message;
-            emailError.classList.remove('hidden');
-        }
+              <div class="dropdown-menu">
+                <a href="#">Ofertas del día</a>
+                <a href="#">Combos</a>
+                <a href="#">Descuentos por mayor</a>
+              </div>
+            </li>
 
-        function hideError() {
-            emailInput.classList.remove('border-red-500');
-            emailError.classList.add('hidden');
-        }
+            <li class="nav-item">
+              <a href="#" class="nav-pill">Más vendidos</a>
+            </li>
 
-        function showStatus(message, isSuccess) {
-            statusMessage.innerHTML = `
-                <i class="fas ${isSuccess ? 'fa-check-circle' : 'fa-exclamation-circle'} mr-2"></i>
-                ${message}
-            `;
-            statusMessage.classList.remove('hidden');
-            if (isSuccess) {
-                statusMessage.classList.add('bg-green-100', 'text-green-700');
-                statusMessage.classList.remove('bg-red-100', 'text-red-700');
-            } else {
-                statusMessage.classList.add('bg-red-100', 'text-red-700');
-                statusMessage.classList.remove('bg-green-100', 'text-green-700');
-            }
-        }
+            <li class="nav-item">
+              <a href="#" class="nav-pill">Novedades</a>
+            </li>
 
-        resetForm.addEventListener('submit', async function(e) {
-            e.preventDefault();
-            hideError();
-            statusMessage.classList.add('hidden');
+            <li class="nav-item">
+              <a href="inicio de sesion y registro/registro/registroVendedor.html" class="nav-pill">Vendé en TiendaMas</a>
+            </li>
 
-            const email = emailInput.value.trim();
-            if (!email) {
-                showError('Por favor ingresá tu correo electrónico');
-                return;
-            }
-            if (!isValidEmail(email)) {
-                showError('Por favor ingresá un correo electrónico válido');
-                return;
-            }
+            <li class="nav-item">
+              <a href="#" class="nav-pill">Ayuda</a>
+            </li>
+          </ul>
+        </nav>
 
-            submitBtn.disabled = true;
-            btnText.textContent = 'Enviando...';
-            spinner.style.display = 'block';
+        <!-- ACCIONES DERECHA -->
+        <div class="header-actions">
+          <a href="#" class="header-action">
+            <span class="header-action__btn">
+              <i class="fa-solid fa-location-dot"></i>
+              <span>Ubicación</span>
+            </span>
+          </a>
+          <div class="header-action action-dropdown">
+            <a href="">
+              <button id="account" class="header-action__btn action-dropdown-btn" type="button">
+                <i class="fa-solid fa-user"></i>
+                <span>Cuenta</span>
+              </button>
+            </a>
+            <div class="dropdown-menu dropdown-menu--right account-menu">
+              <div class="account-menu__header">
+                <div class="account-avatar">AR</div>
+                <div>
+                  <p class="account-name">Anita</p>
+                  <span class="account-profile">Mi perfil <i class="fa-solid fa-angle-right"></i></span>
+                </div>
+              </div>
+              <div class="account-divider"></div>
+              <div class="account-section">
+                <a href="#"><i class="fa-solid fa-bag-shopping"></i> Compras</a>
+                <a href="#"><i class="fa-solid fa-clock-rotate-left"></i> Historial</a>
+                <a href="#"><i class="fa-regular fa-circle-question"></i> Preguntas</a>
+                <a href="#"><i class="fa-regular fa-comments"></i> Opiniones</a>
+              </div>
+              <div class="account-divider"></div>
+              <div class="account-section">
+                <a href="#"><i class="fa-regular fa-credit-card"></i>Créditos</a>
+              </div>
+              <div class="account-divider"></div>
+              <div class="account-section">
+                <a href="#"><i class="fa-solid fa-tag"></i> Vender</a>
+              </div>
+              <div class="account-divider"></div>
+              <div class="account-section">
+                <a href="#" class="logout">Salir <i class="fa-solid fa-arrow-right-from-bracket"></i></a>
+              </div>
+            </div>
+          </div>
 
-            try {
-                const res = await fetch('/api/password/public/olvide-password', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ email })
-                });
+          <a href="carrito.html" class="header-action">
+            <span class="header-action__btn">
+              <i class="fa-solid fa-cart-shopping"></i>
+              <span id="cart-count">3</span> Carrito
+            </span>
+          </a>
 
-                if (res.ok) {
-                    // redirigir siempre a la página genérica (mensaje silencioso en backend)
-                    window.location.href = '/public/correoEnviado(recuperarContrasenia).html';
-                    return;
-                }
+        </div>
+      </div>
+      <!-- =========================
+           PANEL DE CATEGORÍAS DESKTOP/TABLET
+      ========================== -->
+      <div class="categories-panel" id="categoriesPanel" aria-hidden="true">
+        <div class="categories-panel__inner">
+      
+          <!-- COLUMNA IZQUIERDA -->
+          <aside class="categories-sidebar" aria-label="Listado de categorías">
+            <button class="categories-sidebar__item is-active" type="button" data-category="tv-audio">
+              <span>TV y Audio</span>
+              <i class="fa-solid fa-angle-right"></i>
+            </button>
+      
+            <button class="categories-sidebar__item" type="button" data-category="tecnologia">
+              <span>Tecnología</span>
+              <i class="fa-solid fa-angle-right"></i>
+            </button>
+      
+            <button class="categories-sidebar__item" type="button" data-category="electrodomesticos">
+              <span>Electrodomésticos</span>
+              <i class="fa-solid fa-angle-right"></i>
+            </button>
+      
+            <button class="categories-sidebar__item" type="button" data-category="hogar">
+              <span>Hogar</span>
+              <i class="fa-solid fa-angle-right"></i>
+            </button>
+      
+            <button class="categories-sidebar__item" type="button" data-category="deportes">
+              <span>Deportes y Fitness</span>
+              <i class="fa-solid fa-angle-right"></i>
+            </button>
+      
+            <button class="categories-sidebar__item" type="button" data-category="juguetes">
+              <span>Juguetes, Bebés y Niños</span>
+              <i class="fa-solid fa-angle-right"></i>
+            </button>
+      
+            <button class="categories-sidebar__item" type="button" data-category="belleza">
+              <span>Belleza y Cuidado Personal</span>
+              <i class="fa-solid fa-angle-right"></i>
+            </button>
+      
+            <button class="categories-sidebar__item" type="button" data-category="herramientas">
+              <span>Herramientas y Construcción</span>
+              <i class="fa-solid fa-angle-right"></i>
+            </button>
+      
+            <button class="categories-sidebar__item" type="button" data-category="otras">
+              <span>Otras Categorías</span>
+              <i class="fa-solid fa-angle-right"></i>
+            </button>
+          </aside>
+      
+          <!-- CONTENIDO DERECHO -->
+          <section class="categories-content">
+      
+            <!-- PANEL 1 -->
+            <div class="categories-view is-active" data-view="tv-audio">
+              <div class="categories-content__header">
+                <h3>TV y Audio</h3>
+                <a href="#">Ver todo</a>
+              </div>
+      
+              <div class="categories-grid">
+                <div class="categories-group">
+                  <h4>TV por marca</h4>
+                  <a href="#">Philips</a>
+                  <a href="#">Samsung TV</a>
+                  <a href="#">LG</a>
+                  <a href="#">TCL</a>
+                </div>
+      
+                <div class="categories-group">
+                  <h4>TV por pulgadas</h4>
+                  <a href="#">Menos de 50”</a>
+                  <a href="#">Más de 50”</a>
+                </div>
+      
+                <div class="categories-group">
+                  <h4>Soportes y accesorios</h4>
+                  <a href="#">Mesas y rack para TV</a>
+                  <a href="#">Soportes</a>
+                  <a href="#">Smart box</a>
+                </div>
+      
+                <div class="categories-group">
+                  <h4>Audio y Sonido</h4>
+                  <a href="#">Auriculares</a>
+                  <a href="#">Soundbar</a>
+                  <a href="#">Estéreos</a>
+                  <a href="#">Parlantes</a>
+                </div>
+      
+                <div class="categories-group">
+                  <h4>Tocadiscos</h4>
+                </div>
+              </div>
+            </div>
+      
+            <!-- PANEL 2 -->
+            <div class="categories-view" data-view="tecnologia">
+              <div class="categories-content__header">
+                <h3>Tecnología</h3>
+                <a href="#">Ver todo</a>
+              </div>
+      
+              <div class="categories-grid">
+                <div class="categories-group">
+                  <h4>Celulares</h4>
+                  <a href="#">Samsung</a>
+                  <a href="#">Motorola</a>
+                  <a href="#">Xiaomi</a>
+                </div>
+                <div class="categories-group">
+                  <h4>Computación</h4>
+                  <a href="#">Notebooks</a>
+                  <a href="#">Monitores</a>
+                  <a href="#">Teclados</a>
+                </div>
+                <div class="categories-group">
+                  <h4>Gaming</h4>
+                  <a href="#">Mouse gamer</a>
+                  <a href="#">Sillas gamer</a>
+                  <a href="#">Consolas</a>
+                </div>
+              </div>
+            </div>
+      
+            <!-- PANEL 3 -->
+            <div class="categories-view" data-view="electrodomesticos">
+              <div class="categories-content__header">
+                <h3>Electrodomésticos</h3>
+                <a href="#">Ver todo</a>
+              </div>
+      
+              <div class="categories-grid">
+                <div class="categories-group">
+                  <h4>Cocina</h4>
+                  <a href="#">Heladeras</a>
+                  <a href="#">Microondas</a>
+                  <a href="#">Hornos eléctricos</a>
+                </div>
+                <div class="categories-group">
+                  <h4>Lavado</h4>
+                  <a href="#">Lavarropas</a>
+                  <a href="#">Secarropas</a>
+                </div>
+                <div class="categories-group">
+                  <h4>Climatización</h4>
+                  <a href="#">Aires acondicionados</a>
+                  <a href="#">Ventiladores</a>
+                </div>
+              </div>
+            </div>
+      
+            <!-- PANEL 4 -->
+            <div class="categories-view" data-view="hogar">
+              <div class="categories-content__header">
+                <h3>Hogar</h3>
+                <a href="#">Ver todo</a>
+              </div>
+      
+              <div class="categories-grid">
+                <div class="categories-group">
+                  <h4>Muebles</h4>
+                  <a href="#">Sillones</a>
+                  <a href="#">Mesas</a>
+                  <a href="#">Sillas</a>
+                </div>
+                <div class="categories-group">
+                  <h4>Decoración</h4>
+                  <a href="#">Lámparas</a>
+                  <a href="#">Cuadros</a>
+                </div>
+              </div>
+            </div>
+      
+            <!-- PANEL 5 -->
+            <div class="categories-view" data-view="deportes">
+              <div class="categories-content__header">
+                <h3>Deportes y Fitness</h3>
+                <a href="#">Ver todo</a>
+              </div>
+      
+              <div class="categories-grid">
+                <div class="categories-group">
+                  <h4>Entrenamiento</h4>
+                  <a href="#">Mancuernas</a>
+                  <a href="#">Colchonetas</a>
+                </div>
+                <div class="categories-group">
+                  <h4>Running</h4>
+                  <a href="#">Zapatillas</a>
+                  <a href="#">Ropa deportiva</a>
+                </div>
+              </div>
+            </div>
+      
+            <!-- PANEL 6 -->
+            <div class="categories-view" data-view="juguetes">
+              <div class="categories-content__header">
+                <h3>Juguetes, Bebés y Niños</h3>
+                <a href="#">Ver todo</a>
+              </div>
+      
+              <div class="categories-grid">
+                <div class="categories-group">
+                  <h4>Bebés</h4>
+                  <a href="#">Cochecitos</a>
+                  <a href="#">Sillas para comer</a>
+                </div>
+                <div class="categories-group">
+                  <h4>Juguetes</h4>
+                  <a href="#">Didácticos</a>
+                  <a href="#">Peluches</a>
+                </div>
+              </div>
+            </div>
+      
+            <!-- PANEL 7 -->
+            <div class="categories-view" data-view="belleza">
+              <div class="categories-content__header">
+                <h3>Belleza y Cuidado Personal</h3>
+                <a href="#">Ver todo</a>
+              </div>
+      
+              <div class="categories-grid">
+                <div class="categories-group">
+                  <h4>Cuidado facial</h4>
+                  <a href="#">Cremas</a>
+                  <a href="#">Serums</a>
+                </div>
+                <div class="categories-group">
+                  <h4>Perfumería</h4>
+                  <a href="#">Perfumes</a>
+                  <a href="#">Sets</a>
+                </div>
+              </div>
+            </div>
+      
+            <!-- PANEL 8 -->
+            <div class="categories-view" data-view="herramientas">
+              <div class="categories-content__header">
+                <h3>Herramientas y Construcción</h3>
+                <a href="#">Ver todo</a>
+              </div>
+      
+              <div class="categories-grid">
+                <div class="categories-group">
+                  <h4>Herramientas</h4>
+                  <a href="#">Taladros</a>
+                  <a href="#">Amoladoras</a>
+                </div>
+                <div class="categories-group">
+                  <h4>Construcción</h4>
+                  <a href="#">Pinturas</a>
+                  <a href="#">Escaleras</a>
+                </div>
+              </div>
+            </div>
+      
+            <!-- PANEL 9 -->
+            <div class="categories-view" data-view="otras">
+              <div class="categories-content__header">
+                <h3>Otras Categorías</h3>
+                <a href="#">Ver todo</a>
+              </div>
+      
+              <div class="categories-grid">
+                <div class="categories-group">
+                  <h4>Explorar</h4>
+                  <a href="#">Ver categorías</a>
+                  <a href="#">Top ventas</a>
+                </div>
+              </div>
+            </div>
+      
+          </section>
+        </div>
+      </div>
+    </div>
+    <!-- =========================
+         DRAWER MOBILE
+    ========================== -->
+    <aside class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
+      <div class="mobile-drawer__header">
+        <span>Menú</span>
+        <button class="mobile-drawer__close" id="mobileDrawerClose" aria-label="Cerrar menú">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
 
-                // intentar leer mensaje de error
-                let detail = await res.json().catch(() => null);
-                detail = detail?.message || detail?.error || await res.text().catch(() => null);
-                showStatus(detail || 'Ocurrió un error al procesar la solicitud.', false);
-            } catch (err) {
-                console.error(err);
-                showStatus('Error conectando al servidor. Intentá nuevamente más tarde.', false);
-            } finally {
-                submitBtn.disabled = false;
-                btnText.textContent = 'Enviar enlace de restablecimiento';
-                spinner.style.display = 'none';
-            }
-        });
+      <nav class="mobile-nav" aria-label="Menú móvil">
 
-        emailInput.addEventListener('input', function() {
-            const email = this.value.trim();
-            if (email && !isValidEmail(email)) {
-                showError('Por favor ingresá un correo electrónico válido');
-            } else {
-                hideError();
-            }
-        });
-    </script>
+        <div class="mobile-nav__section">
+          <button class="mobile-accordion-btn" type="button">
+            Categorías
+            <i class="fa-solid fa-angle-down"></i>
+          </button>
+          <div class="mobile-accordion-panel">
+            <a href="#">Alimentos</a>
+            <a href="#">Bebidas</a>
+            <a href="#">Lácteos</a>
+            <a href="#">Limpieza</a>
+            <a href="#">Perfumería</a>
+          </div>
+        </div>
 
-    <div id="session-status" aria-live="polite">
-        <div style="font-weight:600; margin-bottom:6px;">Estado de sesión</div>
-        <div class="row"><div class="label">Sesión:</div><div><span id="ss-sesion-label">Comprobando...</span> <span id="ss-dot" class="status-dot"></span></div></div>
-        <div class="row"><div class="label">Usuario:</div><div id="ss-usuario">---</div></div>
-        <div class="row"><div class="label">Rol:</div><div id="ss-rol">---</div></div>
-        <div class="row"><div class="label">JWT:</div><div id="ss-jwt">---</div></div>
-        <div class="row"><div class="label">Refresh:</div><div id="ss-refresh">---</div></div>
-        <div style="margin-top:6px; font-size:11px; color:#666;">Última comprobación: <span id="ss-last">nunca</span></div>
+        <div class="mobile-nav__section">
+          <button class="mobile-accordion-btn" type="button">
+            Ofertas
+            <i class="fa-solid fa-angle-down"></i>
+          </button>
+          <div class="mobile-accordion-panel">
+            <a href="#">Ofertas del día</a>
+            <a href="#">Combos</a>
+            <a href="#">Descuentos por mayor</a>
+          </div>
+        </div>
+
+        <a href="#" class="mobile-nav__link"><i class="fa-solid fa-fire"></i> Destacados</a>
+        <a href="#" class="mobile-nav__link"><i class="fa-solid fa-bolt"></i> Novedades</a>
+        <a href="#" class="mobile-nav__link"><i class="fa-solid fa-headset"></i> Contacto / Soporte</a>
+        <a href="#" class="mobile-nav__link"><i class="fa-regular fa-circle-question"></i> Ayuda</a>
+        <a href="#" class="mobile-nav__link"><i class="fa-solid fa-store"></i> Vender</a>
+
+        <div class="mobile-nav__divider"></div>
+
+        <a href="#" class="mobile-nav__link mobile-nav__link--icon">
+          <i class="fa-solid fa-user"></i> Cuenta
+        </a>
+
+        <a href="#" class="mobile-nav__link mobile-nav__link--icon">
+          <i class="fa-solid fa-location-dot"></i> Ubicación
+        </a>
+
+        <a href="#" class="mobile-nav__link mobile-nav__link--icon">
+          <i class="fa-solid fa-cart-shopping"></i><span>3</span> Carrito
+        </a>
+      </nav>
+    </aside>
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+    <!-- =========================
+         PANEL MEGA CATEGORÍAS (desktop / tablet)
+    ========================== -->
+  </header>
+  
+  <main class="main-content">
+    <div class="login-container">
+  
+      <!-- LOGO -->
+      <img src="../../assets/marketplace-data/Logo-text 2.png" alt="Logo" class="logo">
+  
+      <!-- TITULO -->
+      <div class="login-brand">Restablecé tu contraseña</div>
+  
+      <!-- DESCRIPCIÓN -->
+      <p class="login-description">
+        Ingresá tu correo electrónico y te enviaremos un enlace para restablecer tu contraseña.
+      </p>
+  
+      <!-- FORM -->
+      <form id="resetForm">
+  
+        <div class="input-group">
+          <label class="input-label">Correo electrónico *</label>
+          <input type="email" id="email" placeholder="tu@email.com">
+          <div class="error" id="emailError">Ingresá un email válido</div>
+        </div>
+  
+        <button type="submit" class="btn-primary">
+          Enviar enlace
+        </button>
+  
+        <!-- MENSAJE SEGURIDAD -->
+        <div class="success-message" id="successMessage">
+          Si el email ingresado es válido, te enviaremos un enlace para restablecer tu contraseña.
+        </div>
+  
+      </form>
+  
+      <!-- VOLVER -->
+      <div class="footer-login">
+        <a href="../inicio de sesion/inicioSesionUsuario.html">¿Recordaste tu contraseña? Iniciar sesión.</a>
+      </div>
+  
+    </div>
+  </main>
+  <!-- Footer -->
+  <footer class="footer ">
+    <div class="footer-container">
+  
+      <!-- Logo + redes -->
+      <div class="footer-brand">
+        <img src="assets/marketplace-data/Logo-text 2.png" alt="Logo" class="footer-logo">
+  
+        <div class="socials">
+          <a href="#"><i class="fa-solid fa-envelope"></i></a>
+          <a href="#"><i class="fa-brands fa-facebook"></i></a>
+          <a href="#"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+      </div>
+
+      <!-- Columna -->
+      <div class="footer-col">
+        <h4>Ayuda de compra</h4>
+        <ul>
+          <li><a href="#">Cómo comprar</a></li>
+          <li><a href="#">Medios de pago</a></li>
+          <li><a href="#">Preguntas frecuentes</a></li>
+          <li><a href="#">Cambios y devoluciones</a></li>
+          <li><a href="#">Terminos y condiciones</a></li>
+          <li><a href="#">Política de privacidad</a></li>
+          
+        </ul>
+      </div>
+      <!-- Columna -->
+      <div class="footer-col">
+        <h4>Links Rapidos</h4>
+        <ul>
+          <li><a href="#">Electrónica</a></li>
+          <li><a href="#">Moda y Accesorios</a></li>
+          <li><a href="#">Hogar y Jardín</a></li>
+          <li><a href="#">Salud y Belleza</a></li>
+          <li><a href="#">Alimentos y Bebidas</a></li>
+          <li><a href="#">Deportes y Fitness</a></li>
+        </ul>
+      </div>
+      <!-- Columna -->
+      <div class="footer-col">
+        <h4>Vendedores</h4>
+        <ul>
+          <li><a href="#">Vendé en TiendaMas</a></li>
+          <li><a href="#">Requisitos para vender</a></li>
+          <li><a href="#">Comisiones</a></li>
+          <li><a href="#">Publicá tus productos</a></li>
+          <li><a href="#">Centro para vendedores</a></li>
+          <li><a href="#">Trabajá con nosotros</a></li>
+        </ul>
+      </div>
+
+      <!-- Newsletter -->
+      <div class="footer-col subscribe">
+        <h4>Suscribite</h4>
+         <p>Recibí ofertas, novedades y lanzamientos exclusivos.</p>
+  
+        <form class="subscribe-box">
+          <input type="email" placeholder="Correo electrónico">
+          <button type="submit">Suscribirse</button>
+        </form>
+      </div>
+  
     </div>
 
-    <script src="/js/auth-client.js"></script>
-    <script src="/js/session-status.js"></script>
+    <div class="footer-bottom">
+      © <span id="year"></span> TiendaMas. Todos los derechos reservados
+    </div>
+  
+  </footer>
+  
+    <!-- Go to top button -->
+  <button id="goTopBtn" aria-label="Volver arriba">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+  <script src="../../Javascript/home/script.js"></script>
+  <script src="../../Javascript/home/header.js"></script>
+  <script src="../../Javascript/inicio de sesion y registro/cambioDeContraseña/cambioDeContraseña.js"></script>
 </body>
 </html>

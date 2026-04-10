@@ -1,449 +1,728 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Registro - SomosTiendaMas</title>
-    <!-- Google Fonts - Inter (misma tipografía moderna) -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        /* ---------- RESET & GLOBAL ---------- */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            background-color: #F5F6F8;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 1rem;
-        }
-
-        /* ---------- FORM CONTAINER (CARD) ---------- */
-        .form-container {
-            background-color: #ffffff;
-            border-radius: 1rem;
-            width: 100%;
-            max-width: 28rem; /* 448px ~ max-w-md */
-            padding: 2rem;
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.02);
-            transition: all 0.2s ease;
-        }
-
-        /* Animación fade-in suave */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .fade-in {
-            animation: fadeIn 0.5s ease forwards;
-        }
-
-        /* ---------- HEADER / LOGO Y TÍTULOS (EXACTAMENTE COMO LA IMAGEN) ---------- */
-        .logo-header {
-            text-align: center;
-            margin-bottom: 1.5rem;
-        }
-
-        .brand-title {
-            font-size: 2rem;      /* 3xl ~ 30px pero proporcionado */
-            font-weight: 700;
-            letter-spacing: -0.01em;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 0.15rem;
-        }
-
-        .brand-orange {
-            color: #FF6B35;
-        }
-
-        .brand-blue {
-            color: #2563EB;   /* azul de apoyo exacto #2563EB */
-        }
-
-        .subheadline {
-            color: #6B7280;
-            font-size: 0.95rem;
-            margin-top: 0.5rem;
-            font-weight: 400;
-        }
-
-        /* ---------- SELECTOR DE TIPO USUARIO ---------- */
-        .user-type-selector {
-            margin-top: 0.5rem;
-        }
-
-        .selector-title {
-            font-size: 1.25rem;   /* texto-xl */
-            font-weight: 500;
-            color: #111827;
-            text-align: center;
-            margin-bottom: 1.5rem;
-        }
-
-        /* Contenedor de botones tipo tarjeta */
-        .type-buttons {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        /* Botón / tarjeta interactiva (EXACTAMENTE IGUAL diseño original) */
-        .type-btn {
-            display: block;
-            width: 100%;
-            background-color: #ffffff;
-            border: 2px solid #E5E7EB;
-            border-radius: 0.75rem;
-            padding: 1.5rem;
-            text-align: center;
-            text-decoration: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
-        }
-
-        /* hover elevación y sombra */
-        .type-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            border-color: #FFD1C2;
-        }
-
-        /* estado activo visual (feedback javascript) */
-        .type-btn.active {
-            background-color: #FF6B35;
-            color: white;
-            border-color: #FF6B35;
-            transform: scale(0.98);
-            box-shadow: 0 8px 18px rgba(255, 107, 53, 0.2);
-        }
-
-        /* cuando el botón está activo, los textos internos cambian de color */
-        .type-btn.active .btn-title,
-        .type-btn.active .btn-desc,
-        .type-btn.active .icon-circle i {
-            color: white;
-        }
-
-        .type-btn.active .icon-circle {
-            background-color: rgba(255, 255, 255, 0.25);
-        }
-
-        /* círculo del ícono */
-        .icon-circle {
-            width: 4rem;    /* 64px */
-            height: 4rem;
-            background-color: #FFEDE8;  /* naranja claro para persona */
-            border-radius: 9999px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 0.75rem auto;
-            transition: background 0.2s;
-        }
-
-        /* variante azul para empresa (ícono) */
-        .type-btn[data-type="empresa"] .icon-circle {
-            background-color: #EFF6FF; /* azul muy claro */
-        }
-
-        /* SVG inline - íconos personalizados (sin FontAwesome) */
-        .icon-svg {
-            width: 1.75rem;
-            height: 1.75rem;
-            stroke-width: 1.8;
-            stroke: #FF6B35;
-            fill: none;
-        }
-
-        .type-btn[data-type="empresa"] .icon-svg {
-            stroke: #2563EB;
-        }
-
-        /* cuando el botón está activo, cambia color del svg */
-        .type-btn.active .icon-svg {
-            stroke: white;
-        }
-
-        /* texto título dentro del botón */
-        .btn-title {
-            font-size: 1.125rem;
-            font-weight: 600;
-            color: #111827;
-            display: block;
-            margin-bottom: 0.5rem;
-            transition: color 0.2s;
-        }
-
-        /* descripción pequeña */
-        .btn-desc {
-            font-size: 0.8rem;
-            color: #6B7280;
-            line-height: 1.4;
-            max-width: 90%;
-            margin: 0 auto;
-            transition: color 0.2s;
-        }
-
-        /* ---------- FOOTER / INICIAR SESIÓN ---------- */
-        .footer-section {
-            margin-top: 2rem;
-            padding-top: 1.25rem;
-            border-top: 1px solid #E5E7EB;
-            text-align: center;
-        }
-
-        .login-text {
-            font-size: 0.875rem;
-            color: #6B7280;
-        }
-
-        .login-link {
-            color: #2563EB;
-            font-weight: 500;
-            text-decoration: none;
-            transition: color 0.2s, border-bottom 0.2s;
-            border-bottom: 1px dotted transparent;
-        }
-
-        .login-link:hover {
-            color: #FF6B35;
-            border-bottom-color: #FF6B35;
-        }
-
-        .login-link:focus-visible {
-            outline: 2px solid #FF6B35;
-            border-radius: 6px;
-            outline-offset: 2px;
-        }
-
-        /* ---------- RESPONSIVE (exactamente igual comportamiento) ---------- */
-        @media (max-width: 640px) {
-            .form-container {
-                width: 100%;
-                border-radius: 0;
-                padding: 1.75rem 1.5rem;
-                box-shadow: none;
-            }
-
-            body {
-                padding: 0;
-                background-color: #ffffff;
-            }
-
-            .brand-title {
-                font-size: 1.8rem;
-            }
-
-            .selector-title {
-                font-size: 1.1rem;
-                margin-bottom: 1.25rem;
-            }
-
-            .type-btn {
-                padding: 1.25rem;
-            }
-
-            .icon-circle {
-                width: 3.5rem;
-                height: 3.5rem;
-            }
-
-            .icon-svg {
-                width: 1.5rem;
-                height: 1.5rem;
-            }
-        }
-
-        /* Ajuste adicional para pantallas muy pequeñas (360px) manteniendo fidelidad */
-        @media (max-width: 480px) {
-            .form-container {
-                padding: 1.5rem 1.2rem;
-            }
-            .btn-desc {
-                font-size: 0.75rem;
-                max-width: 100%;
-            }
-            .brand-title {
-                font-size: 1.6rem;
-            }
-        }
-
-        /* focus visible para accesibilidad en botones */
-        .type-btn:focus-visible {
-            outline: 3px solid #FF6B35;
-            outline-offset: 2px;
-            border-radius: 0.75rem;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Header Marketplace Responsive</title>
+  <meta
+    name="description"
+    content="Header responsive estilo marketplace con logo e imagen de envío."
+  />
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  />
+  <link rel="stylesheet" href="../../css/home/header.css" />
+  <link rel="stylesheet" href="../../css/inicio de sesion y registro/usuarioOEmpresa.css" />
+  <link rel="stylesheet" href="../../css/home/footer.css">
 </head>
 <body>
-    <div class="form-container fade-in">
-        <!-- Logo y header exactamente como el diseño original: Tienda Mas con colores -->
-        <header class="logo-header">
-            <h1 class="brand-title">
-                <span class="brand-orange">Tienda</span>
-                <span class="brand-blue">Mas</span>
-            </h1>
-            <p class="subheadline">Creá tu cuenta en SomosTiendaMas</p>
-        </header>
+  <!-- =========================
+       HEADER
+  ========================== -->
+  <header class="site-header">
+    <div class="header-shell">
+      <div class="header-top">
+        <a href="#" class="brand" aria-label="Ir al inicio">
+          <img src="../../assets/marketplace-data/Logo-text 2.png" alt="TiendaMas+ Marketplace mayorista" class="brand__img logo-desktop">
+          <img src="../../assets/marketplace-data/Logo.png" alt="TiendaMas+ Marketplace mayorista" class="brand__img logo-mobile">
+        </a>
+        <form class="search" id="searchForm" role="search">
+          <label class="sr-only" for="searchInput">Buscar productos</label>
+          <input
+            id="searchInput"
+            class="search__input"
+            type="search"
+            placeholder="Buscar producto, marca o categoría..."
+            aria-label="Buscar productos"
+          />
+          <button class="search__btn" type="submit" aria-label="Buscar">
+            <!--<i class="fa-brands fa-sistrix"></i>-->
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </form>
+        <a href="#" class="shipping-banner" aria-label="Ingresando tu ubicación">
+          <img src="../../assets/marketplace-data/envio.png" alt="Envío ingresando tu ubicación" class="shipping-banner__img"/>
+        </a>
+        <!-- MENÚ HAMBURGUESA MOBILE -->
+        <button
+          class="mobile-menu-btn"
+          id="mobileMenuBtn"
+          aria-label="Abrir menú"
+          aria-expanded="false"
+          aria-controls="mobileDrawer"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
 
-        <!-- Selector de tipo de usuario (exacta estructura) -->
-        <div class="user-type-selector">
-            <h2 class="selector-title">¿Cómo te quieres registrar?</h2>
-            <div class="type-buttons">
-                <!-- Opción Persona (cliente) - BOTÓN real con evento JS -->
-                <button type="button" class="type-btn" id="btn-persona" data-type="persona" aria-label="Registrarse como persona">
-                    <div class="icon-circle">
-                        <!-- SVG inline persona (ícono usuario) equivalente a fa-user -->
-                        <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                            <circle cx="12" cy="7" r="4" />
-                        </svg>
-                    </div>
-                    <span class="btn-title">Como Persona</span>
-                    <p class="btn-desc">Registrate como cliente individual para comprar productos</p>
-                </button>
+      <div class="header-bottom">
+        <!-- NAV IZQUIERDA -->
+        <nav class="main-nav" aria-label="Navegación principal">
+          <ul class="main-nav__list">
+            <li class="nav-item nav-item--categories">
+              <button
+                class="nav-pill nav-pill--primary nav-dropdown-btn nav-categories-btn"
+                type="button"
+                aria-expanded="false"
+                aria-controls="categoriesPanel"
+              >
+                Categorías
+                <i class="fa-solid fa-angle-down"></i>
+              </button>
+            </li>
 
-                <!-- Opción Empresa (vendedor) -->
-                <button type="button" class="type-btn" id="btn-empresa" data-type="empresa" aria-label="Registrarse como empresa">
-                    <div class="icon-circle">
-                        <!-- SVG inline empresa (edificio) equivalente a fa-building -->
-                        <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="4" y="8" width="16" height="12" rx="1" ry="1" />
-                            <path d="M8 12h8M12 8v12" />
-                            <path d="M12 4v2M8 4h8" />
-                            <path d="M6 20h12" />
-                        </svg>
-                    </div>
-                    <span class="btn-title">Como Empresa</span>
-                    <p class="btn-desc">Registrate como empresa para acceder a beneficios especiales</p>
-                </button>
+            <li class="nav-item nav-item--dropdown">
+              <button class="nav-pill nav-dropdown-btn" type="button">
+                Ofertas
+                <i class="fa-solid fa-angle-down"></i>
+              </button>
+
+              <div class="dropdown-menu">
+                <a href="#">Ofertas del día</a>
+                <a href="#">Combos</a>
+                <a href="#">Descuentos por mayor</a>
+              </div>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-pill">Destacados</a>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-pill">Novedades</a>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-pill">Contacto / Soporte</a>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-pill">Ayuda</a>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-pill">Vender</a>
+            </li>
+          </ul>
+        </nav>
+
+        <!-- ACCIONES DERECHA -->
+        <div class="header-actions">
+
+          <div class="header-action action-dropdown">
+            <button id="account" class="header-action__btn action-dropdown-btn" type="button">
+              <i class="fa-solid fa-user"></i>
+              <span>Cuenta</span>
+              <i class="fa-solid fa-angle-down header-action__chevron"></i>
+            </button>
+            <!--
+            <div class="dropdown-menu dropdown-menu--right">
+              <a href="#">Iniciar sesión</a>
+              <a href="#">Crear cuenta</a>
+              <a href="#">Mis pedidos</a>
             </div>
+            -->
+            <div class="dropdown-menu dropdown-menu--right account-menu">
+              <div class="account-menu__header">
+                <div class="account-avatar">AR</div>
+                <div>
+                  <p class="account-name">Anita</p>
+                  <span class="account-profile">Mi perfil <i class="fa-solid fa-angle-right"></i></span>
+                </div>
+              </div>
+              <div class="account-divider"></div>
+              <div class="account-section">
+                <a href="#"><i class="fa-solid fa-bag-shopping"></i> Compras</a>
+                <a href="#"><i class="fa-solid fa-clock-rotate-left"></i> Historial</a>
+                <a href="#"><i class="fa-regular fa-circle-question"></i> Preguntas</a>
+                <a href="#"><i class="fa-regular fa-comments"></i> Opiniones</a>
+              </div>
+              <div class="account-divider"></div>
+              <div class="account-section">
+                <a href="#"><i class="fa-regular fa-credit-card"></i>Créditos</a>
+              </div>
+              <div class="account-divider"></div>
+              <div class="account-section">
+                <a href="#"><i class="fa-solid fa-tag"></i> Vender</a>
+              </div>
+              <div class="account-divider"></div>
+              <div class="account-section">
+                <a href="#" class="logout">Salir <i class="fa-solid fa-arrow-right-from-bracket"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <a href="#" class="header-action">
+            <span class="header-action__btn">
+              <i class="fa-solid fa-location-dot"></i>
+              <span>Ubicación</span>
+            </span>
+          </a>
+
+          <a href="#" class="header-action">
+            <span class="header-action__btn">
+              <i class="fa-solid fa-cart-shopping"></i>
+              <span id="cart-count">3</span> Carrito
+            </span>
+          </a>
+
+        </div>
+      </div>
+    </div>
+    <!-- =========================
+         DRAWER MOBILE
+    ========================== -->
+    <aside class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
+      <div class="mobile-drawer__header">
+        <span>Menú</span>
+        <button class="mobile-drawer__close" id="mobileDrawerClose" aria-label="Cerrar menú">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <nav class="mobile-nav" aria-label="Menú móvil">
+
+        <div class="mobile-nav__section">
+          <button class="mobile-accordion-btn" type="button">
+            Categorías
+            <i class="fa-solid fa-angle-down"></i>
+          </button>
+          <div class="mobile-accordion-panel">
+            <a href="#">Alimentos</a>
+            <a href="#">Bebidas</a>
+            <a href="#">Lácteos</a>
+            <a href="#">Limpieza</a>
+            <a href="#">Perfumería</a>
+          </div>
         </div>
 
-        <!-- Información adicional: link iniciar sesión -->
-        <div class="footer-section">
-            <div class="login-text">
-                ¿Ya tenés una cuenta? 
-                <a href="#" id="login-link" class="login-link">Iniciá sesión aquí</a>
-            </div>
+        <div class="mobile-nav__section">
+          <button class="mobile-accordion-btn" type="button">
+            Ofertas
+            <i class="fa-solid fa-angle-down"></i>
+          </button>
+          <div class="mobile-accordion-panel">
+            <a href="#">Ofertas del día</a>
+            <a href="#">Combos</a>
+            <a href="#">Descuentos por mayor</a>
+          </div>
         </div>
+
+        <a href="#" class="mobile-nav__link"><i class="fa-solid fa-fire"></i> Destacados</a>
+        <a href="#" class="mobile-nav__link"><i class="fa-solid fa-bolt"></i> Novedades</a>
+        <a href="#" class="mobile-nav__link"><i class="fa-solid fa-headset"></i> Contacto / Soporte</a>
+        <a href="#" class="mobile-nav__link"><i class="fa-regular fa-circle-question"></i> Ayuda</a>
+        <a href="#" class="mobile-nav__link"><i class="fa-solid fa-store"></i> Vender</a>
+
+        <div class="mobile-nav__divider"></div>
+
+        <a href="#" class="mobile-nav__link mobile-nav__link--icon">
+          <i class="fa-solid fa-user"></i> Cuenta
+        </a>
+
+        <a href="#" class="mobile-nav__link mobile-nav__link--icon">
+          <i class="fa-solid fa-location-dot"></i> Ubicación
+        </a>
+
+        <a href="#" class="mobile-nav__link mobile-nav__link--icon">
+          <i class="fa-solid fa-cart-shopping"></i><span>3</span> Carrito
+        </a>
+      </nav>
+    </aside>
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+    <!-- =========================
+         PANEL MEGA CATEGORÍAS (desktop / tablet)
+    ========================== -->
+    <div class="categories-panel" id="categoriesPanel" aria-hidden="true">
+      <div class="categories-panel__shell">
+        <!-- COLUMNA IZQUIERDA -->
+        <aside class="categories-sidebar" aria-label="Categorías principales">
+          <button class="category-main is-active" type="button" data-category="electro">
+            <i class="fa-solid fa-tv"></i>
+            <span>Electro y tecnología</span>
+            <i class="fa-solid fa-angle-right"></i>
+          </button>
+    
+          <button class="category-main" type="button" data-category="hogar">
+            <i class="fa-solid fa-house"></i>
+            <span>Hogar</span>
+            <i class="fa-solid fa-angle-right"></i>
+          </button>
+    
+          <button class="category-main" type="button" data-category="almacen">
+            <i class="fa-solid fa-boxes-stacked"></i>
+            <span>Almacén</span>
+            <i class="fa-solid fa-angle-right"></i>
+          </button>
+    
+          <button class="category-main" type="button" data-category="desayuno">
+            <i class="fa-solid fa-mug-hot"></i>
+            <span>Desayuno y merienda</span>
+            <i class="fa-solid fa-angle-right"></i>
+          </button>
+    
+          <button class="category-main" type="button" data-category="bebidas">
+            <i class="fa-solid fa-wine-bottle"></i>
+            <span>Bebidas</span>
+            <i class="fa-solid fa-angle-right"></i>
+          </button>
+    
+          <button class="category-main" type="button" data-category="lacteos">
+            <i class="fa-solid fa-cheese"></i>
+            <span>Lácteos y productos frescos</span>
+            <i class="fa-solid fa-angle-right"></i>
+          </button>
+    
+          <button class="category-main" type="button" data-category="limpieza">
+            <i class="fa-solid fa-pump-soap"></i>
+            <span>Limpieza</span>
+            <i class="fa-solid fa-angle-right"></i>
+          </button>
+    
+          <button class="category-main" type="button" data-category="perfumeria">
+            <i class="fa-solid fa-spray-can-sparkles"></i>
+            <span>Perfumería y farmacia</span>
+            <i class="fa-solid fa-angle-right"></i>
+          </button>
+          <button class="category-main is-active" type="button" data-category="electro">
+            <i class="fa-solid fa-tv"></i>
+            <span>Electro y tecnología</span>
+            <i class="fa-solid fa-angle-right"></i>
+          </button>
+    
+          <button class="category-main" type="button" data-category="hogar">
+            <i class="fa-solid fa-house"></i>
+            <span>Hogar</span>
+            <i class="fa-solid fa-angle-right"></i>
+          </button>
+    
+          <button class="category-main" type="button" data-category="almacen">
+            <i class="fa-solid fa-boxes-stacked"></i>
+            <span>Almacén</span>
+            <i class="fa-solid fa-angle-right"></i>
+          </button>
+    
+          <button class="category-main" type="button" data-category="desayuno">
+            <i class="fa-solid fa-mug-hot"></i>
+            <span>Desayuno y merienda</span>
+            <i class="fa-solid fa-angle-right"></i>
+          </button>
+    
+          <button class="category-main" type="button" data-category="bebidas">
+            <i class="fa-solid fa-wine-bottle"></i>
+            <span>Bebidas</span>
+            <i class="fa-solid fa-angle-right"></i>
+          </button>
+    
+          <button class="category-main" type="button" data-category="lacteos">
+            <i class="fa-solid fa-cheese"></i>
+            <span>Lácteos y productos frescos</span>
+            <i class="fa-solid fa-angle-right"></i>
+          </button>
+    
+          <button class="category-main" type="button" data-category="limpieza">
+            <i class="fa-solid fa-pump-soap"></i>
+            <span>Limpieza</span>
+            <i class="fa-solid fa-angle-right"></i>
+          </button>
+    
+          <button class="category-main" type="button" data-category="perfumeria">
+            <i class="fa-solid fa-spray-can-sparkles"></i>
+            <span>Perfumería y farmacia</span>
+            <i class="fa-solid fa-angle-right"></i>
+          </button>
+        </aside>
+    
+        <!-- COLUMNA DERECHA -->
+        <section class="categories-content" aria-label="Subcategorías">
+          <!-- ELECTRO -->
+          <div class="category-content is-active" data-content="electro">
+            <div class="category-content__header">
+              <h3><i class="fa-solid fa-tv"></i> Electro y tecnología</h3>
+              <a href="#" class="category-view-all">VER TODOS LOS PRODUCTOS <i class="fa-solid fa-angle-right"></i></a>
+            </div>
+    
+            <div class="category-columns">
+              <div class="category-group">
+                <h4>TV y soportes</h4>
+                <a href="#">Smart TV</a>
+                <a href="#">Soportes y accesorios</a>
+    
+                <h4>Celulares</h4>
+                <a href="#">Celulares libres</a>
+                <a href="#">Smartwatches y accesorios</a>
+                <a href="#">Accesorios de celulares</a>
+    
+                <h4>Climatización</h4>
+                <a href="#">Aires acondicionados</a>
+                <a href="#">Ventiladores</a>
+                <a href="#">Calefacción eléctrica</a>
+                <a href="#">Calefacción a gas</a>
+              </div>
+    
+              <div class="category-group">
+                <h4>Lavado</h4>
+                <a href="#">Lavarropas</a>
+                <a href="#">Secarropas</a>
+                <a href="#">Lavasecarropas</a>
+    
+                <h4>Termotanques y calefones</h4>
+                <a href="#">Calefones</a>
+                <a href="#">Termotanques a gas</a>
+                <a href="#">Termotanques eléctricos</a>
+    
+                <h4>Cocinas y hornos</h4>
+                <a href="#">Cocinas</a>
+                <a href="#">Anafes</a>
+                <a href="#">Hornos</a>
+                <a href="#">Microondas</a>
+              </div>
+    
+              <div class="category-group">
+                <h4>Cuidado personal y salud</h4>
+                <a href="#">Planchitas de pelo</a>
+                <a href="#">Secadores de pelo</a>
+                <a href="#">Afeitadoras</a>
+                <a href="#">Salud y bienestar</a>
+    
+                <h4>Informática y gaming</h4>
+                <a href="#">Notebooks y PC</a>
+                <a href="#">Consolas y joysticks</a>
+                <a href="#">Impresoras</a>
+                <a href="#">Tablets</a>
+                <a href="#">Monitores</a>
+    
+                <h4>Heladeras y freezers</h4>
+                <a href="#">Heladeras</a>
+                <a href="#">Freezers</a>
+              </div>
+            </div>
+          </div>
+    
+          <!-- HOGAR -->
+          <div class="category-content" data-content="hogar">
+            <div class="category-content__header">
+              <h3><i class="fa-solid fa-house"></i> Hogar</h3>
+              <a href="#" class="category-view-all">VER TODOS LOS PRODUCTOS <i class="fa-solid fa-angle-right"></i></a>
+            </div>
+    
+            <div class="category-columns">
+              <div class="category-group">
+                <h4>Muebles</h4>
+                <a href="#">Mesas</a>
+                <a href="#">Sillas</a>
+                <a href="#">Bibliotecas</a>
+              </div>
+              <div class="category-group">
+                <h4>Decoración</h4>
+                <a href="#">Cuadros</a>
+                <a href="#">Espejos</a>
+                <a href="#">Velas</a>
+              </div>
+              <div class="category-group">
+                <h4>Textil</h4>
+                <a href="#">Sábanas</a>
+                <a href="#">Acolchados</a>
+                <a href="#">Toallas</a>
+              </div>
+            </div>
+          </div>
+    
+          <!-- ALMACÉN -->
+          <div class="category-content" data-content="almacen">
+            <div class="category-content__header">
+              <h3><i class="fa-solid fa-boxes-stacked"></i> Almacén</h3>
+              <a href="#" class="category-view-all">VER TODOS LOS PRODUCTOS <i class="fa-solid fa-angle-right"></i></a>
+            </div>
+    
+            <div class="category-columns">
+              <div class="category-group">
+                <h4>Secos</h4>
+                <a href="#">Arroz</a>
+                <a href="#">Fideos</a>
+                <a href="#">Harinas</a>
+              </div>
+              <div class="category-group">
+                <h4>Conservas</h4>
+                <a href="#">Atún</a>
+                <a href="#">Tomate</a>
+                <a href="#">Legumbres</a>
+              </div>
+              <div class="category-group">
+                <h4>Snacks</h4>
+                <a href="#">Papas fritas</a>
+                <a href="#">Galletitas</a>
+                <a href="#">Mixes</a>
+              </div>
+            </div>
+          </div>
+    
+          <!-- DESAYUNO -->
+          <div class="category-content" data-content="desayuno">
+            <div class="category-content__header">
+              <h3><i class="fa-solid fa-mug-hot"></i> Desayuno y merienda</h3>
+              <a href="#" class="category-view-all">VER TODOS LOS PRODUCTOS <i class="fa-solid fa-angle-right"></i></a>
+            </div>
+    
+            <div class="category-columns">
+              <div class="category-group">
+                <h4>Infusiones</h4>
+                <a href="#">Café</a>
+                <a href="#">Té</a>
+                <a href="#">Mate cocido</a>
+              </div>
+              <div class="category-group">
+                <h4>Dulces</h4>
+                <a href="#">Mermeladas</a>
+                <a href="#">Dulce de leche</a>
+                <a href="#">Miel</a>
+              </div>
+              <div class="category-group">
+                <h4>Panificados</h4>
+                <a href="#">Tostadas</a>
+                <a href="#">Bizcochos</a>
+                <a href="#">Galletitas</a>
+              </div>
+            </div>
+          </div>
+    
+          <!-- BEBIDAS -->
+          <div class="category-content" data-content="bebidas">
+            <div class="category-content__header">
+              <h3><i class="fa-solid fa-wine-bottle"></i> Bebidas</h3>
+              <a href="#" class="category-view-all">VER TODOS LOS PRODUCTOS <i class="fa-solid fa-angle-right"></i></a>
+            </div>
+    
+            <div class="category-columns">
+              <div class="category-group">
+                <h4>Sin alcohol</h4>
+                <a href="#">Gaseosas</a>
+                <a href="#">Jugos</a>
+                <a href="#">Aguas</a>
+              </div>
+              <div class="category-group">
+                <h4>Con alcohol</h4>
+                <a href="#">Cervezas</a>
+                <a href="#">Vinos</a>
+                <a href="#">Aperitivos</a>
+              </div>
+              <div class="category-group">
+                <h4>Energizantes</h4>
+                <a href="#">Latas</a>
+                <a href="#">Packs</a>
+              </div>
+            </div>
+          </div>
+    
+          <!-- LÁCTEOS -->
+          <div class="category-content" data-content="lacteos">
+            <div class="category-content__header">
+              <h3><i class="fa-solid fa-cheese"></i> Lácteos y productos frescos</h3>
+              <a href="#" class="category-view-all">VER TODOS LOS PRODUCTOS <i class="fa-solid fa-angle-right"></i></a>
+            </div>
+    
+            <div class="category-columns">
+              <div class="category-group">
+                <h4>Lácteos</h4>
+                <a href="#">Leche</a>
+                <a href="#">Yogures</a>
+                <a href="#">Quesos</a>
+              </div>
+              <div class="category-group">
+                <h4>Frescos</h4>
+                <a href="#">Fiambres</a>
+                <a href="#">Pastas frescas</a>
+                <a href="#">Mantecas</a>
+              </div>
+              <div class="category-group">
+                <h4>Postres</h4>
+                <a href="#">Flanes</a>
+                <a href="#">Gelatinas</a>
+                <a href="#">Postres refrigerados</a>
+              </div>
+            </div>
+          </div>
+    
+          <!-- LIMPIEZA -->
+          <div class="category-content" data-content="limpieza">
+            <div class="category-content__header">
+              <h3><i class="fa-solid fa-pump-soap"></i> Limpieza</h3>
+              <a href="#" class="category-view-all">VER TODOS LOS PRODUCTOS <i class="fa-solid fa-angle-right"></i></a>
+            </div>
+    
+            <div class="category-columns">
+              <div class="category-group">
+                <h4>Ropa</h4>
+                <a href="#">Detergentes</a>
+                <a href="#">Suavizantes</a>
+                <a href="#">Quitamanchas</a>
+              </div>
+              <div class="category-group">
+                <h4>Hogar</h4>
+                <a href="#">Lavandina</a>
+                <a href="#">Desinfectantes</a>
+                <a href="#">Limpiadores</a>
+              </div>
+              <div class="category-group">
+                <h4>Accesorios</h4>
+                <a href="#">Esponjas</a>
+                <a href="#">Guantes</a>
+                <a href="#">Trapos</a>
+              </div>
+            </div>
+          </div>
+    
+          <!-- PERFUMERÍA -->
+          <div class="category-content" data-content="perfumeria">
+            <div class="category-content__header">
+              <h3><i class="fa-solid fa-spray-can-sparkles"></i> Perfumería y farmacia</h3>
+              <a href="#" class="category-view-all">VER TODOS LOS PRODUCTOS <i class="fa-solid fa-angle-right"></i></a>
+            </div>
+    
+            <div class="category-columns">
+              <div class="category-group">
+                <h4>Cuidado personal</h4>
+                <a href="#">Shampoo</a>
+                <a href="#">Acondicionador</a>
+                <a href="#">Jabones</a>
+              </div>
+              <div class="category-group">
+                <h4>Farmacia</h4>
+                <a href="#">Analgésicos</a>
+                <a href="#">Vitaminas</a>
+                <a href="#">Primeros auxilios</a>
+              </div>
+              <div class="category-group">
+                <h4>Belleza</h4>
+                <a href="#">Maquillaje</a>
+                <a href="#">Cremas</a>
+                <a href="#">Fragancias</a>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <div class="login-container">
+  
+      <!-- LOGO -->
+      <img src="../../assets/marketplace-data/Logo-text 2.png" alt="TiendaMas" class="logo">
+  
+      <!-- TEXTO -->
+      <p class="login-subtitle">Creá tu cuenta en SomosTiendaMas</p>
+      <h2 class="login-question">¿Cómo te querés registrar?</h2>
+  
+      <!-- OPCIONES -->
+      <div class="register-options">
+  
+        <!-- PERSONA -->
+        <div class="register-card" data-type="persona">
+          <img src="../assets/icons/iconos/user.svg" class="icon">
+          <h3>Como Persona</h3>
+          <p>Registrate como cliente individual para comprar productos</p>
+        </div>
+  
+        <!-- EMPRESA -->
+        <div class="register-card" data-type="empresa">
+          <img src="../assets/icons/iconos/company.svg" class="icon">
+          <h3>Como Empresa</h3>
+          <p>Registrate como empresa para acceder a beneficios especiales</p>
+        </div>
+  
+      </div>
+  
+      <!-- FOOTER -->
+      <div class="footer-login">
+        ¿Ya tenés una cuenta?
+        <a href="../login/login.html">Iniciá sesión aquí</a>
+      </div>
+  
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer ">
+    <div class="footer-container">
+  
+      <!-- Logo + redes -->
+      <div class="footer-brand">
+        <img src="../../assets/marketplace-data/Logo-text 2.png" alt="Logo" class="footer-logo">
+  
+        <div class="socials">
+          <a href="#"><i class="fa-solid fa-envelope"></i></a>
+          <a href="#"><i class="fa-brands fa-facebook"></i></a>
+          <a href="#"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+      </div>
+
+      <!-- Columna -->
+      <div class="footer-col">
+        <h4>Atención al Cliente</h4>
+        <ul>
+          <li><a href="#">Acerca de</a></li>
+          <li><a href="#">Soporte técnico</a></li>
+          <li><a href="#">Preguntas frecuentes</a></li>
+          <li><a href="#">Terminos y condiciones</a></li>
+          <li><a href="#">Política de privacidad</a></li>
+          <li><a href="#">Información de Envíos</a></li>
+        </ul>
+      </div>
+      <!-- Columna -->
+      <div class="footer-col">
+        <h4>Links Rapidos</h4>
+        <ul>
+          <li><a href="#">Electrónica</a></li>
+          <li><a href="#">Moda y Accesorios</a></li>
+          <li><a href="#">Hogar y Jardín</a></li>
+          <li><a href="#">Salud y Belleza</a></li>
+          <li><a href="#">Alimentos y Bebidas</a></li>
+          <li><a href="#">Deportes y Fitness</a></li>
+        </ul>
+      </div>
+      <!-- Columna -->
+      <div class="footer-col">
+        <h4>Mi cuenta</h4>
+        <ul>
+          <li><a href="#">Iniciar sesión</a></li>
+          <li><a href="#">Registrarse</a></li>
+          <li><a href="#">Mis pedidos</a></li>
+          <li><a href="#">Direcciones</a></li>
+          <li><a href="#">Métodos de pago</a></li>
+          <li><a href="#">Cerrar sesión</a></li>
+        </ul>
+      </div>
+
+      <!-- Newsletter -->
+      <div class="footer-col subscribe">
+        <h4>Suscribite</h4>
+         <p>Suscribite a nuestro newsletter para recibir novedades y ofertas exclusivas.</p>
+  
+        <form class="subscribe-box">
+          <input type="email" placeholder="Correo electrónico">
+          <button type="submit">Suscribirse</button>
+        </form>
+      </div>
+  
     </div>
 
-    <script>
-        (function() {
-            "use strict";
-            
-            // ---------- Elementos DOM ----------
-            const personaBtn = document.getElementById('btn-persona');
-            const empresaBtn = document.getElementById('btn-empresa');
-            const loginBtn = document.getElementById('login-link');
-            
-            // Rutas exactas requeridas (como en el diseño original)
-            const REGISTRO_PERSONA_URL = 'registro_usuario.html';
-            const REGISTRO_EMPRESA_URL = 'registro_empresa.html';
-            const LOGIN_URL = 'login.html';
-            
-            // Duración del estado activo visual (150-220ms como se pide)
-            const ACTIVE_FEEDBACK_MS = 180;
-            
-            /**
-             * Maneja el click en una opción de registro (persona o empresa)
-             * @param {HTMLElement} btnElement - botón presionado
-             * @param {string} redirectUrl - destino
-             */
-            function handleRegistrationClick(btnElement, redirectUrl) {
-                // Prevenir múltiples clicks mientras se procesa el feedback
-                if (btnElement.disabled) return;
-                
-                // Deshabilitar temporalmente para evitar spam de clicks
-                btnElement.disabled = true;
-                
-                // Agregar clase 'active' para feedback visual (borde naranja, fondo)
-                btnElement.classList.add('active');
-                
-                // Guardar referencia para atributo aria-pressed (accesibilidad)
-                btnElement.setAttribute('aria-pressed', 'true');
-                
-                // setTimeout para mantener el estado activo y luego redirigir
-                setTimeout(() => {
-                    // Limpiar estado visual y atributos antes de redirigir
-                    btnElement.classList.remove('active');
-                    btnElement.setAttribute('aria-pressed', 'false');
-                    // Redirección final a la página correspondiente
-                    window.location.href = redirectUrl;
-                }, ACTIVE_FEEDBACK_MS);
-                
-                // Restaurar disabled después del tiempo de feedback (por si algo evita la redirección)
-                setTimeout(() => {
-                    if (btnElement.disabled) {
-                        btnElement.disabled = false;
-                    }
-                }, ACTIVE_FEEDBACK_MS + 50);
-            }
-            
-            // ----- Event listeners para las dos opciones principales -----
-            if (personaBtn) {
-                personaBtn.addEventListener('click', (event) => {
-                    event.preventDefault();
-                    handleRegistrationClick(personaBtn, REGISTRO_PERSONA_URL);
-                });
-                
-                // Accesibilidad: permitir tecla Enter / Space
-                personaBtn.addEventListener('keydown', (e) => {
-                    if (e.key === 'Enter' || e.key === ' ') {
-                        e.preventDefault();
-                        personaBtn.click();
-                    }
-                });
-            }
-            
-            if (empresaBtn) {
-                empresaBtn.addEventListener('click', (event) => {
-                    event.preventDefault();
-                    handleRegistrationClick(empresaBtn, REGISTRO_EMPRESA_URL);
-                });
-                
-                empresaBtn.addEventListener('keydown', (e) => {
-                    if (e.key === 'Enter' || e.key === ' ') {
-                        e.preventDefault();
-                        empresaBtn.click();
-                    }
-                });
-            }
-            
-            // ----- Link "Iniciá sesión aquí" (redirección directa) -----
-            if (loginBtn) {
-                loginBtn.addEventListener('click', (event) => {
-                    event.preventDefault();
-                    // Redirige a login.html sin feedback visual extra, manteniendo experiencia limpia
-                    window.location.href = LOGIN_URL;
-                });
-            }
-            
-            // Pequeño detalle: si el usuario hace clic y el botón ya estaba deshabilitado por animación,
-            // no habrá doble redirección. Además, aseguramos que el foco visual sea correcto.
-        })();
-    </script>
+    <div class="footer-bottom">
+      © <span id="year"></span> TiendaMas. Todos los derechos reservados
+    </div>
+  
+  </footer>
+  
+  <script src="../../Javascript/inicio de sesion y registro/usuarioOEmpresa.js"></script>
+  <script src="../../Javascript/home/header.js"></script>
+  <script src="../../Javascript/home/script.js"></script>
 </body>
 </html>
+
 

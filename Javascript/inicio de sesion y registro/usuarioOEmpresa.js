@@ -1,40 +1,24 @@
-document.addEventListener("DOMContentLoaded", () => {
-  // Año footer
-  const yearEl = document.getElementById("year");
-  if (yearEl) {
-    yearEl.textContent = new Date().getFullYear();
-  }
+(function() {
+  "use strict";
 
-  // Feedback visual opcional antes de navegar
-  const selectorCards = document.querySelectorAll(".selector-card");
+  const cards = document.querySelectorAll(".register-card");
 
-  selectorCards.forEach((card) => {
-    card.addEventListener("click", (e) => {
-      card.classList.add("is-clicked");
-      // No prevenimos navegación: solo feedback rápido
-    });
+  cards.forEach(card => {
+    card.addEventListener("click", () => {
+      const type = card.getAttribute("data-type");
 
-    card.addEventListener("keydown", (e) => {
-      if (e.key === "Enter" || e.key === " ") {
-        card.classList.add("is-clicked");
+      // Guardar selección (clave UX real)
+      localStorage.setItem("registerType", type);
+
+      // Redirección según tipo
+      if (type === "persona") {
+        window.location.href = "registro-persona.html";
+      } else {
+        window.location.href = "registro-empresa.html";
       }
     });
   });
 
-  // Search form demo (evita recarga si todavía no tenés backend)
-  const searchForm = document.getElementById("searchForm");
-  if (searchForm) {
-    searchForm.addEventListener("submit", (e) => {
-      e.preventDefault();
-      const input = document.getElementById("searchInput");
-      const query = input?.value.trim();
-
-      if (query) {
-        console.log("Buscar:", query);
-        // window.location.href = `/buscar?q=${encodeURIComponent(query)}`;
-      }
-    });
-  }
-});
+})();
 
 

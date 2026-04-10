@@ -620,13 +620,35 @@
       <form id="registerForm">
     
         <div class="input-group">
-          <input type="text" id="name" placeholder="Nombre completo">
-          <div class="error" id="nameError">El nombre es obligatorio</div>
+          <input type="text" id="name" placeholder="Nombre de usuario">
+          <div class="error" id="nameError">El nombre de usuario es obligatorio</div>
         </div>
     
         <div class="input-group">
           <input type="email" id="email" placeholder="Email">
           <div class="error" id="emailError">Email inválido</div>
+        </div>
+
+        <div class="input-group">
+          <select id="userType">
+            <option value="" disabled selected>Tipo de usuario</option>
+            <option value="persona_fisica">Persona Física</option>
+            <option value="empresa">Empresa</option>
+            <option value="emprendedor">Emprendedor</option>
+          </select>
+          <div class="error" id="userTypeError">Seleccioná un tipo de usuario</div>
+        </div>
+        
+        <div class="input-group">
+          <select id="country">
+            <option value="" disabled selected>País</option>
+            <option value="argentina">Argentina</option>
+            <option value="colombia">Colombia</option>
+            <option value="mexico">México</option>
+            <option value="chile">Chile</option>
+            <option value="peru">Perú</option>
+          </select>
+          <div class="error" id="countryError">Seleccioná un país</div>
         </div>
     
         <div class="input-group password-wrapper">
@@ -642,9 +664,11 @@
     
         <div class="checkbox">
           <input type="checkbox" id="terms">
-          <label for="terms">Acepto los Términos y Condiciones y la Política de Privacidad</label>
+          <label for="terms">
+            Acepto los <a href="../../Politica de privacidad - terminos y condiciones/terminosYCondiciones.html">Términos y Condiciones</a> y la <a href="../../Politica de privacidad - terminos y condiciones/politicaDePrivacidad.html">Política de Privacidad</a>
+          </label>
         </div>
-        <div class="error" id="termsError">Debes aceptar los términos</div>
+        <div class="error" id="termsError">Debes aceptar los términos y la política de privacidad</div>
     
         <button type="submit" class="btn-primary">Crear cuenta</button>
     
@@ -742,8 +766,6 @@
   
   <script src="../../Javascript/inicio de sesion y registro/registroUsuario.js"></script>
   <script src="../../Javascript/home/header.js"></script>
-  <script src="../../Javascript/home/script.js"></script>
+  <script src="../../Javascript/home/footer.js"></script>
 </body>
 </html>
-
-
