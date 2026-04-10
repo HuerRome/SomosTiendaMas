@@ -7,17 +7,17 @@
   --border: #ddd;
 }
 
-/* ---------- LAYOUT ---------- */
+/* MAIN */
 .main-content {
   background: var(--bg);
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  padding: 2rem 1rem;
+  padding: 2rem 0;
 }
 
-/* ---------- CARD ---------- */
+/* CARD */
 .login-container {
   background: #fff;
   padding: 40px 30px;
@@ -34,22 +34,36 @@
   to {opacity: 1; transform: translateY(0);}
 }
 
-/* ---------- LOGO ---------- */
+/* LOGO */
 .logo {
   width: 150px;
-  height: auto;
-  object-fit: contain;
   margin-bottom: 10px;
 }
 
+/* TITULO */
 .login-brand {
   font-size: 24px;
   font-weight: 700;
-  margin-bottom: 25px;
-  color: var(--text);
+  margin-bottom: 10px;
 }
 
-/* ---------- INPUTS ---------- */
+/* DESCRIPCIÓN */
+.login-description {
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 25px;
+  line-height: 1.4;
+}
+
+/* LABEL */
+.input-label {
+  font-size: 13px;
+  color: var(--text);
+  margin-bottom: 5px;
+  display: block;
+}
+
+/* INPUT */
 .input-group {
   margin-bottom: 15px;
   text-align: left;
@@ -61,40 +75,16 @@
   border-radius: 10px;
   border: 1px solid var(--border);
   font-size: 14px;
-  transition: all 0.2s ease;
+  transition: 0.2s;
 }
 
-/* Focus PRO */
 .input-group input:focus {
   outline: none;
   border-color: var(--primary);
-  box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.2);
+  box-shadow: 0 0 0 2px rgba(255,107,53,0.2);
 }
 
-/* ---------- PASSWORD ---------- */
-.password-wrapper {
-  position: relative;
-}
-
-.toggle-password {
-  position: absolute;
-  right: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  cursor: pointer;
-  font-size: 14px;
-  color: var(--muted);
-  user-select: none;
-}
-
-/* ---------- CÓDIGO ---------- */
-#code {
-  letter-spacing: 3px;
-  text-align: center;
-  font-weight: 600;
-}
-
-/* ---------- BOTONES ---------- */
+/* BOTON */
 .btn-primary {
   width: 100%;
   padding: 12px;
@@ -104,26 +94,14 @@
   border-radius: 25px;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: 0.2s;
 }
 
 .btn-primary:hover {
   background: var(--primary-hover);
-  transform: translateY(-1px);
 }
 
-.btn-primary:active {
-  transform: scale(0.98);
-}
-
-/* ---------- DIVIDER ---------- */
-.divider {
-  margin: 20px 0;
-  font-size: 12px;
-  color: var(--muted);
-}
-
-/* ---------- ERRORES ---------- */
+/* ERROR */
 .error {
   color: red;
   font-size: 12px;
@@ -131,7 +109,20 @@
   display: none;
 }
 
-/* ---------- FOOTER ---------- */
+/* SUCCESS */
+.success-message {
+  margin-top: 15px;
+  font-size: 13px;
+  color: #16a34a;
+  background: #ecfdf5;
+  border: 1px solid #bbf7d0;
+  padding: 10px;
+  border-radius: 10px;
+  display: none;
+  text-align: center;
+}
+
+/* FOOTER */
 .footer-login {
   margin-top: 20px;
   font-size: 13px;
@@ -147,41 +138,10 @@
   text-decoration: underline;
 }
 
-/* ---------- TRANSICIONES STEP ---------- */
-#stepEmail,
-#stepPassword {
-  transition: all 0.3s ease;
-}
-
-#stepPassword {
-  animation: fadeIn 0.4s ease;
-}
-
-/* ---------- MENSAJE ÉXITO (futuro) ---------- */
-.success-message {
-  color: #16a34a;
-  font-size: 13px;
-  margin-top: 10px;
-  text-align: center;
-}
-
-/* ---------- RESPONSIVE ---------- */
+/* RESPONSIVE */
 @media (max-width: 480px) {
   .login-container {
+    margin: 20px;
     padding: 30px 20px;
-    margin: 10px;
-  }
-
-  .login-brand {
-    font-size: 20px;
-  }
-
-  .input-group input {
-    font-size: 13px;
-  }
-
-  .btn-primary {
-    padding: 11px;
-    font-size: 14px;
   }
 }

@@ -504,57 +504,47 @@
          PANEL MEGA CATEGORÍAS (desktop / tablet)
     ========================== -->
   </header>
-
-  <main class="main-content page-shell">
+  
+  <main class="main-content">
     <div class="login-container">
-      
+  
       <!-- LOGO -->
       <img src="../../assets/marketplace-data/Logo-text 2.png" alt="Logo" class="logo">
-      <div class="login-brand">Restablecer contraseña</div>
+  
+      <!-- TITULO -->
+      <div class="login-brand">Restablecé tu contraseña</div>
+  
+      <!-- DESCRIPCIÓN -->
+      <p class="login-description">
+        Ingresá tu correo electrónico y te enviaremos un enlace para restablecer tu contraseña.
+      </p>
   
       <!-- FORM -->
       <form id="resetForm">
   
-        <!-- STEP 1 -->
-        <div id="stepEmail">
-          <div class="input-group">
-            <input type="email" id="resetEmail" placeholder="Ingresá tu email">
-            <div class="error" id="resetEmailError">Ingresá un email válido</div>
-          </div>
-  
-          <button type="submit" class="btn-primary">Enviar código</button>
+        <div class="input-group">
+          <label class="input-label">Correo electrónico *</label>
+          <input type="email" id="email" placeholder="tu@email.com">
+          <div class="error" id="emailError">Ingresá un email válido</div>
         </div>
   
-        <!-- STEP 2 -->
-        <div id="stepPassword" style="display:none;">
-          
-          <div class="input-group">
-            <input type="text" id="code" placeholder="Código de verificación">
-            <div class="error" id="codeError">Código incorrecto</div>
-          </div>
+        <button type="submit" class="btn-primary">
+          Enviar enlace
+        </button>
   
-          <div class="input-group password-wrapper">
-            <input type="password" id="newPassword" placeholder="Nueva contraseña">
-            <span class="toggle-password" data-target="newPassword">👁</span>
-            <div class="error" id="newPasswordError">Mínimo 6 caracteres</div>
-          </div>
-  
-          <div class="input-group password-wrapper">
-            <input type="password" id="confirmPassword" placeholder="Confirmar contraseña">
-            <span class="toggle-password" data-target="confirmPassword">👁</span>
-            <div class="error" id="confirmPasswordError">Las contraseñas no coinciden</div>
-          </div>
-  
-          <button type="submit" class="btn-primary">Guardar nueva contraseña</button>
+        <!-- MENSAJE SEGURIDAD -->
+        <div class="success-message" id="successMessage">
+          Si el email ingresado es válido, te enviaremos un enlace para restablecer tu contraseña.
         </div>
   
       </form>
   
+      <!-- VOLVER -->
       <div class="footer-login">
-        <a href="login.html">Volver al inicio de sesión</a>
+        <a href="../login/login.html">Volver a iniciar sesión</a>
       </div>
   
-    </div>  
+    </div>
   </main>
   <!-- Footer -->
   <footer class="footer ">
