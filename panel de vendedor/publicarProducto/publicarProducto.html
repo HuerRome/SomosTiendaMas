@@ -513,12 +513,27 @@
   
           <div class="form-grid">
             <input type="text" id="name" placeholder="Nombre del producto" required>
-            <input type="number" id="price" placeholder="Precio" required>
+  
+            <input type="number" id="price" placeholder="Precio" min="0" required>
+          </div>
+  
+          <div class="form-grid">
+            <input type="number" id="stock" placeholder="Stock disponible" min="0" required>
+  
+            <input type="text" id="location" placeholder="Ubicación (ej: Catamarca)" required>
+          </div>
+  
+          <!-- ENVÍO -->
+          <div class="shipping">
+            <label>
+              <input type="checkbox" id="shipping">
+              Acepta envíos
+            </label>
           </div>
   
           <textarea id="description" placeholder="Descripción"></textarea>
   
-          <!-- UPLOADER -->
+          <!-- IMÁGENES -->
           <div class="upload-box">
             <p>Subí hasta 5 imágenes</p>
             <input type="file" id="imageInput" accept="image/*" multiple>
@@ -537,6 +552,7 @@
     </div>
   
   </main>
+  
   <!-- Footer -->
   <footer class="footer ">
     <div class="footer-container">
