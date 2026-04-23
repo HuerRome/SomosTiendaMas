@@ -1,10 +1,17 @@
 const input = document.getElementById("imageInput");
+const fileBtn = document.getElementById("fileBtn");
+const fileText = document.getElementById("fileText");
 const preview = document.getElementById("preview");
 const form = document.getElementById("productForm");
 
 let images = [];
 
-/* SUBIR IMÁGENES */
+/* ABRIR SELECTOR */
+fileBtn.addEventListener("click", () => {
+  input.click();
+});
+
+/* SELECCIONAR IMÁGENES */
 input.addEventListener("change", () => {
   const files = Array.from(input.files);
 
@@ -12,6 +19,16 @@ input.addEventListener("change", () => {
     alert("Máximo 5 imágenes");
     return;
   }
+
+  if (files.length === 0) {
+    fileText.textContent = "No se eligió ningún archivo";
+    return;
+  }
+
+  fileText.textContent =
+    files.length === 1
+      ? files[0].name
+      : `${files.length} archivos seleccionados`;
 
   files.forEach(file => {
     const reader = new FileReader();
@@ -27,18 +44,17 @@ input.addEventListener("change", () => {
   input.value = "";
 });
 
-/* RENDER */
+/* RENDER PREVIEW */
 function renderImages() {
   preview.innerHTML = "";
 
   images.forEach((img, index) => {
     const div = document.createElement("div");
+    div.classList.add("preview-item");
 
     div.innerHTML = `
-      <div class="preview-item">
-        <img src="${img}">
-        <button class="remove" onclick="removeImage(${index})">x</button>
-      </div>
+      <img src="${img}">
+      <button class="remove" onclick="removeImage(${index})">x</button>
     `;
 
     preview.appendChild(div);
@@ -65,10 +81,9 @@ form.addEventListener("submit", (e) => {
   const stock = parseInt(document.getElementById("stock").value);
   const location = document.getElementById("location").value.trim();
   const shipping = document.getElementById("shipping").checked;
-  const description = document.getElementById("description").value;
+  const description = document.getElementById("description").value.trim();
 
-  /* VALIDACIONES */
-  if (!name || !location) {
+  if (!name || !location || !description) {
     alert("Completar todos los campos obligatorios");
     return;
   }
@@ -83,7 +98,6 @@ form.addEventListener("submit", (e) => {
     return;
   }
 
-  /* OBJETO PRODUCTO */
   const product = {
     name,
     price,
@@ -95,7 +109,6 @@ form.addEventListener("submit", (e) => {
   };
 
   const products = JSON.parse(localStorage.getItem("products")) || [];
-
   products.push(product);
 
   localStorage.setItem("products", JSON.stringify(products));
@@ -105,5 +118,6 @@ form.addEventListener("submit", (e) => {
   form.reset();
   images = [];
   renderImages();
+  fileText.textContent = "No se eligió ningún archivo";
 });
 
