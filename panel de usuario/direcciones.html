@@ -506,21 +506,43 @@
     ========================== -->
   </header>
 
-  <main class="main-content page-shell account-main">  
+  <main class="main-content page-shell account-page">
   
-    <div class="account-top">
-      <div class="back">← Volver</div>
-      <button id="addAddressBtn" class="btn-primary">NUEVA DIRECCIÓN</button>
-    </div>
+    <div class="account-container">
   
-    <h1 class="account-title">Direcciones</h1>
+      <!-- SIDEBAR -->
+      <aside class="sidebar">
+        <h2>Mis datos</h2>
+        <nav>
+          <a>Datos personales</a>
+          <a>Autenticación</a>
+          <a class="active">Direcciones</a>
+          <a>Salir</a>
+        </nav>
+      </aside>
   
-    <div id="addressContainer" class="account-card">
-      <!-- contenido dinámico -->
+      <!-- CONTENIDO -->
+      <section class="main-content">
+  
+        <div class="breadcrumb">Frávega > Mi cuenta > Mis datos</div>
+  
+        <div class="top-header">
+          <h1>Direcciones</h1>
+          <a href="#" class="back">← Volver</a>
+        </div>
+  
+        <div class="actions">
+          <button id="addAddress" class="btn primary">NUEVA DIRECCIÓN</button>
+        </div>
+  
+        <!-- LISTADO -->
+        <div id="addressContainer" class="address-container"></div>
+  
+      </section>
+  
     </div>
   
   </main>
-
   <!-- Footer -->
   <footer class="footer ">
     <div class="footer-container">
@@ -596,7 +618,7 @@
   
   <script src="../Javascript/home/script.js"></script>
   <script src="../Javascript/home/header.js"></script>
-  <script src="../Javascript/panel de usuario/misCompras/misCompras.js"></script>
+  <script src="../Javascript/panel de usuario/direcciones.js"></script>
 </body>
 </html>
 

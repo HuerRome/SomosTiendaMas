@@ -1,59 +1,60 @@
 const container = document.getElementById("addressContainer");
-const addBtn = document.getElementById("addAddressBtn");
+const addBtn = document.getElementById("addAddress");
 
-let addresses = JSON.parse(localStorage.getItem("addresses")) || [];
+/* Cargar */
+function loadAddresses() {
+  const data = JSON.parse(localStorage.getItem("addresses")) || [];
 
-/* RENDER */
-function render() {
   container.innerHTML = "";
 
-  if (addresses.length === 0) {
-    container.innerHTML = "Aún no hay direcciones cargadas.";
+  if (data.length === 0) {
+    container.innerHTML = `<p class="empty">Aún no hay direcciones cargadas.</p>`;
     return;
   }
 
-  const list = document.createElement("div");
-  list.className = "address-list";
+  data.forEach((addr, index) => {
+    const div = document.createElement("div");
+    div.classList.add("address-card");
 
-  addresses.forEach((addr, index) => {
-    const item = document.createElement("div");
-    item.className = "address-item";
-
-    item.innerHTML = `
-      <span class="address-text">${addr}</span>
-      <button class="delete-btn" data-index="${index}">✕</button>
+    div.innerHTML = `
+      <div class="address-info">
+        <strong>${addr.nombre}</strong><br>
+        ${addr.calle}, ${addr.ciudad}
+      </div>
+      <button class="delete-btn" data-index="${index}">Eliminar</button>
     `;
 
-    list.appendChild(item);
+    container.appendChild(div);
   });
-
-  container.appendChild(list);
 }
 
-/* AGREGAR DIRECCIÓN */
+/* Agregar */
 addBtn.addEventListener("click", () => {
-  const newAddress = prompt("Ingrese nueva dirección:");
+  const nombre = prompt("Nombre:");
+  const calle = prompt("Calle:");
+  const ciudad = prompt("Ciudad:");
 
-  if (newAddress && newAddress.trim() !== "") {
-    addresses.push(newAddress.trim());
-    save();
-  }
+  if (!nombre || !calle || !ciudad) return;
+
+  const data = JSON.parse(localStorage.getItem("addresses")) || [];
+
+  data.push({ nombre, calle, ciudad });
+
+  localStorage.setItem("addresses", JSON.stringify(data));
+  loadAddresses();
 });
 
-/* ELIMINAR */
+/* Eliminar */
 container.addEventListener("click", (e) => {
   if (e.target.classList.contains("delete-btn")) {
     const index = e.target.dataset.index;
-    addresses.splice(index, 1);
-    save();
+
+    const data = JSON.parse(localStorage.getItem("addresses")) || [];
+    data.splice(index, 1);
+
+    localStorage.setItem("addresses", JSON.stringify(data));
+    loadAddresses();
   }
 });
 
-/* GUARDAR */
-function save() {
-  localStorage.setItem("addresses", JSON.stringify(addresses));
-  render();
-}
-
-/* INIT */
-render();
+loadAddresses();

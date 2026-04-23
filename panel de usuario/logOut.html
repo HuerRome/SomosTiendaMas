@@ -4,24 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cerrar sesión</title>
-
   <link rel="stylesheet" href="../css/panel de usuario/logOut.css">
 </head>
 <body>
 
-<!-- VOLVER -->
-<div class="back-container">
-  <a href="javascript:history.back()" class="back-link">← Volver</a>
-</div>
+<!-- BOTÓN VOLVER (FIJO ARRIBA IZQ) -->
+<a href="javascript:history.back()" class="back-btn">← Volver</a>
 
-<main class="logout-page">
+<!-- OVERLAY + MODAL -->
+<div class="logout-wrapper">
 
-  <!-- OVERLAY -->
-  <div class="overlay"></div>
-
-  <!-- MODAL -->
   <div class="modal">
-
     <button class="close-btn" id="closeBtn">✕</button>
 
     <h2>¿Querés salir de tu cuenta?</h2>
@@ -30,10 +23,9 @@
       <button class="btn-outline" id="cancelBtn">CANCELAR</button>
       <button class="btn-primary" id="logoutBtn">SALIR</button>
     </div>
-
   </div>
 
-</main>
+</div>
 
 <script src="../Javascript/panel de usuario/logOut.js"></script>
 </body>
