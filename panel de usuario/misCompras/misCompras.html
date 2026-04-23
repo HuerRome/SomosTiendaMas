@@ -502,37 +502,26 @@
     ========================== -->
   </header>
 
-  <main class="main-content page-shell purchases">
+  <main class="main-content page-shell purchases-page">
   
-    <div class="purchases-header">
-      <a href="../../inicio de sesion y registro/miCuenta/miCuenta.html" class="back">← Volver</a>
-      <h1>Mis compras</h1>
-    </div>
+    <div class="purchases-container">
   
-    <!-- Estado vacío -->
-    <section id="empty-state" class="empty-state">
-      <div class="empty-icon">
-        <img src="../../assets/icons/iconos/shopping-bag.svg" alt="">
+      <!-- Breadcrumb / Volver -->
+      <div class="top-bar">
+        <div class="breadcrumb desktop">Mi cuenta / Mis compras</div>
+        <a href="#" class="back mobile">← Volver</a>
       </div>
   
-      <h2>No encontramos compras con tu mail</h2>
+      <h1>Mis compras</h1>
   
-      <p class="subtitle">
-        Si compraste recién, tu compra puede demorar unos minutos en aparecer.
-      </p>
+      <div class="divider"></div>
   
-      <p class="cta-text">
-        ¿Todavía no compraste? ¡Conocé nuestras ofertas!
-      </p>
+      <!-- CONTENIDO -->
+      <div id="purchasesContent" class="purchases-content"></div>
   
-      <button class="btn-primary">Conocer ofertas</button>
-    </section>
-  
-    <!-- Lista de compras -->
-    <section id="orders" class="orders hidden"></section>
+    </div>
   
   </main>
-
   <!-- Footer -->
   <footer class="footer ">
     <div class="footer-container">
@@ -612,7 +601,7 @@
   </button>
   <script src="../../Javascript/home/script.js"></script>
   <script src="../../Javascript/home/header.js"></script>
-  <script src="../../Javascript/inicio de sesion y registro/miCuenta/miCuenta.js"></script>
+  <script src="../../Javascript/panel de usuario/misCompras/misCompras.js"></script>
 </body>
 </html>
 

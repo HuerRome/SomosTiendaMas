@@ -1,51 +1,77 @@
-// Simulación de compras (esto después viene del backend)
-const ordersData = [
-  {
-    id: 1,
-    date: "10/04/2026",
-    items: ["Mouse Gamer", "Teclado Mecánico"],
-    total: "$45.000"
-  },
-  {
-    id: 2,
-    date: "02/04/2026",
-    items: ["Auriculares Bluetooth"],
-    total: "$18.000"
-  }
-];
+const container = document.getElementById("purchasesContent");
 
-// 👉 Probá esto para ver el estado vacío:
-// const ordersData = [];
+/* Render */
+function loadPurchases() {
+  const data = JSON.parse(localStorage.getItem("purchases")) || [];
 
-const ordersContainer = document.getElementById("orders");
-const emptyState = document.getElementById("empty-state");
+  container.innerHTML = "";
 
-function renderOrders() {
-  if (ordersData.length === 0) {
-    emptyState.classList.remove("hidden");
-    ordersContainer.classList.add("hidden");
+  if (data.length === 0) {
+    renderEmpty();
     return;
   }
 
-  emptyState.classList.add("hidden");
-  ordersContainer.classList.remove("hidden");
+  data.forEach(p => {
+    const div = document.createElement("div");
+    div.classList.add("purchase-card");
 
-  ordersContainer.innerHTML = ordersData.map(order => `
-    <div class="order-card">
-      <div class="order-header">
-        <span class="order-title">Pedido #${order.id}</span>
-        <span class="order-date">${order.date}</span>
-      </div>
+    div.innerHTML = `
+      <strong>${p.producto}</strong>
+      <span>Precio: $${p.precio}</span><br>
+      <span>Fecha: ${p.fecha}</span>
+    `;
 
-      <div class="order-items">
-        ${order.items.join(", ")}
-      </div>
-
-      <div class="order-total">
-        ${order.total}
-      </div>
-    </div>
-  `).join("");
+    container.appendChild(div);
+  });
 }
 
-renderOrders();
+/* Empty state EXACTO */
+function renderEmpty() {
+  container.innerHTML = `
+    <div class="empty-icon">
+      <img src="../../assets/icons/iconos/shopping-bag.svg" alt="Mis compras">
+    </div>
+
+    <div class="empty-title">
+      No encontramos compras con tu mail
+    </div>
+
+    <div class="empty-text">
+      Si compraste recién, tu compra puede demorar unos minutos en aparecer.
+    </div>
+
+    <div class="empty-link">
+      ¿Todavía no compraste? ¡Conocé nuestras ofertas!
+    </div>
+
+    <button class="btn-primary" id="goShop">
+      Conocer ofertas
+    </button>
+  `;
+
+  document.getElementById("goShop").addEventListener("click", () => {
+    alert("Redirigir a tienda");
+  });
+}
+
+/* DEMO: agregar compra */
+function addDemoPurchase() {
+  const data = JSON.parse(localStorage.getItem("purchases")) || [];
+
+  data.push({
+    producto: "Notebook Lenovo",
+    precio: 500000,
+    fecha: new Date().toLocaleDateString()
+  });
+
+  localStorage.setItem("purchases", JSON.stringify(data));
+  loadPurchases();
+}
+
+/* Inicial */
+loadPurchases();
+
+/* 👉 para testear en consola:
+addDemoPurchase();
+*/
+
