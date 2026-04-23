@@ -75,7 +75,7 @@ input, textarea {
 
 /* BUTTON */
 .btn-primary {
-  background: purple;
+  background: #FF6B35;
   color: white;
   padding: 12px;
   border: none;
@@ -99,3 +99,4 @@ input, textarea {
     grid-template-columns: 1fr;
   }
 }
+
