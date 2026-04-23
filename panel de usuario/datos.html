@@ -3,19 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TiendaMas - Marketplace Mayorista y Minorista</title>
-  <meta name="description" content="Comprá y vendé productos al por mayor y menor en TiendaMas. Marketplace con ofertas, envíos, múltiples categorías y oportunidades para negocios y emprendedores."/>
-  <link rel="icon" href="assets/marketplace-data/Logo.png" type="image/jpg">
+  <title>Header Marketplace Responsive</title>
+  <meta
+    name="description"
+    content="Header responsive estilo marketplace con logo e imagen de envío."
+  />
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
-
-  <link rel="stylesheet" href="../../css/home/style.css">
-  <link rel="stylesheet" href="../../css/home/header.css"/>
-  <link rel="stylesheet" href="../../css/home/best-sellers.css">
-  <link rel="stylesheet" href="../../css/home/products-section.css">
-  <link rel="stylesheet" href="../../css/home/bannerPublicitarios.css">
-  <link rel="stylesheet" href="../../css/home/footer.css">
-  <link rel="stylesheet" href="../../css/inicio de sesion y registro/miCuenta/miCuenta.css">
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  />
+  <link rel="stylesheet" href="../css/home/style.css">
+  <link rel="stylesheet" href="../css/home/header.css" />
+  <link rel="stylesheet" href="../css/panel de usuario/datos.css" />
+  <link rel="stylesheet" href="../css/home/footer.css">
 </head>
 <body>
   <!-- =========================
@@ -505,70 +506,77 @@
     ========================== -->
   </header>
 
-  <main class="main-content page-shell">
-    <div class="container">
-      <!-- Breadcrumb -->
-      <p class="breadcrumb">
-        <a href="index.html">Página principal</a> 
-        <i class="fa-solid fa-angle-right"></i>
-        <a href="miCuenta.html">Mi cuenta</a>
-      </p>
+
+  <main class="main-content page-shell account-page">
   
-      <!-- Title -->
-      <h1 class="title">Mi cuenta</h1>
+    <div class="account-container">
   
-      <!-- Cards -->
-      <div class="cards">
-        <!-- Card -->
-        <div class="card">
-          <div class="icon">
-            <!-- USER SVG -->
-            <img src="../../assets/icons/iconos/user.svg" alt="">
-          </div>
-          <div class="card-content">
-            <h3>Mis datos</h3>
-            <p>Editá tus datos personales, tus direcciones, tus tarjetas y contraseñas.</p>
-            <a href="../../panel de usuario/datos.html">Ir a Mis datos</a>
-          </div>
+      <!-- SIDEBAR -->
+      <aside class="sidebar">
+        <h2>Mis datos</h2>
+        <nav>
+          <a href="datos.html" class="active">Datos personales</a>
+          <a href="autenticacion.html">Autenticación</a>
+          <a href="direcciones.html">Direcciones</a>
+          <a href="">Salir</a>
+        </nav>
+      </aside>
+  
+      <!-- CONTENIDO -->
+      <section class="main-content">
+  
+        <div class="breadcrumb"><a href="../index.html">TiendaMas</a> > <a href="../inicio de sesion y registro/miCuenta/miCuenta.html">Mi cuenta</a> > <a href="datos.html">Mis datos</a></div>
+  
+        <div class="content">
+  
+          <!-- DATOS -->
+          <section class="card datos">
+            <div class="grid">
+              <div>
+                <label>Nombre</label>
+                <input disabled id="nombre"/>
+              </div>
+  
+              <div>
+                <label>Apellido</label>
+                <input disabled id="apellido"/>
+              </div>
+  
+              <div>
+                <label>Email</label>
+                <input disabled id="email"/>
+              </div>
+  
+              <div>
+                <label>DNI</label>
+                <input disabled id="dni"/>
+              </div>
+  
+              <div>
+                <label>Teléfono</label>
+                <input disabled id="telefono"/>
+              </div>
+            </div>
+  
+            <button id="editBtn" class="btn">EDITAR</button>
+          </section>
+  
+          <!-- BOLETIN -->
+          <section class="card boletin">
+            <h3>Boletín informativo</h3>
+            <p>¿Quiere recibir boletines informativos promocionales?</p>
+  
+            <label class="checkbox">
+              <input type="checkbox" id="promo"/>
+              <span>Quiero recibir el boletín informativo con promociones.</span>
+            </label>
+          </section>
+  
         </div>
-        <!-- Card -->
-        <div class="card">
-          <div class="icon">
-            <!-- BAG SVG -->
-            <img src="../../assets/icons/iconos/shopping-bag.svg" alt="">
-          </div>
-          <div class="card-content">
-            <h3>Mis compras</h3>
-            <p>Seguí el estado de tus compras y consultá tus facturas.</p>
-            <a href="../../panel de usuario/misCompras/misCompras.html">Ir a Mis compras</a>
-          </div>
-        </div>
-        <!-- Card -->
-        <div class="card">
-          <div class="icon">
-            <!-- HELP SVG -->
-            <img src="../../assets/icons/iconos/question-icon.svg" alt="">
-          </div>
-          <div class="card-content">
-            <h3>Centro de ayuda</h3>
-            <p>Realizá consultas y reclamos. Contactanos para poder ayudarte.</p>
-            <a href="#">Ir al Centro de ayuda</a>
-          </div>
-        </div> 
-        <!-- Card -->
-        <div class="card">
-          <div class="icon">
-            <!-- CREDIT SVG -->
-            <img src="../../assets/icons/iconos/log-out.svg" alt="">
-          </div>
-          <div class="card-content">
-            <h3>Cerrar sesión</h3>
-            <p>Finalizá tu sesión actual de forma segura. Podés ingresar cuando quieras.</p>
-            <a href="#">Salir de mi cuenta</a>
-          </div>
-        </div>
-      </div>
+      </section>
+  
     </div>
+  
   </main>
   <!-- Footer -->
   <footer class="footer ">
@@ -643,13 +651,10 @@
   
   </footer>
   
-    <!-- Go to top button -->
-  <button id="goTopBtn" aria-label="Volver arriba">
-    <i class="fa-solid fa-arrow-up"></i>
-  </button>
-  <script src="../../Javascript/home/script.js"></script>
-  <script src="../../Javascript/home/header.js"></script>
-  <script src="../../Javascript/inicio de sesion y registro/miCuenta/miCuenta.js"></script>
+  <script src="../Javascript/panel de usuario/datos.js"></script>
+  <script src="../Javascript/home/header.js"></script>
+  <script src="../Javascript/home/script.js"></script>
 </body>
 </html>
+
 

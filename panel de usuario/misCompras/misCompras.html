@@ -11,11 +11,8 @@
 
   <link rel="stylesheet" href="../../css/home/style.css">
   <link rel="stylesheet" href="../../css/home/header.css"/>
-  <link rel="stylesheet" href="../../css/home/best-sellers.css">
-  <link rel="stylesheet" href="../../css/home/products-section.css">
-  <link rel="stylesheet" href="../../css/home/bannerPublicitarios.css">
+  <link rel="stylesheet" href="../../css/panel de usuario/misCompras/misCompras.css">
   <link rel="stylesheet" href="../../css/home/footer.css">
-  <link rel="stylesheet" href="../../css/inicio de sesion y registro/miCuenta/miCuenta.css">
 </head>
 <body>
   <!-- =========================
@@ -505,71 +502,37 @@
     ========================== -->
   </header>
 
-  <main class="main-content page-shell">
-    <div class="container">
-      <!-- Breadcrumb -->
-      <p class="breadcrumb">
-        <a href="index.html">Página principal</a> 
-        <i class="fa-solid fa-angle-right"></i>
-        <a href="miCuenta.html">Mi cuenta</a>
+  <main class="main-content page-shell purchases">
+  
+    <div class="purchases-header">
+      <a href="../../inicio de sesion y registro/miCuenta/miCuenta.html" class="back">← Volver</a>
+      <h1>Mis compras</h1>
+    </div>
+  
+    <!-- Estado vacío -->
+    <section id="empty-state" class="empty-state">
+      <div class="empty-icon">
+        <img src="../../assets/icons/iconos/shopping-bag.svg" alt="">
+      </div>
+  
+      <h2>No encontramos compras con tu mail</h2>
+  
+      <p class="subtitle">
+        Si compraste recién, tu compra puede demorar unos minutos en aparecer.
       </p>
   
-      <!-- Title -->
-      <h1 class="title">Mi cuenta</h1>
+      <p class="cta-text">
+        ¿Todavía no compraste? ¡Conocé nuestras ofertas!
+      </p>
   
-      <!-- Cards -->
-      <div class="cards">
-        <!-- Card -->
-        <div class="card">
-          <div class="icon">
-            <!-- USER SVG -->
-            <img src="../../assets/icons/iconos/user.svg" alt="">
-          </div>
-          <div class="card-content">
-            <h3>Mis datos</h3>
-            <p>Editá tus datos personales, tus direcciones, tus tarjetas y contraseñas.</p>
-            <a href="../../panel de usuario/datos.html">Ir a Mis datos</a>
-          </div>
-        </div>
-        <!-- Card -->
-        <div class="card">
-          <div class="icon">
-            <!-- BAG SVG -->
-            <img src="../../assets/icons/iconos/shopping-bag.svg" alt="">
-          </div>
-          <div class="card-content">
-            <h3>Mis compras</h3>
-            <p>Seguí el estado de tus compras y consultá tus facturas.</p>
-            <a href="../../panel de usuario/misCompras/misCompras.html">Ir a Mis compras</a>
-          </div>
-        </div>
-        <!-- Card -->
-        <div class="card">
-          <div class="icon">
-            <!-- HELP SVG -->
-            <img src="../../assets/icons/iconos/question-icon.svg" alt="">
-          </div>
-          <div class="card-content">
-            <h3>Centro de ayuda</h3>
-            <p>Realizá consultas y reclamos. Contactanos para poder ayudarte.</p>
-            <a href="#">Ir al Centro de ayuda</a>
-          </div>
-        </div> 
-        <!-- Card -->
-        <div class="card">
-          <div class="icon">
-            <!-- CREDIT SVG -->
-            <img src="../../assets/icons/iconos/log-out.svg" alt="">
-          </div>
-          <div class="card-content">
-            <h3>Cerrar sesión</h3>
-            <p>Finalizá tu sesión actual de forma segura. Podés ingresar cuando quieras.</p>
-            <a href="#">Salir de mi cuenta</a>
-          </div>
-        </div>
-      </div>
-    </div>
+      <button class="btn-primary">Conocer ofertas</button>
+    </section>
+  
+    <!-- Lista de compras -->
+    <section id="orders" class="orders hidden"></section>
+  
   </main>
+
   <!-- Footer -->
   <footer class="footer ">
     <div class="footer-container">

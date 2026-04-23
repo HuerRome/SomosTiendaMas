@@ -1,0 +1,66 @@
+/* HEADER SUPERIOR */
+.top-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.top-header h1 {
+  font-size: 26px;
+}
+
+.back {
+  color: #2a6df4;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+/* CONTENIDO GRID */
+.content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+/* CARD */
+.card h3 {
+  margin-bottom: 10px;
+}
+
+.card p {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* BOTÓN */
+.btn {
+  border: 1px solid #2563EB;
+  color: #2563EB;
+  background: transparent;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+/* 📱 RESPONSIVE */
+@media (max-width: 1024px) {
+  .content {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .top-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+
+  .content {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+

@@ -1,0 +1,147 @@
+/* CONTENEDOR */
+.purchases {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+/* HEADER */
+.purchases-header {
+  margin-bottom: 24px;
+}
+
+.back {
+  display: inline-block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: #6b7280;
+  text-decoration: none;
+}
+
+.back:hover {
+  color: #2563EB;
+}
+
+.purchases-header h1 {
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.purchases-header::after {
+  content: "";
+  display: block;
+  height: 1px;
+  background: #e5e7eb;
+  margin-top: 16px;
+}
+
+/* EMPTY STATE */
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.empty-icon {
+  width: 90px;
+  height: 90px;
+  background: #f1f3f5;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  font-size: 40px;
+}
+
+.empty-icon img {
+  width: 58px; /*48 22px*/
+  height: 58px;
+}
+
+.empty-state h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  color: #6b7280;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.cta-text {
+  margin-top: 10px;
+  font-weight: 500;
+  color: #374151;
+}
+
+.btn-primary {
+  margin-top: 20px;
+  padding: 12px 24px;
+  border-radius: 8px;
+  border: none;
+  background: linear-gradient(135deg, #2563EB, #1a73e8);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+}
+
+/* ORDERS */
+.orders {
+  display: grid;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.order-card {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 16px;
+}
+
+.order-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.order-title {
+  font-weight: 600;
+}
+
+.order-date {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.order-items {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.order-total {
+  margin-top: 10px;
+  font-weight: 700;
+}
+
+/* UTIL */
+.hidden {
+  display: none;
+}
+
+/* RESPONSIVE */
+@media (min-width: 768px) {
+  .empty-state {
+    padding: 100px 20px;
+  }
+
+  .purchases-header h1 {
+    font-size: 32px;
+  }
+}
