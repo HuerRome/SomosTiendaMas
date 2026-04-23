@@ -44,9 +44,9 @@ function renderEmpty() {
       ¿Todavía no compraste? ¡Conocé nuestras ofertas!
     </div>
 
-    <button class="btn-primary" id="goShop">
+    <a href="/ofertas.html" class="btn-primary">
       Conocer ofertas
-    </button>
+    </a>
   `;
 
   document.getElementById("goShop").addEventListener("click", () => {
