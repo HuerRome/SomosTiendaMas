@@ -96,6 +96,15 @@ input, textarea {
   width: 20px;
   height: 20px;
   cursor: pointer;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.remove i{
+  font-size: 10px;
 }
 
 /* BUTTON */

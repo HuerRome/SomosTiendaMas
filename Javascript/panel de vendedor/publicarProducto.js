@@ -54,7 +54,7 @@ function renderImages() {
 
     div.innerHTML = `
       <img src="${img}">
-      <button class="remove" onclick="removeImage(${index})">x</button>
+      <button class="remove" onclick="removeImage(${index})"><i class="fa-solid fa-x"></i></button>
     `;
 
     preview.appendChild(div);
