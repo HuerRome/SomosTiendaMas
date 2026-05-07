@@ -172,3 +172,83 @@ searchInput.addEventListener("input", e => {
   });
 
 });
+
+/* ===========================================================================
+   STEPS SYSTEM
+=========================================================================== */
+
+const steps =
+document.querySelectorAll(".publish-step");
+
+const lines =
+document.querySelectorAll(".publish-line");
+
+/* =========================
+   CHANGE STEP
+========================= */
+function setActiveStep(stepNumber){
+
+  steps.forEach((step, index) => {
+
+    step.classList.remove(
+      "active",
+      "completed"
+    );
+
+    /* CURRENT */
+    if(index + 1 === stepNumber){
+
+      step.classList.add("active");
+
+    }
+
+    /* PREVIOUS */
+    else if(index + 1 < stepNumber){
+
+      step.classList.add("completed");
+
+    }
+
+  });
+
+  /* LINES */
+  lines.forEach((line, index) => {
+
+    line.classList.remove("active");
+
+    if(index + 1 < stepNumber){
+
+      line.classList.add("active");
+
+    }
+
+  });
+
+}
+
+/* =========================
+   INIT
+========================= */
+setActiveStep(1);
+
+/*
+=========================
+USAGE EXAMPLES
+=========================
+
+Página 1:
+setActiveStep(1);
+
+Página 2:
+setActiveStep(2);
+
+Página 3:
+setActiveStep(3);
+
+Página 4:
+setActiveStep(4);
+
+Página 5:
+setActiveStep(5);
+
+*/

@@ -1,0 +1,399 @@
+/* =========================
+   MAIN
+========================= */
+.publish-main{
+  display: flex;
+  justify-content: center;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.publish-container{
+  width: 100%;
+}
+
+/* =========================
+   BREADCRUMB
+========================= */
+.publish-breadcrumb{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: .5rem;
+
+  margin-bottom: 1rem;
+
+  font-size: 13px;
+  color: #8c8c8c;
+}
+
+.publish-breadcrumb a{
+  color: #8c8c8c;
+  text-decoration: none;
+}
+
+.publish-breadcrumb p{
+  color: #666;
+}
+
+/* =========================
+   HEADER
+========================= */
+.publish-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+
+  margin-bottom: 2rem;
+}
+
+.publish-title{
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: .7rem;
+}
+
+.publish-description{
+  color: #666;
+  line-height: 1.5;
+  max-width: 720px;
+}
+
+/* =========================
+   STEPS
+========================= */
+.publish-steps{
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+}
+
+.publish-step{
+  width: 44px;
+  height: 44px;
+
+  border-radius: 50%;
+  border: 1px solid #dcdcdc;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-weight: 600;
+
+  background: white;
+  color: #666;
+}
+
+.publish-step.active{
+  background: #f5f0ff;
+  border-color: #cbb7ff;
+  color: #6c3cff;
+}
+
+.publish-step.completed{
+  background: #6c3cff;
+  border-color: #6c3cff;
+  color: white;
+}
+
+.publish-line{
+  width: 40px;
+  height: 1px;
+  background: #dcdcdc;
+}
+
+.publish-line.active{
+  background: #6c3cff;
+}
+
+/* =========================
+   GRID
+========================= */
+.technical-grid{
+  display: grid;
+  grid-template-columns: 1.2fr .8fr;
+  gap: 16px;
+}
+
+/* =========================
+   CARD
+========================= */
+.technical-card{
+  background: white;
+  border: 1px solid #e6e6e6;
+  border-radius: 6px;
+  padding: 20px;
+}
+
+/* =========================
+   SECTION
+========================= */
+.form-section{
+  margin-bottom: 2rem;
+}
+
+.form-section:last-child{
+  margin-bottom: 0;
+}
+
+/* =========================
+   SECTION HEADER
+========================= */
+.section-header{
+  display: flex;
+  gap: 14px;
+
+  margin-bottom: 20px;
+}
+
+.section-icon{
+  width: 54px;
+  height: 54px;
+
+  min-width: 54px;
+
+  border-radius: 50%;
+  background: #f5f0ff;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #6c3cff;
+  font-size: 20px;
+}
+
+.section-header h2{
+  font-size: 22px;
+  margin-bottom: 5px;
+}
+
+.section-header p{
+  color: #666;
+  line-height: 1.5;
+}
+
+/* =========================
+   INPUTS
+========================= */
+.input-group{
+  margin-bottom: 20px;
+}
+
+.input-group label{
+  display: block;
+  margin-bottom: 8px;
+
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.input-group input,
+.input-group textarea,
+.input-group select{
+  width: 100%;
+
+  border: 1px solid #e6e6e6;
+  border-radius: 6px;
+
+  padding: 14px;
+
+  font-size: 15px;
+
+  outline: none;
+  transition: .2s ease;
+}
+
+.input-group textarea{
+  resize: vertical;
+  min-height: 140px;
+}
+
+.input-group input:focus,
+.input-group textarea:focus,
+.input-group select:focus{
+  border-color: #cbb7ff;
+}
+
+/* =========================
+   GRID 2
+========================= */
+.double-grid{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 16px;
+}
+
+/* =========================
+   DYNAMIC
+========================= */
+.dynamic-fields{
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* =========================
+   SIDEBAR
+========================= */
+.technical-sidebar{
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* =========================
+   PREVIEW
+========================= */
+.preview-box{
+  border: 1px solid #e6e6e6;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.preview-image{
+  height: 180px;
+  background: #fafafa;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #bbb;
+  font-size: 45px;
+}
+
+.preview-box h3{
+  font-size: 18px;
+  padding: 16px 16px 8px;
+}
+
+.preview-box p{
+  color: #666;
+  padding: 0 16px 16px;
+}
+
+/* =========================
+   TIPS
+========================= */
+.tips-list{
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  padding-left: 18px;
+}
+
+.tips-list li{
+  color: #666;
+  line-height: 1.5;
+}
+
+/* =========================
+   ACTIONS
+========================= */
+.technical-actions{
+  display: flex;
+  gap: 12px;
+}
+
+.primary-btn,
+.secondary-btn{
+  flex: 1;
+
+  height: 52px;
+
+  border-radius: 6px;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  cursor: pointer;
+  transition: .2s ease;
+}
+
+.primary-btn{
+  border: none;
+  background: #6c3cff;
+  color: white;
+}
+
+.primary-btn:hover{
+  opacity: .95;
+}
+
+.secondary-btn{
+  border: 1px solid #dcdcdc;
+  background: white;
+}
+
+.secondary-btn:hover{
+  background: #fafafa;
+}
+
+/* =========================
+   TABLET
+========================= */
+@media (min-width: 768px){
+
+  .publish-main{
+    padding-bottom: 6rem;
+  }
+
+  .publish-container{
+    width: 100%;
+  }
+
+}
+
+/* =========================
+   DESKTOP
+========================= */
+@media (min-width: 1024px){
+
+  .publish-container{
+    width: 80%;
+  }
+
+}
+
+/* =========================
+   MOBILE
+========================= */
+@media (max-width: 900px){
+
+  .technical-grid{
+    grid-template-columns: 1fr;
+  }
+
+  .publish-header{
+    flex-direction: column;
+  }
+
+}
+
+@media (max-width: 640px){
+
+  .double-grid{
+    grid-template-columns: 1fr;
+  }
+
+  .publish-title{
+    font-size: 28px;
+  }
+
+  .technical-card{
+    padding: 14px;
+  }
+
+  .technical-actions{
+    flex-direction: column;
+  }
+
+  .publish-steps{
+    flex-wrap: wrap;
+  }
+
+}

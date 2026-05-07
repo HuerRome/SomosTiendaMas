@@ -74,15 +74,25 @@
 .publish-steps{
   display: flex;
   align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+
   gap: .8rem;
+
   margin-bottom: 2rem;
 }
 
+/* =========================
+   STEP CIRCLE
+========================= */
 .publish-step{
-  width: 38px;
-  height: 38px;
+  width: 44px;
+  height: 44px;
+
   border-radius: 50%;
+
   border: 1px solid #dcdcdc;
+
   background: #fff;
 
   display: flex;
@@ -93,18 +103,61 @@
   font-weight: 600;
 
   color: #666;
+
+  transition: .2s ease;
 }
 
+/* ACTIVE */
 .publish-step.active{
   background: #f5f0ff;
   border-color: #cbb7ff;
   color: #6c3cff;
+
+  box-shadow: 0 0 0 4px rgba(108,60,255,.08);
 }
 
+/* COMPLETED */
+.publish-step.completed{
+  background: #6c3cff;
+  border-color: #6c3cff;
+  color: white;
+}
+
+/* =========================
+   LINE
+========================= */
 .publish-line{
-  width: 40px;
+  width: 52px;
   height: 1px;
+
   background: #dcdcdc;
+}
+
+/* ACTIVE LINE */
+.publish-line.active{
+  background: #6c3cff;
+}
+
+/* =========================
+   MOBILE
+========================= */
+@media (max-width: 480px){
+
+  .publish-steps{
+    gap: .5rem;
+  }
+
+  .publish-step{
+    width: 38px;
+    height: 38px;
+
+    font-size: 14px;
+  }
+
+  .publish-line{
+    width: 22px;
+  }
+
 }
 
 /* =========================
@@ -385,4 +438,3 @@
   }
 
 }
-

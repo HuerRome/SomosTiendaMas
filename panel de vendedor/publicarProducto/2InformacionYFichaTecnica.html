@@ -11,7 +11,7 @@
 
   <link rel="stylesheet" href="../../css/home/style.css">
   <link rel="stylesheet" href="../../css/home/header.css"/>
-  <link rel="stylesheet" href="../../css/panel de vendedor/publicarProducto/clasificacionYCategoria.css">
+  <link rel="stylesheet" href="../../css/panel de vendedor/publicarProducto/informacionYFichaTecnica.css">
   <link rel="stylesheet" href="../../css/home/footer.css">
 </head>
 <body>
@@ -502,7 +502,332 @@
     ========================== -->
   </header>
 
-  <main class="main-content page-shell">
+  <main class="publish-main main-content page-shell">
+  
+    <div class="publish-container">
+  
+      <!-- Breadcrumb -->
+      <div class="publish-breadcrumb">
+  
+        <a href="#">Página principal</a>
+  
+        <i class="fa-solid fa-angle-right"></i>
+  
+        <a href="#">Panel vendedor</a>
+  
+        <i class="fa-solid fa-angle-right"></i>
+  
+        <a href="#">Publicar producto</a>
+  
+        <i class="fa-solid fa-angle-right"></i>
+  
+        <p>Información y ficha técnica</p>
+  
+      </div>
+  
+      <!-- Header -->
+      <div class="publish-header">
+  
+        <div>
+  
+          <h1 class="publish-title">
+            Información y ficha técnica
+          </h1>
+  
+          <p class="publish-description">
+            Completá la información principal del producto y
+            configurá sus características técnicas según la
+            categoría seleccionada.
+          </p>
+  
+        </div>
+  
+        <!-- Steps -->
+        <div class="publish-steps">
+  
+          <div class="publish-step completed">
+            1
+          </div>
+  
+          <div class="publish-line active"></div>
+  
+          <div class="publish-step active">
+            2
+          </div>
+  
+          <div class="publish-line"></div>
+  
+          <div class="publish-step">
+            3
+          </div>
+  
+          <div class="publish-line"></div>
+  
+          <div class="publish-step">
+            4
+          </div>
+  
+          <div class="publish-line"></div>
+  
+          <div class="publish-step">
+            5
+          </div>
+  
+        </div>
+  
+      </div>
+  
+      <!-- Grid -->
+      <div class="technical-grid">
+  
+        <!-- LEFT -->
+        <section class="technical-card">
+  
+          <!-- Basic Info -->
+          <div class="form-section">
+  
+            <div class="section-header">
+  
+              <div class="section-icon">
+                <i class="fa-solid fa-box"></i>
+              </div>
+  
+              <div>
+                <h2>Información general</h2>
+                <p>
+                  Datos principales de la publicación.
+                </p>
+              </div>
+  
+            </div>
+  
+            <!-- Input -->
+            <div class="input-group">
+  
+              <label>
+                Nombre del producto
+              </label>
+  
+              <input
+                type="text"
+                placeholder="Ej: Zapatillas deportivas Nike Air Max"
+              />
+  
+            </div>
+  
+            <!-- Textarea -->
+            <div class="input-group">
+  
+              <label>
+                Descripción
+              </label>
+  
+              <textarea
+                placeholder="Describí el producto..."
+              ></textarea>
+  
+            </div>
+  
+            <!-- Grid -->
+            <div class="double-grid">
+  
+              <div class="input-group">
+  
+                <label>
+                  Marca
+                </label>
+  
+                <input
+                  type="text"
+                  placeholder="Ej: Samsung"
+                />
+  
+              </div>
+  
+              <div class="input-group">
+  
+                <label>
+                  Modelo
+                </label>
+  
+                <input
+                  type="text"
+                  placeholder="Ej: S24 Ultra"
+                />
+  
+              </div>
+  
+            </div>
+  
+          </div>
+  
+          <!-- Dynamic Section -->
+          <div class="form-section">
+  
+            <div class="section-header">
+  
+              <div class="section-icon">
+                <i class="fa-solid fa-sliders"></i>
+              </div>
+  
+              <div>
+  
+                <h2>
+                  Ficha técnica dinámica
+                </h2>
+  
+                <p>
+                  Los campos cambian automáticamente según la categoría.
+                </p>
+  
+              </div>
+  
+            </div>
+  
+            <!-- Selector -->
+            <div class="input-group">
+  
+              <label>
+                Tipo de producto
+              </label>
+  
+              <select id="categorySelector">
+  
+                <option value="calzado">
+                  Calzado
+                </option>
+  
+                <option value="celulares">
+                  Tecnología / Celulares
+                </option>
+  
+                <option value="ropa">
+                  Ropa
+                </option>
+  
+              </select>
+  
+            </div>
+  
+            <!-- Dynamic Render -->
+            <div
+              class="dynamic-fields"
+              id="dynamicFields"
+            ></div>
+  
+          </div>
+  
+        </section>
+  
+        <!-- RIGHT -->
+        <aside class="technical-sidebar">
+  
+          <!-- Preview -->
+          <div class="technical-card">
+  
+            <div class="section-header">
+  
+              <div class="section-icon">
+                <i class="fa-solid fa-eye"></i>
+              </div>
+  
+              <div>
+  
+                <h2>
+                  Vista rápida
+                </h2>
+  
+                <p>
+                  Resumen de la publicación.
+                </p>
+  
+              </div>
+  
+            </div>
+  
+            <!-- Preview Card -->
+            <div class="preview-box">
+  
+              <div class="preview-image">
+                <i class="fa-regular fa-image"></i>
+              </div>
+  
+              <h3 id="previewTitle">
+                Nombre del producto
+              </h3>
+  
+              <p id="previewCategory">
+                Categoría: Calzado
+              </p>
+  
+            </div>
+  
+          </div>
+  
+          <!-- Tips -->
+          <div class="technical-card">
+  
+            <div class="section-header">
+  
+              <div class="section-icon">
+                <i class="fa-solid fa-lightbulb"></i>
+              </div>
+  
+              <div>
+  
+                <h2>
+                  Recomendaciones
+                </h2>
+  
+                <p>
+                  Mejorá la calidad de tu publicación.
+                </p>
+  
+              </div>
+  
+            </div>
+  
+            <ul class="tips-list">
+  
+              <li>
+                Usá títulos claros y descriptivos.
+              </li>
+  
+              <li>
+                Completá toda la ficha técnica.
+              </li>
+  
+              <li>
+                Evitá escribir en mayúsculas.
+              </li>
+  
+              <li>
+                Incluí características reales del producto.
+              </li>
+  
+            </ul>
+  
+          </div>
+  
+          <!-- Buttons -->
+          <div class="technical-actions">
+  
+            <button class="secondary-btn">
+              Volver
+            </button>
+  
+            <button class="primary-btn">
+              Continuar
+            </button>
+  
+          </div>
+  
+        </aside>
+  
+      </div>
+  
+    </div>
+  
   </main>
   <!-- Footer -->
   <footer class="footer ">
@@ -583,7 +908,7 @@
   </button>
   <script src="../../Javascript/home/script.js"></script>
   <script src="../../Javascript/home/header.js"></script>
-  <script src="../../Javascript/panel de vendedor/publicarProducto/clasificacionYCategoria.js"></script>
+  <script src="../../Javascript/panel de vendedor/publicarProducto/informacionYFichaTecnica.js"></script>
 </body>
 </html>
 
