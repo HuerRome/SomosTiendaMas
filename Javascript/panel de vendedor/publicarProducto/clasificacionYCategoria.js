@@ -1,4 +1,5 @@
 const categories = {
+
   ropa: [
     "Remeras",
     "Buzos",
@@ -18,9 +19,9 @@ const categories = {
   hogar: [
     "Sillas",
     "Mesas",
-    "Iluminación",
     "Decoración",
-    "Cocina"
+    "Cocina",
+    "Iluminación"
   ],
 
   deportes: [
@@ -42,16 +43,24 @@ const categories = {
   mascotas: [
     "Alimento",
     "Juguetes",
-    "Accesorios",
+    "Correas",
     "Camas",
-    "Correas"
+    "Accesorios"
   ]
+
 };
 
-const categoryCards = document.querySelectorAll(".category-card");
-const subcategoryList = document.getElementById("subcategoryList");
-const selectedCategory = document.getElementById("selectedCategory");
-const searchInput = document.getElementById("categorySearch");
+const categoryButtons =
+document.querySelectorAll(".publish-category");
+
+const subcategoryList =
+document.getElementById("subcategoryList");
+
+const selectedCategory =
+document.getElementById("selectedCategory");
+
+const searchInput =
+document.getElementById("categorySearch");
 
 let currentCategory = "ropa";
 let currentSubcategory = "Remeras";
@@ -59,36 +68,40 @@ let currentSubcategory = "Remeras";
 /* =========================
    LOAD SUBCATEGORIES
 ========================= */
-function loadSubcategories(category) {
+function loadSubcategories(category){
 
   subcategoryList.innerHTML = "";
 
   categories[category].forEach(sub => {
 
-    const div = document.createElement("div");
+    const item =
+    document.createElement("div");
 
-    div.classList.add("subcategory-item");
+    item.classList.add("subcategory-item");
 
     if(sub === currentSubcategory){
-      div.classList.add("active");
+      item.classList.add("active");
     }
 
-    div.textContent = sub;
+    item.textContent = sub;
 
-    div.addEventListener("click", () => {
+    item.addEventListener("click", () => {
 
       document
-        .querySelectorAll(".subcategory-item")
-        .forEach(item => item.classList.remove("active"));
+      .querySelectorAll(".subcategory-item")
+      .forEach(el => {
+        el.classList.remove("active");
+      });
 
-      div.classList.add("active");
+      item.classList.add("active");
 
       currentSubcategory = sub;
 
       updateSelected();
+
     });
 
-    subcategoryList.appendChild(div);
+    subcategoryList.appendChild(item);
 
   });
 
@@ -97,19 +110,23 @@ function loadSubcategories(category) {
 loadSubcategories(currentCategory);
 
 /* =========================
-   CATEGORY SELECT
+   CATEGORY CHANGE
 ========================= */
-categoryCards.forEach(card => {
+categoryButtons.forEach(button => {
 
-  card.addEventListener("click", () => {
+  button.addEventListener("click", () => {
 
-    categoryCards.forEach(c => c.classList.remove("active"));
+    categoryButtons.forEach(btn => {
+      btn.classList.remove("active");
+    });
 
-    card.classList.add("active");
+    button.classList.add("active");
 
-    currentCategory = card.dataset.category;
+    currentCategory =
+    button.dataset.category;
 
-    currentSubcategory = categories[currentCategory][0];
+    currentSubcategory =
+    categories[currentCategory][0];
 
     loadSubcategories(currentCategory);
 
@@ -125,29 +142,31 @@ categoryCards.forEach(card => {
 function updateSelected(){
 
   const categoryName =
-    currentCategory.charAt(0).toUpperCase() +
-    currentCategory.slice(1);
+  currentCategory.charAt(0).toUpperCase() +
+  currentCategory.slice(1);
 
   selectedCategory.textContent =
-    `${categoryName} / ${currentSubcategory}`;
+  `${categoryName} / ${currentSubcategory}`;
 
 }
 
 /* =========================
-   SEARCH FILTER
+   SEARCH
 ========================= */
 searchInput.addEventListener("input", e => {
 
-  const value = e.target.value.toLowerCase();
+  const value =
+  e.target.value.toLowerCase();
 
-  categoryCards.forEach(card => {
+  categoryButtons.forEach(button => {
 
-    const text = card.innerText.toLowerCase();
+    const text =
+    button.innerText.toLowerCase();
 
     if(text.includes(value)){
-      card.style.display = "flex";
+      button.style.display = "flex";
     } else {
-      card.style.display = "none";
+      button.style.display = "none";
     }
 
   });

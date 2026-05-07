@@ -502,123 +502,169 @@
     ========================== -->
   </header>
 
-  <main class="publish-page main-content page-shell">
+  <main class="publish-main main-content page-shell">
+    <div class="publish-container">
   
-    <!-- Breadcrumb -->
-    <div class="breadcrumb">
-      <a href="#">Página principal</a>
-      <span>›</span>
-      <a href="#">Panel de vendedor</a>
-      <span>›</span>
-      <p>Publicar producto</p>
-    </div>
+      <!-- Breadcrumb -->
+      <div class="publish-breadcrumb">
+        <a href="#">Página principal</a>
+        <i class="fa-solid fa-angle-right"></i>
   
-    <!-- Header -->
-    <section class="publish-header">
-      <div>
-        <h1>Clasificación y categoría</h1>
-        <p>
-          Elegí la categoría correcta para mejorar la visibilidad
-          y organización de tu producto.
-        </p>
+        <a href="#">Panel de vendedor</a>
+        <i class="fa-solid fa-angle-right"></i>
+  
+        <p>Clasificación y categoría</p>
       </div>
   
-      <div class="step-indicator">
-        <span class="step active">1</span>
-        <span class="line"></span>
-        <span class="step">2</span>
-        <span class="line"></span>
-        <span class="step">3</span>
+      <!-- Header -->
+      <h1 class="publish-title">
+        Clasificación y categoría
+      </h1>
+  
+      <p class="publish-description">
+        Elegí la categoría correcta para que los compradores encuentren
+        tu producto más rápido y mejorar la visibilidad de tu publicación.
+      </p>
+  
+      <!-- Steps -->
+      <div class="publish-steps">
+  
+        <div class="publish-step active">
+          1
+        </div>
+  
+        <div class="publish-line"></div>
+  
+        <div class="publish-step">
+          2
+        </div>
+  
+        <div class="publish-line"></div>
+  
+        <div class="publish-step">
+          3
+        </div>
+  
       </div>
-    </section>
   
-    <!-- Main Layout -->
-    <section class="category-layout">
+      <!-- Grid -->
+      <div class="publish-grid">
   
-      <!-- Left -->
-      <div class="category-box">
+        <!-- LEFT -->
+        <div class="publish-card">
   
-        <!-- Search -->
-        <div class="search-wrapper">
-          <svg viewBox="0 0 24 24" class="search-icon">
-            <path
-              d="M10 4a6 6 0 104.472 10.028l4.75 4.75 1.414-1.414-4.75-4.75A6 6 0 0010 4zm0 2a4 4 0 110 8 4 4 0 010-8z"
+          <!-- Search -->
+          <div class="publish-search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+  
+            <input
+              type="text"
+              id="categorySearch"
+              placeholder="Buscar categoría..."
             />
-          </svg>
+          </div>
   
-          <input
-            type="text"
-            id="categorySearch"
-            placeholder="Buscar categoría..."
-          />
+          <!-- Categories -->
+          <div class="publish-categories" id="categoriesGrid">
+  
+            <button
+              class="publish-category active"
+              data-category="ropa"
+            >
+              <span>👕</span>
+              <p>Ropa</p>
+            </button>
+  
+            <button
+              class="publish-category"
+              data-category="tecnologia"
+            >
+              <span>💻</span>
+              <p>Tecnología</p>
+            </button>
+  
+            <button
+              class="publish-category"
+              data-category="hogar"
+            >
+              <span>🏠</span>
+              <p>Hogar</p>
+            </button>
+  
+            <button
+              class="publish-category"
+              data-category="deportes"
+            >
+              <span>⚽</span>
+              <p>Deportes</p>
+            </button>
+  
+            <button
+              class="publish-category"
+              data-category="belleza"
+            >
+              <span>💄</span>
+              <p>Belleza</p>
+            </button>
+  
+            <button
+              class="publish-category"
+              data-category="mascotas"
+            >
+              <span>🐶</span>
+              <p>Mascotas</p>
+            </button>
+  
+          </div>
+  
         </div>
   
-        <!-- Categories -->
-        <div class="categories-grid" id="categoriesGrid">
+        <!-- RIGHT -->
+        <div class="publish-card">
   
-          <button class="category-card active" data-category="ropa">
-            <span>👕</span>
-            <p>Ropa</p>
-          </button>
+          <!-- Header -->
+          <div class="subcategory-header">
+            <h2>Subcategorías</h2>
   
-          <button class="category-card" data-category="tecnologia">
-            <span>💻</span>
-            <p>Tecnología</p>
-          </button>
+            <p>
+              Seleccioná una subcategoría para continuar.
+            </p>
+          </div>
   
-          <button class="category-card" data-category="hogar">
-            <span>🏠</span>
-            <p>Hogar</p>
-          </button>
+          <!-- List -->
+          <div
+            class="subcategory-list"
+            id="subcategoryList"
+          ></div>
   
-          <button class="category-card" data-category="deportes">
-            <span>⚽</span>
-            <p>Deportes</p>
-          </button>
+          <!-- Selected -->
+          <div class="selected-wrapper">
   
-          <button class="category-card" data-category="belleza">
-            <span>💄</span>
-            <p>Belleza</p>
-          </button>
+            <small>
+              Categoría seleccionada
+            </small>
   
-          <button class="category-card" data-category="mascotas">
-            <span>🐶</span>
-            <p>Mascotas</p>
+            <div
+              class="selected-category"
+              id="selectedCategory"
+            >
+              Ropa / Remeras
+            </div>
+  
+          </div>
+  
+          <!-- Button -->
+          <button class="publish-btn">
+            Continuar
           </button>
   
         </div>
   
       </div>
   
-      <!-- Right -->
-      <aside class="subcategory-box">
-  
-        <div class="subcategory-header">
-          <h2>Subcategorías</h2>
-          <p>Seleccioná una subcategoría</p>
-        </div>
-  
-        <div class="subcategory-list" id="subcategoryList">
-        </div>
-  
-        <div class="selected-category">
-          <small>Categoría seleccionada</small>
-  
-          <div class="selected-pill" id="selectedCategory">
-            Ropa / Remeras
-          </div>
-        </div>
-  
-        <button class="continue-btn">
-          Continuar
-        </button>
-  
-      </aside>
-  
-    </section>
-  
+    </div>
   </main>
-  
+
   <!-- Footer -->
   <footer class="footer ">
     <div class="footer-container">
