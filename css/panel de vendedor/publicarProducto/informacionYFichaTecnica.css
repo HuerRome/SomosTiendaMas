@@ -521,7 +521,7 @@
 @media (max-width: 480px){
 
   .publish-steps{
-    gap: .5rem;
+    gap: .4rem;
   }
 
   .publish-step{

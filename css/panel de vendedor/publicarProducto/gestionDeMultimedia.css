@@ -67,7 +67,6 @@
   align-items: center;
   flex-wrap: wrap;
   gap: .8rem;
-
   margin-bottom: 2rem;
 }
 
@@ -486,6 +485,10 @@
   .upload-zone{
     min-height: 240px;
     padding: 1.2rem;
+  }
+
+  .publish-steps{
+    gap: .4rem;
   }
 
   .publish-step{

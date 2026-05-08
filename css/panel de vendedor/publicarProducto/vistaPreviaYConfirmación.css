@@ -64,13 +64,11 @@
    STEPS
 ========================= */
 .publish-steps{
-  display:flex;
-  align-items:center;
-  flex-wrap:wrap;
-
-  gap:.8rem;
-
-  margin-bottom:2rem;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: .8rem;
+  margin-bottom: 2rem;
 }
 
 .publish-step{
@@ -604,6 +602,10 @@
     padding-top:2rem;
     padding-bottom:2rem;
   }
+
+  .publish-steps{
+    gap: .4rem;
+  }  
 
   .publish-step{
     width:38px;

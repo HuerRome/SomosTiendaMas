@@ -63,11 +63,11 @@
    STEPS
 ========================= */
 .publish-steps{
-  display:flex;
-  align-items:center;
-  gap:.8rem;
-
-  margin-bottom:2rem;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: .8rem;
+  margin-bottom: 2rem;
 }
 
 .publish-step{
@@ -406,7 +406,10 @@
    MOBILE
 ========================= */
 @media(max-width:480px){
-
+  .publish-steps{
+    gap: .4rem;
+  }
+  
   .publish-step{
     width:38px;
     height:38px;
