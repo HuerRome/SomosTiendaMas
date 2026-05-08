@@ -34,6 +34,10 @@
   color:#8c8c8c;
 }
 
+.publish-breadcrumb a:hover{
+  text-decoration: underline;
+}
+
 .publish-breadcrumb p{
   color:#666;
 }

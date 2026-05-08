@@ -21,7 +21,7 @@
   flex-wrap: wrap;
   gap: .5rem;
 
-  margin-bottom: 1rem;
+  margin-bottom: 8px;
 
   font-size: 13px;
   color: #8c8c8c;
@@ -30,6 +30,10 @@
 .publish-breadcrumb a{
   color: #8c8c8c;
   text-decoration: none;
+}
+
+.publish-breadcrumb a:hover{
+  text-decoration: underline;
 }
 
 .publish-breadcrumb p{
