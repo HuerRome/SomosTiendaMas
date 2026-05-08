@@ -1,58 +1,157 @@
-const uploadZone = document.getElementById("uploadZone");
-const imageInput = document.getElementById("imageInput");
-const selectImagesBtn = document.getElementById("selectImagesBtn");
+/* =========================================================
+   BUTTONS NAVIGATION
+========================================================= */
+
+const backButton =
+document.querySelector(".secondary-btn");
+
+const continueButton =
+document.querySelector(".primary-btn");
+
+/* =========================
+   VOLVER
+========================= */
+backButton.addEventListener("click", () => {
+
+  window.location.href =
+  "2InformacionYFichaTecnica.html";
+
+});
+
+/* =========================
+   CONTINUAR
+========================= */
+continueButton.addEventListener("click", () => {
+
+  /* VALIDATION */
+  if(uploadedFiles.length === 0){
+
+    alert(
+      "Debes subir al menos una imagen."
+    );
+
+    return;
+
+  }
+
+  /* SAVE DATA */
+  localStorage.setItem(
+    "productImages",
+    JSON.stringify(
+      uploadedFiles.map(file => ({
+        name: file.name,
+        size: file.size,
+        type: file.type
+      }))
+    )
+  );
+
+  /* NEXT PAGE */
+  window.location.href =
+  "5LogisticaYDespacho.html";
+
+});
+
+/* =========================================================
+   MEDIA SYSTEM
+========================================================= */
+
+const uploadZone =
+document.getElementById("uploadZone");
+
+const imageInput =
+document.getElementById("imageInput");
+
+const selectImagesBtn =
+document.getElementById("selectImagesBtn");
 
 const mediaPreviewGrid =
-  document.getElementById("mediaPreviewGrid");
+document.getElementById("mediaPreviewGrid");
 
 const totalImages =
-  document.getElementById("totalImages");
+document.getElementById("totalImages");
 
 const optimizedSize =
-  document.getElementById("optimizedSize");
+document.getElementById("optimizedSize");
 
 let uploadedFiles = [];
 
 /* =========================
    OPEN FILE INPUT
 ========================= */
-selectImagesBtn.addEventListener("click", () => {
-  imageInput.click();
-});
+selectImagesBtn.addEventListener(
+  "click",
+  () => {
 
-uploadZone.addEventListener("click", () => {
-  imageInput.click();
-});
+    imageInput.click();
+
+  }
+);
+
+uploadZone.addEventListener(
+  "click",
+  () => {
+
+    imageInput.click();
+
+  }
+);
 
 /* =========================
    INPUT CHANGE
 ========================= */
-imageInput.addEventListener("change", async (e) => {
-  await handleFiles(e.target.files);
-});
+imageInput.addEventListener(
+  "change",
+  async (e) => {
+
+    await handleFiles(e.target.files);
+
+  }
+);
 
 /* =========================
    DRAG & DROP
 ========================= */
-uploadZone.addEventListener("dragover", (e) => {
-  e.preventDefault();
+uploadZone.addEventListener(
+  "dragover",
+  (e) => {
 
-  uploadZone.classList.add("dragging");
-});
+    e.preventDefault();
 
-uploadZone.addEventListener("dragleave", () => {
-  uploadZone.classList.remove("dragging");
-});
+    uploadZone.classList.add(
+      "dragging"
+    );
 
-uploadZone.addEventListener("drop", async (e) => {
+  }
+);
 
-  e.preventDefault();
+uploadZone.addEventListener(
+  "dragleave",
+  () => {
 
-  uploadZone.classList.remove("dragging");
+    uploadZone.classList.remove(
+      "dragging"
+    );
 
-  await handleFiles(e.dataTransfer.files);
+  }
+);
 
-});
+uploadZone.addEventListener(
+  "drop",
+  async (e) => {
+
+    e.preventDefault();
+
+    uploadZone.classList.remove(
+      "dragging"
+    );
+
+    await handleFiles(
+      e.dataTransfer.files
+    );
+
+  }
+);
 
 /* =========================
    HANDLE FILES
@@ -61,9 +160,14 @@ async function handleFiles(files){
 
   const validFiles = [...files];
 
-  if(uploadedFiles.length + validFiles.length > 5){
+  if(
+    uploadedFiles.length +
+    validFiles.length > 5
+  ){
 
-    alert("Solo podés subir hasta 5 imágenes.");
+    alert(
+      "Solo podés subir hasta 5 imágenes."
+    );
 
     return;
 
@@ -71,10 +175,12 @@ async function handleFiles(files){
 
   for(const file of validFiles){
 
-    if(!file.type.startsWith("image/")) continue;
+    if(
+      !file.type.startsWith("image/")
+    ) continue;
 
     const optimizedFile =
-      await convertToWebP(file);
+    await convertToWebP(file);
 
     createPreview(optimizedFile);
 
@@ -91,25 +197,27 @@ async function convertToWebP(file){
 
     const img = new Image();
 
-    img.src = URL.createObjectURL(file);
+    img.src =
+    URL.createObjectURL(file);
 
     img.onload = () => {
 
       const canvas =
-        document.createElement("canvas");
+      document.createElement("canvas");
 
       const ctx =
-        canvas.getContext("2d");
+      canvas.getContext("2d");
 
-      /* RESPONSIVE RESIZE */
       let width = img.width;
       let height = img.height;
 
       const maxWidth = 1600;
 
+      /* RESIZE */
       if(width > maxWidth){
 
         height *= maxWidth / width;
+
         width = maxWidth;
 
       }
@@ -125,13 +233,18 @@ async function convertToWebP(file){
         height
       );
 
-      /* CONVERT WEBP */
+      /* WEBP */
       canvas.toBlob(
+
         (blob) => {
 
-          const webpFile = new File(
+          const webpFile =
+          new File(
             [blob],
-            file.name.replace(/\.\w+$/, ".webp"),
+            file.name.replace(
+              /\.\w+$/,
+              ".webp"
+            ),
             {
               type: "image/webp"
             }
@@ -140,8 +253,10 @@ async function convertToWebP(file){
           resolve(webpFile);
 
         },
+
         "image/webp",
         0.75
+
       );
 
     };
@@ -156,12 +271,13 @@ async function convertToWebP(file){
 function createPreview(file){
 
   const imageUrl =
-    URL.createObjectURL(file);
+  URL.createObjectURL(file);
 
   const mediaItem =
-    document.createElement("div");
+  document.createElement("div");
 
-  mediaItem.className = "media-item";
+  mediaItem.className =
+  "media-item";
 
   mediaItem.innerHTML = `
   
@@ -208,7 +324,9 @@ function createPreview(file){
 
   `;
 
-  mediaPreviewGrid.appendChild(mediaItem);
+  mediaPreviewGrid.appendChild(
+    mediaItem
+  );
 
   uploadedFiles.push(file);
 
@@ -216,40 +334,53 @@ function createPreview(file){
 
   simulateUpload(mediaItem);
 
-  /* ROTATE IMAGE */
+  /* ROTATE */
   const rotateBtn =
-    mediaItem.querySelector(".rotate-btn");
+  mediaItem.querySelector(
+    ".rotate-btn"
+  );
 
   const image =
-    mediaItem.querySelector(".media-image");
+  mediaItem.querySelector(
+    ".media-image"
+  );
 
   let rotation = 0;
 
-  rotateBtn.addEventListener("click", () => {
+  rotateBtn.addEventListener(
+    "click",
+    () => {
 
-    rotation += 90;
+      rotation += 90;
 
-    image.style.transform =
+      image.style.transform =
       `rotate(${rotation}deg)`;
 
-  });
+    }
+  );
 
-  /* DELETE IMAGE */
+  /* DELETE */
   const deleteBtn =
-    mediaItem.querySelector(".delete-btn");
+  mediaItem.querySelector(
+    ".delete-btn"
+  );
 
-  deleteBtn.addEventListener("click", () => {
+  deleteBtn.addEventListener(
+    "click",
+    () => {
 
-    mediaItem.remove();
+      mediaItem.remove();
 
-    uploadedFiles =
+      uploadedFiles =
       uploadedFiles.filter(
-        currentFile => currentFile !== file
+        currentFile =>
+        currentFile !== file
       );
 
-    updateSummary();
+      updateSummary();
 
-  });
+    }
+  );
 
 }
 
@@ -259,16 +390,19 @@ function createPreview(file){
 function simulateUpload(mediaItem){
 
   const progressBar =
-    mediaItem.querySelector(".progress-bar");
+  mediaItem.querySelector(
+    ".progress-bar"
+  );
 
   let progress = 0;
 
-  const interval = setInterval(() => {
+  const interval =
+  setInterval(() => {
 
     progress += 10;
 
     progressBar.style.width =
-      progress + "%";
+    progress + "%";
 
     if(progress >= 100){
 
@@ -286,15 +420,23 @@ function simulateUpload(mediaItem){
 function updateSummary(){
 
   totalImages.textContent =
-    `${uploadedFiles.length} / 5`;
+  `${uploadedFiles.length} / 5`;
 
   const totalSize =
-    uploadedFiles.reduce(
-      (acc, file) => acc + file.size,
-      0
-    );
+  uploadedFiles.reduce(
+
+    (acc, file) =>
+      acc + file.size,
+
+    0
+
+  );
 
   optimizedSize.textContent =
-    `${(totalSize / 1024 / 1024).toFixed(2)} MB`;
+  `${(
+    totalSize /
+    1024 /
+    1024
+  ).toFixed(2)} MB`;
 
 }
