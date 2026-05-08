@@ -93,7 +93,7 @@ backButton.addEventListener(
   () => {
 
     window.location.href =
-    "../gestionDeMultimedia/gestionDeMultimedia.html";
+    "3GestionDeMultimedia.html";
 
   }
 );
@@ -151,8 +151,8 @@ continueButton.addEventListener(
 
     /* NEXT PAGE */
     window.location.href =
-    "../vistaPreviaYConfirmacion/vistaPreviaYConfirmacion.html";
-
+    "vistaPreviaYConfirmacion.html";
+ 
   }
 );
 
@@ -160,3 +160,4 @@ continueButton.addEventListener(
    INIT
 ========================================================= */
 calculateCommission();
+

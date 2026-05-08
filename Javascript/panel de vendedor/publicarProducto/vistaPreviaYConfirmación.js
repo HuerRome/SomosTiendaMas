@@ -1,33 +1,35 @@
 const publishBtn =
-  document.getElementById("publishBtn");
+document.getElementById("publishBtn");
 
 const publishModal =
-  document.getElementById("publishModal");
+document.getElementById("publishModal");
 
 const closeModal =
-  document.getElementById("closeModal");
+document.getElementById("closeModal");
 
 const previewThumbs =
-  document.querySelectorAll(".preview-thumb");
+document.querySelectorAll(".preview-thumb");
 
 const mainPreviewImage =
-  document.getElementById("mainPreviewImage");
+document.getElementById("mainPreviewImage");
 
-/* =========================
+/* =========================================================
    GALLERY
-========================= */
+========================================================= */
 previewThumbs.forEach((thumb) => {
 
   thumb.addEventListener("click", () => {
 
     previewThumbs.forEach((item) => {
+
       item.classList.remove("active");
+
     });
 
     thumb.classList.add("active");
 
     const image =
-      thumb.querySelector("img").src;
+    thumb.querySelector("img").src;
 
     mainPreviewImage.src = image;
 
@@ -35,38 +37,106 @@ previewThumbs.forEach((thumb) => {
 
 });
 
+/* =========================================================
+   BUTTONS NAVIGATION
+========================================================= */
+
+const backButton =
+document.querySelector(".secondary-btn");
+
 /* =========================
-   PUBLISH
+   VOLVER
 ========================= */
-publishBtn.addEventListener("click", () => {
+backButton.addEventListener(
+  "click",
+  () => {
 
-  publishBtn.disabled = true;
+    window.location.href =
+    "5LogisticaYDespacho.html";
 
-  publishBtn.innerHTML = `
-  
-    <i class="fa-solid fa-spinner fa-spin"></i>
-    Publicando...
-  
-  `;
+  }
+);
 
-  /* SIMULATE DATABASE SAVE */
-  setTimeout(() => {
+/* =========================================================
+   PUBLISH PRODUCT
+========================================================= */
+publishBtn.addEventListener(
+  "click",
+  () => {
 
-    publishModal.classList.add("active");
+    publishBtn.disabled = true;
 
-  }, 1800);
+    publishBtn.innerHTML = `
+    
+      <i class="fa-solid fa-spinner fa-spin"></i>
+      <span>Publicando...</span>
+    
+    `;
 
-});
+    /* =========================
+       GET LOCAL DATA
+    ========================= */
 
-/* =========================
+    const logisticsData =
+    JSON.parse(
+      localStorage.getItem(
+        "logisticsData"
+      )
+    );
+
+    const productImages =
+    JSON.parse(
+      localStorage.getItem(
+        "productImages"
+      )
+    );
+
+    console.log(
+      "Producto listo para guardar:",
+      {
+        logisticsData,
+        productImages
+      }
+    );
+
+    /* =========================
+       SIMULATE DATABASE SAVE
+    ========================= */
+
+    setTimeout(() => {
+
+      publishModal.classList.add(
+        "active"
+      );
+
+      /* CLEAN STORAGE */
+      localStorage.removeItem(
+        "productImages"
+      );
+
+      localStorage.removeItem(
+        "logisticsData"
+      );
+
+    }, 1800);
+
+  }
+);
+
+/* =========================================================
    CLOSE MODAL
-========================= */
-closeModal.addEventListener("click", () => {
+========================================================= */
+closeModal.addEventListener(
+  "click",
+  () => {
 
-  publishModal.classList.remove("active");
+    publishModal.classList.remove(
+      "active"
+    );
 
-  /* REDIRECT */
-  window.location.href =
-    "/panel-vendedor";
+    /* REDIRECT */
+    window.location.href =
+    "../../inicio de sesion y registro/miCuenta/miCuentaVendedor.html";
 
-});
+  }
+);
