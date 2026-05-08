@@ -158,13 +158,13 @@
   min-width: 54px;
 
   border-radius: 50%;
-  background: #f5f0ff;
+  background: #eff6ff;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  color: #6c3cff;
+  color: #2563EB;
   font-size: 20px;
 }
 
@@ -217,7 +217,7 @@
 .input-group input:focus,
 .input-group textarea:focus,
 .input-group select:focus{
-  border-color: #cbb7ff;
+  border-color: #bfdbfe;
 }
 
 /* =========================
@@ -319,7 +319,7 @@
 
 .primary-btn{
   border: none;
-  background: #6c3cff;
+  background: #2563EB;
   color: white;
 }
 
@@ -402,45 +402,6 @@
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* =========================
    STEP INDICATOR
 ========================= */
@@ -489,18 +450,16 @@
 
 /* ACTIVE */
 .publish-step.active{
-  background: #f5f0ff;
-  border-color: #cbb7ff;
-  color: #6c3cff;
-
-  box-shadow:
-    0 0 0 4px rgba(108,60,255,.08);
+  background: #eff6ff;
+  border-color: #bfdbfe;
+  color: #2563EB;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, .08);
 }
 
 /* COMPLETED */
 .publish-step.completed{
-  background: #6c3cff;
-  border-color: #6c3cff;
+  background: #2563EB;
+  border-color: #2563EB;
   color: white;
 }
 
@@ -518,7 +477,7 @@
 
 /* ACTIVE LINE */
 .publish-line.active{
-  background: #6c3cff;
+  background: #2563EB;
 }
 
 /* =========================
@@ -584,7 +543,7 @@
 /* PRIMARY */
 .primary-btn{
   border: none;
-  background: #6c3cff;
+  background: #2563EB;
   color: white;
 }
 

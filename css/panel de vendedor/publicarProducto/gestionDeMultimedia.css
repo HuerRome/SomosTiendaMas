@@ -90,27 +90,26 @@
 }
 
 .publish-step.active{
-  background: #f5f0ff;
-  border-color: #cbb7ff;
-  color: #6c3cff;
-
-  box-shadow: 0 0 0 4px rgba(108,60,255,.08);
+  background: #eff6ff;
+  border-color: #bfdbfe;
+  color: #2563EB;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, .08);
 }
 
 .publish-step.completed{
-  background: #6c3cff;
-  border-color: #6c3cff;
+  background: #2563EB;
+  border-color: #2563EB;
   color: #fff;
 }
 
 .publish-line{
   width: 52px;
   height: 1px;
-  background: #dcdcdc;
+  background: #eff6ff;
 }
 
 .publish-line.active{
-  background: #6c3cff;
+  background: #2563EB;
 }
 
 /* =========================
