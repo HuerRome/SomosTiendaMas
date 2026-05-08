@@ -252,3 +252,44 @@ Página 5:
 setActiveStep(5);
 
 */
+
+
+/*--------------------------------------------------------------------------------------------------------------------------------------- */
+/* =========================
+   CONTINUE BUTTON
+========================= */
+
+const continueBtn =
+document.getElementById("continueBtn");
+
+continueBtn.addEventListener("click", () => {
+
+  /* VALIDATION */
+  if(!currentCategory || !currentSubcategory){
+
+    alert(
+      "Seleccioná una categoría y subcategoría."
+    );
+
+    return;
+
+  }
+
+  /* SAVE DATA */
+  const publishData = {
+
+    category: currentCategory,
+    subcategory: currentSubcategory
+
+  };
+
+  localStorage.setItem(
+    "publishProductData",
+    JSON.stringify(publishData)
+  );
+
+  /* REDIRECT */
+  window.location.href =
+  "2InformacionYFichaTecnica.html";
+
+});

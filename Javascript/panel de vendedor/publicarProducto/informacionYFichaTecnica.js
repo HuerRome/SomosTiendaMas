@@ -228,3 +228,93 @@ categorySelector.addEventListener(
    INIT
 ========================= */
 renderFields("calzado");
+
+
+
+
+/*-------------------------------------------------------------------------------------------------------------- */
+/* =========================
+   BUTTONS
+========================= */
+
+const backBtn =
+document.getElementById("backBtn");
+
+const continueBtn =
+document.getElementById("continueBtn");
+
+/* =========================
+   BACK
+========================= */
+
+backBtn.addEventListener("click", () => {
+
+  window.location.href =
+  "1ClasificacionYCategoria.html";
+
+});
+
+/* =========================
+   CONTINUE
+========================= */
+
+continueBtn.addEventListener("click", () => {
+
+  /* INPUTS */
+  const productName =
+  document.querySelector(
+    'input[placeholder*="Zapatillas"]'
+  ).value;
+
+  const description =
+  document.querySelector("textarea").value;
+
+  const brand =
+  document.querySelector(
+    'input[placeholder="Ej: Samsung"]'
+  ).value;
+
+  const model =
+  document.querySelector(
+    'input[placeholder="Ej: S24 Ultra"]'
+  ).value;
+
+  /* VALIDATION */
+  if(
+    !productName ||
+    !description ||
+    !brand ||
+    !model
+  ){
+
+    alert(
+      "Completá todos los campos."
+    );
+
+    return;
+
+  }
+
+  /* SAVE DATA */
+  const technicalData = {
+
+    productName,
+    description,
+    brand,
+    model,
+
+    category:
+    categorySelector.value
+
+  };
+
+  localStorage.setItem(
+    "technicalData",
+    JSON.stringify(technicalData)
+  );
+
+  /* REDIRECT */
+  window.location.href =
+  "3GestionDeMultimedia.html";
+
+});
