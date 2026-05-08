@@ -11,7 +11,7 @@
 
   <link rel="stylesheet" href="../../css/home/style.css">
   <link rel="stylesheet" href="../../css/home/header.css"/>
-  <link rel="stylesheet" href="../../css/panel de vendedor/publicarProducto/clasificacionYCategoria.css">
+  <link rel="stylesheet" href="../../css/panel de vendedor/publicarProducto/logisticaYDespacho.css">
   <link rel="stylesheet" href="../../css/home/footer.css">
 </head>
 <body>
@@ -502,7 +502,302 @@
     ========================== -->
   </header>
 
-  <main class="main-content page-shell">
+  <main class="publish-main main-content page-shell">
+  
+    <div class="publish-container">
+  
+      <!-- Breadcrumb -->
+      <div class="publish-breadcrumb">
+  
+        <a href="#">Página principal</a>
+  
+        <i class="fa-solid fa-angle-right"></i>
+  
+        <a href="#">Panel de vendedor</a>
+  
+        <i class="fa-solid fa-angle-right"></i>
+  
+        <p>Logística y despacho</p>
+  
+      </div>
+  
+      <!-- TITLE -->
+      <h1 class="publish-title">
+        Logística y despacho
+      </h1>
+  
+      <p class="publish-description">
+        Configurá precios, comisiones, métodos de envío y opciones
+        de retiro para completar la publicación de tu producto.
+      </p>
+  
+      <!-- STEPS -->
+      <div class="publish-steps">
+  
+        <div class="publish-step completed">
+          <i class="fa-solid fa-check"></i>
+        </div>
+  
+        <div class="publish-line active"></div>
+  
+        <div class="publish-step completed">
+          <i class="fa-solid fa-check"></i>
+        </div>
+  
+        <div class="publish-line active"></div>
+  
+        <div class="publish-step completed">
+          <i class="fa-solid fa-check"></i>
+        </div>
+  
+        <div class="publish-line active"></div>
+  
+        <div class="publish-step active">
+          4
+        </div>
+  
+        <div class="publish-line"></div>
+  
+        <div class="publish-step">
+          5
+        </div>
+  
+      </div>
+  
+      <!-- GRID -->
+      <div class="shipping-grid">
+  
+        <!-- LEFT -->
+        <div class="publish-card">
+  
+          <div class="section-header">
+            <h2>
+              Precio y comisiones
+            </h2>
+  
+            <p>
+              Definí el precio de venta y visualizá cuánto
+              recibirás luego de la comisión del marketplace.
+            </p>
+          </div>
+  
+          <!-- PRICE -->
+          <div class="form-group">
+  
+            <label>
+              Precio del producto
+            </label>
+  
+            <div class="input-icon">
+  
+              <span>$</span>
+  
+              <input
+                type="number"
+                id="productPrice"
+                placeholder="0.00"
+              >
+  
+            </div>
+  
+          </div>
+  
+          <!-- SHIPPING -->
+          <div class="form-group">
+  
+            <label>
+              Costo de envío
+            </label>
+  
+            <div class="input-icon">
+  
+              <span>$</span>
+  
+              <input
+                type="number"
+                id="shippingPrice"
+                placeholder="0.00"
+              >
+  
+            </div>
+  
+          </div>
+  
+          <!-- COMMISSION -->
+          <div class="commission-card">
+  
+            <div class="commission-item">
+              <span>Precio publicado</span>
+              <strong id="previewPrice">
+                $0
+              </strong>
+            </div>
+  
+            <div class="commission-item">
+              <span>Comisión marketplace (10%)</span>
+              <strong id="previewCommission">
+                - $0
+              </strong>
+            </div>
+  
+            <div class="commission-divider"></div>
+  
+            <div class="commission-item total">
+              <span>Recibirás</span>
+              <strong id="previewTotal">
+                $0
+              </strong>
+            </div>
+  
+          </div>
+  
+        </div>
+  
+        <!-- RIGHT -->
+        <div class="publish-card">
+  
+          <div class="section-header">
+  
+            <h2>
+              Métodos de entrega
+            </h2>
+  
+            <p>
+              Elegí cómo los compradores recibirán el producto.
+            </p>
+  
+          </div>
+  
+          <!-- SHIPPING OPTION -->
+          <div class="toggle-wrapper">
+  
+            <div class="toggle-info">
+              <h3>Permitir envío</h3>
+              <p>
+                Los compradores podrán recibir el producto
+                mediante envío.
+              </p>
+            </div>
+  
+            <label class="switch">
+  
+              <input
+                type="checkbox"
+                id="allowShipping"
+                checked
+              >
+  
+              <span class="slider"></span>
+  
+            </label>
+  
+          </div>
+  
+          <!-- RETIRE OPTION -->
+          <div class="toggle-wrapper">
+  
+            <div class="toggle-info">
+              <h3>Retiro en local</h3>
+              <p>
+                Permití que retiren el producto personalmente.
+              </p>
+            </div>
+  
+            <label class="switch">
+  
+              <input
+                type="checkbox"
+                id="allowPickup"
+              >
+  
+              <span class="slider"></span>
+  
+            </label>
+  
+          </div>
+  
+          <!-- PICKUP LOCATION -->
+          <div
+            class="pickup-box hidden"
+            id="pickupBox"
+          >
+  
+            <div class="form-group">
+  
+              <label>
+                Dirección de retiro
+              </label>
+  
+              <input
+                type="text"
+                placeholder="Ej: Av. Corrientes 1234"
+              >
+  
+            </div>
+  
+            <div class="form-group">
+  
+              <label>
+                Ciudad
+              </label>
+  
+              <input
+                type="text"
+                placeholder="Ej: CABA"
+              >
+  
+            </div>
+  
+          </div>
+  
+          <!-- DELIVERY TIME -->
+          <div class="form-group">
+  
+            <label>
+              Tiempo estimado de despacho
+            </label>
+  
+            <select>
+  
+              <option>
+                Seleccionar
+              </option>
+  
+              <option>
+                Despacho en 24 horas
+              </option>
+  
+              <option>
+                Despacho en 48 horas
+              </option>
+  
+              <option>
+                Despacho en 3 a 5 días
+              </option>
+  
+            </select>
+  
+          </div>
+  
+          <!-- ACTIONS -->
+          <div class="actions">
+  
+            <button class="secondary-btn">
+              Volver
+            </button>
+  
+            <button class="primary-btn">
+              Continuar
+            </button>
+  
+          </div>
+  
+        </div>
+  
+      </div>
+  
+    </div>
+  
   </main>
   <!-- Footer -->
   <footer class="footer ">
@@ -583,7 +878,7 @@
   </button>
   <script src="../../Javascript/home/script.js"></script>
   <script src="../../Javascript/home/header.js"></script>
-  <script src="../../Javascript/panel de vendedor/publicarProducto/clasificacionYCategoria.js"></script>
+  <script src="../../Javascript/panel de vendedor/publicarProducto/logisticaYDespacho.js"></script>
 </body>
 </html>
 

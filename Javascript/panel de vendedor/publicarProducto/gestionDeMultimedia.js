@@ -2,15 +2,19 @@ const uploadZone = document.getElementById("uploadZone");
 const imageInput = document.getElementById("imageInput");
 const selectImagesBtn = document.getElementById("selectImagesBtn");
 
-const mediaPreviewGrid = document.getElementById("mediaPreviewGrid");
+const mediaPreviewGrid =
+  document.getElementById("mediaPreviewGrid");
 
-const totalImages = document.getElementById("totalImages");
-const optimizedSize = document.getElementById("optimizedSize");
+const totalImages =
+  document.getElementById("totalImages");
+
+const optimizedSize =
+  document.getElementById("optimizedSize");
 
 let uploadedFiles = [];
 
 /* =========================
-   OPEN FILES
+   OPEN FILE INPUT
 ========================= */
 selectImagesBtn.addEventListener("click", () => {
   imageInput.click();
@@ -23,8 +27,8 @@ uploadZone.addEventListener("click", () => {
 /* =========================
    INPUT CHANGE
 ========================= */
-imageInput.addEventListener("change", (e) => {
-  handleFiles(e.target.files);
+imageInput.addEventListener("change", async (e) => {
+  await handleFiles(e.target.files);
 });
 
 /* =========================
@@ -32,6 +36,7 @@ imageInput.addEventListener("change", (e) => {
 ========================= */
 uploadZone.addEventListener("dragover", (e) => {
   e.preventDefault();
+
   uploadZone.classList.add("dragging");
 });
 
@@ -39,31 +44,107 @@ uploadZone.addEventListener("dragleave", () => {
   uploadZone.classList.remove("dragging");
 });
 
-uploadZone.addEventListener("drop", (e) => {
+uploadZone.addEventListener("drop", async (e) => {
+
   e.preventDefault();
 
   uploadZone.classList.remove("dragging");
 
-  handleFiles(e.dataTransfer.files);
+  await handleFiles(e.dataTransfer.files);
+
 });
 
 /* =========================
    HANDLE FILES
 ========================= */
-function handleFiles(files){
+async function handleFiles(files){
 
   const validFiles = [...files];
 
   if(uploadedFiles.length + validFiles.length > 5){
+
     alert("Solo podés subir hasta 5 imágenes.");
+
     return;
+
   }
 
-  validFiles.forEach((file) => {
+  for(const file of validFiles){
 
-    if(!file.type.startsWith("image/")) return;
+    if(!file.type.startsWith("image/")) continue;
 
-    createPreview(file);
+    const optimizedFile =
+      await convertToWebP(file);
+
+    createPreview(optimizedFile);
+
+  }
+
+}
+
+/* =========================
+   CONVERT TO WEBP
+========================= */
+async function convertToWebP(file){
+
+  return new Promise((resolve) => {
+
+    const img = new Image();
+
+    img.src = URL.createObjectURL(file);
+
+    img.onload = () => {
+
+      const canvas =
+        document.createElement("canvas");
+
+      const ctx =
+        canvas.getContext("2d");
+
+      /* RESPONSIVE RESIZE */
+      let width = img.width;
+      let height = img.height;
+
+      const maxWidth = 1600;
+
+      if(width > maxWidth){
+
+        height *= maxWidth / width;
+        width = maxWidth;
+
+      }
+
+      canvas.width = width;
+      canvas.height = height;
+
+      ctx.drawImage(
+        img,
+        0,
+        0,
+        width,
+        height
+      );
+
+      /* CONVERT WEBP */
+      canvas.toBlob(
+        (blob) => {
+
+          const webpFile = new File(
+            [blob],
+            file.name.replace(/\.\w+$/, ".webp"),
+            {
+              type: "image/webp"
+            }
+          );
+
+          resolve(webpFile);
+
+        },
+        "image/webp",
+        0.75
+      );
+
+    };
 
   });
 
@@ -74,94 +155,101 @@ function handleFiles(files){
 ========================= */
 function createPreview(file){
 
-  const reader = new FileReader();
+  const imageUrl =
+    URL.createObjectURL(file);
 
-  reader.onload = (e) => {
+  const mediaItem =
+    document.createElement("div");
 
-    const imageUrl = e.target.result;
+  mediaItem.className = "media-item";
 
-    const mediaItem = document.createElement("div");
-    mediaItem.className = "media-item";
+  mediaItem.innerHTML = `
+  
+    <div class="media-image-wrapper">
 
-    mediaItem.innerHTML = `
-      <div class="media-image-wrapper">
+      <img
+        src="${imageUrl}"
+        class="media-image"
+      >
 
-        <img
-          src="${imageUrl}"
-          class="media-image"
+      <div class="media-actions">
+
+        <button
+          class="media-action-btn rotate-btn"
         >
+          <i class="fa-solid fa-rotate-right"></i>
+        </button>
 
-        <div class="media-actions">
-
-          <button class="media-action-btn rotate-btn">
-            <i class="fa-solid fa-rotate-right"></i>
-          </button>
-
-          <button class="media-action-btn delete-btn">
-            <i class="fa-solid fa-trash"></i>
-          </button>
-
-        </div>
+        <button
+          class="media-action-btn delete-btn"
+        >
+          <i class="fa-solid fa-trash"></i>
+        </button>
 
       </div>
 
-      <div class="media-content">
+    </div>
 
-        <div class="media-name">
-          ${file.name}
-        </div>
+    <div class="media-content">
 
-        <div class="progress-wrapper">
-          <div class="progress-bar"></div>
-        </div>
-
-        <div class="media-size">
-          ${(file.size / 1024 / 1024).toFixed(2)} MB
-        </div>
-
+      <div class="media-name">
+        ${file.name}
       </div>
-    `;
 
-    mediaPreviewGrid.appendChild(mediaItem);
+      <div class="progress-wrapper">
+        <div class="progress-bar"></div>
+      </div>
 
-    uploadedFiles.push(file);
+      <div class="media-size">
+        ${(file.size / 1024 / 1024).toFixed(2)} MB
+      </div>
 
-    updateSummary();
+    </div>
 
-    simulateUpload(mediaItem);
+  `;
 
-    /* ROTATE */
-    const rotateBtn = mediaItem.querySelector(".rotate-btn");
-    const image = mediaItem.querySelector(".media-image");
+  mediaPreviewGrid.appendChild(mediaItem);
 
-    let rotation = 0;
+  uploadedFiles.push(file);
 
-    rotateBtn.addEventListener("click", () => {
+  updateSummary();
 
-      rotation += 90;
+  simulateUpload(mediaItem);
 
-      image.style.transform = `rotate(${rotation}deg)`;
+  /* ROTATE IMAGE */
+  const rotateBtn =
+    mediaItem.querySelector(".rotate-btn");
 
-    });
+  const image =
+    mediaItem.querySelector(".media-image");
 
-    /* DELETE */
-    const deleteBtn = mediaItem.querySelector(".delete-btn");
+  let rotation = 0;
 
-    deleteBtn.addEventListener("click", () => {
+  rotateBtn.addEventListener("click", () => {
 
-      mediaItem.remove();
+    rotation += 90;
 
-      uploadedFiles = uploadedFiles.filter(
+    image.style.transform =
+      `rotate(${rotation}deg)`;
+
+  });
+
+  /* DELETE IMAGE */
+  const deleteBtn =
+    mediaItem.querySelector(".delete-btn");
+
+  deleteBtn.addEventListener("click", () => {
+
+    mediaItem.remove();
+
+    uploadedFiles =
+      uploadedFiles.filter(
         currentFile => currentFile !== file
       );
 
-      updateSummary();
+    updateSummary();
 
-    });
-
-  };
-
-  reader.readAsDataURL(file);
+  });
 
 }
 
@@ -179,13 +267,16 @@ function simulateUpload(mediaItem){
 
     progress += 10;
 
-    progressBar.style.width = progress + "%";
+    progressBar.style.width =
+      progress + "%";
 
     if(progress >= 100){
+
       clearInterval(interval);
+
     }
 
-  }, 100);
+  }, 80);
 
 }
 
@@ -197,15 +288,13 @@ function updateSummary(){
   totalImages.textContent =
     `${uploadedFiles.length} / 5`;
 
-  const totalSize = uploadedFiles.reduce(
-    (acc, file) => acc + file.size,
-    0
-  );
-
-  const optimized =
-    (totalSize * 0.7 / 1024 / 1024).toFixed(2);
+  const totalSize =
+    uploadedFiles.reduce(
+      (acc, file) => acc + file.size,
+      0
+    );
 
   optimizedSize.textContent =
-    optimized + " MB";
+    `${(totalSize / 1024 / 1024).toFixed(2)} MB`;
 
 }
