@@ -46,19 +46,17 @@
    TITLE
 ========================= */
 .publish-title{
-  font-size:28px;
-  font-weight:600;
-
-  margin-bottom:.5rem;
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: .5rem;
 }
 
 .publish-description{
-  font-size:16px;
-  color:#666;
-  line-height:1.5;
-
-  margin-bottom:24px;
-  max-width:760px;
+  font-size: 16px;
+  color: #666;
+  line-height: 1.5;
+  margin-bottom: 24px;
+  max-width: 700px;
 }
 
 /* =========================
@@ -389,10 +387,6 @@
 
   .shipping-grid{
     grid-template-columns:1fr 1fr;
-  }
-
-  .publish-title{
-    font-size:32px;
   }
 
 }
