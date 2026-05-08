@@ -11,7 +11,7 @@
 
   <link rel="stylesheet" href="../../css/home/style.css">
   <link rel="stylesheet" href="../../css/home/header.css"/>
-  <link rel="stylesheet" href="../../css/panel de vendedor/publicarProducto/clasificacionYCategoria.css">
+  <link rel="stylesheet" href="../../css/panel de vendedor/publicarProducto/gestionDeMultimedia.css">
   <link rel="stylesheet" href="../../css/home/footer.css">
 </head>
 <body>
@@ -502,8 +502,185 @@
     ========================== -->
   </header>
 
-  <main class="main-content page-shell">
+  <main class="publish-main main-content page-shell">
+    <div class="publish-container">
+  
+      <!-- Breadcrumb -->
+      <div class="publish-breadcrumb">
+        <a href="#">Página principal</a>
+        <i class="fa-solid fa-angle-right"></i>
+  
+        <a href="#">Panel de vendedor</a>
+        <i class="fa-solid fa-angle-right"></i>
+  
+        <p>Gestión multimedia</p>
+      </div>
+  
+      <!-- Header -->
+      <h1 class="publish-title">
+        Gestión multimedia
+      </h1>
+  
+      <p class="publish-description">
+        Subí imágenes de alta calidad para mejorar la visibilidad y confianza
+        de tu publicación. Podés arrastrar imágenes, rotarlas y optimizarlas
+        automáticamente antes de publicar.
+      </p>
+  
+      <!-- Steps -->
+      <div class="publish-steps">
+  
+        <div class="publish-step completed">
+          <i class="fa-solid fa-check"></i>
+        </div>
+  
+        <div class="publish-line active"></div>
+  
+        <div class="publish-step completed">
+          <i class="fa-solid fa-check"></i>
+        </div>
+  
+        <div class="publish-line active"></div>
+  
+        <div class="publish-step active">
+          3
+        </div>
+  
+        <div class="publish-line"></div>
+  
+        <div class="publish-step">
+          4
+        </div>
+  
+        <div class="publish-line"></div>
+  
+        <div class="publish-step">
+          5
+        </div>
+  
+      </div>
+  
+      <!-- GRID -->
+      <div class="media-grid">
+  
+        <!-- LEFT -->
+        <div class="publish-card">
+  
+          <!-- DROPZONE -->
+          <div class="upload-zone" id="uploadZone">
+  
+            <input
+              type="file"
+              id="imageInput"
+              accept="image/*"
+              multiple
+              hidden
+            >
+  
+            <div class="upload-content">
+              <div class="upload-icon">
+                <i class="fa-regular fa-image"></i>
+              </div>
+  
+              <h3>Arrastrá imágenes aquí</h3>
+  
+              <p>
+                O hacé clic para seleccionar imágenes desde tu dispositivo
+              </p>
+  
+              <span class="upload-info">
+                Máximo 5 imágenes • JPG • PNG • WEBP
+              </span>
+  
+              <button
+                type="button"
+                class="upload-btn"
+                id="selectImagesBtn"
+              >
+                Seleccionar imágenes
+              </button>
+            </div>
+  
+          </div>
+  
+          <!-- PREVIEW -->
+          <div
+            class="media-preview-grid"
+            id="mediaPreviewGrid"
+          ></div>
+  
+        </div>
+  
+        <!-- RIGHT -->
+        <div class="publish-card side-panel">
+  
+          <div class="panel-header">
+            <h2>Recomendaciones</h2>
+  
+            <p>
+              Las publicaciones con imágenes claras suelen generar más ventas.
+            </p>
+          </div>
+  
+          <div class="tips-list">
+  
+            <div class="tip-item">
+              <i class="fa-solid fa-check"></i>
+              <span>Usá fondo blanco o neutro.</span>
+            </div>
+  
+            <div class="tip-item">
+              <i class="fa-solid fa-check"></i>
+              <span>Mostrá el producto desde varios ángulos.</span>
+            </div>
+  
+            <div class="tip-item">
+              <i class="fa-solid fa-check"></i>
+              <span>La primera imagen será la portada.</span>
+            </div>
+  
+            <div class="tip-item">
+              <i class="fa-solid fa-check"></i>
+              <span>Se optimizarán automáticamente las imágenes.</span>
+            </div>
+  
+          </div>
+  
+          <!-- SUMMARY -->
+          <div class="upload-summary">
+  
+            <div class="summary-item">
+              <span>Imágenes cargadas</span>
+              <strong id="totalImages">0 / 5</strong>
+            </div>
+  
+            <div class="summary-item">
+              <span>Peso optimizado</span>
+              <strong id="optimizedSize">0 MB</strong>
+            </div>
+  
+          </div>
+  
+          <!-- ACTIONS -->
+          <div class="publish-actions">
+  
+            <button class="secondary-btn">
+              Volver
+            </button>
+  
+            <button class="primary-btn">
+              Continuar
+            </button>
+  
+          </div>
+  
+        </div>
+  
+      </div>
+  
+    </div>
   </main>
+
   <!-- Footer -->
   <footer class="footer ">
     <div class="footer-container">
@@ -583,8 +760,6 @@
   </button>
   <script src="../../Javascript/home/script.js"></script>
   <script src="../../Javascript/home/header.js"></script>
-  <script src="../../Javascript/panel de vendedor/publicarProducto/clasificacionYCategoria.js"></script>
+  <script src="../../Javascript/panel de vendedor/publicarProducto/gestionDeMultimedia.js"></script>
 </body>
 </html>
-
-

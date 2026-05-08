@@ -41,8 +41,7 @@
 ========================= */
 .publish-header{
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+  flex-direction: column;
   gap: 2rem;
 
   margin-bottom: 2rem;
@@ -394,6 +393,148 @@
 
   .publish-steps{
     flex-wrap: wrap;
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================
+   STEP INDICATOR
+========================= */
+.publish-steps{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+
+  gap: .8rem;
+
+  margin-top: 1.8rem;
+  margin-bottom: 2rem;
+}
+
+/* =========================
+   STEP CIRCLE
+========================= */
+.publish-step{
+  width: 44px;
+  height: 44px;
+
+  border-radius: 50%;
+
+  border: 1px solid #dcdcdc;
+
+  background: #fff;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  color: #666;
+
+  position: relative;
+
+  transition:
+    background .2s ease,
+    border-color .2s ease,
+    color .2s ease,
+    box-shadow .2s ease;
+}
+
+/* ACTIVE */
+.publish-step.active{
+  background: #f5f0ff;
+  border-color: #cbb7ff;
+  color: #6c3cff;
+
+  box-shadow:
+    0 0 0 4px rgba(108,60,255,.08);
+}
+
+/* COMPLETED */
+.publish-step.completed{
+  background: #6c3cff;
+  border-color: #6c3cff;
+  color: white;
+}
+
+/* =========================
+   LINE
+========================= */
+.publish-line{
+  width: 52px;
+  height: 1px;
+
+  background: #dcdcdc;
+
+  border-radius: 999px;
+}
+
+/* ACTIVE LINE */
+.publish-line.active{
+  background: #6c3cff;
+}
+
+/* =========================
+   MOBILE
+========================= */
+@media (max-width: 480px){
+
+  .publish-steps{
+    gap: .5rem;
+  }
+
+  .publish-step{
+    width: 38px;
+    height: 38px;
+
+    font-size: 14px;
+  }
+
+  .publish-line{
+    width: 22px;
   }
 
 }
