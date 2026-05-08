@@ -427,4 +427,80 @@
     flex-direction:column;
   }
 
+  .publish-description{
+    font-size: 15px;
+  }
+}
+
+/* ====================================================================================================
+    ACTIONS
+    Correcting the design of the back and continue buttons in the mobile version (Query 640px)
+==================================================================================================== */
+.technical-actions{
+  display: flex;
+  gap: 12px;
+}
+
+.primary-btn,
+.secondary-btn{
+  flex: 1;
+
+  min-height: 52px;
+  padding: 0 18px;
+
+  border-radius: 6px;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+  line-height: 1.2;
+
+  cursor: pointer;
+  transition: .2s ease;
+
+  white-space: normal;
+}
+
+/* PRIMARY */
+.primary-btn{
+  border: none;
+  background: #6c3cff;
+  color: white;
+}
+
+.primary-btn:hover{
+  opacity: .95;
+}
+
+/* SECONDARY */
+.secondary-btn{
+  border: 1px solid #dcdcdc;
+  background: white;
+}
+
+.secondary-btn:hover{
+  background: #fafafa;
+}
+
+/* =========================
+   MOBILE
+========================= */
+@media (max-width: 640px){
+
+  .technical-actions{
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .primary-btn,
+  .secondary-btn{
+    width: 100%;
+    min-height: 52px;
+  }
+
 }

@@ -63,7 +63,9 @@
 .publish-steps{
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: .8rem;
+  margin-bottom: 2rem;
 }
 
 .publish-step{
@@ -71,15 +73,17 @@
   height: 44px;
 
   border-radius: 50%;
+
   border: 1px solid #dcdcdc;
+  background: #fff;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
+  font-size: 15px;
   font-weight: 600;
 
-  background: white;
   color: #666;
 }
 
@@ -87,16 +91,18 @@
   background: #f5f0ff;
   border-color: #cbb7ff;
   color: #6c3cff;
+
+  box-shadow: 0 0 0 4px rgba(108,60,255,.08);
 }
 
 .publish-step.completed{
   background: #6c3cff;
   border-color: #6c3cff;
-  color: white;
+  color: #fff;
 }
 
 .publish-line{
-  width: 40px;
+  width: 52px;
   height: 1px;
   background: #dcdcdc;
 }
@@ -533,6 +539,83 @@
 
   .publish-line{
     width: 22px;
+  }
+
+  .publish-description{
+    font-size: 15px;
+  }
+}
+
+
+/* ====================================================================================================
+    ACTIONS
+    Correcting the design of the back and continue buttons in the mobile version (Query 640px)
+==================================================================================================== */
+.technical-actions{
+  display: flex;
+  gap: 12px;
+}
+
+.primary-btn,
+.secondary-btn{
+  flex: 1;
+
+  min-height: 52px;
+  padding: 0 18px;
+
+  border-radius: 6px;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+  line-height: 1.2;
+
+  cursor: pointer;
+  transition: .2s ease;
+
+  white-space: normal;
+}
+
+/* PRIMARY */
+.primary-btn{
+  border: none;
+  background: #6c3cff;
+  color: white;
+}
+
+.primary-btn:hover{
+  opacity: .95;
+}
+
+/* SECONDARY */
+.secondary-btn{
+  border: 1px solid #dcdcdc;
+  background: white;
+}
+
+.secondary-btn:hover{
+  background: #fafafa;
+}
+
+/* =========================
+   MOBILE
+========================= */
+@media (max-width: 640px){
+
+  .technical-actions{
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .primary-btn,
+  .secondary-btn{
+    width: 100%;
+    min-height: 52px;
   }
 
 }
