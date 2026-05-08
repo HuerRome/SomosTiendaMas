@@ -242,6 +242,11 @@
   font-size: 30px;
 }
 
+.publish-category span img{
+  width: 45px;
+  height: 45px;
+}
+
 .publish-category p{
   font-size: 16px;
   font-weight: 600;
