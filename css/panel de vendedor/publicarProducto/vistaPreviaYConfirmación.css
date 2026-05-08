@@ -72,49 +72,45 @@
 }
 
 .publish-step{
-  width:44px;
-  height:44px;
+  width: 44px;
+  height: 44px;
 
-  border-radius:50%;
-  border:1px solid #dcdcdc;
+  border-radius: 50%;
 
-  background:#fff;
+  border: 1px solid #dcdcdc;
+  background: #fff;
 
-  display:flex;
-  align-items:center;
-  justify-content:center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-  font-size:15px;
-  font-weight:600;
+  font-size: 15px;
+  font-weight: 600;
 
-  color:#666;
-
-  transition:.2s ease;
+  color: #666;
 }
 
 .publish-step.active{
-  background:#f5f0ff;
-  border-color:#cbb7ff;
-  color:#6c3cff;
-
-  box-shadow:0 0 0 4px rgba(108,60,255,.08);
+  background: #eff6ff;
+  border-color: #bfdbfe;
+  color: #2563EB;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, .08);
 }
 
 .publish-step.completed{
-  background:#6c3cff;
-  border-color:#6c3cff;
-  color:white;
+  background: #2563EB;
+  border-color: #2563EB;
+  color: #fff;
 }
 
 .publish-line{
-  width:52px;
-  height:1px;
-
-  background:#dcdcdc;
+  width: 52px;
+  height: 1px;
+  background: #eff6ff;
 }
 
 .publish-line.active{
-  background:#6c3cff;
+  background: #2563EB;
 }
 
 /* =========================
@@ -123,7 +119,7 @@
 .confirmation-banner{
   background:#f5f0ff;
 
-  border:1px solid #d8c6ff;
+  border:1px solid #bfdbfe;
   border-radius:8px;
 
   padding:20px;
@@ -143,7 +139,7 @@
 
   border-radius:50%;
 
-  background:#6c3cff;
+  background: #2563EB;
 
   display:flex;
   align-items:center;
@@ -269,11 +265,11 @@
 }
 
 .preview-thumb:hover{
-  border-color:#cbb7ff;
+  border-color: #bfdbfe;
 }
 
 .preview-thumb.active{
-  border-color:#6c3cff;
+  border-color: #2563EB;
 }
 
 .preview-thumb img{
@@ -380,7 +376,7 @@
 }
 
 .price-detail.total strong{
-  color:#6c3cff;
+  color:#2563EB;
   font-size:24px;
   font-weight:700;
 }
@@ -409,12 +405,13 @@
   border-radius:50%;
 
   background:#f5f0ff;
+  background: #eff6ff;
 
   display:flex;
   align-items:center;
   justify-content:center;
 
-  color:#6c3cff;
+  color:#2563EB;
   font-size:18px;
 }
 
@@ -454,7 +451,7 @@
 }
 
 .primary-btn{
-  background:#6c3cff;
+  background:#2563EB;
   color:white;
 }
 
@@ -515,13 +512,14 @@
   margin:0 auto 20px;
 
   background:#f5f0ff;
+  background: #eff6ff;
 
   display:flex;
   align-items:center;
   justify-content:center;
 
   font-size:42px;
-  color:#6c3cff;
+  color:#2563EB;
 }
 
 .publish-modal-content h2{
@@ -695,7 +693,7 @@
 /* PRIMARY */
 .primary-btn{
   border: none;
-  background: #6c3cff;
+  background: #2563EB;
   color: white;
 }
 

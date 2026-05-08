@@ -126,7 +126,6 @@
 ========================= */
 .publish-card{
   background: #fff;
-
   border: 1px solid #e6e6e6;
   border-radius: 6px;
 
@@ -143,29 +142,22 @@
    UPLOAD ZONE
 ========================= */
 .upload-zone{
-  border: 2px dashed #d8c7ff;
-  background: #faf8ff;
-
+  border: 2px dashed #bfdbfe;
+  background: #f8fbff;
   border-radius: 10px;
-
   min-height: 280px;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   text-align: center;
-
   padding: 2rem;
-
   cursor: pointer;
-
   transition: .2s ease;
 }
 
 .upload-zone.dragging{
-  background: #f5f0ff;
-  border-color: #6c3cff;
+  background: #eff6ff;
+  border-color: #2563EB;
 }
 
 .upload-content h3{
@@ -187,8 +179,7 @@
   margin: 0 auto 1rem;
 
   border-radius: 50%;
-  background: #f1e9ff;
-
+  background: #eff6ff;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -196,7 +187,7 @@
 
 .upload-icon i{
   font-size: 30px;
-  color: #6c3cff;
+  color: #2563EB;
 }
 
 .upload-info{
@@ -214,7 +205,7 @@
   border: none;
   border-radius: 6px;
 
-  background: #6c3cff;
+  background: #2563EB;
   color: white;
 
   font-size: 15px;
@@ -321,7 +312,7 @@
   width: 0%;
   height: 100%;
 
-  background: #6c3cff;
+  background: #2563EB;
 
   transition: width .3s ease;
 }
@@ -363,7 +354,7 @@
 }
 
 .tip-item i{
-  color: #6c3cff;
+  color: #2563EB;
   margin-top: 3px;
 }
 
@@ -429,7 +420,7 @@
 .primary-btn{
   border: none;
 
-  background: #6c3cff;
+  background: #2563EB;
   color: white;
 }
 
@@ -542,7 +533,7 @@
 /* PRIMARY */
 .primary-btn{
   border: none;
-  background: #6c3cff;
+  background: #2563EB;
   color: white;
 }
 

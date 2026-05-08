@@ -71,47 +71,45 @@
 }
 
 .publish-step{
-  width:44px;
-  height:44px;
+  width: 44px;
+  height: 44px;
 
-  border-radius:50%;
-  border:1px solid #dcdcdc;
+  border-radius: 50%;
 
-  background:#fff;
+  border: 1px solid #dcdcdc;
+  background: #fff;
 
-  display:flex;
-  align-items:center;
-  justify-content:center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-  font-size:15px;
-  font-weight:600;
+  font-size: 15px;
+  font-weight: 600;
 
-  color:#666;
+  color: #666;
 }
 
 .publish-step.active{
-  background:#f5f0ff;
-  border-color:#cbb7ff;
-  color:#6c3cff;
-
-  box-shadow:0 0 0 4px rgba(108,60,255,.08);
+  background: #eff6ff;
+  border-color: #bfdbfe;
+  color: #2563EB;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, .08);
 }
 
 .publish-step.completed{
-  background:#6c3cff;
-  border-color:#6c3cff;
-  color:white;
+  background: #2563EB;
+  border-color: #2563EB;
+  color: #fff;
 }
 
 .publish-line{
-  width:52px;
-  height:1px;
-
-  background:#dcdcdc;
+  width: 52px;
+  height: 1px;
+  background: #eff6ff;
 }
 
 .publish-line.active{
-  background:#6c3cff;
+  background: #2563EB;
 }
 
 /* =========================
@@ -191,7 +189,7 @@
 
 .form-group input:focus,
 .form-group select:focus{
-  border-color:#cbb7ff;
+  border-color: #bfdbfe;
 }
 
 .input-icon{
@@ -217,9 +215,8 @@
    COMMISSION
 ========================= */
 .commission-card{
-  background:#faf8ff;
-
-  border:1px solid #e8dcff;
+  background: #f8fbff;
+  border: 1px solid #bfdbfe;
   border-radius:6px;
 
   padding:20px;
@@ -243,13 +240,12 @@
 
 .commission-divider{
   height:1px;
-  background:#e8dcff;
-
+  background: #dbeafe;
   margin:16px 0;
 }
 
 .commission-item.total strong{
-  color:#6c3cff;
+  color: #2563EB;
   font-size:20px;
 }
 
@@ -323,7 +319,7 @@
 }
 
 .switch input:checked + .slider{
-  background:#6c3cff;
+  background:#2563EB;
 }
 
 .switch input:checked + .slider::before{
@@ -367,7 +363,7 @@
 }
 
 .primary-btn{
-  background:#6c3cff;
+  background:#2563EB;
   color:white;
 }
 
@@ -469,7 +465,7 @@
 /* PRIMARY */
 .primary-btn{
   border: none;
-  background: #6c3cff;
+  background: #2563EB;
   color: white;
 }
 
