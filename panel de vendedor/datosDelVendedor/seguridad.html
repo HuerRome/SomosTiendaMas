@@ -5,17 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>TiendaMas - Marketplace Mayorista y Minorista</title>
   <meta name="description" content="Comprá y vendé productos al por mayor y menor en TiendaMas. Marketplace con ofertas, envíos, múltiples categorías y oportunidades para negocios y emprendedores."/>
-  
-  <link rel="icon" href="../assets/marketplace-data/Logo.png" type="image/jpg">
+  <link rel="icon" href="assets/marketplace-data/Logo.png" type="image/jpg">
   <!-- Font Awesome -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-  />
-  <link rel="stylesheet" href="../css/home/style.css">
-  <link rel="stylesheet" href="../css/home/header.css" />
-  <link rel="stylesheet" href="../css/panel de usuario/datos.css" />
-  <link rel="stylesheet" href="../css/home/footer.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+
+  <link rel="stylesheet" href="../../css/home/style.css">
+  <link rel="stylesheet" href="../../css/home/header.css"/>
+  <link rel="stylesheet" href="../../css/panel de vendedor/publicarProducto/clasificacionYCategoria.css">
+  <link rel="stylesheet" href="../../css/home/footer.css">
 </head>
 <body>
   <!-- =========================
@@ -24,7 +21,7 @@
   <header class="site-header">
     <div class="header-shell">
       <div class="header-top">
-        <a href="index.html" class="brand" aria-label="Ir al inicio">
+        <a href="../../index.html" class="brand" aria-label="Ir al inicio">
           <img src="../../assets/marketplace-data/Logo-text 2.png" alt="TiendaMas+ Marketplace mayorista" class="brand__img logo-desktop">
           <img src="../../assets/marketplace-data/Logo.png" alt="TiendaMas+ Marketplace mayorista" class="brand__img logo-mobile">
         </a>
@@ -505,77 +502,7 @@
     ========================== -->
   </header>
 
-  <main class="main-content page-shell account-page">
-  
-    <div class="account-container">
-  
-      <!-- SIDEBAR -->
-      <aside class="sidebar">
-        <h2>Mis datos</h2>
-        <nav>
-          <a href="datos.html" class="active">Datos personales</a>
-          <a href="autenticacion.html">Autenticación</a>
-          <a href="direcciones.html">Direcciones</a>
-          <a href="logOut.html">Salir</a>
-        </nav>
-      </aside>
-  
-      <!-- CONTENIDO -->
-      <section class="main-content">
-  
-        <div class="breadcrumb"><a href="../index.html">TiendaMas</a> > <a href="../inicio de sesion y registro/miCuenta/miCuenta.html">Mi cuenta</a> > <a href="datos.html">Mis datos</a></div>
-  
-        <div class="content">
-  
-          <!-- DATOS -->
-          <section class="card datos">
-            <div class="grid">
-              <div>
-                <label>Nombre</label>
-                <input disabled id="nombre"/>
-              </div>
-  
-              <div>
-                <label>Apellido</label>
-                <input disabled id="apellido"/>
-              </div>
-  
-              <div>
-                <label>Email</label>
-                <input disabled id="email"/>
-              </div>
-  
-              <div>
-                <label>DNI</label>
-                <input disabled id="dni"/>
-              </div>
-  
-              <div>
-                <label>Teléfono</label>
-                <input disabled id="telefono"/>
-              </div>
-            </div>
-  
-            <button id="editBtn" class="btn">EDITAR</button>
-          </section>
-  
-          <!-- BOLETIN -->
-          <section class="card boletin">
-            <h3>Boletín informativo</h3>
-            <p>¿Quiere recibir boletines informativos promocionales?</p>
-  
-            <label class="checkbox">
-              <input type="checkbox" id="promo"/>
-              <span>Quiero recibir el boletín informativo con promociones.</span>
-            </label>
-          </section>
-  
-        </div>
-      </section>
-  
-    </div>
-  
-  </main>
+
 
   <!-- Footer -->
   <footer class="footer ">
@@ -650,10 +577,12 @@
   
   </footer>
   
-  <script src="../Javascript/panel de usuario/datos.js"></script>
-  <script src="../Javascript/home/header.js"></script>
-  <script src="../Javascript/home/script.js"></script>
+    <!-- Go to top button -->
+  <button id="goTopBtn" aria-label="Volver arriba">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+  <script src="../../Javascript/home/script.js"></script>
+  <script src="../../Javascript/home/header.js"></script>
+  <script src="../../Javascript/panel de vendedor/publicarProducto/clasificacionYCategoria.js"></script>
 </body>
 </html>
-
-

@@ -114,6 +114,17 @@
 }
 
 /* =========================
+   COLUMNS
+========================= */
+
+.left-column,
+.right-column{
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+}
+
+/* =========================
    CARD
 ========================= */
 
@@ -153,6 +164,7 @@
 .form-group label{
   display:block;
   margin-bottom:10px;
+
   font-size:14px;
   font-weight:600;
 }
@@ -183,6 +195,10 @@
 .form-group textarea:focus{
   border-color:#bfdbfe;
 }
+
+/* =========================
+   ICON INPUT
+========================= */
 
 .input-icon{
   position:relative;
@@ -261,6 +277,10 @@
   color:#666;
   line-height:1.5;
 }
+
+/* =========================
+   SWITCH
+========================= */
 
 .switch{
   position:relative;
@@ -342,21 +362,13 @@
 
 .primary-btn{
   background:#2563EB;
-  color:#fff;
   border:none;
+  color:#fff;
 }
 
 .secondary-btn{
   background:#fff;
   border:1px solid #dcdcdc;
-}
-
-/* =========================
-   VALIDATION
-========================= */
-
-.input-error{
-  border-color:#ef4444 !important;
 }
 
 /* =========================
