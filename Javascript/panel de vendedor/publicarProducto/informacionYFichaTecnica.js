@@ -1,133 +1,119 @@
-/* =========================
-   DYNAMIC FIELDS
-========================= */
+/* =========================================
+   CATEGORY
+========================================= */
 
-const categorySelector =
-document.getElementById("categorySelector");
+const currentCategory = "calzado";
+
+/* =========================================
+   ELEMENTS
+========================================= */
 
 const dynamicFields =
 document.getElementById("dynamicFields");
 
+const previewTitle =
+document.getElementById("previewTitle");
+
 const previewCategory =
 document.getElementById("previewCategory");
 
-/* =========================
+const productNameInput =
+document.getElementById("productName");
+
+const productSlug =
+document.getElementById("productSlug");
+
+const attributeSelector =
+document.getElementById("attributeSelector");
+
+const attributeValueSelector =
+document.getElementById("attributeValueSelector");
+
+const addFeatureBtn =
+document.getElementById("addFeatureBtn");
+
+const featureTags =
+document.getElementById("featureTags");
+
+/* =========================================
    CONFIG
-========================= */
+========================================= */
+
 const categoryFields = {
 
-  calzado: [
+  calzado: {
 
-    {
-      label: "Talla",
-      type: "select",
-      options: [
-        "38",
-        "39",
-        "40",
-        "41",
-        "42"
-      ]
-    },
+    fields: [
 
-    {
-      label: "Color",
-      type: "select",
-      options: [
-        "Negro",
-        "Blanco",
-        "Rojo",
-        "Azul"
-      ]
-    },
+      {
+        label: "Talla",
+        type: "select",
+        options: [
+          "38",
+          "39",
+          "40",
+          "41",
+          "42"
+        ]
+      },
 
-    {
-      label: "Material",
-      type: "text",
-      placeholder: "Ej: Cuero"
-    }
+      {
+        label: "Color",
+        type: "select",
+        options: [
+          "Negro",
+          "Blanco",
+          "Rojo",
+          "Azul"
+        ]
+      },
 
-  ],
+      {
+        label: "Material",
+        type: "text",
+        placeholder: "Ej: Cuero"
+      }
 
-  celulares: [
+    ],
 
-    {
-      label: "RAM",
-      type: "select",
-      options: [
-        "4GB",
-        "6GB",
-        "8GB",
-        "12GB"
-      ]
-    },
+    attributes: {
 
-    {
-      label: "Almacenamiento",
-      type: "select",
-      options: [
-        "128GB",
-        "256GB",
-        "512GB"
-      ]
-    },
+      Marca: [
+        "Nike",
+        "Adidas",
+        "Puma"
+      ],
 
-    {
-      label: "Batería",
-      type: "text",
-      placeholder: "Ej: 5000mAh"
-    }
-
-  ],
-
-  ropa: [
-
-    {
-      label: "Talle",
-      type: "select",
-      options: [
-        "S",
-        "M",
-        "L",
-        "XL"
-      ]
-    },
-
-    {
-      label: "Color",
-      type: "select",
-      options: [
-        "Negro",
-        "Blanco",
-        "Gris"
-      ]
-    },
-
-    {
-      label: "Género",
-      type: "select",
-      options: [
+      Género: [
         "Hombre",
         "Mujer",
         "Unisex"
+      ],
+
+      Estilo: [
+        "Deportivo",
+        "Casual",
+        "Running"
       ]
+
     }
 
-  ]
+  }
 
 };
 
-/* =========================
-   RENDER
-========================= */
+/* =========================================
+   RENDER FIELDS
+========================================= */
+
 function renderFields(category){
 
   dynamicFields.innerHTML = "";
 
-  const fields =
+  const categoryData =
   categoryFields[category];
 
-  fields.forEach(field => {
+  categoryData.fields.forEach(field => {
 
     const wrapper =
     document.createElement("div");
@@ -137,7 +123,8 @@ function renderFields(category){
     const label =
     document.createElement("label");
 
-    label.textContent = field.label;
+    label.textContent =
+    field.label;
 
     wrapper.appendChild(label);
 
@@ -153,7 +140,6 @@ function renderFields(category){
         document.createElement("option");
 
         opt.value = option;
-
         opt.textContent = option;
 
         select.appendChild(opt);
@@ -164,7 +150,7 @@ function renderFields(category){
 
     }
 
-    /* TEXT */
+    /* INPUT */
     else{
 
       const input =
@@ -183,59 +169,184 @@ function renderFields(category){
 
   });
 
-  updatePreview(category);
+  renderAttributes(category);
+
+  updatePreview();
 
 }
 
-/* =========================
-   UPDATE PREVIEW
-========================= */
-function updatePreview(category){
+/* =========================================
+   ATTRIBUTES
+========================================= */
 
-  let categoryName = "";
+function renderAttributes(category){
 
-  if(category === "calzado"){
-    categoryName = "Calzado";
-  }
+  attributeSelector.innerHTML =
+  `<option value="">Seleccionar atributo</option>`;
 
-  if(category === "celulares"){
-    categoryName =
-    "Tecnología / Celulares";
-  }
+  attributeValueSelector.innerHTML =
+  `<option value="">Seleccionar valor</option>`;
 
-  if(category === "ropa"){
-    categoryName = "Ropa";
-  }
+  const attributes =
+  categoryFields[category].attributes;
 
-  previewCategory.textContent =
-  `Categoría: ${categoryName}`;
+  Object.keys(attributes).forEach(attribute => {
+
+    const option =
+    document.createElement("option");
+
+    option.value = attribute;
+    option.textContent = attribute;
+
+    attributeSelector.appendChild(option);
+
+  });
 
 }
 
-/* =========================
-   EVENTS
-========================= */
-categorySelector.addEventListener(
+/* =========================================
+   ATTRIBUTE CHANGE
+========================================= */
+
+attributeSelector.addEventListener(
   "change",
-  e => {
+  () => {
 
-    renderFields(e.target.value);
+    attributeValueSelector.innerHTML =
+    `<option value="">Seleccionar valor</option>`;
+
+    const selectedAttribute =
+    attributeSelector.value;
+
+    if(!selectedAttribute) return;
+
+    const values =
+    categoryFields[
+      currentCategory
+    ].attributes[selectedAttribute];
+
+    values.forEach(value => {
+
+      const option =
+      document.createElement("option");
+
+      option.value = value;
+      option.textContent = value;
+
+      attributeValueSelector.appendChild(option);
+
+    });
 
   }
 );
 
-/* =========================
-   INIT
-========================= */
-renderFields("calzado");
+/* =========================================
+   ADD FEATURE
+========================================= */
 
+addFeatureBtn.addEventListener(
+  "click",
+  () => {
 
+    const attribute =
+    attributeSelector.value;
 
+    const value =
+    attributeValueSelector.value;
 
-/*-------------------------------------------------------------------------------------------------------------- */
-/* =========================
+    if(!attribute || !value){
+
+      alert(
+        "Seleccioná atributo y valor."
+      );
+
+      return;
+
+    }
+
+    const tag =
+    document.createElement("div");
+
+    tag.classList.add("feature-tag");
+
+    tag.innerHTML = `
+      ${attribute}: ${value}
+      <button type="button">✕</button>
+    `;
+
+    tag.querySelector("button")
+    .addEventListener(
+      "click",
+      () => tag.remove()
+    );
+
+    featureTags.appendChild(tag);
+
+  }
+);
+
+/* =========================================
+   PREVIEW
+========================================= */
+
+function updatePreview(){
+
+  const productName =
+  productNameInput.value.trim();
+
+  previewTitle.textContent =
+  productName || "Nombre del producto";
+
+  previewCategory.textContent =
+  "Categoría: Calzado";
+
+}
+
+/* =========================================
+   AUTO SLUG
+========================================= */
+
+productNameInput.addEventListener(
+  "input",
+  () => {
+
+    updatePreview();
+
+    productSlug.value =
+    productNameInput.value
+      .toLowerCase()
+      .trim()
+      .replaceAll(" ", "-")
+      .replace(/[^\w-]+/g, "");
+
+  }
+);
+
+/* =========================================
+   VALIDATION
+========================================= */
+
+function validateField(field){
+
+  if(!field.value.trim()){
+
+    field.classList.add("input-error");
+    field.classList.remove("input-success");
+
+    return false;
+
+  }
+
+  field.classList.remove("input-error");
+  field.classList.add("input-success");
+
+  return true;
+
+}
+
+/* =========================================
    BUTTONS
-========================= */
+========================================= */
 
 const backBtn =
 document.getElementById("backBtn");
@@ -243,78 +354,107 @@ document.getElementById("backBtn");
 const continueBtn =
 document.getElementById("continueBtn");
 
-/* =========================
-   BACK
-========================= */
+/* BACK */
 
-backBtn.addEventListener("click", () => {
+backBtn.addEventListener(
+  "click",
+  () => {
 
-  window.location.href =
-  "1ClasificacionYCategoria.html";
-
-});
-
-/* =========================
-   CONTINUE
-========================= */
-
-continueBtn.addEventListener("click", () => {
-
-  /* INPUTS */
-  const productName =
-  document.querySelector(
-    'input[placeholder*="Zapatillas"]'
-  ).value;
-
-  const description =
-  document.querySelector("textarea").value;
-
-  const brand =
-  document.querySelector(
-    'input[placeholder="Ej: Samsung"]'
-  ).value;
-
-  const model =
-  document.querySelector(
-    'input[placeholder="Ej: S24 Ultra"]'
-  ).value;
-
-  /* VALIDATION */
-  if(
-    !productName ||
-    !description ||
-    !brand ||
-    !model
-  ){
-
-    alert(
-      "Completá todos los campos."
-    );
-
-    return;
+    window.location.href =
+    "1ClasificacionYCategoria.html";
 
   }
+);
 
-  /* SAVE DATA */
-  const technicalData = {
+/* CONTINUE */
 
-    productName,
-    description,
-    brand,
-    model,
+continueBtn.addEventListener(
+  "click",
+  () => {
 
-    category:
-    categorySelector.value
+    const requiredFields = [
 
-  };
+      document.getElementById("productName"),
 
-  localStorage.setItem(
-    "technicalData",
-    JSON.stringify(technicalData)
-  );
+      document.getElementById("productDescription"),
 
-  /* REDIRECT */
-  window.location.href =
-  "3GestionDeMultimedia.html";
+      document.getElementById("productBrand"),
 
-});
+      document.getElementById("productCondition"),
+
+      document.getElementById("productSku"),
+
+      document.getElementById("productSlug")
+
+    ];
+
+    let isValid = true;
+
+    requiredFields.forEach(field => {
+
+      const valid =
+      validateField(field);
+
+      if(!valid){
+        isValid = false;
+      }
+
+    });
+
+    if(!isValid){
+
+      alert(
+        "Completá todos los campos obligatorios."
+      );
+
+      return;
+
+    }
+
+    /* SAVE */
+
+    const technicalData = {
+
+      productName:
+      document.getElementById("productName").value,
+
+      description:
+      document.getElementById("productDescription").value,
+
+      brand:
+      document.getElementById("productBrand").value,
+
+      condition:
+      document.getElementById("productCondition").value,
+
+      sku:
+      document.getElementById("productSku").value,
+
+      slug:
+      document.getElementById("productSlug").value,
+
+      category:
+      currentCategory
+
+    };
+
+    localStorage.setItem(
+      "technicalData",
+      JSON.stringify(technicalData)
+    );
+
+    /* REDIRECT */
+
+    window.location.href =
+    "3GestionDeMultimedia.html";
+
+  }
+);
+
+/* =========================================
+   INIT
+========================================= */
+
+renderFields(currentCategory);
+
+updatePreview();

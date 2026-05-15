@@ -1,8 +1,9 @@
+/* =========================
+   ELEMENTS
+========================= */
+
 const productPrice =
 document.getElementById("productPrice");
-
-const shippingPrice =
-document.getElementById("shippingPrice");
 
 const previewPrice =
 document.getElementById("previewPrice");
@@ -19,28 +20,29 @@ document.getElementById("allowPickup");
 const pickupBox =
 document.getElementById("pickupBox");
 
-/* =========================================================
-   COMMISSION CALCULATOR
-========================================================= */
+const continueBtn =
+document.getElementById("continueBtn");
+
+const backBtn =
+document.getElementById("backBtn");
+
+/* =========================
+   COMMISSION
+========================= */
+
 function calculateCommission(){
 
   const price =
   Number(productPrice.value) || 0;
 
-  const shipping =
-  Number(shippingPrice.value) || 0;
-
-  const total =
-  price + shipping;
-
   const commission =
-  total * 0.10;
+  price * 0.10;
 
   const sellerReceives =
-  total - commission;
+  price - commission;
 
   previewPrice.textContent =
-  `$${total.toFixed(2)}`;
+  `$${price.toFixed(2)}`;
 
   previewCommission.textContent =
   `- $${commission.toFixed(2)}`;
@@ -55,14 +57,10 @@ productPrice.addEventListener(
   calculateCommission
 );
 
-shippingPrice.addEventListener(
-  "input",
-  calculateCommission
-);
+/* =========================
+   PICKUP
+========================= */
 
-/* =========================================================
-   PICKUP TOGGLE
-========================================================= */
 allowPickup.addEventListener(
   "change",
   () => {
@@ -75,20 +73,30 @@ allowPickup.addEventListener(
   }
 );
 
-/* =========================================================
-   BUTTONS NAVIGATION
-========================================================= */
+/* =========================
+   VALIDATION
+========================= */
 
-const backButton =
-document.querySelector(".secondary-btn");
+function validateField(field){
 
-const continueButton =
-document.querySelector(".primary-btn");
+  if(!field.value.trim()){
+
+    field.classList.add("input-error");
+    return false;
+
+  }
+
+  field.classList.remove("input-error");
+
+  return true;
+
+}
 
 /* =========================
-   VOLVER
+   BACK
 ========================= */
-backButton.addEventListener(
+
+backBtn.addEventListener(
   "click",
   () => {
 
@@ -99,45 +107,140 @@ backButton.addEventListener(
 );
 
 /* =========================
-   CONTINUAR
+   CONTINUE
 ========================= */
-continueButton.addEventListener(
+
+continueBtn.addEventListener(
   "click",
   () => {
 
-    /* VALIDATION */
-    if(
-      !productPrice.value ||
-      Number(productPrice.value) <= 0
-    ){
+    const requiredFields = [
+
+      document.getElementById(
+        "productPrice"
+      ),
+
+      document.getElementById(
+        "productPriceWithoutTax"
+      ),
+
+      document.getElementById(
+        "productStock"
+      ),
+
+      document.getElementById(
+        "productWidth"
+      ),
+
+      document.getElementById(
+        "productHeight"
+      ),
+
+      document.getElementById(
+        "productLength"
+      ),
+
+      document.getElementById(
+        "productWeight"
+      ),
+
+      document.getElementById(
+        "dispatchTime"
+      ),
+
+      document.getElementById(
+        "productWarranty"
+      ),
+
+      document.getElementById(
+        "returnsPolicy"
+      )
+
+    ];
+
+    let isValid = true;
+
+    requiredFields.forEach(field => {
+
+      const valid =
+      validateField(field);
+
+      if(!valid){
+
+        isValid = false;
+
+      }
+
+    });
+
+    if(!isValid){
 
       alert(
-        "Ingresá un precio válido."
+        "Completá todos los campos obligatorios."
       );
-
-      productPrice.focus();
 
       return;
 
     }
 
-    /* SAVE DATA */
+    /* SAVE */
+
     const logisticsData = {
 
       productPrice:
-      productPrice.value,
+      document.getElementById(
+        "productPrice"
+      ).value,
 
-      shippingPrice:
-      shippingPrice.value,
+      productPriceWithoutTax:
+      document.getElementById(
+        "productPriceWithoutTax"
+      ).value,
 
-      total:
-      previewPrice.textContent,
+      stock:
+      document.getElementById(
+        "productStock"
+      ).value,
 
-      commission:
-      previewCommission.textContent,
+      width:
+      document.getElementById(
+        "productWidth"
+      ).value,
 
-      sellerReceives:
-      previewTotal.textContent,
+      height:
+      document.getElementById(
+        "productHeight"
+      ).value,
+
+      length:
+      document.getElementById(
+        "productLength"
+      ).value,
+
+      weight:
+      document.getElementById(
+        "productWeight"
+      ).value,
+
+      dispatchTime:
+      document.getElementById(
+        "dispatchTime"
+      ).value,
+
+      warranty:
+      document.getElementById(
+        "productWarranty"
+      ).value,
+
+      returnsPolicy:
+      document.getElementById(
+        "returnsPolicy"
+      ).value,
+
+      allowShipping:
+      document.getElementById(
+        "allowShipping"
+      ).checked,
 
       allowPickup:
       allowPickup.checked
@@ -149,15 +252,15 @@ continueButton.addEventListener(
       JSON.stringify(logisticsData)
     );
 
-    /* NEXT PAGE */
     window.location.href =
     "vistaPreviaYConfirmacion.html";
- 
+
   }
 );
 
-/* =========================================================
+/* =========================
    INIT
-========================================================= */
+========================= */
+
 calculateCommission();
 

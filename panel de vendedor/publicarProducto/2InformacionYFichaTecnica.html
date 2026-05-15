@@ -506,37 +506,45 @@
   
     <div class="publish-container">
   
-      <!-- Breadcrumb -->
+      <!-- BREADCRUMB -->
       <div class="publish-breadcrumb">
   
-        <a href="#">Página principal</a>
+        <a href="#">
+          Página principal
+        </a>
   
         <i class="fa-solid fa-angle-right"></i>
   
-        <a href="#">Panel de vendedor</a>
+        <a href="#">
+          Panel de vendedor
+        </a>
   
         <i class="fa-solid fa-angle-right"></i>
   
-        <a href="#">Publicar producto</a>
+        <a href="#">
+          Publicar producto
+        </a>
   
         <i class="fa-solid fa-angle-right"></i>
   
-        <p>Información y ficha técnica</p>
+        <p>
+          Información y ficha técnica
+        </p>
   
       </div>
   
-      <!-- Header -->
+      <!-- TITLE -->
       <h1 class="publish-title">
         Información y ficha técnica
       </h1>
   
       <p class="publish-description">
-            Completá la información principal del producto y
-            configurá sus características técnicas según la
-            categoría seleccionada.
+        Completá la información principal del producto y
+        configurá sus características técnicas según la
+        categoría seleccionada.
       </p>
- 
-      <!-- Steps -->
+  
+      <!-- STEPS -->
       <div class="publish-steps">
   
         <div class="publish-step completed">
@@ -568,14 +576,16 @@
         </div>
   
       </div>
-
-      <!-- Grid -->
+  
+      <!-- GRID -->
       <div class="technical-grid">
   
         <!-- LEFT -->
         <section class="technical-card">
   
-          <!-- Basic Info -->
+          <!-- =========================================
+               INFORMACIÓN GENERAL
+          ========================================= -->
           <div class="form-section">
   
             <div class="section-header">
@@ -585,66 +595,121 @@
               </div>
   
               <div>
-                <h2>Información general</h2>
+  
+                <h2>
+                  Información general
+                </h2>
+  
                 <p>
                   Datos principales de la publicación.
                 </p>
+  
               </div>
   
             </div>
   
-            <!-- Input -->
+            <!-- PRODUCT NAME -->
             <div class="input-group">
   
               <label>
-                Nombre del producto
+                Nombre del producto *
               </label>
   
               <input
                 type="text"
+                id="productName"
                 placeholder="Ej: Zapatillas deportivas Nike Air Max"
               />
   
             </div>
   
-            <!-- Textarea -->
+            <!-- DESCRIPTION -->
             <div class="input-group">
   
               <label>
-                Descripción
+                Descripción *
               </label>
   
               <textarea
+                id="productDescription"
                 placeholder="Describí el producto..."
               ></textarea>
   
             </div>
   
-            <!-- Grid -->
+            <!-- GRID -->
             <div class="double-grid">
   
+              <!-- BRAND -->
               <div class="input-group">
   
                 <label>
-                  Marca
+                  Marca *
                 </label>
   
                 <input
                   type="text"
+                  id="productBrand"
                   placeholder="Ej: Samsung"
                 />
   
               </div>
   
+              <!-- CONDITION -->
               <div class="input-group">
   
                 <label>
-                  Modelo
+                  Condición *
+                </label>
+  
+                <select id="productCondition">
+                
+                  <option value="Nuevo" selected>
+                    Nuevo
+                  </option>
+                
+                  <option value="Usado">
+                    Usado
+                  </option>
+                
+                  <option value="Reacondicionado">
+                    Reacondicionado
+                  </option>
+                
+                </select>
+              </div>
+  
+            </div>
+  
+            <!-- GRID -->
+            <div class="double-grid">
+  
+              <!-- SKU -->
+              <div class="input-group">
+  
+                <label>
+                  SKU *
                 </label>
   
                 <input
                   type="text"
-                  placeholder="Ej: S24 Ultra"
+                  id="productSku"
+                  placeholder="Ej: NK-AIR-001"
+                />
+  
+              </div>
+  
+              <!-- SLUG -->
+              <div class="input-group">
+  
+                <label>
+                  Slug *
+                </label>
+  
+                <input
+                  type="text"
+                  id="productSlug"
+                  placeholder="ej-zapatillas-nike-air-max"
                 />
   
               </div>
@@ -653,7 +718,9 @@
   
           </div>
   
-          <!-- Dynamic Section -->
+          <!-- =========================================
+               FICHA TÉCNICA
+          ========================================= -->
           <div class="form-section">
   
             <div class="section-header">
@@ -676,45 +743,72 @@
   
             </div>
   
-            <!-- Selector -->
-            <div class="input-group">
-  
-              <label>
-                Tipo de producto
-              </label>
-  
-              <select id="categorySelector">
-  
-                <option value="calzado">
-                  Calzado
-                </option>
-  
-                <option value="celulares">
-                  Tecnología / Celulares
-                </option>
-  
-                <option value="ropa">
-                  Ropa
-                </option>
-  
-              </select>
-  
-            </div>
-  
-            <!-- Dynamic Render -->
+            <!-- DYNAMIC -->
             <div
               class="dynamic-fields"
               id="dynamicFields"
             ></div>
   
+            <!-- TECHNICAL FEATURES -->
+            <div class="technical-features">
+  
+              <div class="input-group">
+  
+                <label>
+                  Características técnicas
+                </label>
+  
+                <div class="technical-feature-row">
+  
+                  <!-- ATTRIBUTE -->
+                  <select id="attributeSelector">
+  
+                    <option value="">
+                      Seleccionar atributo
+                    </option>
+  
+                  </select>
+  
+                  <!-- VALUE -->
+                  <select id="attributeValueSelector">
+  
+                    <option value="">
+                      Seleccionar valor
+                    </option>
+  
+                  </select>
+  
+                  <!-- BUTTON -->
+                  <button
+                    type="button"
+                    class="feature-add-btn"
+                    id="addFeatureBtn"
+                  >
+                    Agregar
+                  </button>
+  
+                </div>
+  
+              </div>
+  
+              <!-- TAGS -->
+              <div
+                class="feature-tags"
+                id="featureTags"
+              ></div>
+  
+            </div>
+  
           </div>
   
         </section>
   
-        <!-- RIGHT -->
+        <!-- =========================================
+             SIDEBAR
+        ========================================= -->
         <aside class="technical-sidebar">
   
-          <!-- Preview -->
+          <!-- PREVIEW -->
           <div class="technical-card">
   
             <div class="section-header">
@@ -737,7 +831,7 @@
   
             </div>
   
-            <!-- Preview Card -->
+            <!-- PREVIEW CARD -->
             <div class="preview-box">
   
               <div class="preview-image">
@@ -756,7 +850,7 @@
   
           </div>
   
-          <!-- Tips -->
+          <!-- TIPS -->
           <div class="technical-card">
   
             <div class="section-header">
@@ -801,9 +895,9 @@
   
           </div>
   
-          <!-- Buttons -->
+          <!-- ACTIONS -->
           <div class="technical-actions">
-          
+  
             <button
               type="button"
               class="secondary-btn"
@@ -811,7 +905,7 @@
             >
               Volver
             </button>
-          
+  
             <button
               type="button"
               class="primary-btn"
@@ -819,7 +913,7 @@
             >
               Continuar
             </button>
-          
+  
           </div>
   
         </aside>
@@ -829,7 +923,7 @@
     </div>
   
   </main>
-
+  
   <!-- Footer -->
   <footer class="footer ">
     <div class="footer-container">

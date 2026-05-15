@@ -1,27 +1,28 @@
-/* =========================
+/* =========================================
    MAIN
-========================= */
+========================================= */
+
 .publish-main{
   display: flex;
   justify-content: center;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
+  padding: 2rem 0;
 }
 
 .publish-container{
   width: 100%;
 }
 
-/* =========================
+/* =========================================
    BREADCRUMB
-========================= */
+========================================= */
+
 .publish-breadcrumb{
   display: flex;
   align-items: center;
   flex-wrap: wrap;
   gap: .5rem;
 
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 
   font-size: 13px;
   color: #8c8c8c;
@@ -36,13 +37,10 @@
   text-decoration: underline;
 }
 
-.publish-breadcrumb p{
-  color: #666;
-}
-
-/* =========================
+/* =========================================
    TITLE
-========================= */
+========================================= */
+
 .publish-title{
   font-size: 28px;
   font-weight: 600;
@@ -50,21 +48,23 @@
 }
 
 .publish-description{
-  font-size: 16px;
+  max-width: 700px;
+
+  margin-bottom: 24px;
+
   color: #666;
   line-height: 1.5;
-  margin-bottom: 24px;
-  max-width: 700px;
 }
 
-/* =========================
+/* =========================================
    STEPS
-========================= */
+========================================= */
+
 .publish-steps{
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
   gap: .8rem;
+
   margin-bottom: 2rem;
 }
 
@@ -73,9 +73,9 @@
   height: 44px;
 
   border-radius: 50%;
-
   border: 1px solid #dcdcdc;
-  background: #fff;
+
+  background: white;
 
   display: flex;
   align-items: center;
@@ -88,17 +88,17 @@
 }
 
 .publish-step.active{
-  background: #f5f0ff;
-  border-color: #cbb7ff;
-  color: #6c3cff;
+  background: #eff6ff;
+  border-color: #bfdbfe;
+  color: #2563EB;
 
-  box-shadow: 0 0 0 4px rgba(108,60,255,.08);
+  box-shadow: 0 0 0 4px rgba(37,99,235,.08);
 }
 
 .publish-step.completed{
-  background: #6c3cff;
-  border-color: #6c3cff;
-  color: #fff;
+  background: #2563EB;
+  border-color: #2563EB;
+  color: white;
 }
 
 .publish-line{
@@ -108,31 +108,36 @@
 }
 
 .publish-line.active{
-  background: #6c3cff;
+  background: #2563EB;
 }
 
-/* =========================
+/* =========================================
    GRID
-========================= */
+========================================= */
+
 .technical-grid{
   display: grid;
   grid-template-columns: 1.2fr .8fr;
   gap: 16px;
 }
 
-/* =========================
+/* =========================================
    CARD
-========================= */
+========================================= */
+
 .technical-card{
   background: white;
+
   border: 1px solid #e6e6e6;
   border-radius: 6px;
+
   padding: 20px;
 }
 
-/* =========================
+/* =========================================
    SECTION
-========================= */
+========================================= */
+
 .form-section{
   margin-bottom: 2rem;
 }
@@ -141,9 +146,10 @@
   margin-bottom: 0;
 }
 
-/* =========================
+/* =========================================
    SECTION HEADER
-========================= */
+========================================= */
+
 .section-header{
   display: flex;
   gap: 14px;
@@ -170,7 +176,7 @@
 
 .section-header h2{
   font-size: 22px;
-  margin-bottom: 5px;
+  margin-bottom: 4px;
 }
 
 .section-header p{
@@ -178,9 +184,10 @@
   line-height: 1.5;
 }
 
-/* =========================
+/* =========================================
    INPUTS
-========================= */
+========================================= */
+
 .input-group{
   margin-bottom: 20px;
 }
@@ -206,6 +213,7 @@
   font-size: 15px;
 
   outline: none;
+
   transition: .2s ease;
 }
 
@@ -220,44 +228,141 @@
   border-color: #bfdbfe;
 }
 
-/* =========================
-   GRID 2
-========================= */
+/* =========================================
+   DOUBLE GRID
+========================================= */
+
 .double-grid{
   display: grid;
   grid-template-columns: repeat(2,1fr);
   gap: 16px;
 }
 
-/* =========================
+/* =========================================
    DYNAMIC
-========================= */
+========================================= */
+
 .dynamic-fields{
   display: flex;
   flex-direction: column;
   gap: 18px;
 }
 
-/* =========================
+/* =========================================
+   TECHNICAL FEATURES
+========================================= */
+
+.technical-features{
+  margin-top: 22px;
+}
+
+.technical-feature-row{
+  display: grid;
+  grid-template-columns: 1fr 1fr 140px;
+  gap: 12px;
+}
+
+.technical-feature-row select{
+  width: 100%;
+
+  border: 1px solid #e6e6e6;
+  border-radius: 6px;
+
+  padding: 14px;
+
+  font-size: 15px;
+
+  outline: none;
+  background: white;
+
+  transition: .2s ease;
+}
+
+.technical-feature-row select:focus{
+  border-color: #bfdbfe;
+}
+
+.feature-add-btn{
+  height: 52px;
+
+  border: 1px solid #e6e6e6;
+  border-radius: 6px;
+
+  background: white;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: .2s ease;
+}
+
+.feature-add-btn:hover{
+  background: #fafafa;
+}
+
+/* =========================================
+   TAGS
+========================================= */
+
+.feature-tags{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+
+  margin-top: 16px;
+}
+
+.feature-tag{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 10px 14px;
+
+  border-radius: 999px;
+
+  background: #eff6ff;
+  color: #2563EB;
+
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.feature-tag button{
+  border: none;
+  background: transparent;
+
+  color: #2563EB;
+
+  cursor: pointer;
+}
+
+/* =========================================
    SIDEBAR
-========================= */
+========================================= */
+
 .technical-sidebar{
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
 
-/* =========================
+/* =========================================
    PREVIEW
-========================= */
+========================================= */
+
 .preview-box{
+  overflow: hidden;
+
   border: 1px solid #e6e6e6;
   border-radius: 6px;
-  overflow: hidden;
 }
 
 .preview-image{
   height: 180px;
+
   background: #fafafa;
 
   display: flex;
@@ -269,18 +374,19 @@
 }
 
 .preview-box h3{
-  font-size: 18px;
   padding: 16px 16px 8px;
+  font-size: 18px;
 }
 
 .preview-box p{
-  color: #666;
   padding: 0 16px 16px;
+  color: #666;
 }
 
-/* =========================
+/* =========================================
    TIPS
-========================= */
+========================================= */
+
 .tips-list{
   display: flex;
   flex-direction: column;
@@ -294,222 +400,10 @@
   line-height: 1.5;
 }
 
-/* =========================
-   ACTIONS
-========================= */
-.technical-actions{
-  display: flex;
-  gap: 12px;
-}
+/* =========================================
+   BUTTONS
+========================================= */
 
-.primary-btn,
-.secondary-btn{
-  flex: 1;
-
-  height: 52px;
-
-  border-radius: 6px;
-
-  font-size: 15px;
-  font-weight: 600;
-
-  cursor: pointer;
-  transition: .2s ease;
-}
-
-.primary-btn{
-  border: none;
-  background: #2563EB;
-  color: white;
-}
-
-.primary-btn:hover{
-  opacity: .95;
-}
-
-.secondary-btn{
-  border: 1px solid #dcdcdc;
-  background: white;
-}
-
-.secondary-btn:hover{
-  background: #fafafa;
-}
-
-/* =========================
-   TABLET
-========================= */
-@media (min-width: 768px){
-
-  .publish-main{
-    padding-bottom: 6rem;
-  }
-
-  .publish-container{
-    width: 100%;
-  }
-
-}
-
-/* =========================
-   DESKTOP
-========================= */
-@media (min-width: 1024px){
-
-  .publish-container{
-    width: 80%;
-  }
-
-}
-
-/* =========================
-   MOBILE
-========================= */
-@media (max-width: 900px){
-
-  .technical-grid{
-    grid-template-columns: 1fr;
-  }
-
-  .publish-header{
-    flex-direction: column;
-  }
-
-}
-
-@media (max-width: 640px){
-
-  .double-grid{
-    grid-template-columns: 1fr;
-  }
-
-  .publish-title{
-    font-size: 28px;
-  }
-
-  .technical-card{
-    padding: 14px;
-  }
-
-  .technical-actions{
-    flex-direction: column;
-  }
-
-  .publish-steps{
-    flex-wrap: wrap;
-  }
-
-}
-
-
-/* =========================
-   STEP INDICATOR
-========================= */
-.publish-steps{
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  flex-wrap: wrap;
-
-  gap: .8rem;
-
-  margin-top: 1.8rem;
-  margin-bottom: 2rem;
-}
-
-/* =========================
-   STEP CIRCLE
-========================= */
-.publish-step{
-  width: 44px;
-  height: 44px;
-
-  border-radius: 50%;
-
-  border: 1px solid #dcdcdc;
-
-  background: #fff;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  font-size: 15px;
-  font-weight: 600;
-
-  color: #666;
-
-  position: relative;
-
-  transition:
-    background .2s ease,
-    border-color .2s ease,
-    color .2s ease,
-    box-shadow .2s ease;
-}
-
-/* ACTIVE */
-.publish-step.active{
-  background: #eff6ff;
-  border-color: #bfdbfe;
-  color: #2563EB;
-  box-shadow: 0 0 0 4px rgba(37, 99, 235, .08);
-}
-
-/* COMPLETED */
-.publish-step.completed{
-  background: #2563EB;
-  border-color: #2563EB;
-  color: white;
-}
-
-/* =========================
-   LINE
-========================= */
-.publish-line{
-  width: 52px;
-  height: 1px;
-
-  background: #dcdcdc;
-
-  border-radius: 999px;
-}
-
-/* ACTIVE LINE */
-.publish-line.active{
-  background: #2563EB;
-}
-
-/* =========================
-   MOBILE
-========================= */
-@media (max-width: 480px){
-
-  .publish-steps{
-    gap: .4rem;
-  }
-
-  .publish-step{
-    width: 38px;
-    height: 38px;
-
-    font-size: 14px;
-  }
-
-  .publish-line{
-    width: 22px;
-  }
-
-  .publish-description{
-    font-size: 15px;
-  }
-}
-
-
-/* ====================================================================================================
-    ACTIONS
-    Correcting the design of the back and continue buttons in the mobile version (Query 640px)
-==================================================================================================== */
 .technical-actions{
   display: flex;
   gap: 12px;
@@ -520,27 +414,16 @@
   flex: 1;
 
   min-height: 52px;
-  padding: 0 18px;
 
   border-radius: 6px;
 
   font-size: 15px;
   font-weight: 600;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  text-align: center;
-  line-height: 1.2;
-
   cursor: pointer;
   transition: .2s ease;
-
-  white-space: normal;
 }
 
-/* PRIMARY */
 .primary-btn{
   border: none;
   background: #2563EB;
@@ -551,7 +434,6 @@
   opacity: .95;
 }
 
-/* SECONDARY */
 .secondary-btn{
   border: 1px solid #dcdcdc;
   background: white;
@@ -561,20 +443,74 @@
   background: #fafafa;
 }
 
-/* =========================
-   MOBILE
-========================= */
-@media (max-width: 640px){
+/* =========================================
+   VALIDATION
+========================================= */
 
-  .technical-actions{
-    flex-direction: column;
+.input-error{
+  border-color: #ef4444 !important;
+}
+
+.input-success{
+  border-color: #22c55e !important;
+}
+
+/* =========================================
+   DESKTOP
+========================================= */
+
+@media (min-width: 1024px){
+
+  .publish-container{
+    width: 80%;
+  }
+
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 900px){
+
+  .technical-grid{
+    grid-template-columns: 1fr;
+  }
+
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 768px){
+
+  .technical-feature-row{
+    grid-template-columns: 1fr;
+  }
+
+  .feature-add-btn{
     width: 100%;
   }
 
-  .primary-btn,
-  .secondary-btn{
-    width: 100%;
-    min-height: 52px;
+}
+
+@media (max-width: 640px){
+
+  .double-grid{
+    grid-template-columns: 1fr;
+  }
+
+  .technical-card{
+    padding: 14px;
+  }
+
+  .technical-actions{
+    flex-direction: column;
+  }
+
+  .publish-line{
+    width: 24px;
   }
 
 }

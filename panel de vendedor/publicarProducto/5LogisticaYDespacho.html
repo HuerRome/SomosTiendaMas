@@ -514,9 +514,9 @@
   
         <a href="#">Panel de vendedor</a>
         <i class="fa-solid fa-angle-right"></i>
-
+  
         <a href="#">Publicar producto</a>
-        <i class="fa-solid fa-angle-right"></i>    
+        <i class="fa-solid fa-angle-right"></i>
   
         <p>Logística y despacho</p>
   
@@ -528,8 +528,8 @@
       </h1>
   
       <p class="publish-description">
-        Configurá precios, comisiones, métodos de envío y opciones
-        de retiro para completar la publicación de tu producto.
+        Configurá precios, logística, stock, medidas y métodos
+        de entrega para completar la publicación.
       </p>
   
       <!-- STEPS -->
@@ -569,85 +569,206 @@
       <div class="shipping-grid">
   
         <!-- LEFT -->
-        <div class="publish-card">
+        <div class="left-column">
   
-          <div class="section-header">
-            <h2>
-              Precio y comisiones
-            </h2>
+          <!-- PRICE CARD -->
+          <div class="publish-card">
   
-            <p>
-              Definí el precio de venta y visualizá cuánto
-              recibirás luego de la comisión del marketplace.
-            </p>
-          </div>
+            <div class="section-header">
   
-          <!-- PRICE -->
-          <div class="form-group">
+              <h2>
+                Precio y comisiones
+              </h2>
   
-            <label>
-              Precio del producto
-            </label>
+              <p>
+                Definí el precio, stock y visualizá cuánto
+                recibirás luego de la comisión.
+              </p>
   
-            <div class="input-icon">
+            </div>
   
-              <span>$</span>
+            <!-- PRICE -->
+            <div class="form-group">
+  
+              <label>
+                Precio del producto *
+              </label>
+  
+              <div class="input-icon">
+  
+                <span>$</span>
+  
+                <input
+                  type="number"
+                  id="productPrice"
+                  placeholder="0.00"
+                  min="0"
+                >
+  
+              </div>
+  
+            </div>
+  
+            <!-- PRICE WITHOUT TAX -->
+            <div class="form-group">
+  
+              <label>
+                Precio sin IVA *
+              </label>
+  
+              <div class="input-icon">
+  
+                <span>$</span>
+  
+                <input
+                  type="number"
+                  id="productPriceWithoutTax"
+                  placeholder="0.00"
+                  min="0"
+                >
+  
+              </div>
+  
+            </div>
+  
+            <!-- STOCK -->
+            <div class="form-group">
+  
+              <label>
+                Stock disponible *
+              </label>
   
               <input
                 type="number"
-                id="productPrice"
-                placeholder="0.00"
+                id="productStock"
+                placeholder="Ej: 15"
+                min="0"
               >
   
             </div>
   
-          </div>
+            <!-- COMMISSION -->
+            <div class="commission-card">
   
-          <!-- SHIPPING -->
-          <div class="form-group">
+              <div class="commission-item">
   
-            <label>
-              Costo de envío
-            </label>
+                <span>
+                  Precio publicado
+                </span>
   
-            <div class="input-icon">
+                <strong id="previewPrice">
+                  $0
+                </strong>
   
-              <span>$</span>
+              </div>
   
-              <input
-                type="number"
-                id="shippingPrice"
-                placeholder="0.00"
-              >
+              <div class="commission-item">
+  
+                <span>
+                  Comisión marketplace (10%)
+                </span>
+  
+                <strong id="previewCommission">
+                  - $0
+                </strong>
+  
+              </div>
+  
+              <div class="commission-divider"></div>
+  
+              <div class="commission-item total">
+  
+                <span>
+                  Recibirás
+                </span>
+  
+                <strong id="previewTotal">
+                  $0
+                </strong>
+  
+              </div>
   
             </div>
   
           </div>
   
-          <!-- COMMISSION -->
-          <div class="commission-card">
+          <!-- PACKAGE DIMENSIONS -->
+          <div class="publish-card">
   
-            <div class="commission-item">
-              <span>Precio publicado</span>
-              <strong id="previewPrice">
-                $0
-              </strong>
+            <div class="section-header">
+  
+              <h2>
+                Medidas del paquete
+              </h2>
+  
+              <p>
+                Información necesaria para calcular costos logísticos.
+              </p>
+  
             </div>
   
-            <div class="commission-item">
-              <span>Comisión marketplace (10%)</span>
-              <strong id="previewCommission">
-                - $0
-              </strong>
-            </div>
+            <div class="dimensions-grid">
   
-            <div class="commission-divider"></div>
+              <div class="form-group">
   
-            <div class="commission-item total">
-              <span>Recibirás</span>
-              <strong id="previewTotal">
-                $0
-              </strong>
+                <label>
+                  Ancho (cm) *
+                </label>
+  
+                <input
+                  type="number"
+                  id="productWidth"
+                  placeholder="0"
+                  min="0"
+                >
+  
+              </div>
+  
+              <div class="form-group">
+  
+                <label>
+                  Alto (cm) *
+                </label>
+  
+                <input
+                  type="number"
+                  id="productHeight"
+                  placeholder="0"
+                  min="0"
+                >
+  
+              </div>
+  
+              <div class="form-group">
+  
+                <label>
+                  Largo (cm) *
+                </label>
+  
+                <input
+                  type="number"
+                  id="productLength"
+                  placeholder="0"
+                  min="0"
+                >
+  
+              </div>
+  
+              <div class="form-group">
+  
+                <label>
+                  Peso (kg) *
+                </label>
+  
+                <input
+                  type="number"
+                  id="productWeight"
+                  placeholder="0"
+                  min="0"
+                >
+  
+              </div>
+  
             </div>
   
           </div>
@@ -655,141 +776,192 @@
         </div>
   
         <!-- RIGHT -->
-        <div class="publish-card">
+        <div class="right-column">
   
-          <div class="section-header">
+          <!-- SHIPPING -->
+          <div class="publish-card">
   
-            <h2>
-              Métodos de entrega
-            </h2>
+            <div class="section-header">
   
-            <p>
-              Elegí cómo los compradores recibirán el producto.
-            </p>
+              <h2>
+                Métodos de entrega
+              </h2>
   
-          </div>
-  
-          <!-- SHIPPING OPTION -->
-          <div class="toggle-wrapper">
-  
-            <div class="toggle-info">
-              <h3>Permitir envío</h3>
               <p>
-                Los compradores podrán recibir el producto
-                mediante envío.
+                Elegí cómo recibirán el producto.
               </p>
+  
             </div>
   
-            <label class="switch">
+            <!-- SHIPPING -->
+            <div class="toggle-wrapper">
   
-              <input
-                type="checkbox"
-                id="allowShipping"
-                checked
-              >
+              <div class="toggle-info">
   
-              <span class="slider"></span>
+                <h3>
+                  Permitir envío
+                </h3>
   
-            </label>
+                <p>
+                  Los compradores podrán recibir el producto mediante envío.
+                </p>
   
-          </div>
+              </div>
   
-          <!-- RETIRE OPTION -->
-          <div class="toggle-wrapper">
+              <label class="switch">
   
-            <div class="toggle-info">
-              <h3>Retiro en local</h3>
-              <p>
-                Permití que retiren el producto personalmente.
-              </p>
+                <input
+                  type="checkbox"
+                  id="allowShipping"
+                  checked
+                >
+  
+                <span class="slider"></span>
+  
+              </label>
+  
             </div>
   
-            <label class="switch">
+            <!-- PICKUP -->
+            <div class="toggle-wrapper">
   
-              <input
-                type="checkbox"
-                id="allowPickup"
-              >
+              <div class="toggle-info">
   
-              <span class="slider"></span>
+                <h3>
+                  Retiro en local
+                </h3>
   
-            </label>
+                <p>
+                  Permití retirar personalmente.
+                </p>
   
-          </div>
+              </div>
   
-          <!-- PICKUP LOCATION -->
-          <div
-            class="pickup-box hidden"
-            id="pickupBox"
-          >
+              <label class="switch">
   
+                <input
+                  type="checkbox"
+                  id="allowPickup"
+                >
+  
+                <span class="slider"></span>
+  
+              </label>
+  
+            </div>
+  
+            <!-- PICKUP BOX -->
+            <div
+              class="pickup-box hidden"
+              id="pickupBox"
+            >
+  
+              <div class="form-group">
+  
+                <label>
+                  Dirección de retiro
+                </label>
+  
+                <input
+                  type="text"
+                  id="pickupAddress"
+                  placeholder="Ej: Av. Corrientes 1234"
+                >
+  
+              </div>
+  
+              <div class="form-group">
+  
+                <label>
+                  Ciudad
+                </label>
+  
+                <input
+                  type="text"
+                  id="pickupCity"
+                  placeholder="Ej: CABA"
+                >
+  
+              </div>
+  
+            </div>
+  
+            <!-- DELIVERY -->
             <div class="form-group">
   
               <label>
-                Dirección de retiro
+                Tiempo estimado de despacho *
+              </label>
+  
+              <select id="dispatchTime">
+  
+                <option value="">
+                  Seleccionar
+                </option>
+  
+                <option>
+                  Despacho en 24 horas
+                </option>
+  
+                <option>
+                  Despacho en 48 horas
+                </option>
+  
+                <option>
+                  Despacho en 3 a 5 días
+                </option>
+  
+              </select>
+  
+            </div>
+  
+            <!-- WARRANTY -->
+            <div class="form-group">
+  
+              <label>
+                Garantía *
               </label>
   
               <input
                 type="text"
-                placeholder="Ej: Av. Corrientes 1234"
+                id="productWarranty"
+                placeholder="Ej: 12 meses"
               >
   
             </div>
   
+            <!-- RETURNS -->
             <div class="form-group">
   
               <label>
-                Ciudad
+                Política de cambios y devoluciones *
               </label>
   
-              <input
-                type="text"
-                placeholder="Ej: CABA"
-              >
+              <textarea
+                id="returnsPolicy"
+                placeholder="Explicá la política de cambios y devoluciones..."
+              ></textarea>
   
             </div>
   
-          </div>
+            <!-- ACTIONS -->
+            <div class="actions">
   
-          <!-- DELIVERY TIME -->
-          <div class="form-group">
+              <button
+                class="secondary-btn"
+                id="backBtn"
+              >
+                Volver
+              </button>
   
-            <label>
-              Tiempo estimado de despacho
-            </label>
+              <button
+                class="primary-btn"
+                id="continueBtn"
+              >
+                Continuar
+              </button>
   
-            <select>
-  
-              <option>
-                Seleccionar
-              </option>
-  
-              <option>
-                Despacho en 24 horas
-              </option>
-  
-              <option>
-                Despacho en 48 horas
-              </option>
-  
-              <option>
-                Despacho en 3 a 5 días
-              </option>
-  
-            </select>
-  
-          </div>
-  
-          <!-- ACTIONS -->
-          <div class="actions">
-  
-            <button class="secondary-btn">
-              Volver
-            </button>
-  
-            <button class="primary-btn">
-              Continuar
-            </button>
+            </div>
   
           </div>
   

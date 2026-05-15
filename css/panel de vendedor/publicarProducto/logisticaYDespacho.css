@@ -1,13 +1,11 @@
 /* =========================
    MAIN
 ========================= */
+
 .publish-main{
   display:flex;
   justify-content:center;
-  align-items:center;
-
-  padding-top:2rem;
-  padding-bottom:2rem;
+  padding:2rem 0;
 }
 
 .publish-container{
@@ -17,6 +15,7 @@
 /* =========================
    BREADCRUMB
 ========================= */
+
 .publish-breadcrumb{
   display:flex;
   align-items:center;
@@ -34,10 +33,6 @@
   color:#8c8c8c;
 }
 
-.publish-breadcrumb a:hover{
-  text-decoration: underline;
-}
-
 .publish-breadcrumb p{
   color:#666;
 }
@@ -45,76 +40,73 @@
 /* =========================
    TITLE
 ========================= */
+
 .publish-title{
-  font-size: 28px;
-  font-weight: 600;
-  margin-bottom: .5rem;
+  font-size:28px;
+  font-weight:600;
+  margin-bottom:.5rem;
 }
 
 .publish-description{
-  font-size: 16px;
-  color: #666;
-  line-height: 1.5;
-  margin-bottom: 24px;
-  max-width: 700px;
+  font-size:16px;
+  color:#666;
+  line-height:1.5;
+  margin-bottom:24px;
+  max-width:700px;
 }
 
 /* =========================
    STEPS
 ========================= */
+
 .publish-steps{
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: .8rem;
-  margin-bottom: 2rem;
+  display:flex;
+  align-items:center;
+  gap:.8rem;
+  flex-wrap:wrap;
+  margin-bottom:2rem;
 }
 
 .publish-step{
-  width: 44px;
-  height: 44px;
+  width:44px;
+  height:44px;
 
-  border-radius: 50%;
+  border-radius:50%;
+  border:1px solid #dcdcdc;
 
-  border: 1px solid #dcdcdc;
-  background: #fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  font-size: 15px;
-  font-weight: 600;
-
-  color: #666;
-}
-
-.publish-step.active{
-  background: #eff6ff;
-  border-color: #bfdbfe;
-  color: #2563EB;
-  box-shadow: 0 0 0 4px rgba(37, 99, 235, .08);
+  font-weight:600;
 }
 
 .publish-step.completed{
-  background: #2563EB;
-  border-color: #2563EB;
-  color: #fff;
+  background:#2563EB;
+  border-color:#2563EB;
+  color:#fff;
+}
+
+.publish-step.active{
+  background:#eff6ff;
+  border-color:#bfdbfe;
+  color:#2563EB;
 }
 
 .publish-line{
-  width: 52px;
-  height: 1px;
-  background: #eff6ff;
+  width:52px;
+  height:1px;
+  background:#dcdcdc;
 }
 
 .publish-line.active{
-  background: #2563EB;
+  background:#2563EB;
 }
 
 /* =========================
    GRID
 ========================= */
+
 .shipping-grid{
   display:grid;
   grid-template-columns:1fr;
@@ -124,24 +116,18 @@
 /* =========================
    CARD
 ========================= */
+
 .publish-card{
   background:#fff;
-
   border:1px solid #e6e6e6;
   border-radius:6px;
-
   padding:20px;
-
-  transition:.2s ease;
-}
-
-.publish-card:hover{
-  box-shadow:0 2px 6px rgba(0,0,0,.05);
 }
 
 /* =========================
    HEADER
 ========================= */
+
 .section-header{
   margin-bottom:24px;
 }
@@ -153,43 +139,49 @@
 
 .section-header p{
   color:#666;
-  font-size:15px;
+  line-height:1.5;
 }
 
 /* =========================
    FORM
 ========================= */
+
 .form-group{
   margin-bottom:20px;
 }
 
 .form-group label{
   display:block;
-
   margin-bottom:10px;
-
   font-size:14px;
   font-weight:600;
 }
 
 .form-group input,
-.form-group select{
+.form-group select,
+.form-group textarea{
   width:100%;
-  height:52px;
 
   border:1px solid #e6e6e6;
   border-radius:6px;
 
-  padding:0 1rem;
-
-  outline:none;
+  padding:14px;
 
   font-size:15px;
+
+  outline:none;
+  transition:.2s ease;
+}
+
+.form-group textarea{
+  resize:vertical;
+  min-height:140px;
 }
 
 .form-group input:focus,
-.form-group select:focus{
-  border-color: #bfdbfe;
+.form-group select:focus,
+.form-group textarea:focus{
+  border-color:#bfdbfe;
 }
 
 .input-icon{
@@ -198,12 +190,9 @@
 
 .input-icon span{
   position:absolute;
-
   left:1rem;
   top:50%;
-
   transform:translateY(-50%);
-
   color:#666;
 }
 
@@ -212,51 +201,50 @@
 }
 
 /* =========================
+   DIMENSIONS
+========================= */
+
+.dimensions-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:16px;
+}
+
+/* =========================
    COMMISSION
 ========================= */
-.commission-card{
-  background: #f8fbff;
-  border: 1px solid #bfdbfe;
-  border-radius:6px;
 
+.commission-card{
+  background:#f8fbff;
+  border:1px solid #bfdbfe;
+  border-radius:6px;
   padding:20px;
 }
 
 .commission-item{
   display:flex;
   justify-content:space-between;
-  align-items:center;
-
   margin-bottom:14px;
-}
-
-.commission-item span{
-  color:#666;
-}
-
-.commission-item strong{
-  font-size:16px;
 }
 
 .commission-divider{
   height:1px;
-  background: #dbeafe;
+  background:#dbeafe;
   margin:16px 0;
 }
 
-.commission-item.total strong{
-  color: #2563EB;
+.total strong{
+  color:#2563EB;
   font-size:20px;
 }
 
 /* =========================
    TOGGLE
 ========================= */
+
 .toggle-wrapper{
   display:flex;
   justify-content:space-between;
-  align-items:flex-start;
-
   gap:1rem;
 
   padding-bottom:20px;
@@ -266,20 +254,16 @@
 }
 
 .toggle-info h3{
-  font-size:16px;
   margin-bottom:4px;
 }
 
 .toggle-info p{
-  font-size:14px;
   color:#666;
   line-height:1.5;
 }
 
-/* SWITCH */
 .switch{
   position:relative;
-
   width:52px;
   height:28px;
 }
@@ -293,11 +277,9 @@
   inset:0;
 
   border-radius:999px;
-
   background:#d9d9d9;
 
   cursor:pointer;
-
   transition:.2s ease;
 }
 
@@ -329,21 +311,18 @@
 /* =========================
    PICKUP
 ========================= */
-.pickup-box{
-  margin-bottom:20px;
-}
 
 .hidden{
   display:none;
 }
 
 /* =========================
-   ACTIONS
+   BUTTONS
 ========================= */
+
 .actions{
   display:flex;
   gap:12px;
-
   margin-top:2rem;
 }
 
@@ -351,9 +330,8 @@
 .secondary-btn{
   flex:1;
 
-  height:52px;
+  min-height:52px;
 
-  border:none;
   border-radius:6px;
 
   font-size:15px;
@@ -364,22 +342,28 @@
 
 .primary-btn{
   background:#2563EB;
-  color:white;
+  color:#fff;
+  border:none;
 }
 
 .secondary-btn{
-  background:#f3f3f3;
-  color:#333;
+  background:#fff;
+  border:1px solid #dcdcdc;
+}
+
+/* =========================
+   VALIDATION
+========================= */
+
+.input-error{
+  border-color:#ef4444 !important;
 }
 
 /* =========================
    TABLET
 ========================= */
-@media(min-width:768px){
 
-  .publish-main{
-    padding-bottom:6rem;
-  }
+@media(min-width:768px){
 
   .shipping-grid{
     grid-template-columns:1fr 1fr;
@@ -390,6 +374,7 @@
 /* =========================
    DESKTOP
 ========================= */
+
 @media(min-width:1024px){
 
   .publish-container{
@@ -401,102 +386,15 @@
 /* =========================
    MOBILE
 ========================= */
-@media(max-width:480px){
-  .publish-steps{
-    gap: .4rem;
-  }
-  
-  .publish-step{
-    width:38px;
-    height:38px;
-  }
 
-  .publish-line{
-    width:22px;
-  }
+@media(max-width:640px){
 
-  .publish-card{
-    padding:14px;
+  .dimensions-grid{
+    grid-template-columns:1fr;
   }
 
   .actions{
     flex-direction:column;
-  }
-
-  .publish-description{
-    font-size: 15px;
-  }
-}
-
-/* ====================================================================================================
-    ACTIONS
-    Correcting the design of the back and continue buttons in the mobile version (Query 640px)
-==================================================================================================== */
-.technical-actions{
-  display: flex;
-  gap: 12px;
-}
-
-.primary-btn,
-.secondary-btn{
-  flex: 1;
-
-  min-height: 52px;
-  padding: 0 18px;
-
-  border-radius: 6px;
-
-  font-size: 15px;
-  font-weight: 600;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  text-align: center;
-  line-height: 1.2;
-
-  cursor: pointer;
-  transition: .2s ease;
-
-  white-space: normal;
-}
-
-/* PRIMARY */
-.primary-btn{
-  border: none;
-  background: #2563EB;
-  color: white;
-}
-
-.primary-btn:hover{
-  opacity: .95;
-}
-
-/* SECONDARY */
-.secondary-btn{
-  border: 1px solid #dcdcdc;
-  background: white;
-}
-
-.secondary-btn:hover{
-  background: #fafafa;
-}
-
-/* =========================
-   MOBILE
-========================= */
-@media (max-width: 640px){
-
-  .technical-actions{
-    flex-direction: column;
-    width: 100%;
-  }
-
-  .primary-btn,
-  .secondary-btn{
-    width: 100%;
-    min-height: 52px;
   }
 
 }
